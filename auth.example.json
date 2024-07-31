@@ -1,0 +1,8 @@
+{
+  "http-basic": {
+    "connect.advancedcustomfields.com": {
+      "username": "CLÉ ACF",
+      "password": "https://starter.a-dev.cloud"
+    }
+  }
+}

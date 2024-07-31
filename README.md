@@ -19,6 +19,8 @@ ddev start
 
 Dupliquer le fichier `.env.example` et le renommer en `.env`
 
+Dupliquer le fichier `auth.example.json`, le renommer en `auth.json` et modifier la clé API ACF
+
 Installer la clé de sécurité pour Acorn / Livewire (cette commande va renseigner la ligne APP_KEY du `.env`)
 ```bash
 ddev acorn key:generate
@@ -146,3 +148,12 @@ public function renderBlockCallback(): void
     wp_enqueue_style('mon-block-css', BudService::getUrl('mon-block.css'));
 }
 ```
+
+## Gestion des médias
+
+### Autoriser les fichiers SVG
+
+Pour autoriser les fichiers SVG dans la médiathèque WordPress, il suffit de se rendre dans le dossier du thème, puis
+de modifier le fichier `config/medias.php`.
+
+Il est également possible de sanitize automatiquement le fichier SVG lors de l'envoi afin d'éviter les failles de sécurité.
