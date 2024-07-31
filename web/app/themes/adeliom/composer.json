@@ -57,7 +57,8 @@
   "extra": {
     "acorn": {
       "providers": [
-        "App\\Providers\\ThemeServiceProvider"
+        "App\\Providers\\ThemeServiceProvider",
+        "LucasVigneron\\SageTools\\Providers\\SageToolsServiceProvider"
       ]
     }
   }
