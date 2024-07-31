@@ -2,8 +2,6 @@
 
 ## Technologies
 
----
-
 - WordPress BedRock
 - Thème Sage
 - Acorn
@@ -13,8 +11,6 @@
 - Node 20
 
 ## Installation
-
----
 
 Démarrer le projet
 ```bash
@@ -29,8 +25,6 @@ ddev acorn key:generate
 ```
 
 ## Créer du contenu
-
----
 
 ### Créer un Post-Type
 
@@ -64,8 +58,6 @@ Il ne reste plus qu'à modifier quelques valeurs pour le personnaliser au besoin
 
 ## Lister le contenu
 
----
-
 Des commandes permettent de lister les différents contenus existants :
 
 ```bash
@@ -81,8 +73,6 @@ ddev acorn list:taxonomies
 ```
 
 ## Gestion des menus
-
----
 
 ### Créer un emplacement de menu
 
@@ -101,8 +91,6 @@ Cela peut se faire :
 - Directement dans le template
 
 ## Gestion des assets
-
----
 
 ### Installation des assets du thème
 
