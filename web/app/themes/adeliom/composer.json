@@ -59,7 +59,7 @@
       "providers": [
         "App\\Providers\\ThemeServiceProvider",
         "App\\Providers\\HttpLoginServiceProvider",
-        "LucasVigneron\\SageTools\\Providers\\SageToolsServiceProvider"
+        "Adeliom\\SageTools\\Providers\\SageToolsServiceProvider"
       ]
     }
   }

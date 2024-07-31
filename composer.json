@@ -35,7 +35,7 @@
     },
     {
       "type": "vcs",
-      "url": "git@github.com:LucasVigneron/sage-tools.git"
+      "url": "git@github.com:agence-adeliom/sage-tools.git"
     }
   ],
   "require": {
@@ -49,7 +49,7 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "roots/acorn": "^4.3",
-    "lucas-vigneron/sage-tools": "^0.0.5",
+    "agence-adeliom/sage-tools": "^0.0.6",
     "wpengine/advanced-custom-fields-pro": "^6.3",
     "wpackagist-plugin/duplicate-page": "^4.5",
     "wpackagist-plugin/seo-by-rank-math": "^1.0"

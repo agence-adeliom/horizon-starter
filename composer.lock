@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e35323f9e4557f751247218fc9befa2",
+    "content-hash": "830f3c08f7aab1e7a0e66ff9fa6969b1",
     "packages": [
+        {
+            "name": "agence-adeliom/sage-tools",
+            "version": "0.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:agence-adeliom/sage-tools.git",
+                "reference": "39e63a2142196b8186b4a6a5462747ff8199d01a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agence-adeliom/sage-tools/zipball/39e63a2142196b8186b4a6a5462747ff8199d01a",
+                "reference": "39e63a2142196b8186b4a6a5462747ff8199d01a",
+                "shasum": ""
+            },
+            "require": {
+                "enshrined/svg-sanitize": "^0.19.0",
+                "php": ">=8.2",
+                "roots/acorn": "^4.0",
+                "vinkla/extended-acf": "^14.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adeliom\\SageTools\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Agence Adeliom",
+                    "email": "dev@adeliom.com"
+                }
+            ],
+            "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
+            "support": {
+                "source": "https://github.com/agence-adeliom/sage-tools/tree/0.0.6",
+                "issues": "https://github.com/agence-adeliom/sage-tools/issues"
+            },
+            "time": "2024-07-31T14:04:56+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",
@@ -2712,48 +2754,6 @@
                 }
             ],
             "time": "2024-01-28T23:22:08+00:00"
-        },
-        {
-            "name": "lucas-vigneron/sage-tools",
-            "version": "0.0.5",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:LucasVigneron/sage-tools.git",
-                "reference": "6d961be5ea0260bb66f9b1ca525944ef41d6425a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LucasVigneron/sage-tools/zipball/6d961be5ea0260bb66f9b1ca525944ef41d6425a",
-                "reference": "6d961be5ea0260bb66f9b1ca525944ef41d6425a",
-                "shasum": ""
-            },
-            "require": {
-                "enshrined/svg-sanitize": "^0.19.0",
-                "php": ">=8.2",
-                "roots/acorn": "^4.0",
-                "vinkla/extended-acf": "^14.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LucasVigneron\\SageTools\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lucas Vigneron",
-                    "email": "hello@lucasvigneron.fr"
-                }
-            ],
-            "description": "Tools for Sage WordPress Theme, made by Lucas Vigneron",
-            "support": {
-                "source": "https://github.com/LucasVigneron/sage-tools/tree/0.0.5",
-                "issues": "https://github.com/LucasVigneron/sage-tools/issues"
-            },
-            "time": "2024-07-31T09:41:27+00:00"
         },
         {
             "name": "monolog/monolog",
