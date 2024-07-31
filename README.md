@@ -157,3 +157,18 @@ Pour autoriser les fichiers SVG dans la médiathèque WordPress, il suffit de se
 de modifier le fichier `config/medias.php`.
 
 Il est également possible de sanitize automatiquement le fichier SVG lors de l'envoi afin d'éviter les failles de sécurité.
+
+## Gestion des contenus
+
+### Modifier le prefix des articles (posts)
+
+Il est possible de modifier facilement le préfixe des articles sans toucher aux permaliens en accédant au fichier
+`config/posts.php` du thème
+
+```php
+<?php
+
+return [
+    'prefix' => 'articles',
+];
+```
