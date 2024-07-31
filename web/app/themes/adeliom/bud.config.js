@@ -16,6 +16,8 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .runtime('multiple')
+    .hash()
     .assets(['images']);
 
   /**
@@ -23,7 +25,7 @@ export default async (app) => {
    *
    * @see {@link https://bud.js.org/reference/bud.setPublicPath}
    */
-  app.setPublicPath('/app/themes/sage/public/');
+  app.setPublicPath('/app/themes/cir/public/');
 
   /**
    * Development server settings
@@ -33,9 +35,10 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
-    .setUrl('http://localhost:3000')
-    .setProxyUrl('http://example.test')
-    .watch(['resources/views', 'app']);
+    .serve(3000)
+    .proxy('https://starter-2024.ddev.site')
+    .setPublicPath('/app/themes/adeliom/public/')
+    .setPublicUrl('https://starter-2024.ddev.site:3001');
 
   /**
    * Generate WordPress `theme.json`

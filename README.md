@@ -1,62 +1,160 @@
-<p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
-</p>
+# Starter WordPress 2024 - Projet de test
 
-<p align="center">
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/bedrock?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
+## Technologies
 
-  <a href="https://packagist.org/packages/roots/wordpress">
-    <img alt="roots/wordpress Packagist Downloads" src="https://img.shields.io/packagist/dt/roots/wordpress?label=roots%2Fwordpress%20downloads&logo=roots&logoColor=white&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
-  
-  <img src="https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/roots/bedrock/master/composer.json&label=wordpress&logo=roots&logoColor=white&query=$.require[%22roots/wordpress%22]&colorB=2b3072&colorA=525ddc&style=flat-square">
+---
 
-  <a href="https://github.com/roots/bedrock/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/bedrock/ci.yml?branch=master&logo=github&label=CI&style=flat-square">
-  </a>
+- WordPress BedRock
+- Thème Sage
+- Acorn
+- SageTools
+- DDEV
+- PHP 8.3
+- Node 20
 
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/badge/follow%20@rootswp-1da1f2?logo=twitter&logoColor=ffffff&message=&style=flat-square">
-  </a>
-</p>
+## Installation
 
-<p align="center">WordPress boilerplate with Composer, easier configuration, and an improved folder structure</p>
+---
 
-<p align="center">
-  <a href="https://roots.io/bedrock/">Website</a> &nbsp;&nbsp; <a href="https://roots.io/bedrock/docs/installation/">Documentation</a> &nbsp;&nbsp; <a href="https://github.com/roots/bedrock/releases">Releases</a> &nbsp;&nbsp; <a href="https://discourse.roots.io/">Community</a>
-</p>
+Démarrer le projet
+```bash
+ddev start
+```
 
-## Sponsors
+Dupliquer le fichier `.env.example` et le renommer en `.env`
 
-Bedrock is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, please consider [sponsoring Roots](https://github.com/sponsors/roots).
+Installer la clé de sécurité pour Acorn / Livewire (cette commande va renseigner la ligne APP_KEY du `.env`)
+```bash
+ddev acorn key:generate
+```
 
-<div align="center">
-<a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="120" height="90"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://www.itineris.co.uk/"><img src="https://cdn.roots.io/app/uploads/itineris.svg" alt="Itineris" width="120" height="90"></a>
-</div>
+## Créer du contenu
 
-## Overview
+---
 
-Bedrock is a WordPress boilerplate for developers that want to manage their projects with Git and Composer. Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology, including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+### Créer un Post-Type
 
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+```bash
+ddev acorn make:posttype Dossier/Du/PostType/NomDuPostType
+```
 
-## Getting Started
+Cette commande aura pour effet de créer une nouvelle classe de Post-Type dans le dossier `app/PostTypes/Dossier/Du/PostType`.
 
-See the [Bedrock installation documentation](https://roots.io/bedrock/docs/installation/).
+Il ne reste plus qu'à modifier quelques valeurs pour le personnaliser au besoin
 
-## Stay Connected
+### Créer une Taxonomie
 
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/newsletter/)
+```bash
+ddev acorn make:taxonomy Dossier/DeLa/Taxonomie/NomDeLaTaxonomie
+```
+
+Cette commande aura pour effet de créer une nouvelle classe de Taxonomie dans le dossier `app/Taxonomies/Dossier/DeLa/Taxonomie`.
+
+Il ne reste plus qu'à modifier quelques valeurs pour le personnaliser au besoin
+
+### Créer un block ACF
+
+```bash
+ddev acorn make:block Dossier/Du/Block/NomDuBlock
+```
+
+Cette commande aura pour effet de créer un nouveau block ACF dans le dossier `app/Blocks/Dossier/Du/Block`.
+
+Il ne reste plus qu'à modifier quelques valeurs pour le personnaliser au besoin
+
+## Lister le contenu
+
+---
+
+Des commandes permettent de lister les différents contenus existants :
+
+```bash
+ddev acorn list:blocks
+```
+
+```bash
+ddev acorn list:posttypes
+```
+
+```bash
+ddev acorn list:taxonomies
+```
+
+## Gestion des menus
+
+---
+
+### Créer un emplacement de menu
+
+Sage permet de rajouter facilement des emplacements de menu via la fonction `register_nav_menus` dans le fichier `app/setup.php` du thème.
+
+### Récupérer un menu
+
+Il est possible de récupérer un menu dans un ViewModel récupérant :
+- Les éléments du menu de façon hiérarchique
+- Les éventuels champs ACF
+
+Pour cela, il suffit d'utiliser la classe `MenuViewModel` en l'instanciant avec le slug de l'emplacement du menu
+
+Cela peut se faire :
+- Dans un Composer de vue _(à privilégier)_
+- Directement dans le template
+
+## Gestion des assets
+
+---
+
+### Installation des assets du thème
+
+```bash
+ddev theme:install
+```
+
+### Compilation des assets (watch)
+
+```bash
+ddev theme:dev
+```
+
+**Attention :** pour constater les changements refresh en live, ne pas oublier de rajouter le port `3001` à la fin du nom de domaine
+
+Exemples :
+- `https://site.ddev.site:3001`
+- `https://site.ddev.site:3001/slug/de/page/`
+
+En utilisant cette URL, les changements effectués dans les fichiers `.css` et `.js` seront automatiquement compilés et injectés dans la page
+
+Pour les modifications effectuées dans les templates, il sera nécessaire de recharger la page.
+
+### Compilation des assets (production)
+
+```bash
+ddev theme:build
+```
+
+### Compiler un fichier de façon autonome (sans le lier aux fichiers principaux app.css et app.js)
+
+Pour arriver à ce résultat :
+- Se render dans le fichier `bud.config.js`
+- Rajouter une `entry`
+
+```javascript
+  app
+    .entry('app', ['@scripts/app', '@styles/app'])
+    .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .entry('mon-block', ['@scripts/blocks/mon-block.js'])
+    .runtime('multiple')
+    .hash();
+```
+
+Un fichier `mon-block.js` sera donc généré, indépendant des autres.
+
+Pour ajouter ce fichier à un block, il suffit de se rendre dans sa classe et de compléter la méthode suivante :
+
+```php
+public function renderBlockCallback(): void
+{
+    wp_enqueue_script('mon-block-js', BudService::getUrl('mon-block.js'));
+    wp_enqueue_style('mon-block-css', BudService::getUrl('mon-block.css'));
+}
+```

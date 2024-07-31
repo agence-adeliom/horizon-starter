@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "957bcd3156fa4f58c2444c708e010bec",
+    "content-hash": "32d370fdd9a9623b3ceddde58a094e56",
     "packages": [
         {
             "name": "brick/math",
@@ -2670,16 +2670,16 @@
         },
         {
             "name": "lucas-vigneron/sage-tools",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:LucasVigneron/sage-tools.git",
-                "reference": "f06906a11e04658c399621fa818c54df3f8af593"
+                "reference": "6ac8020a8088f96ef22616ea60c38cd34c2ec68e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LucasVigneron/sage-tools/zipball/f06906a11e04658c399621fa818c54df3f8af593",
-                "reference": "f06906a11e04658c399621fa818c54df3f8af593",
+                "url": "https://api.github.com/repos/LucasVigneron/sage-tools/zipball/6ac8020a8088f96ef22616ea60c38cd34c2ec68e",
+                "reference": "6ac8020a8088f96ef22616ea60c38cd34c2ec68e",
                 "shasum": ""
             },
             "require": {
@@ -2704,10 +2704,10 @@
             ],
             "description": "Tools for Sage WordPress Theme, made by Lucas Vigneron",
             "support": {
-                "source": "https://github.com/LucasVigneron/sage-tools/tree/0.0.3",
+                "source": "https://github.com/LucasVigneron/sage-tools/tree/0.0.4",
                 "issues": "https://github.com/LucasVigneron/sage-tools/issues"
             },
-            "time": "2024-07-31T08:14:04+00:00"
+            "time": "2024-07-31T09:20:45+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6528,24 +6528,6 @@
                 }
             ],
             "time": "2022-03-08T17:03:00+00:00"
-        },
-        {
-            "name": "wpackagist-theme/twentytwentyfour",
-            "version": "1.2",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/twentytwentyfour/",
-                "reference": "1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentyfour.1.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/twentytwentyfour/"
         }
     ],
     "packages-dev": [
@@ -7450,7 +7432,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0"
+        "php": ">=8.3"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
