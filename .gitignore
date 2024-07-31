@@ -28,3 +28,4 @@ wp-cli.local.yml
 
 .DS_Store
 .idea
+web/wp-cli.phar

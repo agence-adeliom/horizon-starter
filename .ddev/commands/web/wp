@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Accéder au dossier `web`
+cd web || { echo "Le dossier 'web' n'existe pas."; exit 1; }
+
+# Vérifier si le fichier `wp-cli.phar` existe
+if [ ! -f wp-cli.phar ]; then
+  # S'il n'existe pas, lance la commande pour le télécharger
+  echo "wp-cli.phar n'existe pas. Téléchargement en cours..."
+  curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+fi
+
+# Enfin, lance `php wp-cli.phar` avec les arguments passés au script
+php wp-cli.phar "$@"
