@@ -1,0 +1,25 @@
+.base: &base
+  roles: app
+  port: 22
+  composer_options: '--prefer-dist --no-progress --no-interaction --optimize-autoloader --no-scripts'
+  export_node_path: false
+  keep_releases: 3
+  writable_use_sudo: true
+  forwardAgent: true
+  multiplexing: true
+  sshOptions:
+    ServerAliveInterval: 30
+    UserKnownHostsFile: /dev/null
+    StrictHostKeyChecking: no
+  remote_user: fh1guo_adeliom
+  http_user: fh1guo_adeliom
+  bin/npm: source ~/.bashrc && npm --scripts-prepend-node-path=true
+  bin/php: /opt/php8.3/bin/php -d memory_limit=-1
+  hostname: fh1guo.ftp.infomaniak.com
+
+hosts:
+  staging:
+    <<: *base
+    deploy_path: /home/clients/1ba2ec060e28b438b2e85181c129c41d/sites/starter.a-dev.cloud
+    stage: staging
+    branch: develop

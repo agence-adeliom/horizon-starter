@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ddev wp acorn view:clear

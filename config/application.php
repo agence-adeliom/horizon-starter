@@ -63,8 +63,13 @@ if (!env('WP_ENVIRONMENT_TYPE') && in_array(WP_ENV, ['production', 'staging', 'd
 /**
  * URLs
  */
-Config::define('WP_HOME', env('WP_HOME'));
-Config::define('WP_SITEURL', env('WP_SITEURL'));
+if (isset($_SERVER['SERVER_NAME']) && str_contains($_SERVER['SERVER_NAME'], 'ngrok')) {
+	Config::define('WP_HOME', 'https://' . $_SERVER['SERVER_NAME']);
+	Config::define('WP_SITEURL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp');
+} else {
+	Config::define('WP_HOME', env('WP_HOME'));
+	Config::define('WP_SITEURL', env('WP_SITEURL'));
+}
 
 /**
  * Custom Content Directory

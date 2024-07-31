@@ -15,3 +15,4 @@ use Roots\WPConfig\Config;
  */
 
 Config::define('DISALLOW_INDEXING', true);
+Config::define('ENABLED_HTTP_LOGIN', true);
