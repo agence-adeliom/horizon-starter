@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd web/app/themes/adeliom
+npm run dev
