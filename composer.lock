@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "agence-adeliom/sage-tools",
-            "version": "0.0.7.1",
+            "version": "0.0.7.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:agence-adeliom/sage-tools.git",
-                "reference": "9f15acae3e74c522d94e92326a8011008797bf62"
+                "reference": "92e8657ccd440fe37f2734a51f0a3efcfbbdcfb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/sage-tools/zipball/9f15acae3e74c522d94e92326a8011008797bf62",
-                "reference": "9f15acae3e74c522d94e92326a8011008797bf62",
+                "url": "https://api.github.com/repos/agence-adeliom/sage-tools/zipball/92e8657ccd440fe37f2734a51f0a3efcfbbdcfb8",
+                "reference": "92e8657ccd440fe37f2734a51f0a3efcfbbdcfb8",
                 "shasum": ""
             },
             "require": {
@@ -43,10 +43,10 @@
             ],
             "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
             "support": {
-                "source": "https://github.com/agence-adeliom/sage-tools/tree/0.0.7.1",
+                "source": "https://github.com/agence-adeliom/sage-tools/tree/0.0.7.2",
                 "issues": "https://github.com/agence-adeliom/sage-tools/issues"
             },
-            "time": "2024-08-02T07:28:03+00:00"
+            "time": "2024-08-02T12:21:15+00:00"
         },
         {
             "name": "brick/math",
