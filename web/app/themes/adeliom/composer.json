@@ -58,7 +58,6 @@
     "acorn": {
       "providers": [
         "App\\Providers\\ThemeServiceProvider",
-        "App\\Providers\\HttpLoginServiceProvider",
         "Adeliom\\SageTools\\Providers\\SageToolsServiceProvider"
       ]
     }

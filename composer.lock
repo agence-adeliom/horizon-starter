@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "830f3c08f7aab1e7a0e66ff9fa6969b1",
+    "content-hash": "3e368ad49b9539d329332d32c2e0fed7",
     "packages": [
         {
             "name": "agence-adeliom/sage-tools",
-            "version": "0.0.6",
+            "version": "0.0.7.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:agence-adeliom/sage-tools.git",
-                "reference": "39e63a2142196b8186b4a6a5462747ff8199d01a"
+                "reference": "9f15acae3e74c522d94e92326a8011008797bf62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/sage-tools/zipball/39e63a2142196b8186b4a6a5462747ff8199d01a",
-                "reference": "39e63a2142196b8186b4a6a5462747ff8199d01a",
+                "url": "https://api.github.com/repos/agence-adeliom/sage-tools/zipball/9f15acae3e74c522d94e92326a8011008797bf62",
+                "reference": "9f15acae3e74c522d94e92326a8011008797bf62",
                 "shasum": ""
             },
             "require": {
@@ -43,10 +43,10 @@
             ],
             "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
             "support": {
-                "source": "https://github.com/agence-adeliom/sage-tools/tree/0.0.6",
+                "source": "https://github.com/agence-adeliom/sage-tools/tree/0.0.7.1",
                 "issues": "https://github.com/agence-adeliom/sage-tools/issues"
             },
-            "time": "2024-07-31T14:04:56+00:00"
+            "time": "2024-08-02T07:28:03+00:00"
         },
         {
             "name": "brick/math",
@@ -6613,10 +6613,10 @@
         },
         {
             "name": "wpengine/advanced-custom-fields-pro",
-            "version": "6.3.4",
+            "version": "6.3.5",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.3.4"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.3.5"
             },
             "require": {
                 "composer/installers": "~1.0 || ~2.0"
@@ -6677,12 +6677,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "a7df4da9cd5ab8ad109e6ce0f18327790efbe8a3"
+                "reference": "ee27abe60d541524cca97592ac68119cab33afce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/a7df4da9cd5ab8ad109e6ce0f18327790efbe8a3",
-                "reference": "a7df4da9cd5ab8ad109e6ce0f18327790efbe8a3",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ee27abe60d541524cca97592ac68119cab33afce",
+                "reference": "ee27abe60d541524cca97592ac68119cab33afce",
                 "shasum": ""
             },
             "conflict": {
@@ -6843,7 +6843,7 @@
                 "ezsystems/ezdemo-ls-extension": ">=5.4,<5.4.2.1-dev",
                 "ezsystems/ezfind-ls": ">=5.3,<5.3.6.1-dev|>=5.4,<5.4.11.1-dev|>=2017.12,<2017.12.0.1-dev",
                 "ezsystems/ezplatform": "<=1.13.6|>=2,<=2.5.24",
-                "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6|>=1.5,<1.5.29|>=2.3,<2.3.26",
+                "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6|>=1.5,<1.5.29|>=2.3,<2.3.26|>=3.3,<3.3.39",
                 "ezsystems/ezplatform-admin-ui-assets": ">=4,<4.2.1|>=5,<5.0.1|>=5.1,<5.1.1",
                 "ezsystems/ezplatform-graphql": ">=1.0.0.0-RC1-dev,<1.0.13|>=2.0.0.0-beta1,<2.3.12",
                 "ezsystems/ezplatform-kernel": "<1.2.5.1-dev|>=1.3,<1.3.35",
@@ -6926,7 +6926,7 @@
                 "hov/jobfair": "<1.0.13|>=2,<2.0.2",
                 "httpsoft/http-message": "<1.0.12",
                 "hyn/multi-tenant": ">=5.6,<5.7.2",
-                "ibexa/admin-ui": ">=4.2,<4.2.3",
+                "ibexa/admin-ui": ">=4.2,<4.2.3|>=4.6.0.0-beta1,<4.6.9",
                 "ibexa/core": ">=4,<4.0.7|>=4.1,<4.1.4|>=4.2,<4.2.3|>=4.5,<4.5.6|>=4.6,<4.6.2",
                 "ibexa/graphql": ">=2.5,<2.5.31|>=3.3,<3.3.28|>=4.2,<4.2.3",
                 "ibexa/post-install": "<=1.0.4",
@@ -7327,6 +7327,7 @@
                 "tribalsystems/zenario": "<9.5.60602",
                 "truckersmp/phpwhois": "<=4.3.1",
                 "ttskch/pagination-service-provider": "<1",
+                "twbs/bootstrap": "<=3.4.1|>=4,<=4.6.2",
                 "twig/twig": "<1.44.7|>=2,<2.15.3|>=3,<3.4.3",
                 "typo3/cms": "<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
                 "typo3/cms-backend": "<4.1.14|>=4.2,<4.2.15|>=4.3,<4.3.7|>=4.4,<4.4.4|>=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
@@ -7481,7 +7482,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-30T18:05:16+00:00"
+            "time": "2024-08-01T22:04:46+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
