@@ -58,6 +58,31 @@ Cette commande aura pour effet de créer un nouveau block ACF dans le dossier `a
 
 Il ne reste plus qu'à modifier quelques valeurs pour le personnaliser au besoin
 
+### Créer un Template
+
+Cette commande aura pour effet de créer un nouveau template (entendre des blocks ajoutés par défaut à la création de
+tel ou tel post de tel ou tel post-type) dans le dossier `app/Templates`.
+
+```bash
+ddev acorn make:template Dossier/Du/Template/NomDuTemplate
+```
+
+### Créer un Admin
+
+Cette commande aura pour effet de créer un nouvel Admin dans le dossier `app/Admin`.
+
+```bash
+ddev acorn make:admin Dossier/DeLAdmin/NomDeLAdmin
+```
+
+### Créer un Hook
+
+Cette commande aura pour effet de créer une nouvelle classe pour déclarer des hooks dans le dossier `app/Hooks`.
+
+```bash
+ddev acorn make:hook Dossier/Du/Hook/NomDuHook
+```
+
 ## Lister le contenu
 
 Des commandes permettent de lister les différents contenus existants :
