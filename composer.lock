@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b08cf0cb36e0dc92d397935ed40abce0",
+    "content-hash": "626285dfa90241caa7c46f6057c841b3",
     "packages": [
+        {
+            "name": "agence-adeliom/horizon-blocks",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:agence-adeliom/horizon-blocks.git",
+                "reference": "d7dc7cdae749c47d2e7e7ec97d2dfeadbfcb2189"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/d7dc7cdae749c47d2e7e7ec97d2dfeadbfcb2189",
+                "reference": "d7dc7cdae749c47d2e7e7ec97d2dfeadbfcb2189",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adeliom\\HorizonBlocks\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Agence Adeliom",
+                    "email": "dev@adeliom.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
+                "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
+            },
+            "time": "2024-08-06T09:40:58+00:00"
+        },
         {
             "name": "agence-adeliom/horizon-tools",
             "version": "0.0.8.1",

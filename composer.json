@@ -36,6 +36,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:agence-adeliom/horizon-tools.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:agence-adeliom/horizon-blocks.git"
     }
   ],
   "require": {
@@ -52,7 +56,8 @@
     "wpengine/advanced-custom-fields-pro": "^6.3",
     "wpackagist-plugin/duplicate-page": "^4.5",
     "wpackagist-plugin/seo-by-rank-math": "^1.0",
-    "agence-adeliom/horizon-tools": "^0.0.8"
+    "agence-adeliom/horizon-tools": "^0.0.8",
+    "agence-adeliom/horizon-blocks": "dev-main"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
