@@ -5,7 +5,7 @@
 - WordPress BedRock
 - Thème Sage
 - Acorn
-- SageTools
+- HorizonTools
 - DDEV
 - PHP 8.3
 - Node 20

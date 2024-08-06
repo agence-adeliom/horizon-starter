@@ -35,7 +35,7 @@
     },
     {
       "type": "vcs",
-      "url": "git@github.com:agence-adeliom/sage-tools.git"
+      "url": "git@github.com:agence-adeliom/horizon-tools.git"
     }
   ],
   "require": {
@@ -49,10 +49,10 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "roots/acorn": "^4.3",
-    "agence-adeliom/sage-tools": "^0.0.7",
     "wpengine/advanced-custom-fields-pro": "^6.3",
     "wpackagist-plugin/duplicate-page": "^4.5",
-    "wpackagist-plugin/seo-by-rank-math": "^1.0"
+    "wpackagist-plugin/seo-by-rank-math": "^1.0",
+    "agence-adeliom/horizon-tools": "^0.0.8"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

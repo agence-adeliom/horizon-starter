@@ -58,7 +58,7 @@
     "acorn": {
       "providers": [
         "App\\Providers\\ThemeServiceProvider",
-        "Adeliom\\SageTools\\Providers\\SageToolsServiceProvider"
+        "Adeliom\\HorizonTools\\Providers\\HorizonToolsServiceProvider"
       ]
     }
   }
