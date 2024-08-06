@@ -16,6 +16,7 @@ hooks:
     post-start:
         - exec-host: ddev auth ssh
         - composer: install
+        - exec-host: ddev theme:install
 web_environment: []
 nodejs_version: "20"
 corepack_enable: false
