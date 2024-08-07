@@ -79,9 +79,9 @@ class Block extends Component
 
     private function handlePaddings(): void
     {
-        $marginSizesField = $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_SIZES];
-        $removeMarginTopField = $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_REMOVE];
-        $removeMarginBottomField = $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_REMOVE];
+        $marginSizesField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_SIZES]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_SIZES] : null;
+        $removeMarginTopField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_REMOVE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_REMOVE] : null;
+        $removeMarginBottomField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_REMOVE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_REMOVE] : null;
 
         // if padding is not set or not in the list of paddings, set it to large
         if (null === $this->padding || !in_array($this->padding, array_keys(self::PADDINGS))) {
@@ -94,16 +94,16 @@ class Block extends Component
         }
 
         // if padding is set in the fields, use it
-        if (isset($marginSizesField)) {
+        if (isset($marginSizesField) && isset(self::PADDINGS[$marginSizesField])) {
             $this->paddingClass = self::PADDINGS[$marginSizesField];
         }
 
         // if remove top margin or remove bottom margin is set
-        if (isset($removeMarginTopField) && $removeMarginTopField) {
+        if ($removeMarginTopField) {
             $this->paddingClass .= ' ' . self::PADDINGS["top-remove"];
         }
 
-        if (isset($removeMarginBottomField) && $removeMarginBottomField) {
+        if ($removeMarginBottomField) {
             $this->paddingClass .= ' ' . self::PADDINGS["bottom-remove"];
         }
     }
@@ -125,11 +125,6 @@ class Block extends Component
         if (isset($this->fields[LayoutField::DARK_MODE]) && $this->fields[LayoutField::DARK_MODE]) {
             $this->darkModeClass = "dark";
         }
-    }
-
-    private function handleAnchor(): void
-    {
-
     }
 
     private function handleFullClass(): void
