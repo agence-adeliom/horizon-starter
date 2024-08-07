@@ -8,6 +8,7 @@ use Adeliom\HorizonTools\Blocks\AbstractBlock;
 use Adeliom\HorizonTools\Fields\Select\PostTypeSelectField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
+use Adeliom\HorizonTools\Services\BudService;
 
 class ListingBlock extends AbstractBlock
 {
@@ -30,6 +31,6 @@ class ListingBlock extends AbstractBlock
 
     public function renderBlockCallback(): void
     {
-        return;
+        wp_enqueue_script('listing-block-js', BudService::getUrl('listing.js'));
     }
 }

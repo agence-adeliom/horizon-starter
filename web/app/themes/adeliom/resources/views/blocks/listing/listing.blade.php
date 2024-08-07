@@ -6,4 +6,6 @@
   }
 @endphp
 
-<livewire:listing.listing :post-type="$postType"/>
+<div class="listing-block">
+  <livewire:listing.listing :post-type="$postType"/>
+</div>
