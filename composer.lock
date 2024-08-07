@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "626285dfa90241caa7c46f6057c841b3",
+    "content-hash": "1944113a3cc56c6a45a25dfbe750d694",
     "packages": [
         {
             "name": "agence-adeliom/horizon-blocks",
@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:agence-adeliom/horizon-blocks.git",
-                "reference": "d493a58c052ae4e7c8b9688cc458464d4bd12823"
+                "reference": "37f0120797faf81a0cbf85bff00bf677c0bba677"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/d493a58c052ae4e7c8b9688cc458464d4bd12823",
-                "reference": "d493a58c052ae4e7c8b9688cc458464d4bd12823",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/37f0120797faf81a0cbf85bff00bf677c0bba677",
+                "reference": "37f0120797faf81a0cbf85bff00bf677c0bba677",
                 "shasum": ""
             },
             "require": {
-                "agence-adeliom/horizon-tools": "^0.0.8",
+                "agence-adeliom/horizon-tools": "dev-main",
                 "php": ">=8.2"
             },
             "default-branch": true,
@@ -41,20 +41,20 @@
                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
             },
-            "time": "2024-08-06T16:26:07+00:00"
+            "time": "2024-08-07T10:46:50+00:00"
         },
         {
             "name": "agence-adeliom/horizon-tools",
-            "version": "0.0.8.8",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                "reference": "f06b5f44b9c7635ac5d1ad59a9b39bedd476cacb"
+                "reference": "4a939833dd54f203e767d613f4efa6fa1f32af43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/f06b5f44b9c7635ac5d1ad59a9b39bedd476cacb",
-                "reference": "f06b5f44b9c7635ac5d1ad59a9b39bedd476cacb",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/4a939833dd54f203e767d613f4efa6fa1f32af43",
+                "reference": "4a939833dd54f203e767d613f4efa6fa1f32af43",
                 "shasum": ""
             },
             "require": {
@@ -64,6 +64,7 @@
                 "roots/acorn": "^4.0",
                 "vinkla/extended-acf": "^14.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -81,10 +82,10 @@
             ],
             "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
             "support": {
-                "source": "https://github.com/agence-adeliom/horizon-tools/tree/0.0.8.8",
+                "source": "https://github.com/agence-adeliom/horizon-tools/tree/0.0.8.10",
                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
             },
-            "time": "2024-08-07T09:42:36+00:00"
+            "time": "2024-08-07T10:14:37+00:00"
         },
         {
             "name": "brick/math",
@@ -7685,6 +7686,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "agence-adeliom/horizon-tools": 20,
         "agence-adeliom/horizon-blocks": 20,
         "roave/security-advisories": 20
     },

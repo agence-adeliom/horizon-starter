@@ -56,7 +56,7 @@
     "wpengine/advanced-custom-fields-pro": "^6.3",
     "wpackagist-plugin/duplicate-page": "^4.5",
     "wpackagist-plugin/seo-by-rank-math": "^1.0",
-    "agence-adeliom/horizon-tools": "^0.0.8",
+    "agence-adeliom/horizon-tools": "dev-main",
     "agence-adeliom/horizon-blocks": "dev-main"
   },
   "require-dev": {
