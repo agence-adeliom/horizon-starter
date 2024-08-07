@@ -2,31 +2,31 @@ const Listing = {};
 Listing.selector = '.listing-block';
 
 Listing.getAllInstances = () => {
-  return Array.from(document.querySelectorAll(Listing.selector));
+    return Array.from(document.querySelectorAll(Listing.selector));
 };
 
 Listing.initInstance = (instance) => {
-  const form = instance.querySelector('form');
+    const form = instance.querySelector('form');
 
-  if (form) {
-    form.addEventListener('change', () => {
-      const loading = instance.querySelector('.loading');
-      const results = instance.querySelector('.results');
+    if (form) {
+        form.addEventListener('change', () => {
+            const loading = instance.querySelector('.loading');
+            const results = instance.querySelector('.results');
 
-      if (loading && results) {
-        loading.classList.remove('hidden');
-        results.classList.add('hidden');
-      }
-    });
-  }
+            if (loading && results) {
+                loading.classList.remove('hidden');
+                results.classList.add('hidden');
+            }
+        });
+    }
 };
 
 Listing.init = () => {
-  document.addEventListener('DOMContentLoaded', () => {
-    Listing.getAllInstances().forEach(instance => {
-      Listing.initInstance(instance);
+    document.addEventListener('DOMContentLoaded', () => {
+        Listing.getAllInstances().forEach(instance => {
+            Listing.initInstance(instance);
+        });
     });
-  });
 };
 
 Listing.init();
