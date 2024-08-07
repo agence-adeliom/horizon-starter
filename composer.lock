@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:agence-adeliom/horizon-blocks.git",
-                "reference": "3f72550b1a5e1136fc505c7030429dc347dcda75"
+                "reference": "d493a58c052ae4e7c8b9688cc458464d4bd12823"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/3f72550b1a5e1136fc505c7030429dc347dcda75",
-                "reference": "3f72550b1a5e1136fc505c7030429dc347dcda75",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/d493a58c052ae4e7c8b9688cc458464d4bd12823",
+                "reference": "d493a58c052ae4e7c8b9688cc458464d4bd12823",
                 "shasum": ""
             },
             "require": {
@@ -41,20 +41,20 @@
                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
             },
-            "time": "2024-08-06T16:17:38+00:00"
+            "time": "2024-08-06T16:26:07+00:00"
         },
         {
             "name": "agence-adeliom/horizon-tools",
-            "version": "0.0.8.3",
+            "version": "0.0.8.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                "reference": "42e52baef22e4bcd0065cccda32d8a4d36b7f62c"
+                "reference": "f06b5f44b9c7635ac5d1ad59a9b39bedd476cacb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/42e52baef22e4bcd0065cccda32d8a4d36b7f62c",
-                "reference": "42e52baef22e4bcd0065cccda32d8a4d36b7f62c",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/f06b5f44b9c7635ac5d1ad59a9b39bedd476cacb",
+                "reference": "f06b5f44b9c7635ac5d1ad59a9b39bedd476cacb",
                 "shasum": ""
             },
             "require": {
@@ -81,10 +81,10 @@
             ],
             "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
             "support": {
-                "source": "https://github.com/agence-adeliom/horizon-tools/tree/0.0.8.3",
+                "source": "https://github.com/agence-adeliom/horizon-tools/tree/0.0.8.8",
                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
             },
-            "time": "2024-08-06T10:44:55+00:00"
+            "time": "2024-08-07T09:42:36+00:00"
         },
         {
             "name": "brick/math",
