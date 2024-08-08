@@ -23,8 +23,7 @@
                 {!! $fields['wysiwyg'] !!}
             </div>
 
-
-            <x-action.button :object="$fields['buttons']"/>
+            <x-action.buttons :buttons="$fields['buttons']"/>
         </div>
     </div>
 </x-block>
