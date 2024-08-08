@@ -3,8 +3,11 @@
 
         <div class="lg:col-span-5">
 
-            //bredcrumb
+          <x-breadcrumbs/>
+
+          @isset($fields['main_image']["sizes"]["large"])
             <img src="{{$fields['main_image']["sizes"]["large"]}}" alt="">
+          @endisset
         </div>
 
         <div class="lg:col-span-7">
