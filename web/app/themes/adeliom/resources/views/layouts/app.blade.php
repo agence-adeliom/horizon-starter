@@ -17,6 +17,7 @@
       </a>
 
       @include('sections.header')
+      @include('sections.header-lp')
 
       <main id="main" class="main">
         @yield('content')
