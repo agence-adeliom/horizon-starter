@@ -26,7 +26,7 @@
           "slug": "current"
         },
         {
-          "color": "transparent",
+          "color": "var(--awc-color-transparent)",
           "name": "Transparent",
           "slug": "transparent"
         },
@@ -96,57 +96,57 @@
           "slug": "slate-950"
         },
         {
-          "color": "#f9fafb",
+          "color": "var(--awc-color-gray-50)",
           "name": "Gray 50",
           "slug": "gray-50"
         },
         {
-          "color": "#f3f4f6",
+          "color": "var(--awc-color-gray-100)",
           "name": "Gray 100",
           "slug": "gray-100"
         },
         {
-          "color": "#e5e7eb",
+          "color": "var(--awc-color-gray-200)",
           "name": "Gray 200",
           "slug": "gray-200"
         },
         {
-          "color": "#d1d5db",
+          "color": "var(--awc-color-gray-300)",
           "name": "Gray 300",
           "slug": "gray-300"
         },
         {
-          "color": "#9ca3af",
+          "color": "var(--awc-color-gray-400)",
           "name": "Gray 400",
           "slug": "gray-400"
         },
         {
-          "color": "#6b7280",
+          "color": "var(--awc-color-gray-500)",
           "name": "Gray 500",
           "slug": "gray-500"
         },
         {
-          "color": "#4b5563",
+          "color": "var(--awc-color-gray-600)",
           "name": "Gray 600",
           "slug": "gray-600"
         },
         {
-          "color": "#374151",
+          "color": "var(--awc-color-gray-700)",
           "name": "Gray 700",
           "slug": "gray-700"
         },
         {
-          "color": "#1f2937",
+          "color": "var(--awc-color-gray-800)",
           "name": "Gray 800",
           "slug": "gray-800"
         },
         {
-          "color": "#111827",
+          "color": "var(--awc-color-gray-900)",
           "name": "Gray 900",
           "slug": "gray-900"
         },
         {
-          "color": "#030712",
+          "color": "var(--awc-color-gray-950)",
           "name": "Gray 950",
           "slug": "gray-950"
         },
@@ -206,59 +206,69 @@
           "slug": "zinc-950"
         },
         {
-          "color": "#fafafa",
+          "color": "var(--awc-color-neutral-0)",
+          "name": "Neutral 0",
+          "slug": "neutral-0"
+        },
+        {
+          "color": "var(--awc-color-neutral-50)",
           "name": "Neutral 50",
           "slug": "neutral-50"
         },
         {
-          "color": "#f5f5f5",
+          "color": "var(--awc-color-neutral-100)",
           "name": "Neutral 100",
           "slug": "neutral-100"
         },
         {
-          "color": "#e5e5e5",
+          "color": "var(--awc-color-neutral-200)",
           "name": "Neutral 200",
           "slug": "neutral-200"
         },
         {
-          "color": "#d4d4d4",
+          "color": "var(--awc-color-neutral-300)",
           "name": "Neutral 300",
           "slug": "neutral-300"
         },
         {
-          "color": "#a3a3a3",
+          "color": "var(--awc-color-neutral-400)",
           "name": "Neutral 400",
           "slug": "neutral-400"
         },
         {
-          "color": "#737373",
+          "color": "var(--awc-color-neutral-500)",
           "name": "Neutral 500",
           "slug": "neutral-500"
         },
         {
-          "color": "#525252",
+          "color": "var(--awc-color-neutral-600)",
           "name": "Neutral 600",
           "slug": "neutral-600"
         },
         {
-          "color": "#404040",
+          "color": "var(--awc-color-neutral-700)",
           "name": "Neutral 700",
           "slug": "neutral-700"
         },
         {
-          "color": "#262626",
+          "color": "var(--awc-color-neutral-800)",
           "name": "Neutral 800",
           "slug": "neutral-800"
         },
         {
-          "color": "#171717",
+          "color": "var(--awc-color-neutral-900)",
           "name": "Neutral 900",
           "slug": "neutral-900"
         },
         {
-          "color": "#0a0a0a",
+          "color": "var(--awc-color-neutral-950)",
           "name": "Neutral 950",
           "slug": "neutral-950"
+        },
+        {
+          "color": "var(--awc-color-neutral-1000)",
+          "name": "Neutral 1000",
+          "slug": "neutral-1000"
         },
         {
           "color": "#fafaf9",
@@ -316,112 +326,112 @@
           "slug": "stone-950"
         },
         {
-          "color": "#fef2f2",
+          "color": "var(--awc-color-red-50)",
           "name": "Red 50",
           "slug": "red-50"
         },
         {
-          "color": "#fee2e2",
+          "color": "var(--awc-color-red-100)",
           "name": "Red 100",
           "slug": "red-100"
         },
         {
-          "color": "#fecaca",
+          "color": "var(--awc-color-red-200)",
           "name": "Red 200",
           "slug": "red-200"
         },
         {
-          "color": "#fca5a5",
+          "color": "var(--awc-color-red-300)",
           "name": "Red 300",
           "slug": "red-300"
         },
         {
-          "color": "#f87171",
+          "color": "var(--awc-color-red-400)",
           "name": "Red 400",
           "slug": "red-400"
         },
         {
-          "color": "#ef4444",
+          "color": "var(--awc-color-red-500)",
           "name": "Red 500",
           "slug": "red-500"
         },
         {
-          "color": "#dc2626",
+          "color": "var(--awc-color-red-600)",
           "name": "Red 600",
           "slug": "red-600"
         },
         {
-          "color": "#b91c1c",
+          "color": "var(--awc-color-red-700)",
           "name": "Red 700",
           "slug": "red-700"
         },
         {
-          "color": "#991b1b",
+          "color": "var(--awc-color-red-800)",
           "name": "Red 800",
           "slug": "red-800"
         },
         {
-          "color": "#7f1d1d",
+          "color": "var(--awc-color-red-900)",
           "name": "Red 900",
           "slug": "red-900"
         },
         {
-          "color": "#450a0a",
+          "color": "var(--awc-color-red-950)",
           "name": "Red 950",
           "slug": "red-950"
         },
         {
-          "color": "#fff7ed",
+          "color": "var(--awc-color-orange-50)",
           "name": "Orange 50",
           "slug": "orange-50"
         },
         {
-          "color": "#ffedd5",
+          "color": "var(--awc-color-orange-100)",
           "name": "Orange 100",
           "slug": "orange-100"
         },
         {
-          "color": "#fed7aa",
+          "color": "var(--awc-color-orange-200)",
           "name": "Orange 200",
           "slug": "orange-200"
         },
         {
-          "color": "#fdba74",
+          "color": "var(--awc-color-orange-300)",
           "name": "Orange 300",
           "slug": "orange-300"
         },
         {
-          "color": "#fb923c",
+          "color": "var(--awc-color-orange-400)",
           "name": "Orange 400",
           "slug": "orange-400"
         },
         {
-          "color": "#f97316",
+          "color": "var(--awc-color-orange-500)",
           "name": "Orange 500",
           "slug": "orange-500"
         },
         {
-          "color": "#ea580c",
+          "color": "var(--awc-color-orange-600)",
           "name": "Orange 600",
           "slug": "orange-600"
         },
         {
-          "color": "#c2410c",
+          "color": "var(--awc-color-orange-700)",
           "name": "Orange 700",
           "slug": "orange-700"
         },
         {
-          "color": "#9a3412",
+          "color": "var(--awc-color-orange-800)",
           "name": "Orange 800",
           "slug": "orange-800"
         },
         {
-          "color": "#7c2d12",
+          "color": "var(--awc-color-orange-900)",
           "name": "Orange 900",
           "slug": "orange-900"
         },
         {
-          "color": "#431407",
+          "color": "var(--awc-color-orange-950)",
           "name": "Orange 950",
           "slug": "orange-950"
         },
@@ -591,57 +601,57 @@
           "slug": "lime-950"
         },
         {
-          "color": "#f0fdf4",
+          "color": "var(--awc-color-green-50)",
           "name": "Green 50",
           "slug": "green-50"
         },
         {
-          "color": "#dcfce7",
+          "color": "var(--awc-color-green-100)",
           "name": "Green 100",
           "slug": "green-100"
         },
         {
-          "color": "#bbf7d0",
+          "color": "var(--awc-color-green-200)",
           "name": "Green 200",
           "slug": "green-200"
         },
         {
-          "color": "#86efac",
+          "color": "var(--awc-color-green-300)",
           "name": "Green 300",
           "slug": "green-300"
         },
         {
-          "color": "#4ade80",
+          "color": "var(--awc-color-green-400)",
           "name": "Green 400",
           "slug": "green-400"
         },
         {
-          "color": "#22c55e",
+          "color": "var(--awc-color-green-500)",
           "name": "Green 500",
           "slug": "green-500"
         },
         {
-          "color": "#16a34a",
+          "color": "var(--awc-color-green-600)",
           "name": "Green 600",
           "slug": "green-600"
         },
         {
-          "color": "#15803d",
+          "color": "var(--awc-color-green-700)",
           "name": "Green 700",
           "slug": "green-700"
         },
         {
-          "color": "#166534",
+          "color": "var(--awc-color-green-800)",
           "name": "Green 800",
           "slug": "green-800"
         },
         {
-          "color": "#14532d",
+          "color": "var(--awc-color-green-900)",
           "name": "Green 900",
           "slug": "green-900"
         },
         {
-          "color": "#052e16",
+          "color": "var(--awc-color-green-950)",
           "name": "Green 950",
           "slug": "green-950"
         },
@@ -1249,6 +1259,521 @@
           "color": "#4c0519",
           "name": "Rose 950",
           "slug": "rose-950"
+        },
+        {
+          "color": "var(--awc-color-primary-main)",
+          "name": "Primary DEFAULT",
+          "slug": "primary-default"
+        },
+        {
+          "color": "var(--awc-color-primary-dark)",
+          "name": "Primary Dark",
+          "slug": "primary-dark"
+        },
+        {
+          "color": "var(--awc-color-primary-light)",
+          "name": "Primary Light",
+          "slug": "primary-light"
+        },
+        {
+          "color": "var(--awc-color-primary-contrast)",
+          "name": "Primary Contrast",
+          "slug": "primary-contrast"
+        },
+        {
+          "color": "var(--awc-color-primary-states-selected)",
+          "name": "Primary States Selected",
+          "slug": "primary-states-selected"
+        },
+        {
+          "color": "var(--awc-color-primary-states-hover)",
+          "name": "Primary States Hover",
+          "slug": "primary-states-hover"
+        },
+        {
+          "color": "var(--awc-color-primary-states-focus)",
+          "name": "Primary States Focus",
+          "slug": "primary-states-focus"
+        },
+        {
+          "color": "var(--awc-color-primary-states-focus-visible)",
+          "name": "Primary States Focus-visible",
+          "slug": "primary-states-focus-visible"
+        },
+        {
+          "color": "var(--awc-color-primary-states-outlined-border)",
+          "name": "Primary States Outlined-border",
+          "slug": "primary-states-outlined-border"
+        },
+        {
+          "color": "var(--awc-color-secondary-main)",
+          "name": "Secondary DEFAULT",
+          "slug": "secondary-default"
+        },
+        {
+          "color": "var(--awc-color-secondary-dark)",
+          "name": "Secondary Dark",
+          "slug": "secondary-dark"
+        },
+        {
+          "color": "var(--awc-color-secondary-light)",
+          "name": "Secondary Light",
+          "slug": "secondary-light"
+        },
+        {
+          "color": "var(--awc-color-secondary-contrast)",
+          "name": "Secondary Contrast",
+          "slug": "secondary-contrast"
+        },
+        {
+          "color": "var(--awc-color-secondary-states-selected)",
+          "name": "Secondary States Selected",
+          "slug": "secondary-states-selected"
+        },
+        {
+          "color": "var(--awc-color-secondary-states-hover)",
+          "name": "Secondary States Hover",
+          "slug": "secondary-states-hover"
+        },
+        {
+          "color": "var(--awc-color-secondary-states-focus)",
+          "name": "Secondary States Focus",
+          "slug": "secondary-states-focus"
+        },
+        {
+          "color": "var(--awc-color-secondary-states-focus-visible)",
+          "name": "Secondary States Focus-visible",
+          "slug": "secondary-states-focus-visible"
+        },
+        {
+          "color": "var(--awc-color-secondary-states-outlined-border)",
+          "name": "Secondary States Outlined-border",
+          "slug": "secondary-states-outlined-border"
+        },
+        {
+          "color": "var(--awc-color-tertiary-main)",
+          "name": "Tertiary DEFAULT",
+          "slug": "tertiary-default"
+        },
+        {
+          "color": "var(--awc-color-tertiary-dark)",
+          "name": "Tertiary Dark",
+          "slug": "tertiary-dark"
+        },
+        {
+          "color": "var(--awc-color-tertiary-light)",
+          "name": "Tertiary Light",
+          "slug": "tertiary-light"
+        },
+        {
+          "color": "var(--awc-color-tertiary-contrast)",
+          "name": "Tertiary Contrast",
+          "slug": "tertiary-contrast"
+        },
+        {
+          "color": "var(--awc-color-tertiary-states-selected)",
+          "name": "Tertiary States Selected",
+          "slug": "tertiary-states-selected"
+        },
+        {
+          "color": "var(--awc-color-tertiary-states-hover)",
+          "name": "Tertiary States Hover",
+          "slug": "tertiary-states-hover"
+        },
+        {
+          "color": "var(--awc-color-tertiary-states-focus)",
+          "name": "Tertiary States Focus",
+          "slug": "tertiary-states-focus"
+        },
+        {
+          "color": "var(--awc-color-tertiary-states-focus-visible)",
+          "name": "Tertiary States Focus-visible",
+          "slug": "tertiary-states-focus-visible"
+        },
+        {
+          "color": "var(--awc-color-tertiary-states-outlined-border)",
+          "name": "Tertiary States Outlined-border",
+          "slug": "tertiary-states-outlined-border"
+        },
+        {
+          "color": "var(--awc-color-danger-main)",
+          "name": "Danger DEFAULT",
+          "slug": "danger-default"
+        },
+        {
+          "color": "var(--awc-color-danger-dark)",
+          "name": "Danger Dark",
+          "slug": "danger-dark"
+        },
+        {
+          "color": "var(--awc-color-danger-light)",
+          "name": "Danger Light",
+          "slug": "danger-light"
+        },
+        {
+          "color": "var(--awc-color-danger-contrast)",
+          "name": "Danger Contrast",
+          "slug": "danger-contrast"
+        },
+        {
+          "color": "var(--awc-color-danger-states-selected)",
+          "name": "Danger States Selected",
+          "slug": "danger-states-selected"
+        },
+        {
+          "color": "var(--awc-color-danger-states-hover)",
+          "name": "Danger States Hover",
+          "slug": "danger-states-hover"
+        },
+        {
+          "color": "var(--awc-color-danger-states-focus)",
+          "name": "Danger States Focus",
+          "slug": "danger-states-focus"
+        },
+        {
+          "color": "var(--awc-color-danger-states-focus-visible)",
+          "name": "Danger States Focus-visible",
+          "slug": "danger-states-focus-visible"
+        },
+        {
+          "color": "var(--awc-color-danger-states-outlined-border)",
+          "name": "Danger States Outlined-border",
+          "slug": "danger-states-outlined-border"
+        },
+        {
+          "color": "var(--awc-color-warning-main)",
+          "name": "Warning DEFAULT",
+          "slug": "warning-default"
+        },
+        {
+          "color": "var(--awc-color-warning-dark)",
+          "name": "Warning Dark",
+          "slug": "warning-dark"
+        },
+        {
+          "color": "var(--awc-color-warning-light)",
+          "name": "Warning Light",
+          "slug": "warning-light"
+        },
+        {
+          "color": "var(--awc-color-warning-contrast)",
+          "name": "Warning Contrast",
+          "slug": "warning-contrast"
+        },
+        {
+          "color": "var(--awc-color-warning-states-selected)",
+          "name": "Warning States Selected",
+          "slug": "warning-states-selected"
+        },
+        {
+          "color": "var(--awc-color-warning-states-hover)",
+          "name": "Warning States Hover",
+          "slug": "warning-states-hover"
+        },
+        {
+          "color": "var(--awc-color-warning-states-focus)",
+          "name": "Warning States Focus",
+          "slug": "warning-states-focus"
+        },
+        {
+          "color": "var(--awc-color-warning-states-focus-visible)",
+          "name": "Warning States Focus-visible",
+          "slug": "warning-states-focus-visible"
+        },
+        {
+          "color": "var(--awc-color-warning-states-outlined-border)",
+          "name": "Warning States Outlined-border",
+          "slug": "warning-states-outlined-border"
+        },
+        {
+          "color": "var(--awc-color-success-main)",
+          "name": "Success DEFAULT",
+          "slug": "success-default"
+        },
+        {
+          "color": "var(--awc-color-success-dark)",
+          "name": "Success Dark",
+          "slug": "success-dark"
+        },
+        {
+          "color": "var(--awc-color-success-light)",
+          "name": "Success Light",
+          "slug": "success-light"
+        },
+        {
+          "color": "var(--awc-color-success-contrast)",
+          "name": "Success Contrast",
+          "slug": "success-contrast"
+        },
+        {
+          "color": "var(--awc-color-success-states-selected)",
+          "name": "Success States Selected",
+          "slug": "success-states-selected"
+        },
+        {
+          "color": "var(--awc-color-success-states-hover)",
+          "name": "Success States Hover",
+          "slug": "success-states-hover"
+        },
+        {
+          "color": "var(--awc-color-success-states-focus)",
+          "name": "Success States Focus",
+          "slug": "success-states-focus"
+        },
+        {
+          "color": "var(--awc-color-success-states-focus-visible)",
+          "name": "Success States Focus-visible",
+          "slug": "success-states-focus-visible"
+        },
+        {
+          "color": "var(--awc-color-success-states-outlined-border)",
+          "name": "Success States Outlined-border",
+          "slug": "success-states-outlined-border"
+        },
+        {
+          "color": "var(--awc-color-color-01-50)",
+          "name": "Color-01 50",
+          "slug": "color-01-50"
+        },
+        {
+          "color": "var(--awc-color-color-01-100)",
+          "name": "Color-01 100",
+          "slug": "color-01-100"
+        },
+        {
+          "color": "var(--awc-color-color-01-200)",
+          "name": "Color-01 200",
+          "slug": "color-01-200"
+        },
+        {
+          "color": "var(--awc-color-color-01-300)",
+          "name": "Color-01 300",
+          "slug": "color-01-300"
+        },
+        {
+          "color": "var(--awc-color-color-01-400)",
+          "name": "Color-01 400",
+          "slug": "color-01-400"
+        },
+        {
+          "color": "var(--awc-color-color-01-500)",
+          "name": "Color-01 500",
+          "slug": "color-01-500"
+        },
+        {
+          "color": "var(--awc-color-color-01-600)",
+          "name": "Color-01 600",
+          "slug": "color-01-600"
+        },
+        {
+          "color": "var(--awc-color-color-01-700)",
+          "name": "Color-01 700",
+          "slug": "color-01-700"
+        },
+        {
+          "color": "var(--awc-color-color-01-800)",
+          "name": "Color-01 800",
+          "slug": "color-01-800"
+        },
+        {
+          "color": "var(--awc-color-color-01-900)",
+          "name": "Color-01 900",
+          "slug": "color-01-900"
+        },
+        {
+          "color": "var(--awc-color-color-01-950)",
+          "name": "Color-01 950",
+          "slug": "color-01-950"
+        },
+        {
+          "color": "var(--awc-color-color-01-default)",
+          "name": "Color-01 DEFAULT",
+          "slug": "color-01-default"
+        },
+        {
+          "color": "var(--awc-color-color-02-50)",
+          "name": "Color-02 50",
+          "slug": "color-02-50"
+        },
+        {
+          "color": "var(--awc-color-color-02-100)",
+          "name": "Color-02 100",
+          "slug": "color-02-100"
+        },
+        {
+          "color": "var(--awc-color-color-02-200)",
+          "name": "Color-02 200",
+          "slug": "color-02-200"
+        },
+        {
+          "color": "var(--awc-color-color-02-300)",
+          "name": "Color-02 300",
+          "slug": "color-02-300"
+        },
+        {
+          "color": "var(--awc-color-color-02-400)",
+          "name": "Color-02 400",
+          "slug": "color-02-400"
+        },
+        {
+          "color": "var(--awc-color-color-02-500)",
+          "name": "Color-02 500",
+          "slug": "color-02-500"
+        },
+        {
+          "color": "var(--awc-color-color-02-600)",
+          "name": "Color-02 600",
+          "slug": "color-02-600"
+        },
+        {
+          "color": "var(--awc-color-color-02-700)",
+          "name": "Color-02 700",
+          "slug": "color-02-700"
+        },
+        {
+          "color": "var(--awc-color-color-02-800)",
+          "name": "Color-02 800",
+          "slug": "color-02-800"
+        },
+        {
+          "color": "var(--awc-color-color-02-900)",
+          "name": "Color-02 900",
+          "slug": "color-02-900"
+        },
+        {
+          "color": "var(--awc-color-color-02-950)",
+          "name": "Color-02 950",
+          "slug": "color-02-950"
+        },
+        {
+          "color": "var(--awc-color-color-02-default)",
+          "name": "Color-02 DEFAULT",
+          "slug": "color-02-default"
+        },
+        {
+          "color": "var(--awc-color-color-03-50)",
+          "name": "Color-03 50",
+          "slug": "color-03-50"
+        },
+        {
+          "color": "var(--awc-color-color-03-100)",
+          "name": "Color-03 100",
+          "slug": "color-03-100"
+        },
+        {
+          "color": "var(--awc-color-color-03-200)",
+          "name": "Color-03 200",
+          "slug": "color-03-200"
+        },
+        {
+          "color": "var(--awc-color-color-03-300)",
+          "name": "Color-03 300",
+          "slug": "color-03-300"
+        },
+        {
+          "color": "var(--awc-color-color-03-400)",
+          "name": "Color-03 400",
+          "slug": "color-03-400"
+        },
+        {
+          "color": "var(--awc-color-color-03-500)",
+          "name": "Color-03 500",
+          "slug": "color-03-500"
+        },
+        {
+          "color": "var(--awc-color-color-03-600)",
+          "name": "Color-03 600",
+          "slug": "color-03-600"
+        },
+        {
+          "color": "var(--awc-color-color-03-700)",
+          "name": "Color-03 700",
+          "slug": "color-03-700"
+        },
+        {
+          "color": "var(--awc-color-color-03-800)",
+          "name": "Color-03 800",
+          "slug": "color-03-800"
+        },
+        {
+          "color": "var(--awc-color-color-03-900)",
+          "name": "Color-03 900",
+          "slug": "color-03-900"
+        },
+        {
+          "color": "var(--awc-color-color-03-950)",
+          "name": "Color-03 950",
+          "slug": "color-03-950"
+        },
+        {
+          "color": "var(--awc-color-color-03-default)",
+          "name": "Color-03 DEFAULT",
+          "slug": "color-03-default"
+        },
+        {
+          "color": "var(--awc-tooltip-color)",
+          "name": "Tooltip",
+          "slug": "tooltip"
+        },
+        {
+          "color": "var(--awc-focus-ring-color)",
+          "name": "Focus-ring",
+          "slug": "focus-ring"
+        },
+        {
+          "color": "var(--awc-input-color-default)",
+          "name": "Input DEFAULT",
+          "slug": "input-default"
+        },
+        {
+          "color": "var(--awc-input-color-hover)",
+          "name": "Input Hover",
+          "slug": "input-hover"
+        },
+        {
+          "color": "var(--awc-input-color-focus)",
+          "name": "Input Focus",
+          "slug": "input-focus"
+        },
+        {
+          "color": "var(--awc-input-color-disabled)",
+          "name": "Input Disabled",
+          "slug": "input-disabled"
+        },
+        {
+          "color": "var(--awc-input-placeholder-color)",
+          "name": "Input Placeholder",
+          "slug": "input-placeholder"
+        },
+        {
+          "color": "var(--awc-input-icon-color)",
+          "name": "Input Icon",
+          "slug": "input-icon"
+        },
+        {
+          "color": "var(--awc-input-filled-color)",
+          "name": "Input Filled",
+          "slug": "input-filled"
+        },
+        {
+          "color": "var(--awc-input-label-color)",
+          "name": "Input Label",
+          "slug": "input-label"
+        },
+        {
+          "color": "var(--awc-input-help-text-color)",
+          "name": "Input Help-text",
+          "slug": "input-help-text"
+        },
+        {
+          "color": "var(--awc-input-required-content-color)",
+          "name": "Input Required-content",
+          "slug": "input-required-content"
+        },
+        {
+          "color": "var(--awc-input-focus-ring-color)",
+          "name": "Input Focus-ring",
+          "slug": "input-focus-ring"
         }
       ]
     },
@@ -1274,19 +1799,34 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "fontFamily": "ui-sans-serif,system-ui,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"",
-          "name": "Ui-sans-serif",
+          "fontFamily": "var(--awc-font-sans)",
+          "name": "Var(--awc-font-sans)",
           "slug": "sans"
         },
         {
-          "fontFamily": "ui-serif,Georgia,Cambria,\"Times New Roman\",Times,serif",
-          "name": "Ui-serif",
+          "fontFamily": "var(--awc-font-serif)",
+          "name": "Var(--awc-font-serif)",
           "slug": "serif"
         },
         {
-          "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace",
-          "name": "Ui-monospace",
+          "fontFamily": "var(--awc-font-mono)",
+          "name": "Var(--awc-font-mono)",
           "slug": "mono"
+        },
+        {
+          "fontFamily": "var(--awc-font-heading)",
+          "name": "Var(--awc-font-heading)",
+          "slug": "heading"
+        },
+        {
+          "fontFamily": "var(--awc-input-font-family)",
+          "name": "Var(--awc-input-font-family)",
+          "slug": "input"
+        },
+        {
+          "fontFamily": "var(--awc-tooltip-font-family)",
+          "name": "Var(--awc-tooltip-font-family)",
+          "slug": "tooltip"
         }
       ],
       "fontSizes": [
@@ -1302,7 +1842,7 @@
         },
         {
           "name": "base",
-          "size": "1rem",
+          "size": "var(--awc-font-size-base)",
           "slug": "base"
         },
         {
@@ -1354,6 +1894,116 @@
           "name": "9xl",
           "size": "8rem",
           "slug": "9xl"
+        },
+        {
+          "name": "2xsmall",
+          "size": "var(--awc-font-size-2xsmall)",
+          "slug": "2xsmall"
+        },
+        {
+          "name": "xsmall",
+          "size": "var(--awc-font-size-xsmall)",
+          "slug": "xsmall"
+        },
+        {
+          "name": "small",
+          "size": "var(--awc-font-size-small)",
+          "slug": "small"
+        },
+        {
+          "name": "medium",
+          "size": "var(--awc-font-size-medium)",
+          "slug": "medium"
+        },
+        {
+          "name": "large",
+          "size": "var(--awc-font-size-large)",
+          "slug": "large"
+        },
+        {
+          "name": "xlarge",
+          "size": "var(--awc-font-size-xlarge)",
+          "slug": "xlarge"
+        },
+        {
+          "name": "2xlarge",
+          "size": "var(--awc-font-size-2xlarge)",
+          "slug": "2xlarge"
+        },
+        {
+          "name": "3xlarge",
+          "size": "var(--awc-font-size-3xlarge)",
+          "slug": "3xlarge"
+        },
+        {
+          "name": "4xlarge",
+          "size": "var(--awc-font-size-4xlarge)",
+          "slug": "4xlarge"
+        },
+        {
+          "name": "5xlarge",
+          "size": "var(--awc-font-size-5xlarge)",
+          "slug": "5xlarge"
+        },
+        {
+          "name": "6xlarge",
+          "size": "var(--awc-font-size-6xlarge)",
+          "slug": "6xlarge"
+        },
+        {
+          "name": "7xlarge",
+          "size": "var(--awc-font-size-7xlarge)",
+          "slug": "7xlarge"
+        },
+        {
+          "name": "8xlarge",
+          "size": "var(--awc-font-size-8xlarge)",
+          "slug": "8xlarge"
+        },
+        {
+          "name": "9xlarge",
+          "size": "var(--awc-font-size-9xlarge)",
+          "slug": "9xlarge"
+        },
+        {
+          "name": "10xlarge",
+          "size": "var(--awc-font-size-10xlarge)",
+          "slug": "10xlarge"
+        },
+        {
+          "name": "heading1",
+          "size": "var(--awc-font-size-heading1)",
+          "slug": "heading1"
+        },
+        {
+          "name": "heading2",
+          "size": "var(--awc-font-size-heading2)",
+          "slug": "heading2"
+        },
+        {
+          "name": "heading3",
+          "size": "var(--awc-font-size-heading3)",
+          "slug": "heading3"
+        },
+        {
+          "name": "heading4",
+          "size": "var(--awc-font-size-heading4)",
+          "slug": "heading4"
+        },
+        {
+          "name": "heading5",
+          "size": "var(--awc-font-size-heading5)",
+          "slug": "heading5"
+        },
+        {
+          "name": "heading6",
+          "size": "var(--awc-font-size-heading6)",
+          "slug": "heading6"
+        },
+        {
+          "name": "tooltip",
+          "size": "var(--awc-tooltip-font-size)",
+          "slug": "tooltip"
         }
       ]
     }
