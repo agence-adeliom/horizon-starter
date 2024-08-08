@@ -14,6 +14,8 @@
     </div>
   </form>
 
+  <button wire:click="resetFilters">Ré-initialiser</button>
+
   <div class="loading hidden">
     Loading
   </div>

@@ -16,6 +16,8 @@ use Livewire\Component;
 
 class Listing extends Component
 {
+    private const DEFAULT_ORDER = 'date.DESC';
+
     public ?string $postType = null;
 
     public array $data = [];
@@ -25,7 +27,8 @@ class Listing extends Component
     #[Url(as: "filtres")]
     public $filterFields = [];
     #[Url(as: "tri")]
-    public $order = 'date.DESC';
+    public string $order = self::DEFAULT_ORDER;
+    public int $perPage = 12;
 
     public array $filters = [];
 
@@ -168,18 +171,18 @@ class Listing extends Component
         }
     }
 
-    public function handleFilters()
+    public function handleFilters(): void
     {
         $this->getData();
     }
 
-    public function getData()
+    public function getData(): void
     {
         $qb = new QueryBuilder();
 
         $qb->postType($this->postType)
             ->setPage($this->page)
-            ->setPerPage(12)
+            ->setPerPage($this->perPage)
             ->as(BasePostViewModel::class);
 
         foreach ($this->filterFields as $name => $value) {
@@ -223,11 +226,24 @@ class Listing extends Component
         $this->data = $qb->getPaginatedData(callback: function (BasePostViewModel $post) {
             return $post->toStdClass();
         });
+
+        if ($this->data['current'] > $this->data['pages'] || null === $this->data['pages']) {
+            $this->page = 1;
+        }
     }
 
     public function setPage(int $page): void
     {
         $this->page = $page;
+        $this->getData();
+    }
+
+    public function resetFilters(): void
+    {
+        $this->page = 1;
+        $this->filterFields = [];
+        $this->order = self::DEFAULT_ORDER;
+
         $this->getData();
     }
 
