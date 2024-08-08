@@ -25,7 +25,7 @@ class Listing extends Component
     #[Url(as: "pagination")]
     public int $page = 1;
     #[Url(as: "filtres")]
-    public $filterFields = [];
+    public array $filterFields = [];
     #[Url(as: "tri")]
     public string $order = self::DEFAULT_ORDER;
     public int $perPage = 12;
@@ -185,27 +185,29 @@ class Listing extends Component
             ->setPerPage($this->perPage)
             ->as(BasePostViewModel::class);
 
-        foreach ($this->filterFields as $name => $value) {
-            if (!empty($value) && isset($this->filters[$name])) {
-                switch ($this->filters[$name]['type']) {
-                    case FilterTypesEnum::TAXONOMY->value:
-                        $taxonomyName = $this->filters[$name]['value'];
+        if (is_array($this->filterFields)) {
+            foreach ($this->filterFields as $name => $value) {
+                if (!empty($value) && isset($this->filters[$name])) {
+                    switch ($this->filters[$name]['type']) {
+                        case FilterTypesEnum::TAXONOMY->value:
+                            $taxonomyName = $this->filters[$name]['value'];
 
-                        $taxQuery = new TaxQuery();
-                        $taxQuery->add($taxonomyName, [$value]);
+                            $taxQuery = new TaxQuery();
+                            $taxQuery->add($taxonomyName, [$value]);
 
-                        $qb->addTaxQuery($taxQuery);
-                        break;
-                    case FilterTypesEnum::META->value:
-                        $metaName = $this->filters[$name]['value'];
+                            $qb->addTaxQuery($taxQuery);
+                            break;
+                        case FilterTypesEnum::META->value:
+                            $metaName = $this->filters[$name]['value'];
 
-                        $metaQuery = new MetaQuery();
-                        $metaQuery->add($metaName, $value);
+                            $metaQuery = new MetaQuery();
+                            $metaQuery->add($metaName, $value);
 
-                        $qb->addMetaQuery($metaQuery);
-                        break;
-                    default:
-                        break;
+                            $qb->addMetaQuery($metaQuery);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -241,8 +243,13 @@ class Listing extends Component
     public function resetFilters(): void
     {
         $this->page = 1;
-        $this->filterFields = [];
         $this->order = self::DEFAULT_ORDER;
+
+        foreach ($this->filterFields as $key => $filterField) {
+            $this->filterFields[$key] = null;
+        }
+
+        $this->dispatch('filters-reset');
 
         $this->getData();
     }

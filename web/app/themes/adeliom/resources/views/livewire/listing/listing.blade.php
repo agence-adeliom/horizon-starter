@@ -22,9 +22,11 @@
 
   @if(!empty($data['items']))
     <div class="results">
-      @foreach($data['items'] as $post)
-        @php(dump($post))
-      @endforeach
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        @foreach($data['items'] as $post)
+          @php(dump($post))
+        @endforeach
+      </div>
     </div>
   @else
     <div>
@@ -33,4 +35,13 @@
   @endif
 
   <x-horizon.pagination :data="$data" handle="setPage" :has-buttons="true"/>
+
+  @script
+  <script>
+    $wire.on('filters-reset', () => {
+      // Ré-écriture de l'URL
+      window.history.pushState({}, '', '');
+    });
+  </script>
+  @endscript
 </div>
