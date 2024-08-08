@@ -2,7 +2,6 @@
 
 @section('content')
     @include('partials.page-header')
-    <div class="btn btn--primary">Bouton test</div>
 
     @if (!have_posts())
         <x-alert type="warning">

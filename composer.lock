@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71b5665d1738e5d7a8587c7491c645e4",
+    "content-hash": "0bf74e748b97d7719867f7805f453c2f",
     "packages": [
         {
             "name": "agence-adeliom/horizon-blocks",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:agence-adeliom/horizon-blocks.git",
-                "reference": "05a7b9cf9c048ef48def6fcf0e5dce20c66ec8b7"
+                "reference": "3ad55349ff7b44681d000bb3c9c3c4b5a338b36d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/05a7b9cf9c048ef48def6fcf0e5dce20c66ec8b7",
-                "reference": "05a7b9cf9c048ef48def6fcf0e5dce20c66ec8b7",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/3ad55349ff7b44681d000bb3c9c3c4b5a338b36d",
+                "reference": "3ad55349ff7b44681d000bb3c9c3c4b5a338b36d",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
             },
-            "time": "2024-08-08T12:51:31+00:00"
+            "time": "2024-08-07T14:38:18+00:00"
         },
         {
             "name": "agence-adeliom/horizon-tools",
@@ -49,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                "reference": "f9403aa46c1421f435108985bf9970ee459127b0"
+                "reference": "d6cbcf09b9c95395a2a50b56ed3ed7f2f7d15d67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/f9403aa46c1421f435108985bf9970ee459127b0",
-                "reference": "f9403aa46c1421f435108985bf9970ee459127b0",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/d6cbcf09b9c95395a2a50b56ed3ed7f2f7d15d67",
+                "reference": "d6cbcf09b9c95395a2a50b56ed3ed7f2f7d15d67",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
             },
-            "time": "2024-08-08T12:23:04+00:00"
+            "time": "2024-08-08T09:56:39+00:00"
         },
         {
             "name": "brick/math",
@@ -6828,24 +6828,6 @@
                 }
             ],
             "time": "2022-03-08T17:03:00+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/advanced-custom-fields-font-awesome",
-            "version": "4.1.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/advanced-custom-fields-font-awesome/",
-                "reference": "tags/4.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields-font-awesome.4.1.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/advanced-custom-fields-font-awesome/"
         },
         {
             "name": "wpackagist-plugin/duplicate-page",

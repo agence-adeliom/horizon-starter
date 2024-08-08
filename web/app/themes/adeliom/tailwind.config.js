@@ -213,9 +213,9 @@ const config = {
         input: {
           DEFAULT: 'var(--awc-input-background-color-default)',
           filled: 'var(--awc-input-filled-background-color)',
-          hover: 'var( --awc-input-background-color-hover)',
+          hover: 'var(--awc-input-background-color-hover)',
           focus: 'var(--awc-input-background-color-focus)',
-          disabled: 'var( --awc-input-background-color-disabled)',
+          disabled: 'var(--awc-input-background-color-disabled)',
         },
         tooltip: 'var(--awc-tooltip-background-color)',
         panel: 'var(--awc-panel-background-color)',
@@ -287,13 +287,6 @@ const config = {
       letterSpacing: {
         input: 'var(--awc-input-letter-spacing)',
       },
-      height: {
-        input: {
-          sm: 'var(--awc-input-height-small)',
-          md: 'var(--awc-input-height-medium)',
-          lg: 'var(--awc-input-height-large)',
-        }
-      },
       padding: {
         card: 'var(--awc-card-padding)',
         panel: 'var(--awc-panel-padding)',
@@ -319,6 +312,7 @@ const config = {
         pill: 'var(--awc-border-radius-pill)',
         tooltip: 'var(--awc-tooltip-border-radius)',
         badge: 'var(--awc-bagde-border-radius)',
+        button: 'var(--awc-button-border-radius)',
         tag: 'var(--awc-tag-border-radius)',
         panel: 'var(--awc-panel-border-radius)',
         card: 'var(--awc-card-border-radius)',
@@ -342,6 +336,9 @@ const config = {
         looser: 'var(--awc-line-height-looser)',
         denser: 'var(--awc-line-height-denser)',
         tooltip: 'var(--awc-tooltip-line-height)',
+        'input-sm': 'var(--awc-input-height-small)',
+        'input-md': 'var(--awc-input-height-medium)',
+        'input-lg': 'var(--awc-input-height-large)',
       },
       letterSpacing: {
         normal: 'var(--awc-letter-spacing-normal)',
@@ -366,12 +363,12 @@ const config = {
         small: 'var(--awc-breakpoint-small)',
       },
       fontFamily: {
-        sans: 'var(--awc-font-sans)',
-        serif: 'var(--awc-font-serif)',
-        mono: 'var(--awc-font-mono)',
-        heading: 'var(--awc-font-heading)',
-        input: 'var(--awc-input-font-family)',
-        tooltip: 'var(--awc-tooltip-font-family)',
+        sans: 'var(--awc-font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        serif: 'var(--awc-font-serif),-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        mono: 'var(--awc-font-mono), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        heading: 'var(--awc-font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        input: 'var(--awc-input-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        tooltip: 'var(--awc-tooltip-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
       },
       fontWeight: {
         light: 'var(--awc-font-weight-light)',

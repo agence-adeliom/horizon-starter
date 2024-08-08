@@ -20,9 +20,9 @@ class Button extends Component
     ];
 
     final public const SIZES = [
-        'small'  => 'btn--small',
-        'medium' => 'btn--medium',
-        'large'  => 'btn--large',
+        'small'  => 'btn--sm',
+        'medium' => 'btn--md',
+        'large'  => 'btn--lg',
     ];
 
     /**
@@ -30,7 +30,7 @@ class Button extends Component
      */
     public function __construct(
         public ?string $size = 'medium',
-        public ?string $type = null,
+        public ?string $type = 'primary',
         public ?string $label = null,
         public ?string $url = null,
         public ?string $target = null,
@@ -38,8 +38,10 @@ class Button extends Component
         public ?string $tag = "div",
         public ?string $ariaLabel = null,
         public ?array  $object = null,
-    )
-    {
+        public ?string $icon = null,
+        public ?string $iconClass = null,
+        public ?bool   $iconStart = false,
+    ) {
         $this->handleType();
         $this->handleSize();
         $this->handleUrl();
@@ -145,6 +147,7 @@ class Button extends Component
     {
         $this->fullClass = implode(' ', [
             'btn',
+            $this->iconStart ? 'flex-row-reverse' : '',
             $this->typeClass,
             $this->sizeClass,
         ]);
