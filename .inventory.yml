@@ -22,4 +22,4 @@ hosts:
     <<: *base
     deploy_path: /home/clients/1ba2ec060e28b438b2e85181c129c41d/sites/starter.a-dev.cloud
     stage: staging
-    branch: develop
+    branch: feature/si
