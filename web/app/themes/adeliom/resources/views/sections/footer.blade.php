@@ -1,3 +1,20 @@
 <footer class="content-info">
-  @php(dynamic_sidebar('sidebar-footer'))
+    <div class="container">
+
+        <img src="@php echo $logoFooter['sizes']['large'] @endphp" alt="">
+
+        <p>{{ date('Y') }} © {{$clientName}} </p>
+
+        @if($legalsMenu)
+            @dump($legalsMenu)
+        @endif
+        <span>Gestion des cookies</span>
+        <div class="flex items-center gap-1">
+            <span class="text-xs">Conception</span>
+            <img src="@asset('images/adeliom_favicon.svg')">
+
+            <span class="text-xs">Agence Adeliom</span>
+        </div>
+
+    </div>
 </footer>

@@ -2,9 +2,9 @@
 
 return [
     'allow' => [
-        'svg' => false,
+        'svg' => true,
     ],
     'sanitize' => [
-        'svg' => false,
+        'svg' => true,
     ],
 ];
