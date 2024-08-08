@@ -8,18 +8,20 @@ use Adeliom\HorizonTools\Blocks\AbstractBlock;
 use Adeliom\HorizonTools\Fields\Select\PostTypeSelectField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
+use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Services\BudService;
 
 class ListingBlock extends AbstractBlock
 {
     public static ?string $slug = 'listing';
-    public static ?string $title = 'ListingBlock';
+    public static ?string $title = 'Liste d’éléments';
     public static ?string $mode = 'preview';
 
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
-            HeadingField::make(),
+            UptitleField::make(),
+            HeadingField::make()->required(),
             PostTypeSelectField::make(),
         ]);
     }

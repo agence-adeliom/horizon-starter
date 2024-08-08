@@ -19,11 +19,17 @@ class Listing extends Component
 
     #[Url(as: "pagination")]
     public int $page = 1;
-
     #[Url(as: "filtres")]
     public $filterFields = [];
+    #[Url(as: "tri")]
+    public $order = 'date.DESC';
 
     public array $filters = [];
+
+    public array $sortOptions = [
+        'date.DESC' => 'Plus récent',
+        'date.ASC' => 'Plus ancien',
+    ];
 
     public function mount(): void
     {
@@ -114,6 +120,19 @@ class Listing extends Component
                     default:
                         break;
                 }
+            }
+        }
+
+        if ($this->order) {
+            [$orderBy, $order] = explode('.', $this->order);
+
+            switch ($orderBy) {
+                case 'date':
+                    $qb->orderBy($order, $orderBy);
+                    break;
+                default:
+                    // TODO Handle meta fields
+                    break;
             }
         }
 

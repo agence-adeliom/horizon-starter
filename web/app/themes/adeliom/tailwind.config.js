@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} config */
 const config = {
-  content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
+  content: ['./app/**/*.php', './resources/**/*.{php,vue,js}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
   theme: {
     extend: {
       colors: {
