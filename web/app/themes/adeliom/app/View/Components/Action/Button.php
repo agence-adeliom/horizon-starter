@@ -144,6 +144,7 @@ class Button extends Component
     private function handleFullClass(): void
     {
         $this->fullClass = implode(' ', [
+            'btn',
             $this->typeClass,
             $this->sizeClass,
         ]);

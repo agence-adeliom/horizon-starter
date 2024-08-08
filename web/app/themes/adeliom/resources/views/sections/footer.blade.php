@@ -1,7 +1,9 @@
 <footer class="content-info">
     <div class="container">
 
-        <img src="@php echo $logoFooter['sizes']['large'] @endphp" alt="">
+      @if($logoFooter)
+        <img src="{{ $logoFooter['sizes']['large'] }}" alt="">
+      @endif
 
         <p>{{ date('Y') }} © {{$clientName}} </p>
 

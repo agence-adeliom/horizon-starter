@@ -1,7 +1,9 @@
 <header class="banner">
   <div class="container">
     <a class="brand" href="{{ home_url('/') }}">
-      <img src="@php echo $logo['sizes']['large'] @endphp" alt="">
+      @if($logo)
+        <img src="{{ $logo['sizes']['large'] }}" alt="">
+      @endif
     </a>
   </div>
 

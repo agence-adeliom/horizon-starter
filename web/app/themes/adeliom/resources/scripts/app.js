@@ -1,4 +1,5 @@
 import domReady from '@roots/sage/client/dom-ready';
+import "@fortawesome/fontawesome-pro/css/all.css";
 
 /**
  * Application entrypoint

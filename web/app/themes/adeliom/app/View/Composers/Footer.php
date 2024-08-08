@@ -19,9 +19,24 @@ class Footer extends Composer
 
     protected function with()
     {
+        $clientName = null;
+        $logoFooter = null;
+
+        if ($options = get_field(OptionPageAdmin::PARAM_FIELDS, 'option')) {
+            if (is_array($options)) {
+                if (isset($options[OptionPageAdmin::CLIENT_NAME])) {
+                    $clientName = $options[OptionPageAdmin::CLIENT_NAME];
+                }
+
+                if (isset($options[OptionPageAdmin::WHITE_LOGO])) {
+                    $logoFooter = $options[OptionPageAdmin::WHITE_LOGO];
+                }
+            }
+        }
+
         return [
-            "clientName" => get_field(OptionPageAdmin::PARAM_FIELDS, 'option')[OptionPageAdmin::CLIENT_NAME],
-            "logoFooter" => get_field(OptionPageAdmin::PARAM_FIELDS, 'option')[OptionPageAdmin::WHITE_LOGO],
+            "clientName" => $clientName,
+            "logoFooter" => $logoFooter,
             "legalsMenu" => new MenuViewModel("legals_navigation"),
         ];
     }

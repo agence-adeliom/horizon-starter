@@ -228,7 +228,7 @@ const config = {
           DEFAULT: 'var(--awc-input-border-color-default)',
           hover: 'var(--awc-input-border-color-hover)',
           focus: 'var(--awc-input-border-color-focus)',
-          disabled: 'var(--awc-input-border-color-disabled)',  
+          disabled: 'var(--awc-input-border-color-disabled)',
         },
       },
       fontSize: {
@@ -416,7 +416,10 @@ const config = {
         focus: 'var(--awc-focus-ring-offset)',
         'input-focus': 'var(--awc-input-focus-ring-offset)',
         'input-required-content': 'var(--awc-input-required-content-offset)',
-      }, 
+      },
+      container: {
+        center: true,
+      }
     },
   },
   plugins: [],

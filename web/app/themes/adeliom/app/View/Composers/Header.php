@@ -20,8 +20,16 @@ class Header extends Composer
 
     protected function with()
     {
+        $logo = null;
+
+        if ($data = get_field(OptionPageAdmin::PARAM_FIELDS, 'option')) {
+            if (is_array($data) && isset($data[OptionPageAdmin::MAIN_LOGO])) {
+                $logo = $data[OptionPageAdmin::MAIN_LOGO];
+            }
+        }
+
         return [
-            "logo" => get_field(OptionPageAdmin::PARAM_FIELDS, 'option')[OptionPageAdmin::MAIN_LOGO],
+            "logo" => $logo,
         ];
     }
 }
