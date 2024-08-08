@@ -18,8 +18,8 @@ class Block extends Component
 
     final public const PADDINGS = [
         'none'          => '',
-        'small'         => 'py-10',
-        'large'         => 'py-10 lg:py-20',
+        'small'         => 'py-section-mobile',
+        'large'         => 'py-section-mobile lg:py-section-desktop',
         'top-remove'    => 'pt-0 lg:pt-0',
         'bottom-remove' => 'pb-0 lg:pb-0',
     ];

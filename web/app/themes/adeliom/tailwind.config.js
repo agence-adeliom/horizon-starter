@@ -286,16 +286,21 @@ const config = {
           lg: 'var(--awc-input-spacing-large)',
         }
       },
+      gap : {
+        card: 'var(--awc-card-padding)',
+      },
       letterSpacing: {
         input: 'var(--awc-input-letter-spacing)',
       },
       padding: {
+      'section-mobile': 'var(--awc-section-padding-y-mobile)',
+      'section-desktop': 'var(--awc-section-padding-y-desktop)',
         card: 'var(--awc-card-padding)',
         panel: 'var(--awc-panel-padding)',
         tooltip: {
           y: 'var(--awc-tooltip-padding-y)',
           x: 'var(--awc-tooltip-padding-x)',
-        }
+        },
       },
       borderWidth: {
         card: 'var(--awc-card-border-width)',
