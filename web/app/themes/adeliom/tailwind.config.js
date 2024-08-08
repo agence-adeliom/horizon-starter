@@ -9,6 +9,7 @@ const config = {
           dark: 'var(--awc-color-primary-dark)',
           light: 'var(--awc-color-primary-light)',
           contrast: 'var(--awc-color-primary-contrast)',
+          text: 'var(--awc-text-primary-color)',
           states: {
             selected: 'var(--awc-color-primary-states-selected)',
             hover: 'var(--awc-color-primary-states-hover)',
@@ -191,6 +192,7 @@ const config = {
           950: 'var(--awc-color-neutral-950)',
           1000: 'var(--awc-color-neutral-1000)',
         },
+        accent: 'var(--awc-text-accent-color)',
         transparent: 'var(--awc-color-transparent)',
         tooltip: 'var(--awc-tooltip-color)',
         'focus-ring': 'var(--awc-focus-ring-color)',
