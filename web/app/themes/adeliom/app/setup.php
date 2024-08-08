@@ -45,8 +45,10 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Navigation principale', 'sage'),
-        'legals_navigation'  => __('Navigation liens légaux', 'sage'),
+        'primary_navigation'          => __('Navigation principale', 'sage'),
+        'legals_navigation'           => __('Navigation liens légaux', 'sage'),
+        'primary_footer_navigation'   => __('Navigation principale pied de page', 'sage'),
+        'secondary_footer_navigation' => __('Navigation secondaire pied de page', 'sage'),
     ]);
 
     /**
