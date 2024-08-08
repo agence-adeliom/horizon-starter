@@ -1,4 +1,3 @@
 <x-block :fields="$fields">
-    @dump($fields)
-    <x-action.button />
+  <x-action.button :object="$fields['button']"/>
 </x-block>

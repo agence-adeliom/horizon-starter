@@ -1,5 +1,20 @@
-<div>
+<{{ $tag }}
+  class="{{ $fullClass }}"
+@if($url)
+  href="{{ $url }}"
+@endif
+@if($id)
+  id="{{ $id }}"
+@endif
+@if($ariaLabel)
+  aria-label="{{ $ariaLabel }}"
+@endif
+@if($target)
+  target="{{ $target }}"
+@endif>
 
-    <h2>Bonjour</h2>
-    <!-- Walk as if you are kissing the Earth with your feet. - Thich Nhat Hanh -->
-</div>
+@if($label)
+  {{ $label }}
+@endif
+
+</{{ $tag }}>

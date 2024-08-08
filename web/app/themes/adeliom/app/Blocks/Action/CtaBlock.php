@@ -12,7 +12,7 @@ use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 
-class Cta extends AbstractBlock
+class CtaBlock extends AbstractBlock
 {
     public static ?string $slug = 'cta';
     public static ?string $title = 'Call to Action';

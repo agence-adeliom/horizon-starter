@@ -2,12 +2,17 @@
 
 namespace App\View\Components\Action;
 
+use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Button extends Component
 {
+    private ?string $typeClass = null;
+    private ?string $sizeClass = null;
+    public string $fullClass;
+
     final public const TYPES = [
         'primary'   => 'btn--primary',
         'secondary' => 'btn--secondary',
@@ -24,29 +29,124 @@ class Button extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $size = null,
+        public ?string $size = 'medium',
         public ?string $type = null,
         public ?string $label = null,
         public ?string $url = null,
-        public string  $target = "_self",
+        public ?string $target = null,
         public ?string $id = null,
         public ?string $tag = "div",
         public ?string $ariaLabel = null,
+        public ?array  $object = null,
     )
     {
-        $this->handleSize();
         $this->handleType();
+        $this->handleSize();
+        $this->handleUrl();
+        $this->handleTarget();
+        $this->handleLabel();
 
-    }
-
-    private function handleSize(): void
-    {
-        $this->size = $this->size && in_array($this->size, self::SIZES) ? $this->size : null;
+        $this->handleFullClass();
     }
 
     private function handleType(): void
     {
-        $this->type = $this->type && in_array($this->type, self::TYPES) ? $this->type : null;
+        $type = null;
+
+        if (null !== $this->type) {
+            $type = $this->type && in_array($this->type, array_keys(self::TYPES)) ? $this->type : null;
+        }
+
+
+        if (null === $type) {
+            if (null === $this->type && isset($this->object[ButtonField::BUTTON_TYPE])) {
+                $type = $this->object[ButtonField::BUTTON_TYPE];
+            }
+        }
+
+        if (null !== $type) {
+            $this->type = $type;
+            $this->typeClass = self::TYPES[$this->type];
+        }
+    }
+
+    private function handleSize(): void
+    {
+        $size = null;
+
+        if (null !== $this->size) {
+            $size = $this->size && in_array($this->size, array_keys(self::SIZES)) ? $this->size : null;
+        }
+
+        if (null !== $size) {
+            $this->size = $size;
+            $this->sizeClass = self::SIZES[$this->size];
+        }
+    }
+
+    private function handleUrl(): void
+    {
+        $url = null;
+
+        if (null !== $this->url) {
+            $url = $this->url;
+        }
+
+        if (null === $url && $this->object && isset($this->object[ButtonField::BUTTON_LINK]['url'])) {
+            $url = $this->object[ButtonField::BUTTON_LINK]['url'];
+        }
+
+        if ($url) {
+            $this->url = $url;
+            $this->tag = 'a';
+        }
+    }
+
+    private function handleLabel(): void
+    {
+        $label = null;
+
+        if (null !== $this->label) {
+            $label = $this->label;
+        }
+
+        if (null === $label && $this->object && isset($this->object[ButtonField::BUTTON_LINK]['title'])) {
+            $label = $this->object[ButtonField::BUTTON_LINK]['title'];
+        }
+
+        if ($label) {
+            $this->label = $label;
+            $this->ariaLabel = $label;
+
+            if ($this->target === '_blank') {
+                $this->ariaLabel .= ' - Ouvrir dans un nouvel onglet';
+            }
+        }
+    }
+
+    private function handleTarget(): void
+    {
+        $target = null;
+
+        if (null !== $this->target) {
+            $target = $this->target;
+        }
+
+        if (null === $target && $this->object && isset($this->object[ButtonField::BUTTON_LINK]['target'])) {
+            $target = $this->object[ButtonField::BUTTON_LINK]['target'];
+        }
+
+        if ($target) {
+            $this->target = $target;
+        }
+    }
+
+    private function handleFullClass(): void
+    {
+        $this->fullClass = implode(' ', [
+            $this->typeClass,
+            $this->sizeClass,
+        ]);
     }
 
     /**
