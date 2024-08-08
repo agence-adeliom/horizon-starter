@@ -5,7 +5,13 @@
   @endphp
 
   <x-block :fields="$fields">
-    <x-heading :fields="$fields['title']" />
+    @isset($fields['uptitle'])
+      <x-uptitle :content="$fields['uptitle']"/>
+    @endisset
+
+    @isset($fields['title'])
+      <x-heading :fields="$fields['title']"/>
+    @endisset
 
     {{-- md:grid-cols-3 md:grid-cols-4 --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-{{ count($fields['items']) }}">
