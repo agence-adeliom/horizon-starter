@@ -2,11 +2,14 @@
 
 namespace App\Livewire\Listing;
 
+use Adeliom\HorizonTools\Database\MetaQuery;
 use Adeliom\HorizonTools\Database\QueryBuilder;
 use Adeliom\HorizonTools\Database\TaxQuery;
 use Adeliom\HorizonTools\Enum\FilterTypesEnum;
+use Adeliom\HorizonTools\Services\AcfService;
 use Adeliom\HorizonTools\Services\ClassService;
 use Adeliom\HorizonTools\ViewModels\Post\BasePostViewModel;
+use Extended\ACF\Fields\Select;
 use Illuminate\Support\Facades\Request;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -43,7 +46,97 @@ class Listing extends Component
         $this->getData();
     }
 
-    private function initFilters()
+    private function initTaxonomyFilter(string $taxonomyName, string $filterName, FilterTypesEnum $filterType, string $appearance): void
+    {
+        $taxQb = new QueryBuilder();
+        $taxQb->taxonomy($taxonomyName)
+            ->fetchEmptyTaxonomies(false);
+
+        foreach ($taxQb->get() as $term) {
+            if ($term instanceof \WP_Term) {
+                if (!isset($this->filters[$filterName])) {
+                    $this->filters[$filterName] = [
+                        'type' => $filterType->value,
+                        'name' => $filterName,
+                        'appearance' => $appearance,
+                        'value' => $taxonomyName,
+                        'choices' => [],
+                    ];
+                }
+
+                $this->filters[$filterName]['choices'][] = [
+                    'slug' => $term->slug,
+                    'name' => $term->name,
+                ];
+            }
+        }
+    }
+
+    private function initMetaFilter(string $metaKey, string $filterName, FilterTypesEnum $filterType, string $appearance, string $postType, string $fieldClass): void
+    {
+        global $wpdb;
+
+        $query = <<<EOF
+        SELECT DISTINCT meta_value AS value
+        FROM {$wpdb->postmeta}
+        JOIN {$wpdb->posts} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
+        WHERE meta_key = %s AND post_type = %s AND post_status = 'publish'
+        EOF;
+
+        $query = $wpdb->prepare($query, $metaKey, $postType::$slug);
+
+        $results = $wpdb->get_results($query);
+
+        // Convert to array of values
+        $values = array_map(function ($result) {
+            return $result->value;
+        }, $results);
+
+        switch ($fieldClass) {
+            case Select::class:
+                $postTypeInstance = new $postType();
+                if ($choices = AcfService::getChoices($postTypeInstance->getFields(), $metaKey)) {
+                    if (!isset($this->filters[$filterName])) {
+                        $this->filters[$filterName] = [
+                            'type' => $filterType->value,
+                            'name' => $filterName,
+                            'appearance' => $appearance,
+                            'value' => $metaKey,
+                            'choices' => [],
+                        ];
+                    }
+                    foreach ($choices as $value => $label) {
+                        $this->filters[$filterName]['choices'][] = [
+                            'slug' => $value,
+                            'name' => $label,
+                        ];
+                    }
+                }
+                break;
+            default:
+                foreach ($values as $value) {
+                    if (!empty($value)) {
+                        if (!isset($this->filters[$filterName])) {
+                            $this->filters[$filterName] = [
+                                'type' => $filterType->value,
+                                'name' => $filterName,
+                                'appearance' => $appearance,
+                                'value' => $metaKey,
+                                'choices' => [],
+                            ];
+                        }
+
+                        $this->filters[$filterName]['choices'][] = [
+                            'slug' => $value,
+                            'name' => $value,
+                        ];
+                    }
+                }
+                break;
+        }
+    }
+
+    private function initFilters(): void
     {
         if ($postTypeClass = ClassService::getPostTypeClassBySlug($this->postType)) {
             $classInstance = new $postTypeClass();
@@ -61,28 +154,11 @@ class Listing extends Component
 
                     switch ($type) {
                         case FilterTypesEnum::TAXONOMY:
-                            $taxQb = new QueryBuilder();
-                            $taxQb->taxonomy($value)
-                                ->fetchEmptyTaxonomies(false);
-
-                            foreach ($taxQb->get() as $term) {
-                                if ($term instanceof \WP_Term) {
-                                    if (!isset($this->filters[$name])) {
-                                        $this->filters[$name] = [
-                                            'type' => $type->value,
-                                            'name' => $name,
-                                            'appearance' => $appearance,
-                                            'value' => $value,
-                                            'choices' => [],
-                                        ];
-                                    }
-
-                                    $this->filters[$name]['choices'][] = [
-                                        'slug' => $term->slug,
-                                        'name' => $term->name,
-                                    ];
-                                }
-                            }
+                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance);
+                            break;
+                        case FilterTypesEnum::META:
+                            $fieldClass = $filter['fieldClass'];
+                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $postTypeClass, fieldClass: $fieldClass);
                             break;
                         default:
                             break;
@@ -116,6 +192,14 @@ class Listing extends Component
                         $taxQuery->add($taxonomyName, [$value]);
 
                         $qb->addTaxQuery($taxQuery);
+                        break;
+                    case FilterTypesEnum::META->value:
+                        $metaName = $this->filters[$name]['value'];
+
+                        $metaQuery = new MetaQuery();
+                        $metaQuery->add($metaName, $value);
+
+                        $qb->addMetaQuery($metaQuery);
                         break;
                     default:
                         break;
