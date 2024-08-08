@@ -65,20 +65,10 @@ export default async (app) => {
       },
       custom: {
         spacing: {},
-        typography: {
-          'font-size': {},
-          'line-height': {},
-        },
       },
       spacing: {
         padding: true,
         units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
       },
-      typography: {
-        customFontSize: false,
-      },
-    })
-    .useTailwindColors()
-    .useTailwindFontFamily()
-    .useTailwindFontSize();
+    });
 };

@@ -1,0 +1,5 @@
+@layer components {
+  .heading {
+    @apply font-heading leading-dense font-semibold;
+  }
+}

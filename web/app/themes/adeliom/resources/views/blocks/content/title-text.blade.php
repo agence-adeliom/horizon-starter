@@ -1,15 +1,8 @@
-<x-block :fields="$fields" :anchor="$block['anchor']" class="caca boudin">
-    <x-slot:outContainer>
-        <div class="bg-blue">
-            Je suis un petit élément en dehors du container hihi
-            <p>Bonjour</p>
-        </div>
-
-    </x-slot>
-
+<x-block :fields="$fields">
     <div class="grid gap-6 lg:grid-cols-12">
         <div class="lg:col-span-5">
-            //heading
+            <x-heading :fields="$fields['title']" />
+            <x-heading tag="h4" content="Custom heading" />
         </div>
 
         <div class="lg:col-span-7">
