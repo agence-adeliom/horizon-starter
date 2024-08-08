@@ -1,5 +1,5 @@
 <x-block :fields="$fields">
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid-12">
         <div class="lg:col-span-5">
             <x-heading :fields="$fields['title']" />
             <x-heading tag="h4" content="Custom heading" />
