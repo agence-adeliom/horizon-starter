@@ -16,20 +16,21 @@
         {{ __('Skip to content') }}
       </a>
 
-      @include('sections.header')
-      @include('sections.header-lp')
+      @if($isLp)
+        @include('sections.header-lp')
+      @else
+        @include('sections.header')
+      @endif
 
       <main id="main" class="main">
         @yield('content')
       </main>
 
-      @hasSection('sidebar')
-        <aside class="sidebar">
-          @yield('sidebar')
-        </aside>
+      @if($isLp)
+        @include('sections.footer-lp')
+      @else
+        @include('sections.footer')
       @endif
-
-      @include('sections.footer')
     </div>
 
     @php(do_action('get_footer'))

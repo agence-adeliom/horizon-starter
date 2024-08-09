@@ -1,9 +1,3 @@
-<div class="container">
-
-    @if($logoFooter)
-        <img src="{{ $logoFooter['sizes']['large'] }}" alt="">
-    @endif
-
     <p>{{ date('Y') }} © {{$clientName}} </p>
 
     @if($legalsMenu)
