@@ -24,7 +24,7 @@
     <div class="results">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         @foreach($data['items'] as $post)
-          @php(dump($post))
+          <x-dynamic-component :component="$card" :content="$post"/>
         @endforeach
       </div>
     </div>

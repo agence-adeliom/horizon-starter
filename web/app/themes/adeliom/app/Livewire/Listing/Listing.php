@@ -31,6 +31,8 @@ class Listing extends Component
     public int $perPage = 12;
 
     public array $filters = [];
+    public ?string $postTypeClass = null;
+    public ?string $card = null;
 
     public array $sortOptions = [
         'date.DESC' => 'Plus récent',
@@ -39,6 +41,9 @@ class Listing extends Component
 
     public function mount(): void
     {
+        $this->postTypeClass = ClassService::getPostTypeClassBySlug($this->postType);
+        $this->card = $this->postTypeClass::$card;
+
         $this->initFilters();
 
         if ($page = Request::get('pagination')) {
@@ -144,32 +149,30 @@ class Listing extends Component
 
     private function initFilters(): void
     {
-        if ($postTypeClass = ClassService::getPostTypeClassBySlug($this->postType)) {
-            $classInstance = new $postTypeClass();
+        $classInstance = new $this->postTypeClass();
 
-            if (method_exists($classInstance, 'getFilters')) {
-                foreach ($classInstance->getFilters() as $filter) {
-                    if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
-                        throw new \Exception("Filter must have a type, appearance and value");
-                    }
+        if (method_exists($classInstance, 'getFilters')) {
+            foreach ($classInstance->getFilters() as $filter) {
+                if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
+                    throw new \Exception("Filter must have a type, appearance and value");
+                }
 
-                    $type = $filter['type'];
-                    $appearance = $filter['appearance'];
-                    $value = $filter['value'];
-                    $name = $filter['name'] ?? $value;
-                    $placeholder = $filter['placeholder'] ?? 'Filtre';
+                $type = $filter['type'];
+                $appearance = $filter['appearance'];
+                $value = $filter['value'];
+                $name = $filter['name'] ?? $value;
+                $placeholder = $filter['placeholder'] ?? 'Filtre';
 
-                    switch ($type) {
-                        case FilterTypesEnum::TAXONOMY:
-                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
-                            break;
-                        case FilterTypesEnum::META:
-                            $fieldClass = $filter['fieldClass'];
-                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
-                            break;
-                        default:
-                            break;
-                    }
+                switch ($type) {
+                    case FilterTypesEnum::TAXONOMY:
+                        $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
+                        break;
+                    case FilterTypesEnum::META:
+                        $fieldClass = $filter['fieldClass'];
+                        $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                        break;
+                    default:
+                        break;
                 }
             }
         }
