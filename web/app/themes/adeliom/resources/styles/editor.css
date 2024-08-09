@@ -1,0 +1,99 @@
+.is-root-container {
+    margin: auto;
+    max-width: 100%;
+
+    .row {
+        margin: 0 auto;
+    }
+}
+
+html :where(.wp-block) {
+    @apply container;
+}
+
+
+.interface-interface-skeleton__sidebar {
+    width: 25vw !important;
+    .interface-complementary-area__fill{
+        width: 100% !important;
+        .editor-sidebar{
+            width: 100% !important;
+        }
+    }
+
+}
+
+#tinymce * {
+    font-family: 'DIN Next LT Pro', sans-serif;
+}
+
+#tinymce {
+    padding: 20px;
+}
+
+.wysiwyg__content p {
+    font-size: inherit !important;
+}
+
+.wysiwyg__content {
+    h2, h3, h4, h5 {
+        color: inherit !important;
+    }
+}
+
+.block-editor {
+    &-inserter {
+        &__preview-container {
+            width: 500px !important;
+            max-height: none !important;
+        }
+
+        &__preview-content {
+            min-height: 250px !important;
+            margin:0 !important;
+            *{
+                margin : 0 !important;
+            }
+        }
+    }
+
+    /*&-block-icon {
+        width: 40px;
+        height: 40px;
+        svg {
+            min-width: 28px;
+            min-height: 28px;
+            max-width: 100%;
+            max-height: 100%;
+            fill: none !important;
+        }
+    }*/
+}
+
+.editor-styles-wrapper.block-editor-writing-flow {
+
+    .block-editor-block-list__block {
+        margin: 0 auto;
+    }
+
+    .wp-block {
+        max-width: 100% !important;
+    }
+
+}
+
+.block-editor__container img {
+    width: auto !important;
+    &.h-full {
+        height: 100% !important;
+    }
+}
+
+
+.entry-thumbnail {
+    display: none;
+}
+
+.mce-menu-item.mce-menu-item-preview.mce-active .mce-text {
+    color: white !important;
+}
