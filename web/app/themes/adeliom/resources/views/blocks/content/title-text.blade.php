@@ -1,5 +1,5 @@
 <x-block :fields="$fields">
-    <div class="grid-12 awc-theme-dark dark">
+    <div class="grid-12">
         <div class="lg:col-span-5">
             <x-typography.heading :fields="$fields['title']" />
         </div>
