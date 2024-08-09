@@ -1,40 +1,40 @@
 <!doctype html>
 <html @php(language_attributes())>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @php(do_action('get_header'))
     @php(wp_head())
     @livewireStyles
-  </head>
+</head>
 
-  <body @php(body_class())>
-    @php(wp_body_open())
+<body @php(body_class())>
+@php(wp_body_open())
 
-    <div id="app">
-      <a class="sr-only focus:not-sr-only" href="#main">
+<div id="app">
+    <a class="sr-only focus:not-sr-only" href="#main">
         {{ __('Skip to content') }}
-      </a>
+    </a>
 
-      @if($isLp)
+    @if($isLp)
         @include('sections.header-lp')
-      @else
+    @else
         @include('sections.header')
-      @endif
+    @endif
 
-      <main id="main" class="main">
+    <main id="main" class="main">
         @yield('content')
-      </main>
+    </main>
 
-      @if($isLp)
+    @if($isLp)
         @include('sections.footer-lp')
-      @else
+    @else
         @include('sections.footer')
-      @endif
-    </div>
+    @endif
+</div>
 
-    @php(do_action('get_footer'))
-    @php(wp_footer())
-    @livewireScripts
-  </body>
+@php(do_action('get_footer'))
+@php(wp_footer())
+@livewireScripts
+</body>
 </html>

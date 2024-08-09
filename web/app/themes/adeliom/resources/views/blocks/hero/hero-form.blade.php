@@ -1,7 +1,11 @@
-<x-block :fields="$fields">
+<x-block :fields="$fields" class="bg-color-02-50 relative" background="none">
     <div class="grid-12">
         <div class="lg:col-span-5">
-            <x-typography.heading :fields="$fields['title']" />
+            <x-typography.heading :fields="$fields['title']" size="5"/>
+
+            @if($fields['desc'])
+                <x-typography.text :content="$fields['desc']" />
+            @endif
 
             <div class="wysiwyg">
                 {!! $fields['wysiwyg'] !!}

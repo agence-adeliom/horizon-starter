@@ -12,6 +12,7 @@ use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 use App\Fields\FormField;
 use App\Fields\OfferField;
+use Extended\ACF\Fields\Text;
 
 class HeroForm extends AbstractBlock
 {
@@ -21,6 +22,8 @@ class HeroForm extends AbstractBlock
     public static string $category = 'hero';
 
     public const string FORM_TITLE = "form-title";
+    final public const string FIELD_DESC = "desc";
+
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
@@ -28,6 +31,7 @@ class HeroForm extends AbstractBlock
             WysiwygField::make(),
             OfferField::make(),
             HeadingField::make("Titre au dessus du formulaire", self::FORM_TITLE)->required(),
+            Text::make("Description du formulaire", self::FIELD_DESC),
             FormField::selectGF(),
         ]);
 
