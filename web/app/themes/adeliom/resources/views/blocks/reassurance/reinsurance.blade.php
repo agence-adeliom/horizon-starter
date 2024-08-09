@@ -1,4 +1,4 @@
-@if ($fields['items'])
+@if ($fields && $fields['items'])
     @php
         $type = $fields['type'] ?? 'default';
         $light = $type === 'light';
@@ -14,28 +14,30 @@
         @endisset
 
         {{-- md:grid-cols-3 md:grid-cols-4 --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-{{ count($fields['items']) }}">
+        <div class="flex flex-wrap">
             @foreach ($fields['items'] as $item)
-                <div class="{{ $light ? 'flex flex-row' : '' }}">
-                    @isset($item['icon'])
-                        <div>
+                <div
+                    class="basis-full md:basis-1/2 lg:basis-1/{{ count($fields['items']) }} {{ $light ? 'basis-full flex flex-row items-center gap-medium p-xlarge max-md:justify-center' : '' }}">
+                    @if (@isset($item['icon']) && $item['icon'])
+                        <div class="text-3xl text-primary">
                             {!! $item['icon'] !!}
                         </div>
                     @endisset
 
-                    @isset($item['data'])
+                    @if (@isset($item['data']) && $item['data'])
                         <div>
+                            data
                             {{ $item['data'] }}
                         </div>
                     @endisset
 
-                    @isset($item['title'])
-                        <div>
+                    @if (@isset($item['title']) && $item['title'])
+                        <div class="text-large text-text-secondary">
                             {{ $item['title'] }}
                         </div>
                     @endisset
-                </div>
-            @endforeach
-        </div>
-    </x-block>
+    </div>
+@endforeach
+</div>
+</x-block>
 @endif

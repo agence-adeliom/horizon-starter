@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} config */
 const config = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
+  safelist: [
+    'basis-1/2 lg:basis-1/3 lg:basis-1/4',
+  ],
   theme: {
     extend: {
       colors: {
@@ -276,6 +279,7 @@ const config = {
         small: 'var(--awc-spacing-small)',
         medium: 'var(--awc-spacing-medium)',
         large: 'var(--awc-spacing-large)',
+        xlarge: 'var(--awc-spacing-xlarge)',
         '2xlarge': 'var(--awc-spacing-2xlarge)',
         '3xlarge': 'var(--awc-spacing-3xlarge)',
         '4xlarge': 'var(--awc-spacing-4xlarge)',

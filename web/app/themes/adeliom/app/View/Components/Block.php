@@ -18,7 +18,7 @@ class Block extends Component
 
     final public const PADDINGS = [
         'none'          => '',
-        'small'         => 'py-section-mobile',
+        'small'         => 'py-large',
         'large'         => 'py-section-mobile lg:py-section-desktop',
         'top-remove'    => 'pt-0 lg:pt-0',
         'bottom-remove' => 'pb-0 lg:pb-0',
@@ -47,8 +47,7 @@ class Block extends Component
         public ?string          $container = null,
         public ?string          $anchor = null,
         public ?string          $class = null,
-    )
-    {
+    ) {
 
         $this->handleClassName();
         $this->handleBackground();
@@ -59,7 +58,8 @@ class Block extends Component
     }
 
 
-    private function handleClassName() :void {
+    private function handleClassName(): void
+    {
         if (null === $this->class) {
             $this->freeClass = '';
         } else {
