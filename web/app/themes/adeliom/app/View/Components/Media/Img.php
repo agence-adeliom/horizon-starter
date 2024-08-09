@@ -39,8 +39,7 @@ class Img extends Component
             ]);
 
             $this->containerClass = trim(implode(' ', [
-                $this->containerClass,
-                'relative',
+                null !== $this->containerClass ? $this->containerClass : 'relative',
                 $this->ratio,
             ]));
         }

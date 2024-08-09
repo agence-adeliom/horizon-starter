@@ -18,7 +18,7 @@
       <x-media.img :image="$image" class="cover-full" :ratio="$ratioClass"/>
     @elseif($isVideo)
       <x-media.img :image="$thumbnail" class="cover-full" :ratio="$ratioClass"/>
-      @dump($video)
+      <x-media.video :video="$video"/>
     @elseif($isYouTube)
       <x-media.img :image="$thumbnail" class="cover-full" :ratio="$ratioClass"/>
       <x-media.youtube :id="$idYouTube"/>
