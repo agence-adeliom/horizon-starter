@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Components;
+namespace App\View\Components\Typography;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -16,8 +16,7 @@ class Uptitle extends Component
         public string  $tag = 'div',
         public ?string $content = null,
         public ?string $class = null,
-    )
-    {
+    ) {
         $this->handleClasses();
     }
 
@@ -30,6 +29,6 @@ class Uptitle extends Component
 
     public function render(): View|Closure|string
     {
-        return view('components.uptitle');
+        return view('components.typography.uptitle');
     }
 }

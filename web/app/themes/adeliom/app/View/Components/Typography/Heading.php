@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Typography;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -54,6 +54,6 @@ class Heading extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.heading');
+        return view('components.typography.heading');
     }
 }

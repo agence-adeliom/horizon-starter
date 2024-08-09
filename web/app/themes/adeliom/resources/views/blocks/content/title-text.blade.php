@@ -1,12 +1,10 @@
 <x-block :fields="$fields">
-    <div class="grid-12">
+    <div class="grid-12 awc-theme-dark dark">
         <div class="lg:col-span-5">
-            <x-heading :fields="$fields['title']" />
-            <x-heading tag="h4" content="Custom heading" />
+            <x-typography.heading :fields="$fields['title']" />
         </div>
-
         <div class="lg:col-span-7">
-            //wysiwyg
+            <x-typography.text :content="$fields['wysiwyg']" />
         </div>
     </div>
 </x-block>

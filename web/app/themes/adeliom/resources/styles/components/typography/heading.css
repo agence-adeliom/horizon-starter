@@ -1,8 +1,7 @@
 @layer components {
   .heading {
-    @apply font-heading leading-tight font-semibold text-primary-text;
+    @apply font-heading leading-tight font-semibold text-text-primary;
   }
-
   .heading-1 {
     @apply text-5xlarge lg:text-6xlarge xl:text-7xlarge;
   }
@@ -18,7 +17,6 @@
   .heading-5 {
     @apply text-xlarge lg:text-2xlarge xl:text-3xlarge;
   }
-
   .headline {
     @apply text-accent text-medium font-semibold uppercase leading-normal tracking-wider;
   }

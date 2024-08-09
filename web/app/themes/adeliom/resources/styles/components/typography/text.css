@@ -1,4 +1,5 @@
 @layer components {
   .p {
+    @apply text-text-secondary;
   }
 }

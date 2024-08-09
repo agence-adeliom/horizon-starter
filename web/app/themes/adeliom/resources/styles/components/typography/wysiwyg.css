@@ -1,0 +1,66 @@
+.prose {
+  .h1,
+  h1 {
+    @apply heading heading-1;
+  }
+
+  .h2,
+  h2 {
+    @apply heading heading-2;
+  }
+
+  .h3,
+  h3 {
+    @apply heading heading-3;
+  }
+
+  .h4,
+  h4 {
+    @apply heading heading-4;
+  }
+
+  .h5,
+  h5 {
+    @apply heading heading-5;
+  }
+
+  a:not(.btn) {
+    @apply cursor-pointer underline font-medium text-primary;
+  }
+
+  ul,
+  ol,
+  p {
+    @apply text-text-primary;
+  }
+
+  ul,
+  ol {
+    @apply marker:text-primary marker:font-semibold marker:text-medium;
+  }
+
+  ol {
+    list-style-type: decimal-leading-zero;
+  }
+}
+
+#tinymce,
+.prose {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol,
+  p,
+  li {
+    & + ul,
+    & + ol,
+    & + li,
+    & + p {
+      @apply mt-2;
+    }
+  }
+}

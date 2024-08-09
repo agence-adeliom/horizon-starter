@@ -4,12 +4,15 @@ const config = {
   theme: {
     extend: {
       colors: {
+        text: {
+          primary: 'var(--awc-text-primary-color)',
+          secondary: 'var(--awc-text-secondary-color)',
+        },
         primary: {
           DEFAULT: 'var(--awc-color-primary-main)',
           dark: 'var(--awc-color-primary-dark)',
           light: 'var(--awc-color-primary-light)',
           contrast: 'var(--awc-color-primary-contrast)',
-          text: 'var(--awc-text-primary-color)',
           states: {
             selected: 'var(--awc-color-primary-states-selected)',
             hover: 'var(--awc-color-primary-states-hover)',
@@ -427,7 +430,9 @@ const config = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
 
 export default config;

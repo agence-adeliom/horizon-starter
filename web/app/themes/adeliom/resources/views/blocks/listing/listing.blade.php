@@ -1,24 +1,24 @@
 @php
-  $postType = null;
-  $perPage = 12;
+    $postType = null;
+    $perPage = 12;
 
-  if(isset($fields['postType'])){
-      $postType = $fields['postType'];
-  }
+    if (isset($fields['postType'])) {
+        $postType = $fields['postType'];
+    }
 
-  if(isset($fields['perPage'])){
-      $perPage = $fields['perPage'];
-  }
+    if (isset($fields['perPage'])) {
+        $perPage = $fields['perPage'];
+    }
 @endphp
 
 <x-block :fields="$fields">
-  @isset($fields['uptitle'])
-    <x-uptitle :content="$fields['uptitle']"/>
-  @endisset
+    @isset($fields['uptitle'])
+        <x-typography.uptitle :content="$fields['uptitle']" />
+    @endisset
 
-  @isset($fields['title'])
-    <x-heading :fields="$fields['title']"/>
-  @endisset
+    @isset($fields['title'])
+        <x-typography.heading :fields="$fields['title']" />
+    @endisset
 
-    <livewire:listing.listing :post-type="$postType" :per-page="$perPage"/>
+    <livewire:listing.listing :post-type="$postType" :per-page="$perPage" />
 </x-block>
