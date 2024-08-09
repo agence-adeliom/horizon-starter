@@ -2,12 +2,13 @@
  $positionClass = $fields['position'] != 'left' ? 'lg:col-start-3' : '';
   $bgType = $fields['bg-type'] ?? 'bg-color-type';
   $bgColor = $bgType  === "bg-color-type" ? "bg-color-02-50" : "";
-  $bgImage = ($bgType === "bg-image-type" && isset($fields['bg-image'])) ? $fields['bg-image']['sizes']['large'] : "";
+  $bgImage = ($bgType === "bg-image-type" && isset($fields['bg-image'])) ? $fields['bg-image'] : "";
 @endphp
 
 <x-block :fields="$fields" class="{{$bgColor}} relative" background="none">
+
     @if($bgImage)
-        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('{{ $bgImage }}')"></div>
+        <x-media.img :image="$bgImage" class="cover-full" size="full" container-class="absolute-full"/>
     @endif
     <div class="container z-10 relative">
         <div class="grid-12">

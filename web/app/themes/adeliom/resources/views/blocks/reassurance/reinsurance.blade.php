@@ -17,7 +17,7 @@
         <div class="flex flex-wrap">
             @foreach ($fields['items'] as $item)
                 <div
-                    class="basis-full md:basis-1/2 lg:basis-1/{{ count($fields['items']) }} {{ $light ? 'basis-full flex flex-row items-center gap-medium p-xlarge max-md:justify-center' : '' }}">
+                        class="basis-full md:basis-1/2 lg:basis-1/{{ count($fields['items']) }} {{ $light ? 'basis-full flex flex-row items-center gap-medium p-xlarge max-md:justify-center' : '' }}">
                     @if (@isset($item['icon']) && $item['icon'])
                         <div class="text-3xl text-primary">
                             {!! $item['icon'] !!}
@@ -36,8 +36,8 @@
                             {{ $item['title'] }}
                         </div>
                     @endisset
-    </div>
-@endforeach
-</div>
-</x-block>
+                </div>
+            @endforeach
+        </div>
+    </x-block>
 @endif
