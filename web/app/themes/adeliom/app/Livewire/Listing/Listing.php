@@ -49,7 +49,7 @@ class Listing extends Component
         $this->getData();
     }
 
-    private function initTaxonomyFilter(string $taxonomyName, string $filterName, FilterTypesEnum $filterType, string $appearance): void
+    private function initTaxonomyFilter(string $taxonomyName, string $filterName, FilterTypesEnum $filterType, string $appearance, string $placeholder): void
     {
         $taxQb = new QueryBuilder();
         $taxQb->taxonomy($taxonomyName)
@@ -63,6 +63,7 @@ class Listing extends Component
                         'name' => $filterName,
                         'appearance' => $appearance,
                         'value' => $taxonomyName,
+                        'placeholder' => $placeholder,
                         'choices' => [],
                     ];
                 }
@@ -75,7 +76,7 @@ class Listing extends Component
         }
     }
 
-    private function initMetaFilter(string $metaKey, string $filterName, FilterTypesEnum $filterType, string $appearance, string $postType, string $fieldClass): void
+    private function initMetaFilter(string $metaKey, string $filterName, FilterTypesEnum $filterType, string $appearance, string $postType, string $fieldClass, string $placeholder): void
     {
         global $wpdb;
 
@@ -105,6 +106,7 @@ class Listing extends Component
                             'name' => $filterName,
                             'appearance' => $appearance,
                             'value' => $metaKey,
+                            'placeholder' => $placeholder,
                             'choices' => [],
                         ];
                     }
@@ -125,6 +127,7 @@ class Listing extends Component
                                 'name' => $filterName,
                                 'appearance' => $appearance,
                                 'value' => $metaKey,
+                                'placeholder' => $placeholder,
                                 'choices' => [],
                             ];
                         }
@@ -154,14 +157,15 @@ class Listing extends Component
                     $appearance = $filter['appearance'];
                     $value = $filter['value'];
                     $name = $filter['name'] ?? $value;
+                    $placeholder = $filter['placeholder'] ?? 'Filtre';
 
                     switch ($type) {
                         case FilterTypesEnum::TAXONOMY:
-                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance);
+                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
                             break;
                         case FilterTypesEnum::META:
                             $fieldClass = $filter['fieldClass'];
-                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $postTypeClass, fieldClass: $fieldClass);
+                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
                             break;
                         default:
                             break;
