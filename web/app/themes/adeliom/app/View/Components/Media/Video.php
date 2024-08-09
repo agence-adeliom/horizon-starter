@@ -21,6 +21,9 @@ class Video extends Component
         public ?int   $height = 315,
         public bool   $controls = true,
         public bool   $autoplay = false,
+        public ?string $ratio = null,
+        public ?string $containerClass = null,
+        public ?string $class = null,
     )
     {
         $this->handleData();
@@ -35,6 +38,11 @@ class Video extends Component
         if (isset($this->video['mime_type'])) {
             $this->mimeType = $this->video['mime_type'];
         }
+
+        $this->containerClass = trim(implode(' ', [
+            null !== $this->containerClass ? $this->containerClass : 'relative',
+            $this->ratio,
+        ]));
     }
 
     /**
