@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Blocks\Content;
+namespace App\Blocks\Reassurance;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
@@ -12,7 +12,6 @@ use Adeliom\HorizonTools\Fields\Text\FontAwesomeIcon;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Extended\ACF\Fields\ButtonGroup;
-use Extended\ACF\Fields\IconPicker;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Text;
 
@@ -21,6 +20,7 @@ class ReinsuranceBlock extends AbstractBlock
     public static ?string $slug = 'reinsurance';
     public static ?string $title = 'Réassurance';
     public static ?string $mode = 'preview';
+    public static string $category = 'reassurance';
 
     final public const FIELD_ITEMS = 'items';
     final public const FIELD_ICON = 'icon';
