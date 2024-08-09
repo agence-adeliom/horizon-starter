@@ -288,6 +288,7 @@ const config = {
       },
       gap : {
         card: 'var(--awc-card-padding)',
+        medium : 'var(--awc-spacing-medium)',
       },
       letterSpacing: {
         input: 'var(--awc-input-letter-spacing)',
