@@ -17,20 +17,22 @@
                     <x-typography.heading :fields="$fields['title']" size="5" />
 
                     @if ($fields['desc'])
-                        <x-typography.text :content="$fields['desc']" />
+                        <x-typography.text :content="$fields['desc']" class="mt-title-text-mobile lg:mt-title-text-desktop" />
                     @endif
                     @if ($fields['offer'] && $fields['offer']['enable'])
-                        <x-offer :fields="$fields['offer']" />
+                        <x-offer :fields="$fields['offer']" class="mt-3xlarge" />
                     @endif
 
                     @if ($fields['form_id'])
-                        @php
-                            echo do_shortcode(
-                                '[gravityform id="' .
-                                    $fields['form_id'] .
-                                    '" title="false" description="false" ajax="true"]',
-                            );
-                        @endphp
+                        <div class="mt-button-text-mobile lg:mt-button-text-desktop">
+                            @php
+                                echo do_shortcode(
+                                    '[gravityform id="' .
+                                        $fields['form_id'] .
+                                        '" title="false" description="false" ajax="true"]',
+                                );
+                            @endphp
+                        </div>
                     @endif
                 </div>
             </div>

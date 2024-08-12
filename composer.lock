@@ -49,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                "reference": "7f4b3c61b3efe5fd8d739ae52adae9984b4ed113"
+                "reference": "6b46caf79d6a4ffbb4de641e3f78fbe59517a9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/7f4b3c61b3efe5fd8d739ae52adae9984b4ed113",
-                "reference": "7f4b3c61b3efe5fd8d739ae52adae9984b4ed113",
+                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/6b46caf79d6a4ffbb4de641e3f78fbe59517a9e5",
+                "reference": "6b46caf79d6a4ffbb4de641e3f78fbe59517a9e5",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
             },
-            "time": "2024-08-09T10:15:35+00:00"
+            "time": "2024-08-11T08:41:53+00:00"
         },
         {
             "name": "brick/math",

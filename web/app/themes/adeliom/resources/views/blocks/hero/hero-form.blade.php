@@ -5,7 +5,7 @@
             <x-typography.text :content="$fields['wysiwyg']" class="mt-6 list-check" />
 
             @if ($fields['offer'])
-                <x-offer :fields="$fields['offer']" class="mt-3xlarge nested " />
+                <x-offer :fields="$fields['offer']" class="mt-3xlarge" />
             @endif
 
         </div>
