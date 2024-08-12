@@ -2,8 +2,8 @@
     <div class="container awc-theme-dark flex flex-col">
         @if ($logoFooter)
             <div class="border-b border-primary-light w-full pb-8 md:pb-5xlarge">
-                <a href="/" class="mx-auto flex justify-center">
-                    <img src="{{ $logoFooter['sizes']['large'] }}" alt="" class="w-24 h-auto">
+                <a href="{{ home_url('/') }}" class="mx-auto flex justify-center">
+                    <img src="{{ $logoFooter['sizes']['large'] }}" alt="Logo" class="w-24 h-auto">
                 </a>
             </div>
         @endif

@@ -1,0 +1,21 @@
+.gform-theme--framework {
+  .gfield_radio {
+    & + & {
+      @apply mt-2.5;
+    }
+    input[type='radio'] {
+      @apply h-6 w-6 !border-neutral-300 !bg-white focus:!border-primary !shadow-none;
+
+      &:checked:before {
+        @apply !bg-white;
+      }
+
+      &:checked {
+        @apply !border-primary !bg-primary;
+      }
+    }
+
+    label {
+    }
+  }
+}

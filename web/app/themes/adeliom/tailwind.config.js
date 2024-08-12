@@ -11,6 +11,9 @@ const config = {
           primary: 'var(--awc-text-primary-color)',
           secondary: 'var(--awc-text-secondary-color)',
         },
+        background: {
+          DEFAULT: 'var(--awc-background-color)',
+        },
         primary: {
           DEFAULT: 'var(--awc-color-primary-main)',
           dark: 'var(--awc-color-primary-dark)',
@@ -274,6 +277,7 @@ const config = {
         'input-help-text-lg': 'var(--awc-input-help-text-font-size-large)',
       },
       spacing: {
+        '3xsmall': 'var(--awc-spacing-3xsmall)',
         '2xsmall': 'var(--awc-spacing-2xsmall)',
         xsmall: 'var(--awc-spacing-xsmall)',
         small: 'var(--awc-spacing-small)',
@@ -287,6 +291,16 @@ const config = {
         '6xlarge': 'var(--awc-spacing-6xlarge)',
         '7xlarge': 'var(--awc-spacing-7xlarge)',
         'tooltip-arrow': 'var(--awc-tooltip-arrow-size)',
+        'title-text-mobile': 'var(--awc-section-spacing-title-text-mobile)',
+        'title-text-desktop': 'var(--awc-section-spacing-title-text-desktop)',
+        'text-image-mobile': 'var(--awc-section-spacing-text-image-mobile)',
+        'text-image-desktop': 'var(--awc-section-spacing-text-image-desktop)',
+        'headline-title-mobile': 'var(--awc-section-spacing-headline-title-mobile)',
+        'headline-title-desktop': 'var(--awc-section-spacing-headline-title-desktop)',
+        'button-text-mobile': 'var( --awc-section-spacing-button-text-mobile)',
+        'button-text-desktop': 'var( --awc-section-spacing-button-text-desktop)',
+        'button-button-mobile': 'var( --awc-section-spacing-button-button-mobile)',
+        'button-button-desktop': 'var( --awc-section-spacing-button-button-desktop)',
         input: {
           sm: 'var(--awc-input-spacing-small)',
           md: 'var(--awc-input-spacing-medium)',

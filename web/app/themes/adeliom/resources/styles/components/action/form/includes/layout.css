@@ -1,0 +1,29 @@
+.gform-theme--foundation .gform_fields {
+  @apply gap-y-2;
+}
+
+.gform_wrapper {
+  @apply !w-full;
+}
+
+.gform_confirmation_wrapper.gform_wrapper.gform-theme.gform-theme--foundation
+  .gform_confirmation_message {
+  @apply text-large text-center;
+
+  strong {
+    @apply heading heading-5 flex items-center justify-center gap-medium pb-title-text-desktop;
+
+    &:before {
+      @apply grid place-items-center;
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='35' width='35' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--%3E%3Cpath class='fa-secondary' opacity='.4' fill='%23e73150' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3Cpath class='fa-primary' fill='%23e73150' d='M369 175c9.4 9.4 9.4 24.6 0 33.9L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0z'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+.show-on-submit:has(~ .gform_confirmation_wrapper) {
+  @apply block;
+}
+
+.hide-on-submit:has(~ .gform_confirmation_wrapper) {
+  @apply hidden;
+}

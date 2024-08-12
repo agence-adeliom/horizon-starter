@@ -17,5 +17,12 @@
     &--decimal {
       @apply list-decimal;
     }
+
+    &-check ul li {
+      &::marker {
+        content: '\f058';
+        font-family: 'Font Awesome 6 Pro';
+      }
+    }
   }
 }

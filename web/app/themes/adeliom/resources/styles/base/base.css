@@ -374,6 +374,7 @@
     --awc-color-secondary-contrast: var(--awc-color-neutral-50);
     --awc-card-border-color: var(--awc-color-neutral-200);
   }
+
   :host,
   .awc-theme-dark,
   :is([data-mode='light'] .dark\:awc-theme-dark),
