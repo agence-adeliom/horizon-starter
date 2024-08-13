@@ -445,7 +445,15 @@ const config = {
       },
       container: {
         center: true,
-      }
+        padding: {
+            'DEFAULT': '1rem',
+            'sm': '2.5rem',
+            'md': '2.25rem',
+            'lg': '2.75rem',
+            'xl': '2.5rem',
+            '2xl': '3rem',
+        },
+      },
     },
   },
   plugins: [

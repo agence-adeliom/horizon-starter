@@ -22,7 +22,7 @@ class CtaBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             HeadingField::make()->required(),
-            WysiwygField::simple(),
+            WysiwygField::minimal()->helperText("1 ou 2 phrases maximum recommandées."),
             ButtonField::types()
         ]);
 

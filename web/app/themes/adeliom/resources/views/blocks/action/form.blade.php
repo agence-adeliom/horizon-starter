@@ -10,10 +10,10 @@
     @if ($bgImage)
         <x-media.img :image="$bgImage" class="cover-full" size="full" container-class="absolute-full" />
     @endif
-    <div class="container z-10 relative">
+    <div class="z-10 relative">
         <div class="grid-12">
             <div class="lg:col-span-8 {{ $positionClass }}">
-                <div class="bg-white rounded-card p-10">
+                <div class="bg-white rounded-card p-6 lg:p-10">
                     <x-typography.heading :fields="$fields['title']" size="5" />
 
                     @if ($fields['desc'])
