@@ -1,0 +1,5 @@
+{
+    "extends": "@roots/bud-typescript/tsconfig/tsconfig.json",
+    "include": ["./resources/scripts/**/*.ts", "./resources/scripts/types/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
