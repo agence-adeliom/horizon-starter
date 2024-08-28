@@ -9,35 +9,37 @@ use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\FontAwesomeIcon;
+use Adeliom\HorizonTools\Fields\Text\HeadingField;
+use Adeliom\HorizonTools\Fields\Text\UptitleField;
+use Extended\ACF\Fields\ButtonGroup;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Text;
 
-class ReinsuranceBlock extends AbstractBlock
+class KeyFigureBlock extends AbstractBlock
 {
-    final public const string FIELD_ITEMS = 'items';
-    final public const string FIELD_ICON = 'icon';
-    final public const string FIELD_TITLE = 'title';
-    final public const string FIELD_DATA = 'data';
-    private const int TITLE_MAX_LENGTH = 100;
-
-    public static ?string $slug = 'reinsurance';
-    public static ?string $title = 'Réassurance';
-    public static string $category = 'reassurance';
-    public static ?string $description = "Éléments visuels et textuels destinés à renforcer la confiance.";
+    final public const FIELD_ITEMS = 'items';
+    final public const FIELD_ICON = 'icon';
+    final public const FIELD_TITLE = 'title';
+    final public const FIELD_DATA = 'data';
+    final public const FIELD_TYPE = 'type';
+    private const TITLE_MAX_LENGTH = 100;
+    public static ?string $slug = 'key-figure';
+    public static ?string $title = 'Chiffres clés';
+    public static ?string $description = "Chiffres percutants destinés à renforcer la crédibilité ou souligner des données marquantes.";
 
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
+            UptitleField::make(),
+            HeadingField::make()->required(),
             Repeater::make(__('Éléments'), self::FIELD_ITEMS)
                 ->minRows(3)
                 ->maxRows(4)
                 ->layout('block')
-                ->collapsed(self::FIELD_TITLE)
                 ->fields([
-                    FontAwesomeIcon::make(__('Icône'), self::FIELD_ICON)->required(),
+                    FontAwesomeIcon::make(__('Icône'), self::FIELD_ICON),
                     Text::make(__('Donnée'), self::FIELD_DATA),
                     Text::make(__('Titre'), self::FIELD_TITLE)
-                        ->required()
                         ->maxLength(self::TITLE_MAX_LENGTH)
                         ->helperText(__(sprintf('Maximum %s caractères', self::TITLE_MAX_LENGTH))),
                 ]),
@@ -45,6 +47,12 @@ class ReinsuranceBlock extends AbstractBlock
 
         yield from LayoutTab::make()->fields([
             LayoutField::margin(),
+            LayoutField::darkMode(),
+            ButtonGroup::make(__('Type'), self::FIELD_TYPE)
+                ->choices([
+                    'default' => __('Par défaut'),
+                    'light'   => __('Simple'),
+                ]),
         ]);
     }
 
