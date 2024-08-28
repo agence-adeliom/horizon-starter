@@ -47,14 +47,4 @@ class ReinsuranceBlock extends AbstractBlock
             LayoutField::margin(),
         ]);
     }
-
-    public function addToContext(): array
-    {
-        return [];
-    }
-
-    public function renderBlockCallback(): void
-    {
-        return;
-    }
 }
