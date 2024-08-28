@@ -2,16 +2,26 @@
     @php
         $type = $fields['type'] ?? 'default';
         $light = $type === 'light';
+        $withBg = $type === 'with_bg';
+        $framed = $type === 'framed';
     @endphp
 
-    <x-block :fields="$fields">
-        @isset($fields['uptitle'])
-            <x-typography.uptitle :content="$fields['uptitle']"/>
-        @endisset
 
-        @isset($fields['title'])
-            <x-typography.heading :fields="$fields['title']"/>
-        @endisset
+    <x-block :fields="$fields">
+
+        <div class="flex flex-col items-center">
+            @isset($fields['uptitle'])
+                <x-typography.uptitle :content="$fields['uptitle']"/>
+            @endisset
+
+            @isset($fields['title'])
+                <x-typography.heading :fields="$fields['title']" :size="3"/>
+            @endisset
+
+            @isset($fields['wysiwyg'])
+                <x-typography.text :content="$fields['wysiwyg']" class="mt-4 text-center text-large"/>
+            @endisset
+        </div>
 
         {{-- md:grid-cols-3 md:grid-cols-4 --}}
         <div class="flex flex-wrap">
