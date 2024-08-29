@@ -1,15 +1,13 @@
 @if ($fields && $fields['items'])
     @php
         $type = $fields['type'] ?? 'default';
-        $light = $type === 'light';
         $withBg = $type === 'with_bg';
         $framed = $type === 'framed';
     @endphp
 
 
     <x-block :fields="$fields">
-
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center pb-section-mobile">
             @isset($fields['uptitle'])
                 <x-typography.uptitle :content="$fields['uptitle']"/>
             @endisset
@@ -23,20 +21,17 @@
             @endisset
         </div>
 
-        {{-- md:grid-cols-3 md:grid-cols-4 --}}
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap justify-around {{ $withBg ? "p-xlarge bg-neutral-100" : ""}}">
             @foreach ($fields['items'] as $item)
-                <div
-                        class="basis-full md:basis-1/2 lg:basis-1/{{ count($fields['items']) }} {{ $light ? 'basis-full flex flex-row items-center gap-medium p-xlarge max-md:justify-center' : '' }}">
+                <div class="basis-full md:basis-1/2 lg:basis-1/{{ count($fields['items'])  }} flex flex-col items-center gap-medium {{$framed ? 'bg-neutral-100 p-xlarge'  :""}}">
                     @if (@isset($item['icon']) && $item['icon'])
-                        <div class="text-3xl text-primary">
+                        <div class="text-5xlarge text-primary">
                             {!! $item['icon'] !!}
                         </div>
                     @endisset
 
                     @if (@isset($item['data']) && $item['data'])
-                        <div>
-                            data
+                        <div class="heading-2 font-semibold">
                             {{ $item['data'] }}
                         </div>
                     @endisset

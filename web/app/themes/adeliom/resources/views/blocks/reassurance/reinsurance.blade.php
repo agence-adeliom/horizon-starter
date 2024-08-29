@@ -1,7 +1,5 @@
 @if ($fields && $fields['items'])
     <x-block :fields="$fields">
-
-        {{-- md:grid-cols-3 md:grid-cols-4 --}}
         <div class="flex flex-wrap">
             @foreach ($fields['items'] as $item)
                 <div
