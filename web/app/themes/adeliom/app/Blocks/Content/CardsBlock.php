@@ -14,31 +14,30 @@ use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Repeater;
 
-class Cards extends AbstractBlock
+class CardsBlock extends AbstractBlock
 {
+    public const string FIELD_CARDS = 'cards';
     public static ?string $slug = 'cards';
-    public static ?string $title = '2 cartouches';
-    public static ?string $mode = 'preview';
+    public static ?string $title = 'Remontée de 2 cartes';
+    public static ?string $description = 'Affiche deux cartes cliquables, menant chacune vers une page spécifique.';
     public static string $category = 'content';
-
-    public const string CARDS = 'cards';
 
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
-           Repeater::make("Cartouches", self::CARDS)
-           ->fields([
-               HeadingField::make()->required(),
-               WysiwygField::minimal(),
-               ButtonField::make()->required(),
-               Image::make("Image", "img")->required()
-           ])
-           ->minRows(2)
-           ->maxRows(2)
+            Repeater::make("Cartouches", self::FIELD_CARDS)
+                ->fields([
+                    HeadingField::make()->required(),
+                    WysiwygField::minimal(),
+                    ButtonField::make()->required(),
+                    Image::make("Image", "img")->required(),
+                ])
+                ->minRows(2)
+                ->maxRows(2),
         ]);
 
         yield from LayoutTab::make()->fields([
-            LayoutField::margin()
+            LayoutField::margin(),
         ]);
     }
 
