@@ -1,11 +1,20 @@
-<header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
-    {!! $siteName !!}
-  </a>
+<header class="header">
+    @include('navigations.header.mobile-bar')
+    <div class="header-mix">
+        <div class="container">
+            <div class="flex items-center justify-between lg:gap-x-5xlarge">
+                @if ($logo)
+                    <a href="{{ home_url('/') }}" class="flex justify-center">
+                        <x-media.img :image="$logo" size="medium" container-class="w-36 h-auto" />
+                    </a>
+                @endif
 
-  @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-    </nav>
-  @endif
+                @include('navigations.menu.main')
+
+                @if ($headerCta)
+                    <x-action.button :fields="$headerCta" />
+                @endif
+            </div>
+        </div>
+    </div>
 </header>

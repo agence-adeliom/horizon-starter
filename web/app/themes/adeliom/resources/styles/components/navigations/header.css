@@ -1,0 +1,26 @@
+@layer components {
+  .header-mix {
+    @apply py-medium border-b border-card bg-white;
+    @apply transition transform-gpu duration-500 ease-smooth;
+    @apply max-lg:fixed max-lg:z-[101];
+    @apply max-lg:pt-5xlarge max-lg:h-full max-lg:top-0 max-lg:inset-x-0;
+    @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0;
+    @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
+  }
+
+  .mobile-bar {
+    @apply lg:hidden bg-white fixed top-0 inset-x-0 z-[110] transition duration-300 border-b border-card;
+
+    &__wrapper {
+      @apply container h-[72px] py-xsmall flex items-center justify-between gap-x-medium;
+    }
+
+    &__burger {
+      @apply relative w-6 h-6 text-lg;
+
+      .burger-icon {
+        @apply absolute-center rotate-0 transition-transform transform-gpu is-active:rotate-360;
+      }
+    }
+  }
+}

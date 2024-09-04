@@ -20,16 +20,24 @@ class Header extends Composer
 
     protected function with()
     {
+        $primaryNavigation = new MenuViewModel("primary_navigation") ?? null;
+
         $logo = null;
+        $headerCta = null;
 
         if ($data = get_field(OptionPageAdmin::PARAM_FIELDS, 'option')) {
             if (is_array($data) && isset($data[OptionPageAdmin::MAIN_LOGO])) {
                 $logo = $data[OptionPageAdmin::MAIN_LOGO];
             }
+            if (is_array($data) && isset($data[OptionPageAdmin::HEADER_CTA])) {
+                $headerCta = $data[OptionPageAdmin::HEADER_CTA];
+            }
         }
 
         return [
             "logo" => $logo,
+            "headerCta" => $headerCta,
+            "primaryNavigation" => $primaryNavigation,
         ];
     }
 }
