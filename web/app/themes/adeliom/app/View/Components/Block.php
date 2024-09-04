@@ -17,11 +17,21 @@ class Block extends Component
     ];
 
     final public const PADDINGS = [
-        'none'          => '',
+        'none'          => 'py-0 lg:py-0',
         'small'         => 'py-large',
         'large'         => 'py-section-mobile lg:py-section-desktop',
-        'top-remove'    => 'pt-0 lg:pt-0',
-        'bottom-remove' => 'pb-0 lg:pb-0',
+    ];
+
+    final public const TOP_PADDINGS = [
+        'none'          => 'pt-0 lg:pt-0',
+        'small'         => 'pt-large',
+        'large'         => 'pt-section-mobile lg:pt-section-desktop',
+    ];
+
+    final public const BOTTOM_PADDINGS = [
+        'none'          => 'pb-0 lg:pb-0',
+        'small'         => 'pb-large',
+        'large'         => 'pb-section-mobile lg:pb-section-desktop',
     ];
 
     final public const CONTAINERS = [
@@ -43,7 +53,7 @@ class Block extends Component
     public function __construct(
         public null|false|array $fields = [],
         public ?string          $background = null,
-        public ?string          $padding = null,
+        public ?string          $padding = null, // 'none', 'small', 'large'
         public ?string          $container = null,
         public ?string          $anchor = null,
         public ?string          $class = null,
@@ -79,9 +89,8 @@ class Block extends Component
 
     private function handlePaddings(): void
     {
-        $marginSizesField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_SIZES]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_SIZES] : null;
-        $removeMarginTopField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_REMOVE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_REMOVE] : null;
-        $removeMarginBottomField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_REMOVE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_REMOVE] : null;
+        $marginTopSizeField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_SIZE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_SIZE] : null;
+        $marginBottomSizeField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_SIZE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_SIZE] : null;
 
         // if padding is not set or not in the list of paddings, set it to large
         if (null === $this->padding || !in_array($this->padding, array_keys(self::PADDINGS))) {
@@ -93,18 +102,14 @@ class Block extends Component
             $this->paddingClass = self::PADDINGS[$this->padding];
         }
 
-        // if padding is set in the fields, use it
-        if (isset($marginSizesField) && isset(self::PADDINGS[$marginSizesField])) {
-            $this->paddingClass = self::PADDINGS[$marginSizesField];
+        // if top padding is set in the fields, use it
+        if (isset($marginTopSizeField) && isset(self::TOP_PADDINGS[$marginTopSizeField])) {
+            $this->paddingClass = self::TOP_PADDINGS[$marginTopSizeField];
         }
 
-        // if remove top margin or remove bottom margin is set
-        if ($removeMarginTopField) {
-            $this->paddingClass .= ' ' . self::PADDINGS["top-remove"];
-        }
-
-        if ($removeMarginBottomField) {
-            $this->paddingClass .= ' ' . self::PADDINGS["bottom-remove"];
+        // if bottom padding is set in the fields, use it
+        if (isset($marginBottomSizeField) && isset(self::BOTTOM_PADDINGS[$marginBottomSizeField])) {
+            $this->paddingClass .= ' ' . self::BOTTOM_PADDINGS[$marginBottomSizeField];
         }
     }
 
