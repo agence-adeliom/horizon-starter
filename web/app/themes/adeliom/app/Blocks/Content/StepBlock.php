@@ -16,16 +16,14 @@ use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Text;
 
-class Step extends AbstractBlock
+class StepBlock extends AbstractBlock
 {
-    public static ?string $slug = 'step';
-    public static ?string $title = 'Etapes';
-    public static ?string $mode = 'preview';
-
     final public const string FIELDS_STEPS = 'steps';
     final public const string FIELDS_STEP_TITLE = 'title';
     final public const string FIELDS_STEP_CONTENT = 'content';
     final public const string FIELDS_STEP_IMG = 'img';
+    public static ?string $slug = 'step';
+    public static ?string $title = 'Étapes';
 
     public function getFields(): ?iterable
     {
@@ -33,13 +31,13 @@ class Step extends AbstractBlock
             UptitleField::make(),
             HeadingField::make()->required(),
             ButtonField::make(),
-            Repeater::make("Etapes", self::FIELDS_STEPS)
+            Repeater::make("Étapes", self::FIELDS_STEPS)
                 ->fields([
-                    UptitleField::make(),
+                    UptitleField::make()->required(),
                     Text::make("Titre de l'étape", self::FIELDS_STEP_TITLE)->required(),
                     WysiwygField::minimal("Contenu de l'étape", self::FIELDS_STEP_CONTENT)->required(),
                     Image::make("Image de l'étape", self::FIELDS_STEP_IMG)
-                        ->required()
+                        ->required(),
                 ])
                 ->collapsed(self::FIELDS_STEP_TITLE)
                 ->layout('block')
