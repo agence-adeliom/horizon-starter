@@ -37,8 +37,7 @@ class Footer extends Composer
         $secondaryFooterNavigation = new MenuViewModel("secondary_footer_navigation") ?? null;
 
 
-
-        if ($options = get_field(OptionPageAdmin::PARAM_FIELDS, 'option')) {
+        if ($options = get_field(OptionPageAdmin::FIELDS_PARAM, 'option')) {
             if (is_array($options)) {
                 if (isset($options[OptionPageAdmin::CLIENT_NAME])) {
                     $clientName = $options[OptionPageAdmin::CLIENT_NAME];
@@ -58,7 +57,7 @@ class Footer extends Composer
         }
 
 
-        if ($options = get_field(OptionPageAdmin::FOOTER_FIELDS, 'option')) {
+        if ($options = get_field(OptionPageAdmin::FIELDS_FOOTER, 'option')) {
             if (isset($options[OptionPageAdmin::FOOTER_TITLE])) {
                 $footerTitle = $options[OptionPageAdmin::FOOTER_TITLE];
             }

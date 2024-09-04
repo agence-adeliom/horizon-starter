@@ -2,7 +2,6 @@
 
 namespace App\View\Composers;
 
-use Adeliom\HorizonTools\ViewModels\Menu\MenuViewModel;
 use App\Admin\OptionPageAdmin;
 use Roots\Acorn\View\Composer;
 
@@ -22,7 +21,7 @@ class Header extends Composer
     {
         $logo = null;
 
-        if ($data = get_field(OptionPageAdmin::PARAM_FIELDS, 'option')) {
+        if ($data = get_field(OptionPageAdmin::FIELDS_PARAM, 'option')) {
             if (is_array($data) && isset($data[OptionPageAdmin::MAIN_LOGO])) {
                 $logo = $data[OptionPageAdmin::MAIN_LOGO];
             }
