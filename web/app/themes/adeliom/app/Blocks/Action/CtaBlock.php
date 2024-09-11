@@ -11,23 +11,36 @@ use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
+use Extended\ACF\Fields\RadioButton;
 
 class CtaBlock extends AbstractBlock
 {
+    public const string FIELD_APPARENCE = "appearance";
+    public const string FIELD_APPARENCE_DEFAULT = "default";
+    public const string FIELD_APPARENCE_FULL_WIDTH = "full-width";
+
     public static ?string $slug = 'cta';
-    public static ?string $title = 'Call to Action';
-    public static ?string $mode = 'preview';
+    public static ?string $title = "Section call-to-action";
+    public static ?string $description = "Incite l'utilisateur à effectuer une action spécifique dans un objectif de conversion.";
 
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
             HeadingField::make()->required(),
             WysiwygField::minimal()->helperText("1 ou 2 phrases maximum recommandées."),
-            ButtonField::types()
+            ButtonField::types(),
         ]);
 
         yield from LayoutTab::make()->fields([
-            LayoutField::margin()
+            LayoutField::margin(),
+            RadioButton::make(__("Apparence"), self::FIELD_APPARENCE)
+                ->choices([
+                    self::FIELD_APPARENCE_DEFAULT    => "Défaut",
+                    self::FIELD_APPARENCE_FULL_WIDTH => "Pleine largeur",
+                ])
+                ->default("default")
+                ->required(),
+
         ]);
     }
 }
