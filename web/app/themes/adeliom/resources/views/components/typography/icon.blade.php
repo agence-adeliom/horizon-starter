@@ -1,1 +1,1 @@
-<i class="{{ $fullClass }}"></i>
+<i class="{{ $fullClass }}" aria-hidden="true"></i>

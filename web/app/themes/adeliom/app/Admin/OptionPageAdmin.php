@@ -6,10 +6,8 @@ namespace App\Admin;
 
 use Adeliom\HorizonTools\Admin\AbstractAdmin;
 use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
-use Adeliom\HorizonTools\Fields\Text\FontAwesomeIcon;
 use Adeliom\HorizonTools\Fields\Text\IconField;
 use Extended\ACF\Fields\Group;
-use Extended\ACF\Fields\IconPicker;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
@@ -18,29 +16,22 @@ use Extended\ACF\Fields\URL;
 
 class OptionPageAdmin extends AbstractAdmin
 {
-    public static ?string $title = 'Paramètres';
-    public static bool $isOptionPage = true;
-    public static ?string $optionPageIcon = null;
-
-
     public const string PARAM_FIELDS = "param";
     public const string FOOTER_FIELDS = "footer";
-
     public const string SOCIAL_NETWORKS = "social-networks";
-
     public const string MAIN_LOGO = "main-logo";
     public const string WHITE_LOGO = "white-logo";
     public const string CLIENT_NAME = "client-name";
     public const string CLIENT_BASELINE = "client-baseline";
-
-
     public const string MAIN_NAVIGATION_TITLE = "main-navigation-title";
     public const string SECOND_NAVIGATION_TITLE = "second-navigation-title";
     public const string TITLE_HIGHLIGHT = "title-highlight";
     public const string BTN_HIGHLIGHT = "btn-highlight";
-
     public const string FOOTER_TITLE = "footer-title";
     public const string FOOTER_TEXT = "footer-text";
+    public static ?string $title = 'Paramètres';
+    public static bool $isOptionPage = true;
+    public static ?string $optionPageIcon = null;
 
     public function getFields(): ?iterable
     {
@@ -54,9 +45,9 @@ class OptionPageAdmin extends AbstractAdmin
                 Repeater::make("Réseaux sociaux", self::SOCIAL_NETWORKS)
                     ->fields([
                         URL::make("Lien", "link"),
-                        IconField::make()
+                        IconField::make()->format("object"),
                     ])
-                ->maxRows(6)
+                    ->maxRows(6),
             ]);
 
         yield Tab::make("Pied de page");
