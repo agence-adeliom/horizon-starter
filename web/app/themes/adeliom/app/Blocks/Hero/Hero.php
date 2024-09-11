@@ -13,30 +13,27 @@ use Adeliom\HorizonTools\Fields\Tabs\MediaTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
-use App\Fields\FormField;
-use App\Fields\OfferField;
 use Extended\ACF\Fields\Image;
 
 class Hero extends AbstractBlock
 {
+    public const string FIELD_MAIN_IMAGE = "main_image";
     public static ?string $slug = 'hero';
     public static ?string $title = 'Haut de page';
-    public static ?string $mode = 'preview';
+    public static ?string $description = "Premier élément de la page, offrant une introduction percutante.";
     public static string $category = 'hero';
-
-    public const string MAIN_IMAGE = "main_image";
 
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
             HeadingField::make()->required(),
-            WysiwygField::make(),
+            WysiwygField::simple(),
             ButtonField::group(),
         ]);
 
         yield from MediaTab::make()->fields([
-            Image::make("Image principale", self::MAIN_IMAGE),
+            Image::make("Image principale", self::FIELD_MAIN_IMAGE),
         ]);
 
         yield from LayoutTab::make()->fields([
