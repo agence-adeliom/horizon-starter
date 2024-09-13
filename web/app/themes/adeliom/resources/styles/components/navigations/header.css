@@ -1,26 +1,50 @@
 @layer components {
-  .header-mix {
-    @apply py-medium border-b border-card bg-white;
-    @apply transition transform-gpu duration-500 ease-smooth;
-    @apply max-lg:fixed max-lg:z-[101];
-    @apply max-lg:pt-5xlarge max-lg:h-full max-lg:top-0 max-lg:inset-x-0;
-    @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0;
-    @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
-  }
-
-  .mobile-bar {
-    @apply lg:hidden bg-white fixed top-0 inset-x-0 z-[110] transition duration-300 border-b border-card;
-
-    &__wrapper {
-      @apply container h-[72px] py-xsmall flex items-center justify-between gap-x-medium;
+    .header {
+        @apply lg:sticky lg:top-0 lg:inset-x-0 lg:z-[100] shrink-0 transition-all mb-0;
     }
 
-    &__burger {
-      @apply relative w-6 h-6 text-lg;
-
-      .burger-icon {
-        @apply absolute-center rotate-0 transition-transform transform-gpu is-active:rotate-360;
-      }
+    .header-mix {
+        @apply border-b-card bg-white;
+        @apply transition transform-gpu duration-500 ease-smooth;
+        @apply max-lg:fixed max-lg:z-[101];
+        @apply max-lg:pt-[72px] max-lg:h-dvh max-lg:top-0 max-lg:inset-x-0;
+        @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0;
+        @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
     }
-  }
+
+    .header-main {
+        @apply flex items-center justify-between lg:gap-x-5xlarge;
+        @apply max-lg:py-5xlarge max-lg:flex-col max-lg:items-start lg:py-medium;
+        &__logo {
+            @apply max-lg:hidden;
+        }
+
+        &__cta {
+            @apply max-lg:mt-6;
+        }
+    }
+
+    .menu-overlay {
+        @apply absolute w-full h-screen inset-0 bg-black opacity-0 pointer-events-none transition-opacity;
+
+        &.is-open {
+            @apply opacity-25 pointer-events-auto;
+        }
+    }
+
+    .mobile-bar {
+        @apply lg:hidden bg-white fixed top-0 inset-x-0 z-[110] transition duration-300 border-b-card;
+
+        &__wrapper {
+            @apply container h-[72px] py-xsmall flex items-center justify-between gap-x-medium;
+        }
+
+        &__burger {
+            @apply relative w-6 h-6 text-lg;
+
+            .burger-icon {
+                @apply center-both rotate-0 transition-transform transform-gpu is-active:rotate-360;
+            }
+        }
+    }
 }

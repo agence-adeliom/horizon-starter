@@ -1,5 +1,45 @@
 @layer components {
-  .menu {
-    @apply lg:flex lg:justify-end lg:flex-1 lg:items-center lg:gap-x-5xlarge;
-  }
+    .menu {
+        @apply lg:flex lg:justify-end lg:flex-1 lg:items-center lg:gap-x-5xlarge;
+
+        & > li > .menu-item {
+            @apply relative inline-flex items-center;
+            @apply transition-colors duration-300 ease-smooth text-neutral-1000;
+            @apply py-medium lg:py-0;
+            @apply max-lg:text-large font-semibold lg:hover:text-primary;
+            @apply max-lg:w-full max-lg:justify-between max-lg:border-b-card;
+        }
+
+        & > li.is-active > a {
+            @apply text-primary;
+        }
+    }
+
+    .submenu {
+        @apply pointer-events-none is-active:pointer-events-auto;
+        @apply absolute z-[110] inset-x-0 bg-white border-t-card;
+        @apply max-lg:pt-28 max-lg:top-0 py-3xlarge transition-all lg:shadow-lg;
+        @apply max-lg:h-dvh;
+
+        &__container {
+            @apply container grid lg:grid-cols-[25%_auto] gap-x-5xlarge gap-y-4xlarge;
+        }
+
+        &__list {
+            @apply grid lg:grid-cols-3 auto-rows-max gap-x-5xlarge gap-y-6;
+
+            .menu-item {
+                @apply flex gap-xsmall items-baseline;
+                &__title {
+                    @apply flex flex-row items-center gap-2;
+                    @apply text-large lg:text-medium font-semibold;
+                    @apply transition-colors duration-300 ease-in-out;
+                }
+
+                &__desc {
+                    @apply text-small;
+                }
+            }
+        }
+    }
 }

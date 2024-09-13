@@ -1,18 +1,13 @@
 import domReady from '@roots/sage/client/dom-ready';
 import '@fortawesome/fontawesome-pro/css/all.css';
 import '@scripts/navigations/menu';
-import {
-  Livewire,
-  Alpine,
-  //@ts-expect-error
-} from './../../../../../../vendor/livewire/livewire/dist/livewire.esm';
+import '@scripts/layouts/page';
 
-window.Alpine = Alpine;
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  Livewire.start();
+    // Livewire.start();
 });
 
 /**
