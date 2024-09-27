@@ -1,20 +1,23 @@
 @layer components {
     .list {
-        @apply list-inside space-y-1;
+        @apply space-y-1 pl-4;
+        li {
+            @apply pl-2;
+        }
 
-        & --none {
+        &--none {
             @apply list-none;
         }
 
-        & --disc {
+        &--disc {
             @apply list-disc;
 
             li {
-                @apply marker:mr-2 marker:text-black;
+                @apply marker:text-primary;
             }
         }
 
-        & --decimal {
+        &--decimal {
             @apply list-decimal;
         }
 

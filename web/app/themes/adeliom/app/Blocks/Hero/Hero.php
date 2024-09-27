@@ -37,8 +37,8 @@ class Hero extends AbstractBlock
         ]);
 
         yield from LayoutTab::make()->fields([
+            LayoutField::darkMode(),
             LayoutField::margin(),
         ]);
     }
-
 }
