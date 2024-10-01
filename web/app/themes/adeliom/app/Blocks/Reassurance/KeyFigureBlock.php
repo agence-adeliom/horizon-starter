@@ -23,6 +23,7 @@ class KeyFigureBlock extends AbstractBlock
     final public const string FIELD_TITLE = 'title';
     final public const string FIELD_DATA = 'data';
     final public const FIELD_TYPE = 'type';
+    final public const FIELD_DIRECTION = 'direction';
     private const int TITLE_MAX_LENGTH = 100;
     public static ?string $slug = 'key-figure';
     public static ?string $title = 'Chiffres clés';
@@ -50,12 +51,19 @@ class KeyFigureBlock extends AbstractBlock
 
         yield from LayoutTab::make()->fields([
             LayoutField::margin(),
+            ButtonGroup::make(__('Affichage des cartouches'), self::FIELD_DIRECTION)
+                ->choices([
+                    'column' => __('Vertical'),
+                    'row' => __('Horizontal'),
+                ])
+                ->default('column'),
             ButtonGroup::make(__('Type'), self::FIELD_TYPE)
                 ->choices([
                     'default' => __('Par défaut'),
                     'with_bg' => __('Avec fond'),
                     'framed'  => __('Cartouches encadrées'),
-                ]),
+                ])
+                ->default('default'),
         ]);
     }
 
