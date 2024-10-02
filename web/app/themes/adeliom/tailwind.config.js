@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} config */
+import typography from '@tailwindcss/typography';
+
 const config = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
   safelist: [
@@ -457,7 +459,7 @@ const config = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    typography,
   ],
 };
 

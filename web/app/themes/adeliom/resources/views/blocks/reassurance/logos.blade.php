@@ -1,32 +1,67 @@
 @if ($fields)
-	<x-block :fields="$fields">
-		@isset($fields['uptitle'])
-			<x-typography.uptitle :content="$fields['uptitle']"/>
-		@endisset
-		
-		@isset($fields['title'])
-			<x-typography.heading :fields="$fields['title']"/>
-		@endisset
-		
-		
-		@isset($fields['logos'])
-			<div class="flex flex-wrap justify-center items-center gap-medium">
-				@foreach ($fields['logos'] as $logo)
-					@php
-						$logoImg = $logo['logo'] ?? null;
-						$logoLink = $logo['link'] ?? null;
-					@endphp
-					
-					@if (!empty($logoLink))
-						<a href="{{ $logoLink['url'] }}" target="{{ $logoLink['target']}}">
-							<img src="{{ $logoImg['url'] }}" alt="{{ $logoImg['alt'] }}" class="w-40"/>
-						</a>
-					@else
-						<img src="{{ $logoImg['url'] }}" alt="{{ $logoImg['alt'] }}" class="w-40"/>
-					@endif
-				
-				@endforeach
-			</div>
-		@endisset
-	</x-block>
+    <x-block :fields="$fields" class="overflow-hidden">
+        <div class="flex flex-col gap-text-image-mobile lg:gap-text-image-desktop" x-data="initLogosSlider()">
+
+            <div class="grid-12">
+                <div class="flex flex-col items-center text-center lg:col-span-8 lg:col-start-3">
+                    @isset($fields['uptitle'])
+                        <x-typography.uptitle :content="$fields['uptitle']" />
+                    @endisset
+
+                    @isset($fields['title'])
+                        <x-typography.heading :fields="$fields['title']" size="3"
+                            class="mt-headline-title-mobile lg:mt-headline-title-desktop" />
+                    @endisset
+
+                    @isset($fields['wysiwyg'])
+                        <x-typography.text :content="$fields['wysiwyg']" class="mt-title-text-mobile lg:mt-title-text-desktop" />
+                    @endisset
+                </div>
+            </div>
+
+
+            @isset($fields['logos'])
+                <div class="w-full relative px-12 lg:px-16">
+                    <div class="swiper w-full" x-ref="swiperContainer">
+                        <div class="swiper-wrapper">
+                            @foreach ($fields['logos'] as $logo)
+                                @php
+                                    $logoImg = $logo['logo'] ?? null;
+                                    $logoLink = $logo['link'] ?? null;
+                                @endphp
+                                @if (@isset($logoImg) && $logoImg)
+                                    <div class="swiper-slide p-6 bg-neutral-200 lg:p-10">
+                                        @if (!empty($logoLink))
+                                            <a href="{{ $logoLink['url'] }}" target="{{ $logoLink['target'] }}"
+                                                title="{{ $logoLink['title'] }}" class="block">
+                                        @endif
+                                        <x-media.img :image="$logoImg" class="contain-full"
+                                            containerClass="aspect-[2/1] relative" />
+                                        @if (!empty($logoLink))
+                                            </a>
+                                        @endif
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                    @php
+                        $logoCount = count($fields['logos']);
+                    @endphp
+                    <x-action.button @class([
+                        'center-top left-0',
+                        'md:hidden' => $logoCount < 4,
+                        'lg:hidden' => $logoCount < 5,
+                        'xl:hidden' => $logoCount < 6,
+                    ]) type="primary" icon="angle-left" x-ref="buttonPrev" />
+                    <x-action.button @class([
+                        'center-top right-0',
+                        'md:hidden' => $logoCount < 4,
+                        'lg:hidden' => $logoCount < 5,
+                        'xl:hidden' => $logoCount < 6,
+                    ]) type="primary" icon="angle-right" x-ref="buttonNext" />
+                </div>
+            @endisset
+        </div>
+    </x-block>
 @endif

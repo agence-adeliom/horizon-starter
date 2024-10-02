@@ -6,6 +6,7 @@
  *
  * @type {import('@roots/bud').Config}
  */
+
 export default async (app) => {
   /**
    * Application assets & entrypoints
@@ -17,9 +18,11 @@ export default async (app) => {
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .entry('listing', ['@scripts/blocks/listing'])
+    .entry('logos', ['@scripts/blocks/logos'])
     .runtime('multiple')
     .hash()
     .assets(['images']);
+
 
   /**
    * Set public path

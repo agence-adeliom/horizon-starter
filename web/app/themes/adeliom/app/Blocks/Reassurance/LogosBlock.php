@@ -10,9 +10,11 @@ use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
+use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Repeater;
+use Adeliom\HorizonTools\Services\BudService;
 
 class LogosBlock extends AbstractBlock
 {
@@ -28,6 +30,7 @@ class LogosBlock extends AbstractBlock
         yield from ContentTab::make()->fields([
             UptitleField::make(),
             HeadingField::make()->required(),
+            WysiwygField::minimal(),
             Repeater::make(__('Logos'), self::FIELD_LOGOS)
                 ->minRows(2)
                 ->maxRows(8)
@@ -52,6 +55,7 @@ class LogosBlock extends AbstractBlock
 
     public function renderBlockCallback(): void
     {
-        return;
+        wp_enqueue_style('logos-block-css', BudService::getUrl('logos.css'));
+        wp_enqueue_script('logos-block-js', BudService::getUrl('logos.js'));
     }
 }
