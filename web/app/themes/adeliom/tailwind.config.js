@@ -7,6 +7,9 @@ const config = {
   safelist: [
     'basis-1/2 lg:basis-1/3 lg:basis-1/4',
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
       colors: {
