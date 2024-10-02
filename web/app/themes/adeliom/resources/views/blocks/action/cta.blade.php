@@ -11,7 +11,7 @@
             @endisset
         </div>
         @isset($fields['button'])
-            <x-action.button :object="$fields['button']" type="tertiary" size="large" />
+            <x-action.button :fields="$fields['button']" type="tertiary" size="large" />
         @endisset
     </div>
 </x-block>

@@ -2,6 +2,9 @@
 @import './action/link.css';
 @import './action/form/form.css';
 
+@import './navigations/header.css';
+@import './navigations/menu.css';
+
 @import './structure/list.css';
 
 @import './typography/heading';
