@@ -6,13 +6,15 @@
             @apply relative inline-flex items-center;
             @apply transition-colors duration-300 ease-smooth text-neutral-1000;
             @apply py-medium lg:py-0;
+            @apply flex gap-xsmall items-baseline;
             @apply max-lg:text-large font-semibold lg:hover:text-primary;
-            @apply max-lg:w-full max-lg:justify-between max-lg:border-b-card;
+            @apply max-lg:w-full max-lg:border-b-card;
         }
 
         & > li.is-active > a {
             @apply text-primary;
         }
+
     }
 
     .submenu {

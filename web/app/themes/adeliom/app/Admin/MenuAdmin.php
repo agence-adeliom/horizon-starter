@@ -5,21 +5,18 @@ declare(strict_types=1);
 namespace App\Admin;
 
 use Adeliom\HorizonTools\Admin\AbstractAdmin;
-use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
-use Adeliom\HorizonTools\Fields\Text\FontAwesomeIcon;
 use Adeliom\HorizonTools\Fields\Text\IconField;
-use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Group;
+use Extended\ACF\Fields\Text;
 use Extended\ACF\Location;
 
 class MenuAdmin extends AbstractAdmin
 {
-    public static ?string $title = 'Menu item';
-
     /**
      * @var string
      */
     public const MENU_ITEM = 'menu_item';
+    public static ?string $title = 'Menu item';
 
     public function getFields(): ?iterable
     {
@@ -27,7 +24,7 @@ class MenuAdmin extends AbstractAdmin
         yield Group::make('Menu item', self::MENU_ITEM)
             ->fields([
                 IconField::make(),
-                Text::make("Label du lien principal", "label")->helperText(__('(si différent du Titre de la navigation)'))
+                Text::make("Label du CTA principal", "label")->helperText(__('(dans le cas où l\'item parent est un lien)')),
             ]);
     }
 

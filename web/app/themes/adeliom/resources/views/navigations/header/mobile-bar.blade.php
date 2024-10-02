@@ -2,7 +2,7 @@
     <div class="mobile-bar__wrapper">
         @if ($logo)
             <a href="{{ home_url('/') }}" class="flex justify-center">
-                <x-media.img :image="$logo" size="medium" container-class="w-36 h-auto" />
+                <x-media.img :image="$logo" size="medium" container-class="h-14 lg:h-auto lg:w-36" class="max-h-full w-auto" />
             </a>
         @endif
 

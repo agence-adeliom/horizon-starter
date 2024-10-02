@@ -7,7 +7,7 @@
                 @if ($logo)
                     <div class="header-main__logo">
                         <a href="{{ home_url('/') }}" class="flex justify-center">
-                            <x-media.img :image="$logo" size="medium" container-class="w-36 h-auto" />
+                            <x-media.img :image="$logo" size="medium" container-class="w-36 lg:h-auto" />
                         </a>
                     </div>
                 @endif
