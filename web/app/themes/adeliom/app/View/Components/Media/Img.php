@@ -20,10 +20,10 @@ class Img extends Component
         public ?array  $image,
         public ?string $size = 'large',
         public ?string $class = null,
+        public ?string $loading = 'lazy',
         public ?string $containerClass = null,
         public ?string $ratio = null,
-    )
-    {
+    ) {
         $this->handleData();
     }
 
@@ -36,6 +36,7 @@ class Img extends Component
         if ($this->id) {
             $this->content = wp_get_attachment_image(attachment_id: $this->id, size: $this->size, attr: [
                 'class' => $this->class,
+                'loading' => $this->loading,
             ]);
 
             $this->containerClass = trim(implode(' ', [

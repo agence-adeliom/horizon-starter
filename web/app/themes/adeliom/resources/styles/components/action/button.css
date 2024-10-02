@@ -23,15 +23,15 @@
 
         /*-- sizes --*/
         &--sm {
-            @apply px-xsmall gap-small text-xsmall leading-input-sm;
+            @apply px-small gap-small text-xsmall leading-input-sm;
         }
 
         &--md {
-            @apply px-small gap-medium text-small leading-input-md;
+            @apply px-medium gap-medium text-small leading-input-md;
         }
 
         &--lg {
-            @apply px-medium gap-large text-medium leading-input-lg;
+            @apply px-large gap-large text-medium leading-input-lg;
         }
 
         /*-- button icons --*/

@@ -21,6 +21,7 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELDS_PARAM = "param";
     public const string CLIENT_NAME = "client-name";
     public const string CLIENT_BASELINE = "client-baseline";
+
     public const string MAIN_LOGO = "main-logo";
     public const string WHITE_LOGO = "white-logo";
     public const string SOCIAL_NETWORKS = "social-networks";
@@ -28,6 +29,10 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELDS_FOOTER = "footer";
     public const string FOOTER_TITLE = "footer-title";
     public const string FOOTER_TEXT = "footer-text";
+
+    public const string HEADER_CTA = "header-cta";
+
+
     public const string MAIN_NAVIGATION_TITLE = "main-navigation-title";
     public const string SECOND_NAVIGATION_TITLE = "second-navigation-title";
     public const string TITLE_HIGHLIGHT = "title-highlight";
@@ -49,6 +54,7 @@ class OptionPageAdmin extends AbstractAdmin
             ->fields([
                 Text::make("Votre nom", self::CLIENT_NAME),
                 Text::make("Votre baseline", self::CLIENT_BASELINE)->helperText("Utilisée dans le pied de page."),
+                ButtonField::make("Bouton d'action principal du header", self::HEADER_CTA),
                 Image::make("Logo principal", self::MAIN_LOGO),
                 Image::make("Logo version blanche", self::WHITE_LOGO),
                 Repeater::make("Réseaux sociaux", self::SOCIAL_NETWORKS)
@@ -56,7 +62,8 @@ class OptionPageAdmin extends AbstractAdmin
                         URL::make("Lien", "link"),
                         IconField::make(),
                     ])
-                    ->maxRows(6),
+                    ->maxRows(6)
+
             ]);
 
         yield Tab::make("Pied de page");
