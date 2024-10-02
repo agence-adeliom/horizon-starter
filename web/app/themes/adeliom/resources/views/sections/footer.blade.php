@@ -100,7 +100,7 @@
                 </div>
 
                 @if ($btnHighlight)
-                    <x-action.button :object="$btnHighlight" class="w-full" />
+                    <x-action.button :fields="$btnHighlight" class="w-full" />
                 @endif
             </div>
             <!-- highlight - end -->
