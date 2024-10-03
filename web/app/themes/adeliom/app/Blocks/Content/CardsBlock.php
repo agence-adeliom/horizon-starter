@@ -10,6 +10,7 @@ use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
+use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Repeater;
@@ -25,6 +26,9 @@ class CardsBlock extends AbstractBlock
     public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
+            UptitleField::make(),
+            HeadingField::make()->required(),
+            WysiwygField::minimal(),
             Repeater::make("Cartouches", self::FIELD_CARDS)
                 ->fields([
                     HeadingField::make()->required(),
@@ -32,6 +36,7 @@ class CardsBlock extends AbstractBlock
                     ButtonField::make()->required(),
                     Image::make("Image", "img")->required(),
                 ])
+                ->layout('row')
                 ->minRows(2)
                 ->maxRows(2),
         ]);
