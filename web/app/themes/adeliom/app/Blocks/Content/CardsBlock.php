@@ -27,16 +27,17 @@ class CardsBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make()->required(),
+            HeadingField::make(),
             WysiwygField::minimal(),
             Repeater::make("Cartouches", self::FIELD_CARDS)
                 ->fields([
-                    HeadingField::make()->required(),
+                    HeadingField::make(),
                     WysiwygField::minimal(),
                     ButtonField::make()->required(),
                     Image::make("Image", "img")->required(),
                 ])
                 ->layout('row')
+                ->collapsed(HeadingField::NAME)
                 ->minRows(2)
                 ->maxRows(2),
         ]);
