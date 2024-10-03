@@ -1,10 +1,8 @@
 @if ($buttons)
-	<div class="flex flex-wrap gap-4 {{ $attributes['class'] ? ' ' . $attributes['class'] : null }}">
+	<div class="flex flex-col md:flex-row gap-4{{ $attributes['class'] ? ' ' . $attributes['class'] : null }}">
 		@foreach ($buttons as $button)
-			@if ($loop->first)
-				<x-action.button :object="$button" type="primary" class="max-lg:flex-1" />
-			@else
-				<x-action.button :object="$button" type="secondary" class="max-lg:flex-1" />
+			@if ($button['link'])
+				<x-action.button :fields="$button" :type="$loop->first ? 'primary' : 'secondary'" />
 			@endif
 		@endforeach
 	</div>
