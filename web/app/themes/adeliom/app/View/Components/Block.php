@@ -14,24 +14,25 @@ class Block extends Component
         'white'         => 'bg-white',
         'black'         => 'bg-neutral-1000',
         'basic-neutral' => 'bg-neutral-50',
+        'primary'       => 'bg-primary',
     ];
 
     final public const PADDINGS = [
-        'none'          => 'py-0 lg:py-0',
-        'small'         => 'py-large',
-        'large'         => 'py-section-mobile lg:py-section-desktop',
+        'none'  => 'py-0 lg:py-0',
+        'small' => 'py-large',
+        'large' => 'py-section-mobile lg:py-section-desktop',
     ];
 
     final public const TOP_PADDINGS = [
-        'none'          => 'pt-0 lg:pt-0',
-        'small'         => 'pt-large',
-        'large'         => 'pt-section-mobile lg:pt-section-desktop',
+        'none'  => 'pt-0 lg:pt-0',
+        'small' => 'pt-large',
+        'large' => 'pt-section-mobile lg:pt-section-desktop',
     ];
 
     final public const BOTTOM_PADDINGS = [
-        'none'          => 'pb-0 lg:pb-0',
-        'small'         => 'pb-large',
-        'large'         => 'pb-section-mobile lg:pb-section-desktop',
+        'none'  => 'pb-0 lg:pb-0',
+        'small' => 'pb-large',
+        'large' => 'pb-section-mobile lg:pb-section-desktop',
     ];
 
     final public const CONTAINERS = [
@@ -39,6 +40,7 @@ class Block extends Component
         'fluid'  => 'max-w-[1400px] m-auto px-20',
     ];
 
+    public ?string $baseClass = 'relative';
     public ?string $backgroundClass = null;
     public ?string $paddingClass = null;
     public ?string $containerClass = null;
@@ -76,6 +78,7 @@ class Block extends Component
             $this->freeClass = $this->class;
         }
     }
+
     private function handleBackground(): void
     {
         if (null === $this->background || !in_array($this->background, array_keys(self::BACKGROUNDS))) {
@@ -103,12 +106,12 @@ class Block extends Component
         }
 
         // if top padding is set in the fields, use it
-        if (isset($marginTopSizeField) && isset(self::TOP_PADDINGS[$marginTopSizeField])) {
+        if (isset($marginTopSizeField) && isset(self::TOP_PADDINGS[$marginTopSizeField]) && $this->padding !== 'none') {
             $this->paddingClass = self::TOP_PADDINGS[$marginTopSizeField];
         }
 
         // if bottom padding is set in the fields, use it
-        if (isset($marginBottomSizeField) && isset(self::BOTTOM_PADDINGS[$marginBottomSizeField])) {
+        if (isset($marginBottomSizeField) && isset(self::BOTTOM_PADDINGS[$marginBottomSizeField]) && $this->padding !== 'none') {
             $this->paddingClass .= ' ' . self::BOTTOM_PADDINGS[$marginBottomSizeField];
         }
     }
@@ -128,13 +131,14 @@ class Block extends Component
     private function handleDarkmode(): void
     {
         if (isset($this->fields[LayoutField::DARK_MODE]) && $this->fields[LayoutField::DARK_MODE]) {
-            $this->darkModeClass = "dark";
+            $this->darkModeClass = "dark awc-theme-dark";
         }
     }
 
     private function handleFullClass(): void
     {
         $this->fullClass = implode(' ', [
+            $this->baseClass,
             $this->freeClass,
             $this->backgroundClass,
             $this->paddingClass,

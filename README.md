@@ -48,7 +48,7 @@ Cette commande aura pour effet de créer une nouvelle classe de Taxonomie dans l
 
 Il ne reste plus qu'à modifier quelques valeurs pour le personnaliser au besoin
 
-### Créer un block ACF
+### Créer un block Gutenberg ACF
 
 ```bash
 ddev acorn make:block Dossier/Du/Block/NomDuBlock

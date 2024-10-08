@@ -1,9 +1,15 @@
 /** @type {import('tailwindcss').Config} config */
+const plugin = require('tailwindcss/plugin');
+const typography = require('@tailwindcss/typography');
+
 const config = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
   safelist: [
     'basis-1/2 lg:basis-1/3 lg:basis-1/4',
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
       colors: {
@@ -244,10 +250,15 @@ const config = {
       },
       fontSize: {
         '2xsmall': 'var(--awc-font-size-2xsmall)',
+        xs: 'var(--awc-font-size-xsmall)',
         xsmall: 'var(--awc-font-size-xsmall)',
+        sm: 'var(--awc-font-size-small)',
         small: 'var(--awc-font-size-small)',
+        md: 'var(--awc-font-size-medium)',
         medium: 'var(--awc-font-size-medium)',
+        lg: 'var(--awc-font-size-large)',
         large: 'var(--awc-font-size-large)',
+        xl: 'var(--awc-font-size-xlarge)',
         xlarge: 'var(--awc-font-size-xlarge)',
         '2xlarge': 'var(--awc-font-size-2xlarge)',
         '3xlarge': 'var(--awc-font-size-3xlarge)',
@@ -454,10 +465,22 @@ const config = {
             '2xl': '3rem',
         },
       },
+      transitionTimingFunction: {
+        smooth: 'cubic-bezier(.4,0,.1,1)',
+      },
+      rotate: {
+        '360': '360deg',
+      }
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    typography,
+    plugin(function ({ addVariant }) {
+      addVariant('is-active', ['&.is-active', '.is-active &']);
+      addVariant('is-open', ['&.is-open', '.is-open &']);
+      addVariant('visible', ['&.is-visible', '.is-visible &']);
+      addVariant('keyboard', '.tab-active &');
+  }),
   ],
 };
 
