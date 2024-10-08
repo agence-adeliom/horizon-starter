@@ -35,7 +35,7 @@ class CustomerReviewBlock extends AbstractBlock
                 ->body("La note globale est gérée au niveau général de votre thème."),
             Relationship::make("Avis clients", self::FIELD_REVIEWS)
                 ->minPosts(2)
-                ->maxPosts(6)
+                ->maxPosts(3)
                 ->postTypes([CustomerReview::$slug])->required(),
         ]);
 
