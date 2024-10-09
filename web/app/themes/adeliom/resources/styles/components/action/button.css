@@ -1,37 +1,37 @@
 @layer components {
-  .btn {
-    @apply relative inline-flex items-center justify-center cursor-pointer whitespace-nowrap transition-colors;
-    @apply border-solid border-input rounded-button;
-    @apply font-input font-semibold;
+    .btn {
+        @apply relative inline-flex items-center justify-center cursor-pointer whitespace-nowrap transition-colors;
+        @apply border-solid border-input rounded-button;
+        @apply font-input font-semibold;
 
-    /*-- variants --*/
-    &--primary {
-      @apply text-primary-contrast bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark;
-    }
+        /*-- variants --*/
+        &--primary {
+            @apply text-primary-contrast bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark;
+        }
 
-    &--secondary {
-      @apply text-secondary-contrast bg-secondary border-secondary hover:bg-secondary-dark hover:border-secondary-dark;
-    }
+        &--secondary {
+            @apply text-secondary-contrast bg-secondary border-secondary hover:bg-secondary-dark hover:border-secondary-dark;
+        }
 
-    &--tertiary {
-      @apply text-tertiary-contrast bg-tertiary border-tertiary hover:bg-tertiary-dark hover:border-tertiary-dark;
-    }
+        &--tertiary {
+            @apply text-tertiary-contrast bg-tertiary border-tertiary hover:bg-tertiary-dark hover:border-tertiary-dark;
+        }
 
-    &--disabled {
-      @apply text-neutral-500 bg-neutral-300 border-neutral-300 cursor-not-allowed pointer-events-none;
-    }
+        &--disabled {
+            @apply text-neutral-500 bg-neutral-300 border-neutral-300 cursor-not-allowed pointer-events-none;
+        }
 
-    /*-- sizes --*/
-    &--sm {
-      @apply px-small gap-small text-xsmall leading-input-sm;
-    }
+        /*-- sizes --*/
+        &--sm {
+            @apply px-small gap-small text-xsmall leading-input-sm;
+        }
 
-    &--md {
-      @apply px-medium gap-medium text-small leading-input-md;
-    }
+        &--md {
+            @apply px-medium gap-medium text-small leading-input-md;
+        }
 
-    &--lg {
-      @apply px-large gap-large text-medium leading-input-lg;
+        &--lg {
+            @apply px-large gap-large text-medium leading-input-lg;
+        }
     }
-  }
 }

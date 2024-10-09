@@ -9,6 +9,7 @@ use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Text\IconField;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
@@ -23,6 +24,8 @@ class OptionPageAdmin extends AbstractAdmin
     public const string WHITE_LOGO = "white-logo";
     public const string CLIENT_NAME = "client-name";
     public const string CLIENT_BASELINE = "client-baseline";
+    public const string HEADER_CTA = "header-cta";
+
     public const string MAIN_NAVIGATION_TITLE = "main-navigation-title";
     public const string SECOND_NAVIGATION_TITLE = "second-navigation-title";
     public const string TITLE_HIGHLIGHT = "title-highlight";
@@ -40,6 +43,7 @@ class OptionPageAdmin extends AbstractAdmin
             ->fields([
                 Text::make("Votre nom", self::CLIENT_NAME),
                 Text::make("Votre baseline", self::CLIENT_BASELINE)->helperText("Utilisée dans le pied de page."),
+                ButtonField::make("Bouton d'action principal du header", self::HEADER_CTA),
                 Image::make("Logo principal", self::MAIN_LOGO),
                 Image::make("Logo version blanche", self::WHITE_LOGO),
                 Repeater::make("Réseaux sociaux", self::SOCIAL_NETWORKS)
