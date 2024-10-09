@@ -1,11 +1,26 @@
-<header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
-    {!! $siteName !!}
-  </a>
+<header class="header">
+    @include('navigations.header.mobile-bar')
+    <div class="menu-overlay" :class="$store.submenu && 'is-open'" x-cloak></div>
+    <div class="header-mix" :class="mobileOpen && 'is-open'">
+        <div class="container">
+            <div class="header-main">
+                @if ($logo)
+                    <div class="header-main__logo">
+                        <a href="{{ home_url('/') }}" class="flex justify-center">
+                            <x-media.img :image="$logo" size="medium" container-class="w-36 lg:h-auto" />
+                        </a>
+                    </div>
+                @endif
 
-  @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-    </nav>
-  @endif
+                @include('navigations.menu.main')
+
+                @if ($headerCta)
+                    <div class="header-main__cta">
+                        <x-action.button :fields="$headerCta" />
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div id="submenu-teleport"></div>
+    </div>
 </header>
