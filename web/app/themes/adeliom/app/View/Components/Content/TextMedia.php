@@ -24,8 +24,8 @@ class TextMedia extends Component
                 'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13',
             ],
             'left' => [
-                'text' => 'lg:col-start-7 lg:col-end-13',
-                'media' => 'lg:col-start-1 lg:col-end-6',
+                'text' => 'order-2 lg:col-start-7 lg:col-end-13',
+                'media' => 'order-1 lg:col-start-1 lg:col-end-6',
             ],
         ],
         'paysage' => [
@@ -34,8 +34,8 @@ class TextMedia extends Component
                 'media' => 'lg:col-start-7 lg:col-end-13',
             ],
             'left' => [
-                'text' => 'lg:col-start-8 lg:col-end-13',
-                'media' => 'lg:col-span-6'
+                'text' => 'order-2 lg:col-start-8 lg:col-end-13',
+                'media' => 'order-1 lg:col-span-6'
             ],
         ],
     ];
@@ -98,8 +98,8 @@ class TextMedia extends Component
 
     private function handleMediaPosition(): void
     {
-        if (isset($this->fields[LayoutField::MEDIA_POSITION]) && $this->fields[LayoutField::MEDIA_POSITION]) {
-            $tempPosition = $this->fields[LayoutField::MEDIA_POSITION];
+        if (isset($this->fields[LayoutField::FIELD_MEDIA_POSITION]) && $this->fields[LayoutField::FIELD_MEDIA_POSITION]) {
+            $tempPosition = $this->fields[LayoutField::FIELD_MEDIA_POSITION];
 
             if (in_array($tempPosition, self::MEDIA_POSITIONS)) {
                 $this->mediaPosition = $tempPosition;
@@ -110,15 +110,15 @@ class TextMedia extends Component
     private function handleMediaRatio(): void
     {
         if ($this->isImage || $this->isVideo || $this->isYouTube) {
-            if (isset($this->fields[LayoutField::MEDIA_RATIO]) && $this->fields[LayoutField::MEDIA_RATIO]) {
-                $ratioData = $this->fields[LayoutField::MEDIA_RATIO];
+            if (isset($this->fields[LayoutField::FIELD_MEDIA_RATIO]) && $this->fields[LayoutField::FIELD_MEDIA_RATIO]) {
+                $ratioData = $this->fields[LayoutField::FIELD_MEDIA_RATIO];
 
                 if (is_array($ratioData)) {
-                    if (isset($ratioData[LayoutField::HAS_MEDIA_RATIO]) && $ratioData[LayoutField::HAS_MEDIA_RATIO]) {
-                        if (isset($ratioData[LayoutField::MEDIA_RATIO_VALUE]) && $ratioData[LayoutField::MEDIA_RATIO_VALUE]) {
-                            if (in_array($ratioData[LayoutField::MEDIA_RATIO_VALUE], self::MEDIA_RATIOS)) {
+                    if (isset($ratioData[LayoutField::FIELD_HAS_MEDIA_RATIO]) && $ratioData[LayoutField::FIELD_HAS_MEDIA_RATIO]) {
+                        if (isset($ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE]) && $ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE]) {
+                            if (in_array($ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE], self::MEDIA_RATIOS)) {
                                 $this->mediaHasRatio = true;
-                                $this->mediaRatio = $ratioData[LayoutField::MEDIA_RATIO_VALUE];
+                                $this->mediaRatio = $ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE];
                             }
                         }
                     }
