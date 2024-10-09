@@ -2,6 +2,7 @@
 
 namespace App\View\Composers;
 
+use Adeliom\HorizonTools\ViewModels\Menu\MenuViewModel;
 use App\Admin\OptionPageAdmin;
 use Roots\Acorn\View\Composer;
 

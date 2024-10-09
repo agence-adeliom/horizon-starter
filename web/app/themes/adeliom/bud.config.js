@@ -8,6 +8,7 @@
  */
 
 export default async (app) => {
+
   /**
    * Application assets & entrypoints
    *
@@ -19,7 +20,7 @@ export default async (app) => {
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .entry('listing', ['@scripts/blocks/listing'])
     .entry('logos', ['@scripts/blocks/logos'])
-    .runtime('multiple')
+    .runtime('single')
     .hash()
     .assets(['images']);
 
