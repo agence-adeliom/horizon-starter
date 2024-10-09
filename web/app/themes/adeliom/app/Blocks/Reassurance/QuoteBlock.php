@@ -10,7 +10,6 @@ use Adeliom\HorizonTools\Fields\Text\HeadingField;
 
 class QuoteBlock extends AbstractBlock
 {
-
     public static ?string $slug = 'quote';
     public static ?string $title = 'Citation';
     public static ?string $description = "Mise en avant d'une citation, un témoignage ou un extrait de texte.";
@@ -23,5 +22,4 @@ class QuoteBlock extends AbstractBlock
             HeadingField::make()->required(),
         ]);
     }
-
 }
