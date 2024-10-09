@@ -1,5 +1,9 @@
 @php
-  $positionClass = $fields['position'] != 'left' ? 'lg:col-start-3' : '';
+  $positionClass = match (true){
+    isset($fields['position']) && $fields['position'] !== 'left' => 'lg:col-start-3',
+    default => '',
+  };
+
   $bgType = $fields['bg-type'] ?? 'bg-color-type';
   $bgColor = $bgType === 'bg-color-type' ? 'bg-color-02-50' : '';
   $bgImage = $bgType === 'bg-image-type' && isset($fields['bg-image']) ? $fields['bg-image'] : '';
