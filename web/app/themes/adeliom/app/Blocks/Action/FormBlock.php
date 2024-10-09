@@ -19,6 +19,10 @@ use Extended\ACF\Fields\Text;
 
 class FormBlock extends AbstractBlock
 {
+    public static ?string $slug = 'form';
+    public static ?string $title = 'Formulaire';
+    public static ?string $description = "Peut servir de formulaire de contact, d'inscription, demande de devis ou encore d'information.";
+
     public const string FIELD_DESC = "desc";
     public const string FIELD_POSITION = "position";
     public const string FIELD_POS_LEFT = "left";
@@ -27,9 +31,6 @@ class FormBlock extends AbstractBlock
     public const string FIELD_BG_IMAGE = 'bg-image';
     public const string BG_COLOR_TYPE = "bg-color-type";
     public const string BG_IMAGE_TYPE = "bg-image-type";
-    public static ?string $slug = 'form';
-    public static ?string $title = 'Formulaire';
-    public static ?string $description = "Peut servir de formulaire de contact, d'inscription, demande de devis ou encore d'information.";
 
     public function getFields(): ?iterable
     {
