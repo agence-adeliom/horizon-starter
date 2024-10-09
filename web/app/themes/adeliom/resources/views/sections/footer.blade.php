@@ -14,9 +14,9 @@
 						@endif
 					</p>
 				</div>
-			
+
 			</div>
-			
+
 			<div class="">
 				<!-- social - start -->
 				@if ($socialNetworks)
@@ -71,14 +71,14 @@
 				</nav>
 			</div>
 			<!-- nav - end -->
-			
+
 			<!-- nav - start -->
 			<div>
 				<div class="mb-2 font-semibold text-lg tracking-widest text-title">
 					@if ($secondNavTitle)
 						{{ $secondNavTitle }}
 					@endif
-				
+
 				</div>
 				<nav class="flex flex-col gap-4">
 					<ul>
@@ -91,7 +91,7 @@
 				</nav>
 			</div>
 			<!-- nav - end -->
-			
+
 			<!-- highlight - start -->
 			<div class="bg-white p-card flex flex-col gap-6 border border-card">
 				<div class="mb-2 font-semibold text-lg tracking-widest text-title ">
@@ -99,14 +99,14 @@
 						{{ $titleHighlight }}
 					@endif
 				</div>
-				
+
 				@if ($btnHighlight)
 					<x-action.button :object="$btnHighlight" class="w-full"/>
 				@endif
 			</div>
 			<!-- highlight - end -->
 		</div>
-		
+
 		@include('sections.footer-bottom')
 	</footer>
 </div>

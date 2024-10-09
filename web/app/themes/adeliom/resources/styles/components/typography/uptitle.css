@@ -1,0 +1,5 @@
+@layer components {
+    .uptitle {
+        @apply text-accent font-semibold tracking-wide uppercase;
+    }
+}
