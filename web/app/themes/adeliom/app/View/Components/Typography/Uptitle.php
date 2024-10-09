@@ -24,6 +24,7 @@ class Uptitle extends Component
     {
         $this->fullClass = implode(' ', array_filter([
             'uptitle',
+            $this->class
         ]));
     }
 

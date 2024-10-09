@@ -1,33 +1,33 @@
 @layer utilities {
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
 
-  .absolute-center {
-    @apply absolute inset-y-2/4 inset-x-2/4 -translate-x-1/2 -translate-y-1/2;
-  }
+    .absolute-center {
+        @apply absolute inset-y-2/4 inset-x-2/4 -translate-x-1/2 -translate-y-1/2;
+    }
 
-  .center-top {
-    @apply absolute top-1/2 -translate-y-1/2;
-  }
+    .center-top {
+        @apply absolute top-1/2 -translate-y-1/2;
+    }
 
-  .center-both {
-    @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
-  }
+    .center-both {
+        @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+    }
 
-  .absolute-full {
-    @apply absolute inset-0 h-full w-full;
-  }
+    .absolute-full {
+        @apply absolute inset-0 h-full w-full;
+    }
 
-  .fixed-full {
-    @apply fixed inset-0 h-full w-full;
-  }
+    .fixed-full {
+        @apply fixed inset-0 h-full w-full;
+    }
 
-  .cover-full {
-    @apply absolute inset-0 h-full w-full object-cover;
-  }
+    .cover-full {
+        @apply absolute inset-0 h-full w-full object-cover;
+    }
 
-  .contain-full {
-    @apply absolute inset-0 h-full w-full object-contain;
-  }
+    .contain-full {
+        @apply absolute inset-0 h-full w-full object-contain;
+    }
 }

@@ -18,7 +18,7 @@
     @livewireStyles
 </head>
 
-<body @php(body_class())>
+<body @php(body_class()) x-data="initPage()">
     @php(wp_body_open())
 
     <div id="app">

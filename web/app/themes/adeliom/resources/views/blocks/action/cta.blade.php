@@ -11,7 +11,7 @@
 			@isset($fields['title'])
 				<x-typography.heading :fields="$fields['title']" size="5"/>
 			@endisset
-			
+
 			@isset($fields['wysiwyg'])
 				<x-typography.text :content="$fields['wysiwyg']"/>
 			@endisset
