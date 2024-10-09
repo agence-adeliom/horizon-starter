@@ -14,9 +14,9 @@
 				<x-media.img :image="$logo" class="w-24 h-auto"/>
 			</a>
 		@endif
-		
+
 		@if ($btnLp)
-			<x-action.button :object="$btnHighlight" class="max-md:w-full"/>
+        <x-action.button :fields="$btnHighlight" class="max-md:w-full"/>
 		@endif
 	</div>
 </header>
