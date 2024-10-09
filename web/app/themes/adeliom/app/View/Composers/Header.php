@@ -25,12 +25,12 @@ class Header extends Composer
         $logo = null;
         $headerCta = null;
 
-        if ($data = get_field(OptionPageAdmin::PARAM_FIELDS, 'option')) {
-            if (is_array($data) && isset($data[OptionPageAdmin::MAIN_LOGO])) {
-                $logo = $data[OptionPageAdmin::MAIN_LOGO];
+		if ($data = get_field(OptionPageAdmin::FIELD_PARAM_FIELDS, 'option')) {
+			if (is_array($data) && isset($data[OptionPageAdmin::FIELD_MAIN_LOGO])) {
+				$logo = $data[OptionPageAdmin::FIELD_MAIN_LOGO];
             }
-            if (is_array($data) && isset($data[OptionPageAdmin::HEADER_CTA])) {
-                $headerCta = $data[OptionPageAdmin::HEADER_CTA];
+			if (is_array($data) && isset($data[OptionPageAdmin::FIELD_HEADER_CTA])) {
+				$headerCta = $data[OptionPageAdmin::FIELD_HEADER_CTA];
             }
         }
 
