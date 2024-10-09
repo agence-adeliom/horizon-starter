@@ -15,13 +15,13 @@ use Extended\ACF\Fields\RadioButton;
 
 class CtaBlock extends AbstractBlock
 {
-    public const string FIELD_APPARENCE = "appearance";
-    public const string FIELD_APPARENCE_DEFAULT = "default";
-    public const string FIELD_APPARENCE_FULL_WIDTH = "full-width";
-
     public static ?string $slug = 'cta';
     public static ?string $title = "Section call-to-action";
     public static ?string $description = "Incite l'utilisateur à effectuer une action spécifique dans un objectif de conversion.";
+
+    public const string FIELD_APPARENCE = "appearance";
+    public const string FIELD_APPARENCE_DEFAULT = "default";
+    public const string FIELD_APPARENCE_FULL_WIDTH = "full-width";
 
     public function getFields(): ?iterable
     {
