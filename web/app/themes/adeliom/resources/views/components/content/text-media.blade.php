@@ -15,7 +15,7 @@
 
   <div @if($mediaClass) class="{{ $mediaClass }}"@endif>
     @if($isImage)
-      <x-media.img :image="$image" class="cover-full" :ratio="$ratioClass"/>
+      <x-media.img :image="$image" class="cover-full rounded-image" :ratio="$ratioClass"/>
     @elseif($isVideo)
       <x-media.img :image="$thumbnail" class="cover-full" :ratio="$ratioClass"/>
       <x-media.video :video="$video" class="cover-full" :ratio="$ratioClass"/>

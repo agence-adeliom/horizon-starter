@@ -356,6 +356,7 @@ const config = {
         tag: 'var(--awc-tag-border-radius)',
         panel: 'var(--awc-panel-border-radius)',
         card: 'var(--awc-card-border-radius)',
+        image: 'var(--awc-image-border-radius)',
         input: {
           sm: 'var(--awc-input-border-radius-small)',
           md: 'var(--awc-input-border-radius-medium)',

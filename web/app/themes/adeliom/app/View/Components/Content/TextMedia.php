@@ -14,29 +14,37 @@ use Illuminate\View\Component;
 
 class TextMedia extends Component
 {
-    private const MEDIA_POSITIONS = ['left', 'right'];
-    private const MEDIA_RATIOS = ['auto', 'paysage', 'portrait'];
+    private const array MEDIA_POSITIONS = [LayoutField::VALUE_MEDIA_POSITION_LEFT, LayoutField::VALUE_MEDIA_POSITION_RIGHT, LayoutField::VALUE_MEDIA_POSITION_BOTTOM];
+    private const array MEDIA_RATIOS = ['auto', 'paysage', 'portrait'];
 
-    private const POSITIONS = [
+    private const array POSITIONS = [
         'portrait' => [
-            'right' => [
+            LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
                 'text' => 'lg:row-start-1 lg:col-span-6',
                 'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13',
             ],
-            'left' => [
+            LayoutField::VALUE_MEDIA_POSITION_LEFT => [
                 'text' => 'order-2 lg:col-start-7 lg:col-end-13',
                 'media' => 'order-1 lg:col-start-1 lg:col-end-6',
             ],
+            LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
+                'text' => 'flex flex-col items-center justify-center',
+                'media' => 'w-full',
+            ]
         ],
         'paysage' => [
-            'right' => [
+            LayoutField::VALUE_MEDIA_POSITION_LEFT => [
                 'text' => 'lg:row-start-1 lg:col-span-5',
                 'media' => 'lg:col-start-7 lg:col-end-13',
             ],
-            'left' => [
+            LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
                 'text' => 'order-2 lg:col-start-8 lg:col-end-13',
                 'media' => 'order-1 lg:col-span-6'
             ],
+            LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
+                'text' => 'flex flex-col items-center justify-center',
+                'media' => 'w-full',
+            ]
         ],
     ];
 
@@ -207,7 +215,14 @@ class TextMedia extends Component
 
     private function handleClasses(): void
     {
-        $this->containerClass = 'grid items-center gap-6 lg:grid-cols-12';
+        switch ($this->mediaPosition) {
+            case LayoutField::VALUE_MEDIA_POSITION_BOTTOM:
+                $this->containerClass .= 'flex gap-6 flex-col items-center justify-center max-w-[792px] mx-auto text-center';
+                break;
+            default:
+                $this->containerClass = 'grid items-center gap-6 lg:grid-cols-12';
+                break;
+        }
 
         $this->mediaClass = implode(' ', [
             'col-span-full',
