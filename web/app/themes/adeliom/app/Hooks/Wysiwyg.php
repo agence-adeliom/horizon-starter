@@ -11,29 +11,29 @@ class Wysiwyg extends AbstractHook
     public static function customStyleFormats($settings): array
     {
         $style_formats = [
-           /* [
-                'title' => 'Titres',
-                'items' => [
-                    [
-                        'title'      => 'Titre 3xl',
-                        'selector'   => 'h2, h3, h4, h5, h6, p',
-                        'wrapper'    => false,
-                        'remove'     => 'none',
-                        'attributes' => [
-                            'class' => 'text-3xl',
-                        ],
-                    ],
-                    [
-                        'title'      => 'Titre 2xl',
-                        'selector'   => 'h2, h3, h4, h5, h6, p',
-                        'wrapper'    => false,
-                        'remove'     => 'none',
-                        'attributes' => [
-                            'class' => 'text-2xl',
-                        ],
-                    ],
-                ],
-            ],*/
+            /* [
+                 'title' => 'Titres',
+                 'items' => [
+                     [
+                         'title'      => 'Titre 3xl',
+                         'selector'   => 'h2, h3, h4, h5, h6, p',
+                         'wrapper'    => false,
+                         'remove'     => 'none',
+                         'attributes' => [
+                             'class' => 'text-3xl',
+                         ],
+                     ],
+                     [
+                         'title'      => 'Titre 2xl',
+                         'selector'   => 'h2, h3, h4, h5, h6, p',
+                         'wrapper'    => false,
+                         'remove'     => 'none',
+                         'attributes' => [
+                             'class' => 'text-2xl',
+                         ],
+                     ],
+                 ],
+             ],*/
             [
                 'title' => 'Paragraphes',
                 'items' => [
@@ -44,6 +44,15 @@ class Wysiwyg extends AbstractHook
                         'remove'     => 'none',
                         'attributes' => [
                             'class' => 'text-large',
+                        ],
+                    ],
+                    [
+                        'title'      => 'Texte xlarge',
+                        'wrapper'    => false,
+                        'selector'   => 'h2, h3, h4, h5, h6, p',
+                        'remove'     => 'none',
+                        'attributes' => [
+                            'class' => 'text-xlarge',
                         ],
                     ],
                 ],
