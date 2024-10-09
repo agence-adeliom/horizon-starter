@@ -18,12 +18,12 @@ use Extended\ACF\Fields\Relationship;
 
 class FaqBlock extends AbstractBlock
 {
-    public const string FIELDS_IMG = 'img';
-    public const string FIELDS_QUESTIONS = 'questions';
-
     public static ?string $slug = 'faq';
     public static ?string $title = 'FAQ';
     public static ?string $description = "Présente des questions souvent posées par les utilisateurices, ainsi que des réponses rapides.";
+
+    public const string FIELDS_IMG = 'img';
+    public const string FIELDS_QUESTIONS = 'questions';
 
     public function getFields(): ?iterable
     {
