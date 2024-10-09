@@ -11,6 +11,10 @@
     @if($content)
       <x-typography.text :content="$content"/>
     @endif
+
+      @isset($buttons)
+        <x-action.buttons :buttons="$buttons" class="mt-button-text-mobile lg:mt-button-text-desktop"/>
+      @endisset
   </div>
 
   <div @if($mediaClass) class="{{ $mediaClass }}"@endif>

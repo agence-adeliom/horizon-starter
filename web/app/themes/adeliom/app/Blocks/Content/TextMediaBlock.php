@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Blocks\Content;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
+use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Medias\MediaField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
@@ -28,6 +29,7 @@ class TextMediaBlock extends AbstractBlock
             UptitleField::make(),
             HeadingField::make()->required(),
             WysiwygField::make(),
+            ButtonField::group(),
         ]);
 
         yield from MediaTab::make()->fields([

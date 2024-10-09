@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Content;
 
+use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Medias\MediaField;
 use Adeliom\HorizonTools\Fields\Medias\VideoField;
@@ -34,12 +35,12 @@ class TextMedia extends Component
         ],
         'paysage' => [
             LayoutField::VALUE_MEDIA_POSITION_LEFT => [
-                'text' => 'lg:row-start-1 lg:col-span-5',
-                'media' => 'lg:col-start-7 lg:col-end-13',
+                'text' => 'order-2 lg:col-start-7 lg:col-end-13',
+                'media' => 'order-1 lg:col-start-1 lg:col-end-6',
             ],
             LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
-                'text' => 'order-2 lg:col-start-8 lg:col-end-13',
-                'media' => 'order-1 lg:col-span-6'
+                'text' => 'lg:row-start-1 lg:col-span-6',
+                'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13'
             ],
             LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
                 'text' => 'flex flex-col items-center justify-center',
@@ -55,6 +56,7 @@ class TextMedia extends Component
     public ?array $title = null;
     public ?string $uptitle = null;
     public ?string $content = null;
+    public ?array $buttons = null;
 
     public bool $isVideo = false;
     public bool $isImage = false;
@@ -101,6 +103,10 @@ class TextMedia extends Component
     {
         if (isset($this->fields[WysiwygField::WYSIWYG]) && $this->fields[WysiwygField::WYSIWYG]) {
             $this->content = $this->fields[WysiwygField::WYSIWYG];
+        }
+
+        if (isset($this->fields[ButtonField::BUTTONS]) && $this->fields[ButtonField::BUTTONS]) {
+            $this->buttons = $this->fields[ButtonField::BUTTONS];
         }
     }
 
