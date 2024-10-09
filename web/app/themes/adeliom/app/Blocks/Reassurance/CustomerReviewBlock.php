@@ -35,7 +35,7 @@ class CustomerReviewBlock extends AbstractBlock
                 ->body("La note globale est gérée au niveau général de votre thème."),
             Relationship::make("Avis clients", self::FIELD_REVIEWS)
                 ->minPosts(2)
-                ->maxPosts(3)
+                ->maxPosts(6)
                 ->postTypes([CustomerReview::$slug])->required(),
         ]);
 
@@ -46,18 +46,19 @@ class CustomerReviewBlock extends AbstractBlock
 
     public function addToContext(): array
     {
-        $options = get_field(OptionPageAdmin::FIELDS_REVIEWS, 'option');
-        $globalRating = $options[OptionPageAdmin::GLOBAL_RATING] ?? null;
-        $btnRating = $options[OptionPageAdmin::BTN_REVIEWS] ?? null;
+        $options = get_field(OptionPageAdmin::FIELD_REVIEWS_FIELDS, 'option');
+        $globalRating = $options[OptionPageAdmin::FIELD_GLOBAL_RATING] ?? null;
+        $btnRating = $options[OptionPageAdmin::FIELD_BTN_REVIEWS] ?? null;
 
         return [
-            OptionPageAdmin::GLOBAL_RATING => $globalRating,
-            OptionPageAdmin::BTN_REVIEWS   => $btnRating,
+            OptionPageAdmin::FIELD_GLOBAL_RATING => $globalRating,
+            OptionPageAdmin::FIELD_BTN_REVIEWS   => $btnRating,
         ];
     }
 
     public function renderBlockCallback(): void
     {
+        wp_enqueue_style('customer-review-block-css', BudService::getUrl('customer-review.css'));
         wp_enqueue_script('customer-review-block-js', BudService::getUrl('customer-review.js'));
     }
 }

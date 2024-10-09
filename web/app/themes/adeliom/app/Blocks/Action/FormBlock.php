@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Blocks\Action;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
-use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
@@ -22,18 +21,16 @@ class FormBlock extends AbstractBlock
 {
     public static ?string $slug = 'form';
     public static ?string $title = 'Formulaire';
-    public static ?string $mode = 'preview';
+    public static ?string $description = "Peut servir de formulaire de contact, d'inscription, demande de devis ou encore d'information.";
 
-    final public const string FIELD_DESC = "desc";
-    final public const string FIELD_POSITION = "position";
-    final public const string POSITION_LEFT = "left";
-    final public const string POSITION_CENTER = "center";
-
-
-    final public const string FIELD_BG_TYPE = 'bg-type';
-    final public const string FIELD_BG_IMAGE = 'bg-image';
-    final public const string BG_COLOR_TYPE = "bg-color-type";
-    final public const string BG_IMAGE_TYPE = "bg-image-type";
+    public const string FIELD_DESC = "desc";
+    public const string FIELD_POSITION = "position";
+    public const string FIELD_POS_LEFT = "left";
+    public const string FIELD_POS_CENTER = "center";
+    public const string FIELD_BG_TYPE = 'bg-type';
+    public const string FIELD_BG_IMAGE = 'bg-image';
+    public const string BG_COLOR_TYPE = "bg-color-type";
+    public const string BG_IMAGE_TYPE = "bg-image-type";
 
     public function getFields(): ?iterable
     {
@@ -48,10 +45,10 @@ class FormBlock extends AbstractBlock
             LayoutField::margin(),
             RadioButton::make('Position', self::FIELD_POSITION,)
                 ->choices([
-                    self::POSITION_LEFT   => 'Gauche',
-                    self::POSITION_CENTER => 'Centre',
+                    self::FIELD_POS_LEFT   => 'Gauche',
+                    self::FIELD_POS_CENTER => 'Centre',
                 ])
-                ->default(self::POSITION_LEFT),
+                ->default(self::FIELD_POS_LEFT),
 
             RadioButton::make("Type de fond", self::FIELD_BG_TYPE)
                 ->choices([

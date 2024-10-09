@@ -1,4 +1,4 @@
-<div class="relative rounded-card p-card border-card flex flex-col gap-card">
+<div class="relative rounded-card p-card border-card flex flex-col gap-card {{ $attributes['class'] ?? '' }}">
 
     @php
         $reviewInfo = $review['review'] ?? null;

@@ -37,49 +37,49 @@ class Footer extends Composer
         $secondaryFooterNavigation = new MenuViewModel("secondary_footer_navigation") ?? null;
 
 
-        if ($options = get_field(OptionPageAdmin::FIELDS_PARAM, 'option')) {
+        if ($options = get_field(OptionPageAdmin::FIELD_PARAM_FIELDS, 'option')) {
             if (is_array($options)) {
-                if (isset($options[OptionPageAdmin::CLIENT_NAME])) {
-                    $clientName = $options[OptionPageAdmin::CLIENT_NAME];
+                if (isset($options[OptionPageAdmin::FIELD_CLIENT_NAME])) {
+                    $clientName = $options[OptionPageAdmin::FIELD_CLIENT_NAME];
                 }
 
-                if (isset($options[OptionPageAdmin::WHITE_LOGO])) {
-                    $logoFooter = $options[OptionPageAdmin::WHITE_LOGO];
+                if (isset($options[OptionPageAdmin::FIELD_WHITE_LOGO])) {
+                    $logoFooter = $options[OptionPageAdmin::FIELD_WHITE_LOGO];
                 }
-                if (isset($options[OptionPageAdmin::CLIENT_BASELINE])) {
-                    $clientBaseline = $options[OptionPageAdmin::CLIENT_BASELINE];
+                if (isset($options[OptionPageAdmin::FIELD_CLIENT_BASELINE])) {
+                    $clientBaseline = $options[OptionPageAdmin::FIELD_CLIENT_BASELINE];
                 }
 
-                if (isset($options[OptionPageAdmin::SOCIAL_NETWORKS])) {
-                    $socialNetworks = $options[OptionPageAdmin::SOCIAL_NETWORKS];
+                if (isset($options[OptionPageAdmin::FIELD_SOCIAL_NETWORKS])) {
+                    $socialNetworks = $options[OptionPageAdmin::FIELD_SOCIAL_NETWORKS];
                 }
             }
         }
 
 
-        if ($options = get_field(OptionPageAdmin::FIELDS_FOOTER, 'option')) {
-            if (isset($options[OptionPageAdmin::FOOTER_TITLE])) {
-                $footerTitle = $options[OptionPageAdmin::FOOTER_TITLE];
+        if ($options = get_field(OptionPageAdmin::FIELD_FOOTER_FIELDS, 'option')) {
+            if (isset($options[OptionPageAdmin::FIELD_FOOTER_TITLE])) {
+                $footerTitle = $options[OptionPageAdmin::FIELD_FOOTER_TITLE];
             }
 
-            if (isset($options[OptionPageAdmin::FOOTER_TEXT])) {
-                $footerText = $options[OptionPageAdmin::FOOTER_TEXT];
+            if (isset($options[OptionPageAdmin::FIELD_FOOTER_TEXT])) {
+                $footerText = $options[OptionPageAdmin::FIELD_FOOTER_TEXT];
             }
 
-            if (isset($options[OptionPageAdmin::MAIN_NAVIGATION_TITLE])) {
-                $primaryNavTitle = $options[OptionPageAdmin::MAIN_NAVIGATION_TITLE];
+            if (isset($options[OptionPageAdmin::FIELD_MAIN_NAVIGATION_TITLE])) {
+                $primaryNavTitle = $options[OptionPageAdmin::FIELD_MAIN_NAVIGATION_TITLE];
             }
 
-            if (isset($options[OptionPageAdmin::SECOND_NAVIGATION_TITLE])) {
-                $secondNavTitle = $options[OptionPageAdmin::SECOND_NAVIGATION_TITLE];
+            if (isset($options[OptionPageAdmin::FIELD_SECOND_NAVIGATION_TITLE])) {
+                $secondNavTitle = $options[OptionPageAdmin::FIELD_SECOND_NAVIGATION_TITLE];
             }
 
-            if (isset($options[OptionPageAdmin::TITLE_HIGHLIGHT])) {
-                $titleHighlight = $options[OptionPageAdmin::TITLE_HIGHLIGHT];
+            if (isset($options[OptionPageAdmin::FIELD_TITLE_HIGHLIGHT])) {
+                $titleHighlight = $options[OptionPageAdmin::FIELD_TITLE_HIGHLIGHT];
             }
 
-            if (isset($options[OptionPageAdmin::BTN_HIGHLIGHT])) {
-                $btnHighlight = $options[OptionPageAdmin::BTN_HIGHLIGHT];
+            if (isset($options[OptionPageAdmin::FIELD_BTN_HIGHLIGHT])) {
+                $btnHighlight = $options[OptionPageAdmin::FIELD_BTN_HIGHLIGHT];
             }
         }
 

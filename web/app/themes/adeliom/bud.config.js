@@ -29,13 +29,6 @@ export default async (app) => {
     .assets(['images']);
 
   /**
-   * Set public path
-   *
-   * @see {@link https://bud.js.org/reference/bud.setPublicPath}
-   */
-  app.setPublicPath('/app/themes/cir/public/');
-
-  /**
    * Development server settings
    *
    * @see {@link https://bud.js.org/reference/bud.setUrl}
