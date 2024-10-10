@@ -8,25 +8,52 @@ use Adeliom\HorizonTools\Hooks\AbstractHook;
 
 class Wysiwyg extends AbstractHook
 {
-    public function init(): void
-    {
-        add_filter("tiny_mce_before_init", [$this, "addCustomStyle"]);
-    }
-
-    public static function addCustomStyle($settings)
+    public static function customStyleFormats($settings): array
     {
         $style_formats = [
+            /* [
+                 'title' => 'Titres',
+                 'items' => [
+                     [
+                         'title'      => 'Titre 3xl',
+                         'selector'   => 'h2, h3, h4, h5, h6, p',
+                         'wrapper'    => false,
+                         'remove'     => 'none',
+                         'attributes' => [
+                             'class' => 'text-3xl',
+                         ],
+                     ],
+                     [
+                         'title'      => 'Titre 2xl',
+                         'selector'   => 'h2, h3, h4, h5, h6, p',
+                         'wrapper'    => false,
+                         'remove'     => 'none',
+                         'attributes' => [
+                             'class' => 'text-2xl',
+                         ],
+                     ],
+                 ],
+             ],*/
             [
                 'title' => 'Paragraphes',
                 'items' => [
                     [
-                        'title' => 'Texte large',
-                        'wrapper' => false,
-                        'selector' => 'h2, h3, h4, h5, h6, p',
+                        'title'      => 'Texte large',
+                        'wrapper'    => false,
+                        'selector'   => 'h2, h3, h4, h5, h6, p',
+                        'remove'     => 'none',
                         'attributes' => [
-                            'class' => 'text-xl',
+                            'class' => 'text-large',
                         ],
-                        'remove' => 'none'
+                    ],
+                    [
+                        'title'      => 'Texte xlarge',
+                        'wrapper'    => false,
+                        'selector'   => 'h2, h3, h4, h5, h6, p',
+                        'remove'     => 'none',
+                        'attributes' => [
+                            'class' => 'text-xlarge',
+                        ],
                     ],
                 ],
             ],
@@ -34,100 +61,27 @@ class Wysiwyg extends AbstractHook
                 'title' => 'Listes',
                 'items' => [
                     [
-                        'title' => 'Couleur auto',
+                        'title'      => 'Liste à check',
                         'attributes' => [
-                            'class' => 'list-check list-check--auto',
+                            'class' => 'list list-check',
                         ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
+                        'selector'   => 'ul',
+                        'remove'     => 'none',
                     ],
-                    [
-                        'title' => 'Blanc',
-                        'attributes' => [
-                            'class' => 'list-check list-check--white',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Bleu',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-02',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Bleu roi',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-03',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Jaune',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-06',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Noir',
-                        'attributes' => [
-                            'class' => 'list-check list-check--brand-02',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Orange',
-                        'attributes' => [
-                            'class' => 'list-check list-check--brand-01',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Orange ERP',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-01',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Rose',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-04',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Vert',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-05',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ],
-                    [
-                        'title' => 'Violet',
-                        'attributes' => [
-                            'class' => 'list-check list-check--secondary-07',
-                        ],
-                        'selector' => 'ul',
-                        'remove' => 'none',
-                    ]
                 ],
             ],
         ];
 
-        // Insert the array, JSON ENCODED, into 'style_formats'
         $settings['style_formats'] = json_encode($style_formats);
 
         return $settings;
+    }
+
+    public function init(): void
+    {
+        add_filter("tiny_mce_before_init", [
+            $this,
+            "customStyleFormats",
+        ]);
     }
 }
