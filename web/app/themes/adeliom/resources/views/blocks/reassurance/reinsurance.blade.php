@@ -2,10 +2,9 @@
     <x-block :fields="$fields">
         <div class="flex flex-wrap">
             @foreach ($fields['items'] as $item)
-                <div
-                        class="basis-full md:basis-1/2 lg:basis-1/{{ count($fields['items'])  }} flex flex-row items-center gap-medium p-xlarge max-md:justify-center">
+                <div class="basis-1/2 lg:basis-1/{{ count($fields['items'])  }} flex flex-row items-baseline gap-medium p-small md:p-xlarge">
                     @if (@isset($item['icon']) && $item['icon'])
-                        <div class="text-3xl text-primary">
+                        <div class="text-xl text-primary lg:text-2xl">
                             {!! $item['icon'] !!}
                         </div>
                     @endisset
