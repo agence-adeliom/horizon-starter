@@ -1,8 +1,20 @@
 @if ($fields && $fields['items'])
+
+@php
+    // Handle different display if both data and title are filled or not
+    $hasDataAndTitle = !empty(array_filter($fields['items'], function ($item) {
+        return !empty($item['data']) && !empty($item['title']);
+    }));
+@endphp
+
     <x-block :fields="$fields">
         <div class="flex flex-wrap">
             @foreach ($fields['items'] as $item)
-                <div class="basis-1/2 lg:basis-1/{{ count($fields['items'])  }} flex flex-row items-baseline gap-medium p-small md:p-xlarge">
+                <div @class([
+                    "lg:basis-1/" . count($fields['items']) . " flex flex-row  gap-medium p-small mx-auto md:p-xlarge",
+                    "basis-full md:basis-1/2 items-center" => $hasDataAndTitle,
+                    "basis-1/2 items-baseline" => !$hasDataAndTitle,
+                ])>
                     @if (@isset($item['icon']) && $item['icon'])
                         <div class="text-xl text-primary lg:text-2xl">
                             {!! $item['icon'] !!}

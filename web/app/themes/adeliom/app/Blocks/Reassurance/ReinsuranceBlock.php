@@ -33,6 +33,7 @@ class ReinsuranceBlock extends AbstractBlock
                 ->maxRows(4)
                 ->layout('block')
                 ->collapsed(self::FIELD_TITLE)
+                ->helperText(__("Pour garantir une mise en page cohérente et harmonieuse sur le site, il est recommandé de remplir les mêmes champs pour chaque élément de ce bloc. Par exemple, si vous renseignez les champs 'Icône' et 'Donnée' pour un élément, assurez-vous de le faire pour tous les autres éléments. Cela permettra d'optimiser l'affichage de vos informations."))
                 ->fields([
                     FontAwesomeIcon::make(__('Icône'), self::FIELD_ICON)->required(),
                     Text::make(__('Donnée'), self::FIELD_DATA),
@@ -46,5 +47,15 @@ class ReinsuranceBlock extends AbstractBlock
         yield from LayoutTab::make()->fields([
             LayoutField::margin(),
         ]);
+    }
+
+    public function addToContext(): array
+    {
+        return [];
+    }
+
+    public function renderBlockCallback(): void
+    {
+        return;
     }
 }
