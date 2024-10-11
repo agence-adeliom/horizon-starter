@@ -1,3 +1,3 @@
-<{{ $tag }} class="{{ $fullClass }}">
-    {!! $content !!}
-    </{{ $tag }}>
+<{{ $tag }} class="{{ $fullClass }}" {{ $attributes->except(['class']) }}>
+{!! $content !!}
+</{{ $tag }}>

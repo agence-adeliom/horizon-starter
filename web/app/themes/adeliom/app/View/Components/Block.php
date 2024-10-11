@@ -40,6 +40,7 @@ class Block extends Component
         'fluid'  => 'max-w-[1400px] m-auto px-20',
     ];
 
+    public ?string $baseClass = 'relative';
     public ?string $backgroundClass = null;
     public ?string $paddingClass = null;
     public ?string $containerClass = null;
@@ -58,8 +59,7 @@ class Block extends Component
         public ?string          $container = null,
         public ?string          $anchor = null,
         public ?string          $class = null,
-    )
-    {
+    ) {
 
         $this->handleClassName();
         $this->handleBackground();
@@ -92,9 +92,9 @@ class Block extends Component
 
     private function handlePaddings(): void
     {
-        $marginTopSizeField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_SIZE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_SIZE] : null;
-        $marginBottomSizeField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_SIZE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_SIZE] : null;
-        
+        $marginTopSizeField = $this->fields[LayoutField::FIELD_MARGIN][LayoutField::FIELD_MARGIN_TOP_SIZE] ?? null;
+        $marginBottomSizeField = $this->fields[LayoutField::FIELD_MARGIN][LayoutField::FIELD_MARGIN_BOTTOM_SIZE] ?? null;
+
         // if padding is not set or not in the list of paddings, set it to large
         if (null === $this->padding || !in_array($this->padding, array_keys(self::PADDINGS))) {
             $this->padding = 'large';
@@ -130,14 +130,15 @@ class Block extends Component
 
     private function handleDarkmode(): void
     {
-        if (isset($this->fields[LayoutField::DARK_MODE]) && $this->fields[LayoutField::DARK_MODE]) {
-            $this->darkModeClass = "dark";
+        if (isset($this->fields[LayoutField::FIELD_DARK_MODE]) && $this->fields[LayoutField::FIELD_DARK_MODE]) {
+            $this->darkModeClass = "dark awc-theme-dark";
         }
     }
 
     private function handleFullClass(): void
     {
         $this->fullClass = implode(' ', [
+            $this->baseClass,
             $this->freeClass,
             $this->backgroundClass,
             $this->paddingClass,

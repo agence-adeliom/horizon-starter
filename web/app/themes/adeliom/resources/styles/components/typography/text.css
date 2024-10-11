@@ -1,5 +1,9 @@
 @layer components {
-  .p {
-    @apply text-text-secondary;
-  }
+    .p {
+        @apply text-text-secondary;
+    }
+
+    .text-hover {
+        @apply hover:opacity-70 transition-all;
+    }
 }
