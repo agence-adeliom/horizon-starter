@@ -73,7 +73,7 @@ class CustomerReview extends AbstractPostType
                     ->required(),
             ]);
 
-        yield Group::make("Avis client", self::FIELD_REVIEWER)
+        yield Group::make("Information client", self::FIELD_REVIEWER)
             ->fields([
                 Text::make("Nom", self::FIELD_LASTNAME)
                     ->required(),

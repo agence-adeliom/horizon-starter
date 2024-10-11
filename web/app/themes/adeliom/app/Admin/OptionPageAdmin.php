@@ -10,6 +10,8 @@ use Adeliom\HorizonTools\Fields\Text\IconField;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Number;
+
+use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
@@ -37,9 +39,9 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_FOOTER_TITLE = "footer-title";
     public const string FIELD_FOOTER_TEXT = "footer-text";
 
-    public const string FIELDS_REVIEWS = "reviews";
-    public const string GLOBAL_RATING = "global-rating";
-    public const string BTN_REVIEWS = "btn-reviews";
+    public const string FIELD_REVIEWS_FIELDS = "reviews";
+    public const string FIELD_GLOBAL_RATING = "global-rating";
+    public const string FIELD_BTN_REVIEWS = "btn-reviews";
 
     public function getFields(): ?iterable
     {
@@ -56,12 +58,15 @@ class OptionPageAdmin extends AbstractAdmin
                     ->fields([
                         URL::make("Lien", "link"),
                         IconField::make()->format("object"),
+
                     ])
                     ->maxRows(6),
             ]);
 
         yield Tab::make("Pied de page");
+
         yield Group::make('Paramètres du pied de page', self::FIELD_FOOTER_FIELDS)
+
             ->fields([
                 Text::make("Titre", self::FIELD_FOOTER_TITLE),
                 Text::make("Texte", self::FIELD_FOOTER_TEXT),
@@ -73,15 +78,16 @@ class OptionPageAdmin extends AbstractAdmin
 
 
         yield Tab::make("Avis clients");
-        yield Group::make('Paramètres du pied de page', self::FIELDS_REVIEWS)
+
+        yield Group::make('Paramètres du pied de page', self::FIELD_REVIEWS_FIELDS)
             ->fields([
-                Number::make("Note globale", self::GLOBAL_RATING)
+                Number::make("Note globale", self::FIELD_GLOBAL_RATING)
                     ->helperText("Note attribuée à l'ensemble des avis clients, entre 0 et 5, par pas de 0.5")
                     ->min(0)
                     ->max(5)
                     ->step(0.5)
                     ->required(),
-                ButtonField::make("Liens de tous les avis", self::BTN_REVIEWS),
+                ButtonField::make("Liens de tous les avis", self::FIELD_BTN_REVIEWS),
             ]);
     }
 

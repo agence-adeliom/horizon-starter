@@ -11,6 +11,7 @@ use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
+use Adeliom\HorizonTools\Services\BudService;
 use App\Admin\OptionPageAdmin;
 use App\PostTypes\CustomerReview;
 use Extended\ACF\Fields\Message;
@@ -45,18 +46,19 @@ class CustomerReviewBlock extends AbstractBlock
 
     public function addToContext(): array
     {
-        $options = get_field(OptionPageAdmin::FIELDS_REVIEWS, 'option');
-        $globalRating = $options[OptionPageAdmin::GLOBAL_RATING] ?? null;
-        $btnRating = $options[OptionPageAdmin::BTN_REVIEWS] ?? null;
+        $options = get_field(OptionPageAdmin::FIELD_REVIEWS_FIELDS, 'option');
+        $globalRating = $options[OptionPageAdmin::FIELD_GLOBAL_RATING] ?? null;
+        $btnRating = $options[OptionPageAdmin::FIELD_BTN_REVIEWS] ?? null;
 
         return [
-            OptionPageAdmin::GLOBAL_RATING => $globalRating,
-            OptionPageAdmin::BTN_REVIEWS   => $btnRating,
+            OptionPageAdmin::FIELD_GLOBAL_RATING => $globalRating,
+            OptionPageAdmin::FIELD_BTN_REVIEWS   => $btnRating,
         ];
     }
 
     public function renderBlockCallback(): void
     {
-        return;
+        wp_enqueue_style('customer-review-block-css', BudService::getUrl('customer-review.css'));
+        wp_enqueue_script('customer-review-block-js', BudService::getUrl('customer-review.js'));
     }
 }
