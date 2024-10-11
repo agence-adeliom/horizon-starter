@@ -22,7 +22,7 @@ document.addEventListener('alpine:init', () => {
                     navigation: {
                         nextEl: this.$refs.buttonNext,
                         prevEl: this.$refs.buttonPrev,
-                        disabledClass: 'opacity-50',
+                        disabledClass: 'opacity-25 pointer-events-none transition-all',
                     },
                     breakpoints: {
                         768: {
@@ -41,7 +41,6 @@ document.addEventListener('alpine:init', () => {
 
                 this.$nextTick(() => {
                     this.swiper.init();
-                    console.log(this.swiper);
                 });
             },
         };

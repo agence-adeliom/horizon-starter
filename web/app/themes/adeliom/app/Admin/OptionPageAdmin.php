@@ -36,6 +36,11 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_BTN_HIGHLIGHT = "btn-highlight";
     public const string FIELD_FOOTER_TITLE = "footer-title";
     public const string FIELD_FOOTER_TEXT = "footer-text";
+
+    public const string FIELDS_REVIEWS = "reviews";
+    public const string GLOBAL_RATING = "global-rating";
+    public const string BTN_REVIEWS = "btn-reviews";
+
     public function getFields(): ?iterable
     {
         yield Tab::make("Général");
