@@ -27,6 +27,7 @@
     "@tailwindcss/typography": "^0.5.14"
   },
   "dependencies": {
+    "@agence-adeliom/awc": "^2.0.0",
     "@fortawesome/fontawesome-pro": "^6.6.0",
     "swiper": "^11.1.14"
   }
