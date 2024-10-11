@@ -12,6 +12,7 @@ use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
+use Adeliom\HorizonTools\Services\BudService;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Text;
@@ -53,6 +54,7 @@ class StepBlock extends AbstractBlock
 
     public function renderBlockCallback(): void
     {
-        return;
+        wp_enqueue_style('logos-block-css', BudService::getUrl('logos.css'));
+        wp_enqueue_script('steps-block-js', BudService::getUrl('steps.js'));
     }
 }

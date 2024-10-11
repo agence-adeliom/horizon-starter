@@ -9,8 +9,12 @@
 
         /*-- variants --*/
         &--primary {
-            &:not(.btn--text) {
+            &.btn--contained {
                 @apply text-primary-contrast bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark;
+            }
+
+            &.btn--outlined {
+                @apply text-primary bg-white border-primary hover:text-white hover:bg-primary;
             }
 
             &.btn--text {

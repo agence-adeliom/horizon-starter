@@ -16,7 +16,7 @@
 
     <div class="flex items-center gap-small">
         @if (@isset($reviewer['avatar']) && $reviewer['avatar'] !== false)
-            <x-media.img :image="$reviewer['avatar']" class="flex-none rounded-pill w-10 h-10" size="small" />
+            <x-media.img :image="$reviewer['avatar']" class="flex-none rounded-pill w-10 h-10" size="thumbnail" />
         @else
             <div
                 class="flex-none bg-gray-400 rounded-pill w-10 h-10 flex items-center justify-center text-large uppercase text-white">

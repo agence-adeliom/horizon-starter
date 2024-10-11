@@ -313,6 +313,7 @@ const config = {
         'button-text-desktop': 'var( --awc-section-spacing-button-text-desktop)',
         'button-button-mobile': 'var( --awc-section-spacing-button-button-mobile)',
         'button-button-desktop': 'var( --awc-section-spacing-button-button-desktop)',
+        card: 'var(--awc-card-padding)',
         input: {
           sm: 'var(--awc-input-spacing-small)',
           md: 'var(--awc-input-spacing-medium)',
@@ -320,7 +321,6 @@ const config = {
         }
       },
       gap : {
-        card: 'var(--awc-card-padding)',
         medium : 'var(--awc-spacing-medium)',
       },
       letterSpacing: {
@@ -329,13 +329,13 @@ const config = {
       padding: {
       'section-mobile': 'var(--awc-section-padding-y-mobile)',
       'section-desktop': 'var(--awc-section-padding-y-desktop)',
-        card: 'var(--awc-card-padding)',
         panel: 'var(--awc-panel-padding)',
         tooltip: {
           y: 'var(--awc-tooltip-padding-y)',
           x: 'var(--awc-tooltip-padding-x)',
         },
       },
+      
       borderWidth: {
         card: 'var(--awc-card-border-width)',
         panel: 'var(--awc-panel-border-width)',
