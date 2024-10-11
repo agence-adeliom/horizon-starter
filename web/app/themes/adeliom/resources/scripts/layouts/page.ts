@@ -1,5 +1,4 @@
 document.addEventListener('alpine:init', () => {
-    console.log('initpage');
     window.Alpine.data('initPage', () => {
         return {
             scrollDown: false,
