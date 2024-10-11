@@ -12,6 +12,7 @@ class Button extends Component
     private ?string $typeClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
+    final public const string ICON_ONLY = "btn--icon-only";
 
     final public const TYPES = [
         'primary'   => 'btn--primary',
@@ -37,7 +38,7 @@ class Button extends Component
         public ?string $id = null,
         public ?string $tag = "div",
         public ?string $ariaLabel = null,
-        public ?array  $object = null,
+        public ?array  $fields = null,
         public ?string $icon = null,
         public ?string $iconClass = null,
         public ?bool   $iconStart = false,
@@ -61,8 +62,8 @@ class Button extends Component
 
 
         if (null === $type) {
-            if (null === $this->type && isset($this->object[ButtonField::BUTTON_TYPE])) {
-                $type = $this->object[ButtonField::BUTTON_TYPE];
+            if (null === $this->type && isset($this->fields[ButtonField::BUTTON_TYPE])) {
+                $type = $this->fields[ButtonField::BUTTON_TYPE];
             }
         }
 
@@ -94,8 +95,8 @@ class Button extends Component
             $url = $this->url;
         }
 
-        if (null === $url && $this->object && isset($this->object[ButtonField::BUTTON_LINK]['url'])) {
-            $url = $this->object[ButtonField::BUTTON_LINK]['url'];
+        if (null === $url && $this->fields && isset($this->fields[ButtonField::BUTTON_LINK]['url'])) {
+            $url = $this->fields[ButtonField::BUTTON_LINK]['url'];
         }
 
         if ($url) {
@@ -112,8 +113,8 @@ class Button extends Component
             $label = $this->label;
         }
 
-        if (null === $label && $this->object && isset($this->object[ButtonField::BUTTON_LINK]['title'])) {
-            $label = $this->object[ButtonField::BUTTON_LINK]['title'];
+        if (null === $label && $this->fields && isset($this->fields[ButtonField::BUTTON_LINK]['title'])) {
+            $label = $this->fields[ButtonField::BUTTON_LINK]['title'];
         }
 
         if ($label) {
@@ -134,8 +135,8 @@ class Button extends Component
             $target = $this->target;
         }
 
-        if (null === $target && $this->object && isset($this->object[ButtonField::BUTTON_LINK]['target'])) {
-            $target = $this->object[ButtonField::BUTTON_LINK]['target'];
+        if (null === $target && $this->fields && isset($this->fields[ButtonField::BUTTON_LINK]['target'])) {
+            $target = $this->fields[ButtonField::BUTTON_LINK]['target'];
         }
 
         if ($target) {
@@ -150,6 +151,7 @@ class Button extends Component
             $this->iconStart ? 'flex-row-reverse' : '',
             $this->typeClass,
             $this->sizeClass,
+            !$this->label ? self::ICON_ONLY : '',
         ]);
     }
 

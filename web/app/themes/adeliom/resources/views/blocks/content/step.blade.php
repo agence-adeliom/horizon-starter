@@ -19,7 +19,7 @@
         </div>
         <div class="col-span-full flex justify-center">
             @isset($fields['button'])
-                <x-action.button :object="$fields['button']" size="large" type="tertiary" />
+                <x-action.button :fields="$fields['button']" size="large" type="tertiary" />
             @endisset
         </div>
 
