@@ -3,10 +3,6 @@
         $type = $fields['type'] ?? 'default';
         $withBg = $type === 'with_bg';
         $framed = $type === 'framed';
-
-        $direction = $fields['direction'] ?? 'column';
-        $isColumn = $direction === 'column';
-
     @endphp
 
     <x-block :fields="$fields">
@@ -33,23 +29,20 @@
         ])>
             @foreach ($fields['items'] as $item)
                 <div @class([
-                    'col-span-2 flex items-center',
+                    'col-span-2 flex items-center text-center flex-col gap-title-text-mobile lg:gap-title-text-desktop',
                     'md:max-lg:col-start-2' =>
                         count($fields['items']) === 3 && $loop->index === 2,
                     'bg-neutral-100' => $framed,
                     'p-xlarge' => $framed || $withBg,
-                    'flex-col gap-title-text-mobile lg:gap-title-text-desktop' => $isColumn,
-                    'flex-row gap-large' => !$isColumn,
-                    'p-small lg:p-xlarge' => !$framed && !$withBg && !$isColumn,
                 ])>
                     @if (@isset($item['icon']) && $item['icon'])
-                        <div @class(['text-3xl text-primary', 'lg:text-5xlarge' => $isColumn])>
+                        <div @class(['text-3xl text-primary lg:text-5xlarge'])>
                             {!! $item['icon'] !!}
                         </div>
                     @endisset
 
                     @if (@isset($item['data']) && $item['data'])
-                        <div @class(['heading-2 font-semibold', 'heading-3' => !$isColumn])>
+                        <div @class(['heading-2 font-semibold'])>
                             {{ $item['data'] }}
                         </div>
                     @endisset

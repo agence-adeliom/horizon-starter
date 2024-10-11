@@ -23,7 +23,6 @@ class KeyFigureBlock extends AbstractBlock
     final public const string FIELD_TITLE = 'title';
     final public const string FIELD_DATA = 'data';
     final public const FIELD_TYPE = 'type';
-    final public const FIELD_DIRECTION = 'direction';
     private const int TITLE_MAX_LENGTH = 100;
     public static ?string $slug = 'key-figure';
     public static ?string $title = 'Chiffres clés';
@@ -38,6 +37,7 @@ class KeyFigureBlock extends AbstractBlock
             Repeater::make(__('Éléments'), self::FIELD_ITEMS)
                 ->minRows(3)
                 ->maxRows(4)
+                ->helperText(__("Pour garantir une mise en page cohérente et harmonieuse sur le site, il est recommandé de remplir les mêmes champs pour chaque élément de ce bloc. Par exemple, si vous renseignez les champs 'Icône' et 'Donnée' pour un élément, assurez-vous de le faire pour tous les autres éléments. Cela permettra d'optimiser l'affichage de vos informations."))
                 ->layout('block')
                 ->collapsed(self::FIELD_TITLE)
                 ->fields([
@@ -51,12 +51,6 @@ class KeyFigureBlock extends AbstractBlock
 
         yield from LayoutTab::make()->fields([
             LayoutField::margin(),
-            ButtonGroup::make(__('Affichage des cartouches'), self::FIELD_DIRECTION)
-                ->choices([
-                    'column' => __('Vertical'),
-                    'row' => __('Horizontal'),
-                ])
-                ->default('column'),
             ButtonGroup::make(__('Type'), self::FIELD_TYPE)
                 ->choices([
                     'default' => __('Par défaut'),
