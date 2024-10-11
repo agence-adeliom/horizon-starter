@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} config */
+
 const plugin = require('tailwindcss/plugin');
 const typography = require('@tailwindcss/typography');
 
@@ -480,7 +481,7 @@ const config = {
       addVariant('is-open', ['&.is-open', '.is-open &']);
       addVariant('visible', ['&.is-visible', '.is-visible &']);
       addVariant('keyboard', '.tab-active &');
-  }),
+    }),
   ],
 };
 

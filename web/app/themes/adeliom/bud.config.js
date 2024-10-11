@@ -13,6 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default async (app) => {
+
   /**
    * Application assets & entrypoints
    *
@@ -24,9 +25,11 @@ export default async (app) => {
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .entry('listing', ['@scripts/blocks/listing'])
     .entry('customer-review', ['@scripts/blocks/customer-review'])
-    .runtime('multiple')
+    .entry('logos', ['@scripts/blocks/logos'])
+    .runtime('single')
     .hash()
     .assets(['images']);
+
 
   /**
    * Development server settings

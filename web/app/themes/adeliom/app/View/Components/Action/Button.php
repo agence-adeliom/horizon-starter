@@ -14,6 +14,7 @@ class Button extends Component
     private ?string $variantClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
+    final public const string ICON_ONLY = "btn--icon-only";
 
     final public const TYPES = [
         'primary'   => 'btn--primary',
@@ -198,6 +199,7 @@ class Button extends Component
             $this->typeClass,
             $this->variantClass,
             $this->sizeClass,
+            !$this->label ? self::ICON_ONLY : '',
         ]);
     }
 

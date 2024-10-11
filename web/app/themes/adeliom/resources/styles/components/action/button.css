@@ -70,5 +70,22 @@
                 @apply px-large leading-input-lg;
             }
         }
+
+        /*-- button icons --*/
+        &--icon-only {
+            &.btn {
+                &--sm {
+                    @apply w-8 h-8 p-1;
+                }
+
+                &--md {
+                    @apply w-10 h-10 p-2;
+                }
+
+                &--lg {
+                    @apply w-12 h-12 p-3;
+                }
+            }
+        }
     }
 }

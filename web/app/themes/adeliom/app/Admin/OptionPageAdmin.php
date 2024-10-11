@@ -10,6 +10,7 @@ use Adeliom\HorizonTools\Fields\Text\IconField;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Number;
+
 use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
@@ -77,6 +78,7 @@ class OptionPageAdmin extends AbstractAdmin
 
 
         yield Tab::make("Avis clients");
+
         yield Group::make('Paramètres du pied de page', self::FIELD_REVIEWS_FIELDS)
             ->fields([
                 Number::make("Note globale", self::FIELD_GLOBAL_RATING)
