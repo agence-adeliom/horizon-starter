@@ -29,7 +29,7 @@ class ListingBlock extends AbstractBlock
     public static ?string $title = 'Liste d’éléments';
     public static ?string $mode = 'preview';
 
-    public const bool USE_FIELDS_TO_DEFINE_FILTERS = true;
+    public const bool USE_FIELDS_TO_DEFINE_FILTERS = false;
 
     public const string FIELD_PER_PAGE = 'perPage';
     public const string FIELD_FILTERS = 'filters';
