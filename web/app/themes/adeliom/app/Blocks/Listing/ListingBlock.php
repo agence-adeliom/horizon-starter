@@ -19,7 +19,7 @@ class ListingBlock extends AbstractBlock
     public static ?string $title = 'Liste d’éléments';
     public static ?string $mode = 'preview';
 
-    final public const FIELD_PER_PAGE = 'perPage';
+    public const string FIELD_PER_PAGE = 'perPage';
 
     public function getFields(): ?iterable
     {
