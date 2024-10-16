@@ -60,22 +60,6 @@ class ListingBlock extends AbstractBlock
         }
     }
 
-    private function getAvailableFilterChoices(): array
-    {
-        $postType = $this->getFilteredPostType();
-        $fieldChoices = [];
-
-        if ($postType) {
-            $fields = $this->getPostTypeFields(postTypeSlug: $postType);
-
-            foreach ($fields as $field) {
-                $fieldChoices[sprintf('%s_%s', $field['type'], $field['name'])] = $field['label'];
-            }
-        }
-
-        return $fieldChoices;
-    }
-
     private function filterFields(): iterable
     {
         $fieldChoices = $this->getAvailableFilterChoices();
@@ -100,12 +84,40 @@ class ListingBlock extends AbstractBlock
                     ])
                         ->default('select'),
                     Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
+                        ->helperText(sprintf('Pour que les bonnes valeurs apparaissent, veuillez recharger la page après avoir changé le champ "%s"', PostTypeSelectField::LABEL))
+                        ->lazyLoad()
                         ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)])
                 ])
         ]);
     }
 
-    private function getPostTypeFields(string $postTypeSlug)
+    public function addToContext(): array
+    {
+        return [];
+    }
+
+    public function renderBlockCallback(): void
+    {
+        wp_enqueue_script('listing-block-js', BudService::getUrl('listing.js'));
+    }
+
+    private function getAvailableFilterChoices(): array
+    {
+        $postType = $this->getFilteredPostType();
+        $fieldChoices = [];
+
+        if ($postType) {
+            $fields = $this->getPostTypeFields(postTypeSlug: $postType);
+
+            foreach ($fields as $field) {
+                $fieldChoices[sprintf('%s_%s', $field['type'], $field['name'])] = $field['label'];
+            }
+        }
+
+        return $fieldChoices;
+    }
+
+    private function getPostTypeFields(string $postTypeSlug): array
     {
         $fields = [];
 
@@ -128,7 +140,7 @@ class ListingBlock extends AbstractBlock
     /**
      * @param Field[] $fields
      */
-    private function handleFields(array $fields, array &$array = [])
+    private function handleFields(array $fields, array &$array = []): void
     {
         foreach ($fields as $field) {
             $key = null;
@@ -208,15 +220,5 @@ class ListingBlock extends AbstractBlock
         }
 
         return $selectedPostType;
-    }
-
-    public function addToContext(): array
-    {
-        return [];
-    }
-
-    public function renderBlockCallback(): void
-    {
-        wp_enqueue_script('listing-block-js', BudService::getUrl('listing.js'));
     }
 }
