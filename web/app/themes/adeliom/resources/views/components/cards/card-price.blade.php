@@ -25,6 +25,10 @@
     @foreach($characteristics as $group)
       <div>
         @isset($group['title'])
+          @isset($group['icon'])
+            {!! $group['icon'] !!}
+          @endisset
+
           <p>
             <strong>{{ $group['title'] }}</strong>
           </p>

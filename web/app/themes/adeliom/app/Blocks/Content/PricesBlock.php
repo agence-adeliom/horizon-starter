@@ -10,6 +10,7 @@ use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
+use Adeliom\HorizonTools\Fields\Text\IconField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 use Extended\ACF\Fields\Group;
@@ -69,6 +70,7 @@ class PricesBlock extends AbstractBlock
                         ->layout('block')
                         ->button(__('Ajouter un groupe'))
                         ->fields([
+                            IconField::make(),
                             Text::make(__('Titre'), self::FIELD_PRICE_CHARACTERISTIC_TITLE),
                             Repeater::make(__('Éléments'), self::FIELD_PRICE_CHARACTERISTIC_ITEMS)
                                 ->button(__('Ajouter une caractéristique'))
