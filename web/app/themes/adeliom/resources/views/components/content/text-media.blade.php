@@ -11,11 +11,15 @@
     @if($content)
       <x-typography.text :content="$content"/>
     @endif
+
+      @isset($buttons)
+        <x-action.buttons :buttons="$buttons" class="mt-button-text-mobile lg:mt-button-text-desktop"/>
+      @endisset
   </div>
 
   <div @if($mediaClass) class="{{ $mediaClass }}"@endif>
     @if($isImage)
-      <x-media.img :image="$image" class="cover-full" :ratio="$ratioClass"/>
+      <x-media.img :image="$image" class="cover-full rounded-image" :ratio="$ratioClass"/>
     @elseif($isVideo)
       <x-media.img :image="$thumbnail" class="cover-full" :ratio="$ratioClass"/>
       <x-media.video :video="$video" class="cover-full" :ratio="$ratioClass"/>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Blocks\Content;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
+use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Medias\MediaField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
@@ -18,7 +19,8 @@ use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 class TextMediaBlock extends AbstractBlock
 {
     public static ?string $slug = 'text-media';
-    public static ?string $title = 'TextMediaBlock';
+    public static ?string $title = 'Texte + média';
+    public static ?string $description = 'Combine contenu texte et élément visuel (image ou vidéo) pour apporter de l’information.';
     public static ?string $mode = 'preview';
 
     public function getFields(): ?iterable
@@ -27,6 +29,7 @@ class TextMediaBlock extends AbstractBlock
             UptitleField::make(),
             HeadingField::make()->required(),
             WysiwygField::make(),
+            ButtonField::group(),
         ]);
 
         yield from MediaTab::make()->fields([

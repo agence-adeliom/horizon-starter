@@ -12,15 +12,15 @@ use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
+use Adeliom\HorizonTools\Services\BudService;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Text;
 
-class Step extends AbstractBlock
+class StepBlock extends AbstractBlock
 {
     public static ?string $slug = 'step';
-    public static ?string $title = 'Etapes';
-    public static ?string $mode = 'preview';
+    public static ?string $title = 'Étapes';
 
     final public const string FIELDS_STEPS = 'steps';
     final public const string FIELDS_STEP_TITLE = 'title';
@@ -33,13 +33,13 @@ class Step extends AbstractBlock
             UptitleField::make(),
             HeadingField::make()->required(),
             ButtonField::make(),
-            Repeater::make("Etapes", self::FIELDS_STEPS)
+            Repeater::make("Étapes", self::FIELDS_STEPS)
                 ->fields([
-                    UptitleField::make(),
+                    UptitleField::make()->required(),
                     Text::make("Titre de l'étape", self::FIELDS_STEP_TITLE)->required(),
                     WysiwygField::minimal("Contenu de l'étape", self::FIELDS_STEP_CONTENT)->required(),
                     Image::make("Image de l'étape", self::FIELDS_STEP_IMG)
-                        ->required()
+                        ->required(),
                 ])
                 ->collapsed(self::FIELDS_STEP_TITLE)
                 ->layout('block')
@@ -55,6 +55,7 @@ class Step extends AbstractBlock
 
     public function renderBlockCallback(): void
     {
-        return;
+        wp_enqueue_style('logos-block-css', BudService::getUrl('logos.css'));
+        wp_enqueue_script('steps-block-js', BudService::getUrl('steps.js'));
     }
 }
