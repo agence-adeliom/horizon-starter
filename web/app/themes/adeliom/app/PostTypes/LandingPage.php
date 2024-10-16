@@ -11,10 +11,10 @@ class LandingPage extends AbstractPostType
 {
     public static ?string $slug = 'landing-page';
 
-    public const string BTN_HIGHLIGHT = "btn-highlight";
-
     // Blade component used to render the card in the listing
-    public static ?string $card = null;
+    public static ?string $card = 'cards.card-listing';
+
+    public const string BTN_HIGHLIGHT = "btn-highlight";
 
     public function getConfig(array $config = []): array
     {

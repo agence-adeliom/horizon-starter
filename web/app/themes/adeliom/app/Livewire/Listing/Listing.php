@@ -57,6 +57,10 @@ class Listing extends Component
         } else {
             $this->postTypeClass = ClassService::getPostTypeClassBySlug($this->postType);
             $this->card = $this->postTypeClass::$card;
+
+            if (null === $this->card) {
+                throw new \Exception(sprintf('You have to set a card for the post-type in the class "%s". It should be a static var $card', $this->postTypeClass));
+            }
         }
 
         $this->initFilters();
