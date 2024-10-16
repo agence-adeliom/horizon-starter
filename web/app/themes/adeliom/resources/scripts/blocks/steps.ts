@@ -1,38 +1,36 @@
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
-// Uncomment when problem from Swiper lib fixed
-// import { SwiperOptions } from "swiper/types";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 document.addEventListener('alpine:init', () => {
-    window.Alpine.data('initLogosSlider', () => {
+    window.Alpine.data('initStepsSlider', () => {
         return {
-            activeLogo: null,
             init() {
                 const swiperParams = {
+                    // configure Swiper to use modules
                     modules: [Navigation],
-                    slidesPerView: 2,
+                    slidesPerView: 1.2,
                     spaceBetween: '12',
                     loop: false,
                     mousewheel: true,
                     navigation: {
                         nextEl: this.$refs.buttonNext,
                         prevEl: this.$refs.buttonPrev,
-                        disabledClass: 'opacity-25 pointer-events-none transition-all',
+                        disabledClass: 'opacity-0 transition-all pointer-events-none',
                     },
                     breakpoints: {
                         768: {
-                            slidesPerView: 3,
+                            spaceBetween: '12',
+                            slidesPerView: 2.2,
                         },
                         1024: {
                             spaceBetween: '24',
-                            slidesPerView: 4,
+                            slidesPerView: 3,
                         },
                         1280: {
-                            spaceBetween: '24',
-                            slidesPerView: 5,
+                            slidesPerView: 3,
                         },
                     },
                 };

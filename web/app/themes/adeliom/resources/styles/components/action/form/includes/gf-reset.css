@@ -1,0 +1,5 @@
+.gform-theme--framework {
+    .gform_required_legend {
+        @apply hidden;
+    }
+}

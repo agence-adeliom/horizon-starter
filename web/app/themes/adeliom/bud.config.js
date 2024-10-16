@@ -26,6 +26,7 @@ export default async (app) => {
     .entry('listing', ['@scripts/blocks/listing'])
     .entry('customer-review', ['@scripts/blocks/customer-review'])
     .entry('logos', ['@scripts/blocks/logos'])
+    .entry('steps', ['@scripts/blocks/steps'])
     .runtime('single')
     .hash()
     .assets(['images']);
