@@ -1,107 +1,105 @@
 /** @type {import('tailwindcss').Config} config */
 
-const plugin = require('tailwindcss/plugin');
-const typography = require('@tailwindcss/typography');
+import plugin from 'tailwindcss/plugin.js';
+import tailwindTypographyPlugin from '@tailwindcss/typography';
 
 const config = {
-    content: [
-        './app/**/*.php',
-        './resources/**/*.{php,vue,js,ts}',
-        './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php',
+    content: ['./app/**/*.php', './resources/**/*.{php,vue,js,ts}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
+    safelist: [
+        'basis-1/2 lg:basis-1/3 lg:basis-1/4',
     ],
-    safelist: ['basis-1/2 lg:basis-1/3 lg:basis-1/4'],
     future: {
         hoverOnlyWhenSupported: true,
     },
     theme: {
         extend: {
             colors: {
-                'text': {
+                text: {
                     primary: 'var(--awc-text-primary-color)',
                     secondary: 'var(--awc-text-secondary-color)',
                 },
-                'background': {
+                background: {
                     DEFAULT: 'var(--awc-background-color)',
                 },
-                'primary': {
+                primary: {
                     DEFAULT: 'var(--awc-color-primary-main)',
                     dark: 'var(--awc-color-primary-dark)',
                     light: 'var(--awc-color-primary-light)',
                     contrast: 'var(--awc-color-primary-contrast)',
                     states: {
-                        'selected': 'var(--awc-color-primary-states-selected)',
-                        'hover': 'var(--awc-color-primary-states-hover)',
-                        'focus': 'var(--awc-color-primary-states-focus)',
+                        selected: 'var(--awc-color-primary-states-selected)',
+                        hover: 'var(--awc-color-primary-states-hover)',
+                        focus: 'var(--awc-color-primary-states-focus)',
                         'focus-visible': 'var(--awc-color-primary-states-focus-visible)',
                         'outlined-border': 'var(--awc-color-primary-states-outlined-border)',
                     },
                 },
-                'secondary': {
+                secondary: {
                     DEFAULT: 'var(--awc-color-secondary-main)',
                     dark: 'var(--awc-color-secondary-dark)',
                     light: 'var(--awc-color-secondary-light)',
                     contrast: 'var(--awc-color-secondary-contrast)',
                     states: {
-                        'selected': 'var(--awc-color-secondary-states-selected)',
-                        'hover': 'var(--awc-color-secondary-states-hover)',
-                        'focus': 'var(--awc-color-secondary-states-focus)',
+                        selected: 'var(--awc-color-secondary-states-selected)',
+                        hover: 'var(--awc-color-secondary-states-hover)',
+                        focus: 'var(--awc-color-secondary-states-focus)',
                         'focus-visible': 'var(--awc-color-secondary-states-focus-visible)',
                         'outlined-border': 'var(--awc-color-secondary-states-outlined-border)',
                     },
                 },
-                'tertiary': {
+                tertiary: {
                     DEFAULT: 'var(--awc-color-tertiary-main)',
                     dark: 'var(--awc-color-tertiary-dark)',
                     light: 'var(--awc-color-tertiary-light)',
                     contrast: 'var(--awc-color-tertiary-contrast)',
                     states: {
-                        'selected': 'var(--awc-color-tertiary-states-selected)',
-                        'hover': 'var(--awc-color-tertiary-states-hover)',
-                        'focus': 'var(--awc-color-tertiary-states-focus)',
+                        selected: 'var(--awc-color-tertiary-states-selected)',
+                        hover: 'var(--awc-color-tertiary-states-hover)',
+                        focus: 'var(--awc-color-tertiary-states-focus)',
                         'focus-visible': 'var(--awc-color-tertiary-states-focus-visible)',
                         'outlined-border': 'var(--awc-color-tertiary-states-outlined-border)',
                     },
                 },
-                'danger': {
+                danger: {
                     DEFAULT: 'var(--awc-color-danger-main)',
                     dark: 'var(--awc-color-danger-dark)',
                     light: 'var(--awc-color-danger-light)',
                     contrast: 'var(--awc-color-danger-contrast)',
                     states: {
-                        'selected': 'var(--awc-color-danger-states-selected)',
-                        'hover': 'var(--awc-color-danger-states-hover)',
-                        'focus': 'var(--awc-color-danger-states-focus)',
+                        selected: 'var(--awc-color-danger-states-selected)',
+                        hover: 'var(--awc-color-danger-states-hover)',
+                        focus: 'var(--awc-color-danger-states-focus)',
                         'focus-visible': 'var(--awc-color-danger-states-focus-visible)',
                         'outlined-border': 'var(--awc-color-danger-states-outlined-border)',
                     },
                 },
-                'warning': {
+                warning: {
                     DEFAULT: 'var(--awc-color-warning-main)',
                     dark: 'var(--awc-color-warning-dark)',
                     light: 'var(--awc-color-warning-light)',
                     contrast: 'var(--awc-color-warning-contrast)',
                     states: {
-                        'selected': 'var(--awc-color-warning-states-selected)',
-                        'hover': 'var(--awc-color-warning-states-hover)',
-                        'focus': 'var(--awc-color-warning-states-focus)',
+                        selected: 'var(--awc-color-warning-states-selected)',
+                        hover: 'var(--awc-color-warning-states-hover)',
+                        focus: 'var(--awc-color-warning-states-focus)',
                         'focus-visible': 'var(--awc-color-warning-states-focus-visible)',
                         'outlined-border': 'var(--awc-color-warning-states-outlined-border)',
                     },
                 },
-                'success': {
+                success: {
                     DEFAULT: 'var(--awc-color-success-main)',
                     dark: 'var(--awc-color-success-dark)',
                     light: 'var(--awc-color-success-light)',
                     contrast: 'var(--awc-color-success-contrast)',
                     states: {
-                        'selected': 'var(--awc-color-success-states-selected)',
-                        'hover': 'var(--awc-color-success-states-hover)',
-                        'focus': 'var(--awc-color-success-states-focus)',
+                        selected: 'var(--awc-color-success-states-selected)',
+                        hover: 'var(--awc-color-success-states-hover)',
+                        focus: 'var(--awc-color-success-states-focus)',
                         'focus-visible': 'var(--awc-color-success-states-focus-visible)',
                         'outlined-border': 'var(--awc-color-success-states-outlined-border)',
                     },
                 },
-                'gray': {
+                gray: {
                     50: 'var(--awc-color-gray-50)',
                     100: 'var(--awc-color-gray-100)',
                     200: 'var(--awc-color-gray-200)',
@@ -114,7 +112,7 @@ const config = {
                     900: 'var(--awc-color-gray-900)',
                     950: 'var(--awc-color-gray-950)',
                 },
-                'red': {
+                red: {
                     50: 'var(--awc-color-red-50)',
                     100: 'var(--awc-color-red-100)',
                     200: 'var(--awc-color-red-200)',
@@ -127,7 +125,7 @@ const config = {
                     900: 'var(--awc-color-red-900)',
                     950: 'var(--awc-color-red-950)',
                 },
-                'green': {
+                green: {
                     50: 'var(--awc-color-green-50)',
                     100: 'var(--awc-color-green-100)',
                     200: 'var(--awc-color-green-200)',
@@ -140,7 +138,7 @@ const config = {
                     900: 'var(--awc-color-green-900)',
                     950: 'var(--awc-color-green-950)',
                 },
-                'orange': {
+                orange: {
                     50: 'var(--awc-color-orange-50)',
                     100: 'var(--awc-color-orange-100)',
                     200: 'var(--awc-color-orange-200)',
@@ -209,7 +207,7 @@ const config = {
                     950: 'var(--awc-color-color-04-950)',
                     DEFAULT: 'var(--awc-color-color-04-default)',
                 },
-                'neutral': {
+                neutral: {
                     0: 'var(--awc-color-neutral-0)',
                     50: 'var(--awc-color-neutral-50)',
                     100: 'var(--awc-color-neutral-100)',
@@ -224,23 +222,23 @@ const config = {
                     950: 'var(--awc-color-neutral-950)',
                     1000: 'var(--awc-color-neutral-1000)',
                 },
-                'accent': 'var(--awc-text-accent-color)',
-                'transparent': 'var(--awc-color-transparent)',
-                'tooltip': 'var(--awc-tooltip-color)',
+                accent: 'var(--awc-text-accent-color)',
+                transparent: 'var(--awc-color-transparent)',
+                tooltip: 'var(--awc-tooltip-color)',
                 'focus-ring': 'var(--awc-focus-ring-color)',
-                'input': {
-                    'DEFAULT': 'var(--awc-input-color-default)',
-                    'hover': 'var(--awc-input-color-hover)',
-                    'focus': 'var(--awc-input-color-focus)',
-                    'disabled': 'var(--awc-input-color-disabled)',
-                    'placeholder': 'var(--awc-input-placeholder-color)',
-                    'icon': 'var(--awc-input-icon-color)',
-                    'filled': 'var(--awc-input-filled-color)',
-                    'label': 'var(--awc-input-label-color)',
+                input: {
+                    DEFAULT: 'var(--awc-input-color-default)',
+                    hover: 'var(--awc-input-color-hover)',
+                    focus: 'var(--awc-input-color-focus)',
+                    disabled: 'var(--awc-input-color-disabled)',
+                    placeholder: 'var(--awc-input-placeholder-color)',
+                    icon: 'var(--awc-input-icon-color)',
+                    filled: 'var(--awc-input-filled-color)',
+                    label: 'var(--awc-input-label-color)',
                     'help-text': 'var(--awc-input-help-text-color)',
                     'required-content': 'var(--awc-input-required-content-color)',
                     'focus-ring': 'var(--awc-input-focus-ring-color)',
-                },
+                }
             },
             backgroundColor: {
                 overlay: 'var(--awc-overlay-background-color)',
@@ -267,16 +265,16 @@ const config = {
             },
             fontSize: {
                 '2xsmall': 'var(--awc-font-size-2xsmall)',
-                'xs': 'var(--awc-font-size-xsmall)',
-                'xsmall': 'var(--awc-font-size-xsmall)',
-                'sm': 'var(--awc-font-size-small)',
-                'small': 'var(--awc-font-size-small)',
-                'md': 'var(--awc-font-size-medium)',
-                'medium': 'var(--awc-font-size-medium)',
-                'lg': 'var(--awc-font-size-large)',
-                'large': 'var(--awc-font-size-large)',
-                'xl': 'var(--awc-font-size-xlarge)',
-                'xlarge': 'var(--awc-font-size-xlarge)',
+                xs: 'var(--awc-font-size-xsmall)',
+                xsmall: 'var(--awc-font-size-xsmall)',
+                sm: 'var(--awc-font-size-small)',
+                small: 'var(--awc-font-size-small)',
+                md: 'var(--awc-font-size-medium)',
+                medium: 'var(--awc-font-size-medium)',
+                lg: 'var(--awc-font-size-large)',
+                large: 'var(--awc-font-size-large)',
+                xl: 'var(--awc-font-size-xlarge)',
+                xlarge: 'var(--awc-font-size-xlarge)',
                 '2xlarge': 'var(--awc-font-size-2xlarge)',
                 '3xlarge': 'var(--awc-font-size-3xlarge)',
                 '4xlarge': 'var(--awc-font-size-4xlarge)',
@@ -286,14 +284,14 @@ const config = {
                 '8xlarge': 'var(--awc-font-size-8xlarge)',
                 '9xlarge': 'var(--awc-font-size-9xlarge)',
                 '10xlarge': 'var(--awc-font-size-10xlarge)',
-                'base': 'var(--awc-font-size-base)',
-                'heading1': 'var(--awc-font-size-heading1)',
-                'heading2': 'var(--awc-font-size-heading2)',
-                'heading3': 'var(--awc-font-size-heading3)',
-                'heading4': 'var(--awc-font-size-heading4)',
-                'heading5': 'var(--awc-font-size-heading5)',
-                'heading6': 'var(--awc-font-size-heading6)',
-                'tooltip': 'var(--awc-tooltip-font-size)',
+                base: 'var(--awc-font-size-base)',
+                heading1: 'var(--awc-font-size-heading1)',
+                heading2: 'var(--awc-font-size-heading2)',
+                heading3: 'var(--awc-font-size-heading3)',
+                heading4: 'var(--awc-font-size-heading4)',
+                heading5: 'var(--awc-font-size-heading5)',
+                heading6: 'var(--awc-font-size-heading6)',
+                tooltip: 'var(--awc-tooltip-font-size)',
                 'input-sm': 'var(--awc-input-font-size-small)',
                 'input-md': 'var(--awc-input-font-size-medium)',
                 'input-lg': 'var(--awc-input-font-size-large)',
@@ -307,11 +305,11 @@ const config = {
             spacing: {
                 '3xsmall': 'var(--awc-spacing-3xsmall)',
                 '2xsmall': 'var(--awc-spacing-2xsmall)',
-                'xsmall': 'var(--awc-spacing-xsmall)',
-                'small': 'var(--awc-spacing-small)',
-                'medium': 'var(--awc-spacing-medium)',
-                'large': 'var(--awc-spacing-large)',
-                'xlarge': 'var(--awc-spacing-xlarge)',
+                xsmall: 'var(--awc-spacing-xsmall)',
+                small: 'var(--awc-spacing-small)',
+                medium: 'var(--awc-spacing-medium)',
+                large: 'var(--awc-spacing-large)',
+                xlarge: 'var(--awc-spacing-xlarge)',
                 '2xlarge': 'var(--awc-spacing-2xlarge)',
                 '3xlarge': 'var(--awc-spacing-3xlarge)',
                 '4xlarge': 'var(--awc-spacing-4xlarge)',
@@ -329,15 +327,15 @@ const config = {
                 'button-text-desktop': 'var( --awc-section-spacing-button-text-desktop)',
                 'button-button-mobile': 'var( --awc-section-spacing-button-button-mobile)',
                 'button-button-desktop': 'var( --awc-section-spacing-button-button-desktop)',
-                'card': 'var(--awc-card-padding)',
-                'input': {
+                card: 'var(--awc-card-padding)',
+                input: {
                     sm: 'var(--awc-input-spacing-small)',
                     md: 'var(--awc-input-spacing-medium)',
                     lg: 'var(--awc-input-spacing-large)',
-                },
+                }
             },
-            gap: {
-                medium: 'var(--awc-spacing-medium)',
+            gap : {
+                medium : 'var(--awc-spacing-medium)',
             },
             letterSpacing: {
                 input: 'var(--awc-input-letter-spacing)',
@@ -345,8 +343,8 @@ const config = {
             padding: {
                 'section-mobile': 'var(--awc-section-padding-y-mobile)',
                 'section-desktop': 'var(--awc-section-padding-y-desktop)',
-                'panel': 'var(--awc-panel-padding)',
-                'tooltip': {
+                panel: 'var(--awc-panel-padding)',
+                tooltip: {
                     y: 'var(--awc-tooltip-padding-y)',
                     x: 'var(--awc-tooltip-padding-x)',
                 },
@@ -358,23 +356,23 @@ const config = {
                 input: 'var(--awc-input-border-width)',
             },
             borderRadius: {
-                'none': 'var(--awc-border-radius-none)',
-                'small': 'var(--awc-border-radius-small)',
-                'medium': 'var(--awc-border-radius-medium)',
-                'large': 'var(--awc-border-radius-large)',
+                none: 'var(--awc-border-radius-none)',
+                small: 'var(--awc-border-radius-small)',
+                medium: 'var(--awc-border-radius-medium)',
+                large: 'var(--awc-border-radius-large)',
                 '2xlarge': 'var(--awc-border-radius-2xlarge)',
                 '3xlarge': 'var(--awc-border-radius-3xlarge)',
-                'xlarge': 'var(--awc-border-radius-xlarge)',
-                'circle': 'var(--awc-border-radius-circle)',
-                'pill': 'var(--awc-border-radius-pill)',
-                'tooltip': 'var(--awc-tooltip-border-radius)',
-                'badge': 'var(--awc-bagde-border-radius)',
-                'button': 'var(--awc-button-border-radius)',
-                'tag': 'var(--awc-tag-border-radius)',
-                'panel': 'var(--awc-panel-border-radius)',
-                'card': 'var(--awc-card-border-radius)',
-                'image': 'var(--awc-image-border-radius)',
-                'input': {
+                xlarge: 'var(--awc-border-radius-xlarge)',
+                circle: 'var(--awc-border-radius-circle)',
+                pill: 'var(--awc-border-radius-pill)',
+                tooltip: 'var(--awc-tooltip-border-radius)',
+                badge: 'var(--awc-bagde-border-radius)',
+                button: 'var(--awc-button-border-radius)',
+                tag: 'var(--awc-tag-border-radius)',
+                panel: 'var(--awc-panel-border-radius)',
+                card: 'var(--awc-card-border-radius)',
+                image: 'var(--awc-image-border-radius)',
+                input: {
                     sm: 'var(--awc-input-border-radius-small)',
                     md: 'var(--awc-input-border-radius-medium)',
                     lg: 'var(--awc-input-border-radius-large)',
@@ -388,12 +386,12 @@ const config = {
                 drawer: 'var(--awc-z-index-drawer)',
             },
             lineHeight: {
-                'normal': 'var(--awc-line-height-normal)',
-                'dense': 'var(--awc-line-height-dense)',
-                'loose': 'var(--awc-line-height-loose)',
-                'looser': 'var(--awc-line-height-looser)',
-                'denser': 'var(--awc-line-height-denser)',
-                'tooltip': 'var(--awc-tooltip-line-height)',
+                normal: 'var(--awc-line-height-normal)',
+                dense: 'var(--awc-line-height-dense)',
+                loose: 'var(--awc-line-height-loose)',
+                looser: 'var(--awc-line-height-looser)',
+                denser: 'var(--awc-line-height-denser)',
+                tooltip: 'var(--awc-tooltip-line-height)',
                 'input-sm': 'var(--awc-input-height-small)',
                 'input-md': 'var(--awc-input-height-medium)',
                 'input-lg': 'var(--awc-input-height-large)',
@@ -413,22 +411,20 @@ const config = {
                 xslow: 'var(--awc-transition-xslow)',
             },
             breakpoints: {
-                'figma': 'var(--awc-breakpoint-figma)',
+                figma: 'var(--awc-breakpoint-figma)',
                 '2xlarge': 'var(--awc-breakpoint-2xlarge)',
-                'xlarge': 'var(--awc-breakpoint-xlarge)',
-                'large': 'var(--awc-breakpoint-large)',
-                'medium': 'var(--awc-breakpoint-medium)',
-                'small': 'var(--awc-breakpoint-small)',
+                xlarge: 'var(--awc-breakpoint-xlarge)',
+                large: 'var(--awc-breakpoint-large)',
+                medium: 'var(--awc-breakpoint-medium)',
+                small: 'var(--awc-breakpoint-small)',
             },
             fontFamily: {
                 sans: 'var(--awc-font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
                 serif: 'var(--awc-font-serif),-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
                 mono: 'var(--awc-font-mono), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-                heading:
-                    'var(--awc-font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+                heading: 'var(--awc-font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
                 input: 'var(--awc-input-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-                tooltip:
-                    'var(--awc-tooltip-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+                tooltip: 'var(--awc-tooltip-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
             },
             fontWeight: {
                 light: 'var(--awc-font-weight-light)',
@@ -470,7 +466,7 @@ const config = {
                 focus: 'var(--awc-focus-ring-width)',
             },
             ringOffsetWidth: {
-                'focus': 'var(--awc-focus-ring-offset)',
+                focus: 'var(--awc-focus-ring-offset)',
                 'input-focus': 'var(--awc-input-focus-ring-offset)',
                 'input-required-content': 'var(--awc-input-required-content-offset)',
             },
@@ -489,12 +485,12 @@ const config = {
                 smooth: 'cubic-bezier(.4,0,.1,1)',
             },
             rotate: {
-                360: '360deg',
-            },
+                '360': '360deg',
+            }
         },
     },
     plugins: [
-        typography,
+        tailwindTypographyPlugin,
         plugin(function ({ addVariant }) {
             addVariant('is-active', ['&.is-active', '.is-active &']);
             addVariant('is-open', ['&.is-open', '.is-open &']);

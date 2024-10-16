@@ -9,11 +9,9 @@ import 'swiper/css/pagination';
 document.addEventListener('alpine:init', () => {
     window.Alpine.data('initLogosSlider', () => {
         return {
+            activeLogo: null,
             init() {
-                // Uncomment when problem from Swiper lib fixed
-                // const swiperParams: SwiperOptions = {
                 const swiperParams = {
-                    // configure Swiper to use modules
                     modules: [Navigation],
                     slidesPerView: 2,
                     spaceBetween: '12',
@@ -33,6 +31,7 @@ document.addEventListener('alpine:init', () => {
                             slidesPerView: 4,
                         },
                         1280: {
+                            spaceBetween: '24',
                             slidesPerView: 5,
                         },
                     },
