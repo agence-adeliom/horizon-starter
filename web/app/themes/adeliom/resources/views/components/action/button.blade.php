@@ -10,4 +10,9 @@
         <x-typography.icon icon="{{ $icon }}" class="{{ $iconClass }}" />
     @endif
 
+    @if ($fullLink)
+        <div class="absolute inset-0"></div>
+    @endif
+
+
     </{{ $tag }}>
