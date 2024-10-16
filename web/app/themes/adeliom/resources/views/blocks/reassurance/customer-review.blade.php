@@ -1,9 +1,9 @@
 @if ($fields)
     <x-block :fields="$fields" class="overflow-hidden">
 
-        <div class="flex flex-col w-full gap-text-image-mobile lg:gap-text-image-desktop">
+        <div class="flex w-full flex-col gap-text-image-mobile lg:gap-text-image-desktop">
             <div class="grid-12">
-                <div class="flex flex-col items-center text-center col-span-full lg:col-span-8 lg:col-start-3">
+                <div class="col-span-full flex flex-col items-center text-center lg:col-span-8 lg:col-start-3">
                     @isset($fields['uptitle'])
                         <x-typography.uptitle :content="$fields['uptitle']"
                             class="mb-headline-title-mobile lg:mb-headline-title-desktop" />
@@ -15,13 +15,13 @@
 
                     @isset($fields['wysiwyg'])
                         <x-typography.text :content="$fields['wysiwyg']"
-                            class="text-large mt-title-text-mobile lg:mt-title-text-desktop" />
+                            class="mt-title-text-mobile text-large lg:mt-title-text-desktop" />
                     @endisset
 
                     @if (@isset($context['global-rating']) || @isset($context['btn-reviews']))
 
                         <div
-                            class="flex flex-col items-center gap-medium mt-title-text-mobile lg:mt-title-text-desktop lg:flex-row lg:gap-xlarge">
+                            class="mt-title-text-mobile flex flex-col items-center gap-medium lg:mt-title-text-desktop lg:flex-row lg:gap-xlarge">
                             @if (@isset($context['global-rating']) && $context['global-rating'])
                                 <awc-rating label="Rating" value="{{ $context['global-rating'] }}" readonly show-rate
                                     precision="0.5"
@@ -29,7 +29,7 @@
                             @endisset
 
                             @if (@isset($context['btn-reviews']) && $context['btn-reviews']['link'])
-                                <x-action.button :fields="$context['btn-reviews']" icon="arrow-right" variant="text" />
+                                <x-action.button :fields="$context['btn-reviews']" icon="arrow-right" type="tertiary" />
                             @endif
                     </div>
                 @endisset

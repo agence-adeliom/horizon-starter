@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} config */
 
-const plugin = require('tailwindcss/plugin');
-const typography = require('@tailwindcss/typography');
+import plugin from 'tailwindcss/plugin.js';
+import tailwindTypographyPlugin from '@tailwindcss/typography';
 
 const config = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js,ts}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
@@ -476,13 +476,13 @@ const config = {
     },
   },
   plugins: [
-    typography,
+    tailwindTypographyPlugin,
     plugin(function ({ addVariant }) {
       addVariant('is-active', ['&.is-active', '.is-active &']);
       addVariant('is-open', ['&.is-open', '.is-open &']);
       addVariant('visible', ['&.is-visible', '.is-visible &']);
       addVariant('keyboard', '.tab-active &');
-    }),
+    }), 
   ],
 };
 
