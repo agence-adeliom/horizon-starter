@@ -17,8 +17,7 @@ class Text extends Component
     public function __construct(
         public ?string      $class = null,
         public string|array $content = '',
-    )
-    {
+    ) {
         $this->initializeContent();
         $this->handleFullClass();
     }
@@ -37,7 +36,7 @@ class Text extends Component
     private function handleFullClass(): void
     {
         $this->fullClass = implode(' ', [
-            $this->tag === 'p' ? 'p' : 'prose wysiwyg',
+            $this->tag === 'p' ? 'p' : 'wysiwyg',
             $this->class,
         ]);
     }

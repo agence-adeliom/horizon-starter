@@ -16,13 +16,12 @@ use Extended\ACF\Fields\Text;
 
 class HeroForm extends AbstractBlock
 {
+    public const string FORM_TITLE = "form-title";
+    final public const string FIELD_DESC = "desc";
     public static ?string $slug = 'hero-form';
     public static ?string $title = 'Haut de page avec formulaire';
     public static ?string $mode = 'preview';
     public static string $category = 'hero';
-
-    public const string FORM_TITLE = "form-title";
-    final public const string FIELD_DESC = "desc";
 
     public function getFields(): ?iterable
     {
@@ -37,6 +36,7 @@ class HeroForm extends AbstractBlock
 
         yield from LayoutTab::make()->fields([
             LayoutField::margin(),
+            LayoutField::choicesBackgroundType(),
         ]);
     }
 }
