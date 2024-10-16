@@ -29,7 +29,7 @@ class ListingBlock extends AbstractBlock
     public static ?string $title = 'Liste d’éléments';
     public static ?string $mode = 'preview';
 
-    public const bool USE_FIELDS_TO_DEFINE_FILTERS = false;
+    public const bool USE_FIELDS_TO_DEFINE_FILTERS = true;
 
     public const string FIELD_PER_PAGE = 'perPage';
     public const string FIELD_FILTERS = 'filters';
@@ -42,10 +42,16 @@ class ListingBlock extends AbstractBlock
 
     public function getFields(): ?iterable
     {
+        $postTypeField = PostTypeSelectField::make();
+
+        if (self::USE_FIELDS_TO_DEFINE_FILTERS) {
+            $postTypeField->helperText('Enregistrez la page après modification de ce champ pour afficher les bonnes valeurs dans les filtres.');
+        }
+
         yield from ContentTab::make()->fields([
             UptitleField::make(),
             HeadingField::make()->required(),
-            PostTypeSelectField::make(),
+            $postTypeField
         ]);
 
         yield from LayoutTab::make()->fields([
@@ -62,8 +68,6 @@ class ListingBlock extends AbstractBlock
 
     private function filterFields(): iterable
     {
-        $fieldChoices = $this->getAvailableFilterChoices();
-
         yield from SettingsTab::make()->fields([
             Repeater::make(__('Filtres'), self::FIELD_FILTERS)
                 ->button(__('Ajouter un filtre'))
@@ -83,8 +87,9 @@ class ListingBlock extends AbstractBlock
                         'select' => 'Sélection',
                     ])
                         ->default('select'),
-                    Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
-                        ->helperText(sprintf('Pour que les bonnes valeurs apparaissent, veuillez recharger la page après avoir changé le champ "%s"', PostTypeSelectField::LABEL))
+                    Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)
+                        ->stylized()
+                        ->choices($this->getAvailableFilterChoices())
                         ->lazyLoad()
                         ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)])
                 ])

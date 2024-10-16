@@ -14,6 +14,7 @@ use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\WYSIWYGEditor;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Livewire\Attributes\Url;
@@ -105,51 +106,31 @@ class Listing extends Component
         }
     }
 
-    private function initMetaFilter(string $metaKey, string $filterName, FilterTypesEnum $filterType, string $appearance, string $postType, string $fieldClass, string $placeholder): void
+    private function initMetaFilter(string $metaKey, string $filterName, FilterTypesEnum $filterType, string $appearance, string $postType, ?string $fieldClass, string $placeholder): void
     {
-        global $wpdb;
+        if (null !== $fieldClass) {
+            global $wpdb;
 
-        $query = <<<EOF
+            $query = <<<EOF
         SELECT DISTINCT meta_value AS value
         FROM {$wpdb->postmeta}
         JOIN {$wpdb->posts} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
         WHERE meta_key = %s AND post_type = %s AND post_status = 'publish'
         EOF;
 
-        $query = $wpdb->prepare($query, $metaKey, $postType::$slug);
+            $query = $wpdb->prepare($query, $metaKey, $postType::$slug);
 
-        $results = $wpdb->get_results($query);
+            $results = $wpdb->get_results($query);
 
-        // Convert to array of values
-        $values = array_map(function ($result) {
-            return $result->value;
-        }, $results);
+            // Convert to array of values
+            $values = array_map(function ($result) {
+                return $result->value;
+            }, $results);
 
-        switch ($fieldClass) {
-            case Select::class:
-                $postTypeInstance = new $postType();
-                if ($choices = AcfService::getChoices($postTypeInstance->getFields(), $metaKey)) {
-                    if (!isset($this->filters[$filterName])) {
-                        $this->filters[$filterName] = [
-                            'type' => $filterType->value,
-                            'name' => $filterName,
-                            'appearance' => $appearance,
-                            'value' => $metaKey,
-                            'placeholder' => $placeholder,
-                            'choices' => [],
-                        ];
-                    }
-                    foreach ($choices as $value => $label) {
-                        $this->filters[$filterName]['choices'][] = [
-                            'slug' => $value,
-                            'name' => $label,
-                        ];
-                    }
-                }
-                break;
-            default:
-                foreach ($values as $value) {
-                    if (!empty($value)) {
+            switch ($fieldClass) {
+                case Select::class:
+                    $postTypeInstance = new $postType();
+                    if ($choices = AcfService::getChoices($postTypeInstance->getFields(), $metaKey)) {
                         if (!isset($this->filters[$filterName])) {
                             $this->filters[$filterName] = [
                                 'type' => $filterType->value,
@@ -160,14 +141,36 @@ class Listing extends Component
                                 'choices' => [],
                             ];
                         }
-
-                        $this->filters[$filterName]['choices'][] = [
-                            'slug' => $value,
-                            'name' => $value,
-                        ];
+                        foreach ($choices as $value => $label) {
+                            $this->filters[$filterName]['choices'][] = [
+                                'slug' => $value,
+                                'name' => $label,
+                            ];
+                        }
                     }
-                }
-                break;
+                    break;
+                default:
+                    foreach ($values as $value) {
+                        if (!empty($value)) {
+                            if (!isset($this->filters[$filterName])) {
+                                $this->filters[$filterName] = [
+                                    'type' => $filterType->value,
+                                    'name' => $filterName,
+                                    'appearance' => $appearance,
+                                    'value' => $metaKey,
+                                    'placeholder' => $placeholder,
+                                    'choices' => [],
+                                ];
+                            }
+
+                            $this->filters[$filterName]['choices'][] = [
+                                'slug' => $value,
+                                'name' => $value,
+                            ];
+                        }
+                    }
+                    break;
+            }
         }
     }
 
@@ -208,6 +211,9 @@ class Listing extends Component
                                     break;
                                 case 'image':
                                     $fieldClass = Image::class;
+                                    break;
+                                case 'wysiwyg':
+                                    $fieldClass = WYSIWYGEditor::class;
                                     break;
                                 default:
                                     throw new \Exception(sprintf('Field type "%s" not handled', $fieldType));
