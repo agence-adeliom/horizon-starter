@@ -40,7 +40,7 @@ class ListingBlock extends AbstractBlock
     public const string FIELD_FILTERS_APPEARANCE = 'appearance';
     public const string FIELD_FILTERS_PLACEHOLDER = 'placeholder';
 
-    public function getFields(bool $withoutFilters = false): ?iterable
+    public function getFields(): ?iterable
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
@@ -56,44 +56,29 @@ class ListingBlock extends AbstractBlock
         ]);
 
         if (self::USE_FIELDS_TO_DEFINE_FILTERS) {
-            yield from self::filterFields(withoutFilters: $withoutFilters);
+            yield from self::filterFields();
         }
     }
 
-    private function filterFields(bool $withoutFilters = false): iterable
+    private function getAvailableFilterChoices(): array
     {
-        $repeaterFields = [];
+        $postType = $this->getFilteredPostType();
         $fieldChoices = [];
 
-        $repeaterFields[0] = ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
-            ->required()
-            ->choices([
-                FilterTypesEnum::META->value => __('Méta'),
-                //FilterTypesEnum::TAXONOMY->value => __('Taxonomie'),
-            ]);
-        $repeaterFields[1] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required();
-        $repeaterFields[2] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required();
-        $repeaterFields[3] = Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
-            'select' => 'Sélection',
-        ])
-            ->default('select');
-        $repeaterFields[4] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
-            ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
+        if ($postType) {
+            $fields = $this->getPostTypeFields(postTypeSlug: $postType);
 
-        if (!$withoutFilters) {
-            $postType = $this->getFilteredPostType();
-
-            if ($postType) {
-                $fields = $this->getPostTypeFields(postTypeSlug: $postType);
-
-                foreach ($fields as $field) {
-                    $fieldChoices[sprintf('%s_%s', $field['type'], $field['name'])] = $field['label'];
-                }
-
-                $repeaterFields[4] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
-                    ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
+            foreach ($fields as $field) {
+                $fieldChoices[sprintf('%s_%s', $field['type'], $field['name'])] = $field['label'];
             }
         }
+
+        return $fieldChoices;
+    }
+
+    private function filterFields(): iterable
+    {
+        $fieldChoices = $this->getAvailableFilterChoices();
 
         yield from SettingsTab::make()->fields([
             Repeater::make(__('Filtres'), self::FIELD_FILTERS)
@@ -101,7 +86,22 @@ class ListingBlock extends AbstractBlock
                 ->layout('block')
                 ->minRows(0)
                 ->maxRows(3)
-                ->fields($repeaterFields)
+                ->fields([
+                    ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
+                        ->required()
+                        ->choices([
+                            FilterTypesEnum::META->value => __('Méta'),
+                            //FilterTypesEnum::TAXONOMY->value => __('Taxonomie'),
+                        ]),
+                    Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required(),
+                    Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required(),
+                    Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
+                        'select' => 'Sélection',
+                    ])
+                        ->default('select'),
+                    Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
+                        ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)])
+                ])
         ]);
     }
 
