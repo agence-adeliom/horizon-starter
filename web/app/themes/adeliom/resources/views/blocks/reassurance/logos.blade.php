@@ -28,44 +28,61 @@
                                 @php
                                     $logoImg = $logo['logo'] ?? null;
                                     $logoLink = $logo['link'] ?? null;
+                                    $index = $loop->index;
+                                    $containerClass = 'p-4 transition-opacity duration-300 ease-in-out md:p-6 lg:px-10';
                                 @endphp
                                 @if (@isset($logoImg) && $logoImg)
-                                    <div class="swiper-slide bg-neutral-200 p-6 lg:p-10">
+                                    <div class="swiper-slide rounded-card bg-white">
                                         @if (!empty($logoLink))
                                             <a href="{{ $logoLink['url'] }}" target="{{ $logoLink['target'] }}"
-                                                title="{{ $logoLink['title'] }}" class="block">
+                                                x-on:mouseover="activeLogo = {{ $index }}"
+                                                x-on:mouseleave="activeLogo = null" title="{{ $logoLink['title'] }}"
+                                                :class="{
+                                                    'opacity-50': activeLogo !== null && activeLogo !==
+                                                        {{ $index }}
+                                                }"
+                                                @class(['block', $containerClass])>
+                                            @else
+                                                <div :class="{
+                                                    'opacity-50': activeLogo !== null && activeLogo !==
+                                                        {{ $index }}
+                                                }"
+                                                    @class([$containerClass])>
                                         @endif
-                                        <x-media.img :image="$logoImg" class="contain-full"
+
+                                        <x-media.img :image="$logoImg" class="contain-full" size="small"
                                             containerClass="aspect-[2/1] relative" />
                                         @if (!empty($logoLink))
                                             </a>
-                                        @endif
+                                        @else
                                     </div>
                                 @endif
-                            @endforeach
                         </div>
-                    </div>
-                    @php
-                        $logoCount = count($fields['logos']);
-                    @endphp
-                    <x-action.button @class([
-                        'center-top left-0',
-                        'md:hidden' => $logoCount < 4,
-                        'lg:hidden' => $logoCount < 5,
-                        'xl:hidden' => $logoCount < 6,
-                    ]) type="secondary" x-ref="buttonPrev" iconOnly>
-                        <x-typography.icon icon="angle-left" />
-                    </x-action.button>
-                    <x-action.button @class([
-                        'center-top right-0',
-                        'md:hidden' => $logoCount < 4,
-                        'lg:hidden' => $logoCount < 5,
-                        'xl:hidden' => $logoCount < 6,
-                    ]) type="secondary" x-ref="buttonNext" iconOnly>
-                        <x-typography.icon icon="angle-right" />
-                    </x-action.button>
-                </div>
-            @endisset
-        </div>
-    </x-block>
+    @endif
+    @endforeach
+    </div>
+    </div>
+    @php
+        $logoCount = count($fields['logos']);
+    @endphp
+    <x-action.button @class([
+        'center-top left-0',
+        'md:hidden' => $logoCount < 4,
+        'lg:hidden' => $logoCount < 5,
+        'xl:hidden' => $logoCount < 6,
+    ]) type="secondary" x-ref="buttonPrev" iconOnly>
+        <x-typography.icon icon="angle-left" />
+    </x-action.button>
+    <x-action.button @class([
+        'center-top right-0',
+        'md:hidden' => $logoCount < 4,
+        'lg:hidden' => $logoCount < 5,
+        'xl:hidden' => $logoCount < 6,
+    ]) type="secondary" x-ref="buttonNext" iconOnly>
+        <x-typography.icon icon="angle-right" />
+    </x-action.button>
+    </div>
+@endisset
+</div>
+</x-block>
 @endif
