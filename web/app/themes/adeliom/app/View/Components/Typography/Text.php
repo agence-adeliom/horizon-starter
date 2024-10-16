@@ -35,7 +35,7 @@ class Text extends Component
     private function handleFullClass(): void
     {
         $this->fullClass = implode(' ', [
-            $this->tag === 'p' ? 'p' : 'prose',
+            $this->tag === 'p' ? 'p' : 'wysiwyg',
             $this->class,
         ]);
     }
