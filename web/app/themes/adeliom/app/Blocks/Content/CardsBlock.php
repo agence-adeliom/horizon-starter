@@ -17,11 +17,12 @@ use Extended\ACF\Fields\Repeater;
 
 class CardsBlock extends AbstractBlock
 {
-    public const string FIELD_CARDS = 'cards';
     public static ?string $slug = 'cards';
-    public static ?string $title = 'Remontée de 2 cartes';
+    public static ?string $title = 'Remontée de cartes';
     public static ?string $description = 'Affiche deux cartes cliquables, menant chacune vers une page spécifique.';
     public static string $category = 'content';
+
+    public const string FIELD_CARDS = 'cards';
 
     public function getFields(): ?iterable
     {
