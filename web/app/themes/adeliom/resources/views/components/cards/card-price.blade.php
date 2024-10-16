@@ -1,10 +1,21 @@
 <div>
-  <p>{{ $title }}</p>
-  <p>{{ $subtitle }}</p>
-  <p>{{ $price }}</p>
-  <p>{{ $subPrice }}</p>
+  @isset($title)
+    <p>{{ $title }}</p>
+  @endisset
 
-  @if($button)
+  @isset($subtitle)
+    <p>{{ $subtitle }}</p>
+  @endisset
+
+  @isset($price)
+    <p>{{ $price }}</p>
+  @endisset
+
+  @isset($subPrice)
+    <p>{{ $subPrice }}</p>
+  @endisset
+
+  @if($button && isset($button['link']) && is_array($button['link']))
     <x-action.button :type="$button['type']" :label="$button['link']['title']" :url="$button['link']['url']"
                      :target="$button['link']['target']"
     />
@@ -14,16 +25,18 @@
     @foreach($characteristics as $group)
       <div>
         @isset($group['title'])
-          <p>{{ $group['title'] }}</p>
+          <p>
+            <strong>{{ $group['title'] }}</strong>
+          </p>
         @endisset
 
-        @isset($group['items'])
+        @if(isset($group['items']) && $group['items'])
           <ul>
             @foreach($group['items'] as $item)
               <li>{{ $item['title'] }}</li>
             @endforeach
           </ul>
-        @endisset
+        @endif
       </div>
     @endforeach
   @endif

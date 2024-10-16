@@ -18,7 +18,7 @@ class CardPrice extends Component
     public ?string $price = null;
     public ?string $subPrice = null;
     public ?array $button = null;
-    public ?array $characteristics = null;
+    public null|false|array $characteristics = null;
 
     public function __construct(private readonly array $fields = [])
     {

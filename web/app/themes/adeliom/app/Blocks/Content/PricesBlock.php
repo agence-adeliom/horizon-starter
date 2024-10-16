@@ -67,9 +67,11 @@ class PricesBlock extends AbstractBlock
 
                     Repeater::make(__('Caractéristiques'), self::FIELD_PRICE_CHARACTERISTICS)
                         ->layout('block')
+                        ->button(__('Ajouter un groupe'))
                         ->fields([
                             Text::make(__('Titre'), self::FIELD_PRICE_CHARACTERISTIC_TITLE),
                             Repeater::make(__('Éléments'), self::FIELD_PRICE_CHARACTERISTIC_ITEMS)
+                                ->button(__('Ajouter une caractéristique'))
                                 ->fields([
                                     Text::make(__('Titre'), self::FIELD_PRICE_CHARACTERISTIC_ITEM_TITLE)
                                 ])
