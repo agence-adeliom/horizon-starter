@@ -21,7 +21,7 @@
 
 
             @isset($fields['logos'])
-                <div class="w-full relative px-12 lg:px-16">
+                <div class="relative w-full px-12 lg:px-16">
                     <div class="swiper w-full" x-ref="swiperContainer">
                         <div class="swiper-wrapper">
                             @foreach ($fields['logos'] as $logo)
@@ -30,7 +30,7 @@
                                     $logoLink = $logo['link'] ?? null;
                                 @endphp
                                 @if (@isset($logoImg) && $logoImg)
-                                    <div class="swiper-slide p-6 bg-neutral-200 lg:p-10">
+                                    <div class="swiper-slide bg-neutral-200 p-6 lg:p-10">
                                         @if (!empty($logoLink))
                                             <a href="{{ $logoLink['url'] }}" target="{{ $logoLink['target'] }}"
                                                 title="{{ $logoLink['title'] }}" class="block">
@@ -53,13 +53,17 @@
                         'md:hidden' => $logoCount < 4,
                         'lg:hidden' => $logoCount < 5,
                         'xl:hidden' => $logoCount < 6,
-                    ]) type="primary" icon="angle-left" x-ref="buttonPrev" />
+                    ]) type="secondary" x-ref="buttonPrev" iconOnly>
+                        <x-typography.icon icon="angle-left" />
+                    </x-action.button>
                     <x-action.button @class([
                         'center-top right-0',
                         'md:hidden' => $logoCount < 4,
                         'lg:hidden' => $logoCount < 5,
                         'xl:hidden' => $logoCount < 6,
-                    ]) type="primary" icon="angle-right" x-ref="buttonNext" />
+                    ]) type="secondary" x-ref="buttonNext" iconOnly>
+                        <x-typography.icon icon="angle-right" />
+                    </x-action.button>
                 </div>
             @endisset
         </div>
