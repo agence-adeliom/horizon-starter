@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} config */
+
 const plugin = require('tailwindcss/plugin');
 const typography = require('@tailwindcss/typography');
 
 const config = {
-  content: ['./app/**/*.php', './resources/**/*.{php,vue,js}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
+  content: ['./app/**/*.php', './resources/**/*.{php,vue,js,ts}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
   safelist: [
     'basis-1/2 lg:basis-1/3 lg:basis-1/4',
   ],
@@ -480,7 +481,7 @@ const config = {
       addVariant('is-open', ['&.is-open', '.is-open &']);
       addVariant('visible', ['&.is-visible', '.is-visible &']);
       addVariant('keyboard', '.tab-active &');
-  }),
+    }),
   ],
 };
 
