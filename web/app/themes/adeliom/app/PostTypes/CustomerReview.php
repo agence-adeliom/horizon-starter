@@ -102,7 +102,7 @@ class CustomerReview extends AbstractPostType
                 'appearance' => 'select', // Appearance of the filter (only select supported)
                 'value' => sprintf('%s_%s', self::FIELD_REVIEW, self::FIELD_RATING), // Full name of the meta field (be careful if in groups for instance)
                 'fieldClass' => Number::class,
-                'placeholder' => 'Note' // Placeholder of the field (or label of "all" options)
+                'placeholder' => 'Note attribuée' // Placeholder of the field (or label of "all" options)
             ],
         ];
     }

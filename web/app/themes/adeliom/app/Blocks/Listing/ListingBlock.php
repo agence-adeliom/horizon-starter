@@ -5,13 +5,23 @@ declare(strict_types=1);
 namespace App\Blocks\Listing;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
+use Adeliom\HorizonTools\Enum\FilterTypesEnum;
 use Adeliom\HorizonTools\Fields\Select\PostTypeSelectField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
+use Adeliom\HorizonTools\Fields\Tabs\SettingsTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Services\BudService;
+use Adeliom\HorizonTools\Services\ClassService;
+use Extended\ACF\ConditionalLogic;
+use Extended\ACF\Fields\ButtonGroup;
+use Extended\ACF\Fields\Field;
+use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Number;
+use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\Text;
 
 class ListingBlock extends AbstractBlock
 {
@@ -19,9 +29,18 @@ class ListingBlock extends AbstractBlock
     public static ?string $title = 'Liste d’éléments';
     public static ?string $mode = 'preview';
 
-    public const string FIELD_PER_PAGE = 'perPage';
+    public const bool USE_FIELDS_TO_DEFINE_FILTERS = true;
 
-    public function getFields(): ?iterable
+    public const string FIELD_PER_PAGE = 'perPage';
+    public const string FIELD_FILTERS = 'filters';
+
+    public const string FIELD_FILTERS_TYPE = 'type';
+    public const string FIELD_FILTERS_NAME = 'name';
+    public const string FIELD_FILTERS_FIELD = 'field';
+    public const string FIELD_FILTERS_APPEARANCE = 'appearance';
+    public const string FIELD_FILTERS_PLACEHOLDER = 'placeholder';
+
+    public function getFields(bool $withoutFilters = false): ?iterable
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
@@ -35,6 +54,160 @@ class ListingBlock extends AbstractBlock
                 ->min(3)
                 ->step(3)
         ]);
+
+        if (self::USE_FIELDS_TO_DEFINE_FILTERS) {
+            yield from self::filterFields(withoutFilters: $withoutFilters);
+        }
+    }
+
+    private function filterFields(bool $withoutFilters = false): iterable
+    {
+        $repeaterFields = [];
+        $fieldChoices = [];
+
+        $repeaterFields[0] = ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
+            ->required()
+            ->choices([
+                FilterTypesEnum::META->value => __('Méta'),
+                //FilterTypesEnum::TAXONOMY->value => __('Taxonomie'),
+            ]);
+        $repeaterFields[1] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required();
+        $repeaterFields[2] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required();
+        $repeaterFields[3] = Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
+            'select' => 'Sélection',
+        ])
+            ->default('select');
+        $repeaterFields[4] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
+            ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
+
+        if (!$withoutFilters) {
+            $postType = $this->getFilteredPostType();
+
+            if ($postType) {
+                $fields = $this->getPostTypeFields(postTypeSlug: $postType);
+
+                foreach ($fields as $field) {
+                    $fieldChoices[sprintf('%s_%s', $field['type'], $field['name'])] = $field['label'];
+                }
+
+                $repeaterFields[4] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)->stylized()->choices($fieldChoices)
+                    ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
+            }
+        }
+
+        yield from SettingsTab::make()->fields([
+            Repeater::make(__('Filtres'), self::FIELD_FILTERS)
+                ->button(__('Ajouter un filtre'))
+                ->layout('block')
+                ->minRows(0)
+                ->maxRows(3)
+                ->fields($repeaterFields)
+        ]);
+    }
+
+    private function getPostTypeFields(string $postTypeSlug)
+    {
+        $fields = [];
+
+        if (!in_array($postTypeSlug, ['post', 'page'])) {
+            $class = ClassService::getPostTypeClassBySlug(slug: $postTypeSlug);
+            $classInstance = new $class();
+
+            if (method_exists($classInstance, 'getFields')) {
+                $classFields = iterator_to_array($classInstance->getFields(), preserve_keys: false);
+
+                if ($classFields) {
+                    $this->handleFields(fields: $classFields, array: $fields);
+                }
+            }
+        }
+
+        return $fields;
+    }
+
+    /**
+     * @param Field[] $fields
+     */
+    private function handleFields(array $fields, array &$array = [])
+    {
+        foreach ($fields as $field) {
+            $key = null;
+
+            $fieldData = $field->get();
+
+            if ($field instanceof Group) {
+                if (isset($fieldData['sub_fields']) && is_array($fieldData['sub_fields'])) {
+                    if (isset($fieldData['name'])) {
+                        $key = sprintf('%s_', $fieldData['name']);
+                    }
+
+
+                    foreach ($fieldData['sub_fields'] as $subField) {
+                        $toAdd = [];
+
+                        if (isset($subField['type'])) {
+                            $toAdd['type'] = $subField['type'];
+                        }
+
+                        if (isset($subField['name'])) {
+                            $toAdd['name'] = sprintf('%s%s', $key, $subField['name']);
+                        }
+
+                        if (isset($subField['key'])) {
+                            $toAdd['key'] = $subField['key'];
+                        }
+
+                        if (isset($subField['label'])) {
+                            $toAdd['label'] = $subField['label'];
+                        }
+
+                        $array[] = $toAdd;
+                    }
+                }
+            } else {
+                $fieldData = $field->get();
+
+                $toAdd = [];
+                if (isset($fieldData['type'])) {
+                    $toAdd['type'] = $fieldData['type'];
+                }
+
+                if (isset($fieldData['name'])) {
+                    $toAdd['name'] = $fieldData['name'];
+                }
+
+                if (isset($fieldData['key'])) {
+                    $toAdd['key'] = $fieldData['key'];
+                }
+
+                if (isset($fieldData['label'])) {
+                    $toAdd['label'] = $fieldData['label'];
+                }
+
+                $array[] = $toAdd;
+            }
+        }
+    }
+
+    private function getFilteredPostType(): ?string
+    {
+        $selectedPostType = null;
+
+        $postId = $_GET['post'] ?? $_POST['post_id'] ?? null;
+
+        if ($postId) {
+            $post = get_post($postId);
+
+            if ($post->post_content) {
+                preg_match('/<!-- wp:acf\/listing.*?"postType":"([^"]+)".*?-->/', $post->post_content, $matches);
+
+                if (isset($matches[1])) {
+                    $selectedPostType = $matches[1];
+                }
+            }
+        }
+
+        return $selectedPostType;
     }
 
     public function addToContext(): array

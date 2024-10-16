@@ -9,7 +9,11 @@ use Adeliom\HorizonTools\Enum\FilterTypesEnum;
 use Adeliom\HorizonTools\Services\AcfService;
 use Adeliom\HorizonTools\Services\ClassService;
 use Adeliom\HorizonTools\ViewModels\Post\BasePostViewModel;
+use App\Blocks\Listing\ListingBlock;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\Text;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Livewire\Attributes\Url;
@@ -32,6 +36,7 @@ class Listing extends Component
     public int $perPage = 12;
 
     public array $filters = [];
+    private array $baseFilters = [];
     public ?string $postTypeClass = null;
     public ?string $card = null;
 
@@ -168,31 +173,94 @@ class Listing extends Component
 
     private function initFilters(): void
     {
+        if (ListingBlock::USE_FIELDS_TO_DEFINE_FILTERS) {
+            $this->baseFilters = $this->filters;
+            $this->filters = [];
+        }
+
         if (!in_array($this->postType, self::MANUAL_POST_TYPES)) {
             $classInstance = new $this->postTypeClass();
 
-            if (method_exists($classInstance, 'getFilters')) {
-                foreach ($classInstance->getFilters() as $filter) {
-                    if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
-                        throw new \Exception("Filter must have a type, appearance and value");
+            if (ListingBlock::USE_FIELDS_TO_DEFINE_FILTERS) {
+                if ($this->baseFilters) {
+                    foreach ($this->baseFilters as $filter) {
+                        $type = $filter[ListingBlock::FIELD_FILTERS_TYPE];
+                        $appearance = $filter[ListingBlock::FIELD_FILTERS_APPEARANCE];
+                        $value = $filter[ListingBlock::FIELD_FILTERS_FIELD];
+                        $name = $filter[ListingBlock::FIELD_FILTERS_NAME];
+                        $placeholder = $filter[ListingBlock::FIELD_FILTERS_PLACEHOLDER];
+                        $fieldType = null;
+                        $fieldClass = null;
+
+                        preg_match('/([a-zA-Z]+)_(.+)/', $value, $matches);
+
+                        if (isset($matches[1], $matches[2])) {
+                            //dd($matches);
+                            $value = $matches[2];
+                            $fieldType = $matches[1];
+
+                            switch ($fieldType) {
+                                case 'number':
+                                    $fieldClass = Number::class;
+                                    break;
+                                case 'text':
+                                    $fieldClass = Text::class;
+                                    break;
+                                case 'image':
+                                    $fieldClass = Image::class;
+                                    break;
+                                default:
+                                    throw new \Exception(sprintf('Field type "%s" not handled', $fieldType));
+                            }
+                        }
+
+                        if (empty($appearance)) {
+                            $appearance = 'select';
+                        }
+
+                        switch ($type) {
+                            case FilterTypesEnum::META->value:
+                                $type = FilterTypesEnum::META;
+                                break;
+                            case FilterTypesEnum::TAXONOMY->value:
+                                $type = FilterTypesEnum::TAXONOMY;
+                                break;
+                        }
+
+                        switch ($type) {
+                            case FilterTypesEnum::META:
+                                $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                                break;
+                            case FilterTypesEnum::TAXONOMY:
+                            default:
+                                break;
+                        }
                     }
+                }
+            } else {
+                if (method_exists($classInstance, 'getFilters')) {
+                    foreach ($classInstance->getFilters() as $filter) {
+                        if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
+                            throw new \Exception("Filter must have a type, appearance and value");
+                        }
 
-                    $type = $filter['type'];
-                    $appearance = $filter['appearance'];
-                    $value = $filter['value'];
-                    $name = $filter['name'] ?? $value;
-                    $placeholder = $filter['placeholder'] ?? 'Filtre';
+                        $type = $filter['type'];
+                        $appearance = $filter['appearance'];
+                        $value = $filter['value'];
+                        $name = $filter['name'] ?? $value;
+                        $placeholder = $filter['placeholder'] ?? 'Filtre';
 
-                    switch ($type) {
-                        case FilterTypesEnum::TAXONOMY:
-                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
-                            break;
-                        case FilterTypesEnum::META:
-                            $fieldClass = $filter['fieldClass'];
-                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
-                            break;
-                        default:
-                            break;
+                        switch ($type) {
+                            case FilterTypesEnum::TAXONOMY:
+                                $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
+                                break;
+                            case FilterTypesEnum::META:
+                                $fieldClass = $filter['fieldClass'];
+                                $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }
