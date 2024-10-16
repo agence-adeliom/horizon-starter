@@ -6,17 +6,26 @@ use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use InvalidArgumentException;
 
 class Button extends Component
 {
     private ?string $typeClass = null;
+    private ?string $variantClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
+    final public const string ICON_ONLY = "btn--icon-only";
 
     final public const TYPES = [
         'primary'   => 'btn--primary',
         'secondary' => 'btn--secondary',
         'tertiary'  => 'btn--tertiary',
+    ];
+
+    final public const VARIANTS = [
+        'contain'   => 'btn--contained',
+        'outline' => 'btn--outlined',
+        'text'  => 'btn--text',
     ];
 
     final public const SIZES = [
@@ -31,6 +40,7 @@ class Button extends Component
     public function __construct(
         public ?string $size = 'medium',
         public ?string $type = 'primary',
+        public ?string $variant = 'contain',
         public ?string $label = null,
         public ?string $url = null,
         public ?string $target = null,
@@ -43,13 +53,37 @@ class Button extends Component
         public ?bool   $iconStart = false,
         public ?bool   $fullLink = false,
     ) {
+        $this->validateType($type);
+        $this->validateVariant($variant);
+        $this->validateSize($size);
+
         $this->handleType();
+        $this->handleVariant();
         $this->handleSize();
         $this->handleUrl();
         $this->handleTarget();
         $this->handleLabel();
 
         $this->handleFullClass();
+    }
+
+    private function validateType(?string $type): void
+    {
+        if ($type !== null && !in_array($type, array_keys(self::TYPES))) {
+            throw new InvalidArgumentException("Invalid button type: '{$type}'. Allowed types are: " . implode(', ', array_keys(self::TYPES)) . ".");
+        }
+    }
+    private function validateVariant(?string $variant): void
+    {
+        if ($variant !== null && !in_array($variant, array_keys(self::VARIANTS))) {
+            throw new InvalidArgumentException("Invalid button variant: '{$variant}'. Allowed variants are: " . implode(', ', array_keys(self::VARIANTS)) . ".");
+        }
+    }
+    private function validateSize(?string $size): void
+    {
+        if ($size !== null && !in_array($size, array_keys(self::SIZES))) {
+            throw new InvalidArgumentException("Invalid button size: '{$size}'. Allowed sizes are: " . implode(', ', array_keys(self::SIZES)) . ".");
+        }
     }
 
     private function handleType(): void
@@ -70,6 +104,20 @@ class Button extends Component
         if (null !== $type) {
             $this->type = $type;
             $this->typeClass = self::TYPES[$this->type];
+        }
+    }
+
+    private function handleVariant(): void
+    {
+        $variant = null;
+
+        if (null !== $this->variant) {
+            $variant = $this->variant && in_array($this->variant, array_keys(self::VARIANTS)) ? $this->variant : null;
+        }
+
+        if (null !== $variant) {
+            $this->variant = $variant;
+            $this->variantClass = self::VARIANTS[$this->variant];
         }
     }
 
@@ -150,7 +198,9 @@ class Button extends Component
             'btn',
             $this->iconStart ? 'flex-row-reverse' : '',
             $this->typeClass,
+            $this->variantClass,
             $this->sizeClass,
+            !$this->label ? self::ICON_ONLY : '',
         ]);
     }
 
