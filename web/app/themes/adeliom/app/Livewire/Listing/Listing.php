@@ -10,6 +10,7 @@ use Adeliom\HorizonTools\Services\AcfService;
 use Adeliom\HorizonTools\Services\ClassService;
 use Adeliom\HorizonTools\ViewModels\Post\BasePostViewModel;
 use Extended\ACF\Fields\Select;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -39,10 +40,24 @@ class Listing extends Component
         'date.ASC' => 'Plus ancien',
     ];
 
+    private const MANUAL_POST_TYPES = [
+        'post', 'page',
+    ];
+
     public function mount(): void
     {
-        $this->postTypeClass = ClassService::getPostTypeClassBySlug($this->postType);
-        $this->card = $this->postTypeClass::$card;
+        if (in_array($this->postType, self::MANUAL_POST_TYPES)) {
+            $card = Config::get(sprintf('posts.listing.cards.%s', $this->postType));
+
+            if ($card) {
+                $this->card = $card;
+            } else {
+                throw new \Exception(sprintf('You have to set a card for the post-type "%s" in the "posts.php" config file (posts.listing.cards.%s)', $this->postType, $this->postType));
+            }
+        } else {
+            $this->postTypeClass = ClassService::getPostTypeClassBySlug($this->postType);
+            $this->card = $this->postTypeClass::$card;
+        }
 
         $this->initFilters();
 
@@ -149,30 +164,32 @@ class Listing extends Component
 
     private function initFilters(): void
     {
-        $classInstance = new $this->postTypeClass();
+        if (!in_array($this->postType, self::MANUAL_POST_TYPES)) {
+            $classInstance = new $this->postTypeClass();
 
-        if (method_exists($classInstance, 'getFilters')) {
-            foreach ($classInstance->getFilters() as $filter) {
-                if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
-                    throw new \Exception("Filter must have a type, appearance and value");
-                }
+            if (method_exists($classInstance, 'getFilters')) {
+                foreach ($classInstance->getFilters() as $filter) {
+                    if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
+                        throw new \Exception("Filter must have a type, appearance and value");
+                    }
 
-                $type = $filter['type'];
-                $appearance = $filter['appearance'];
-                $value = $filter['value'];
-                $name = $filter['name'] ?? $value;
-                $placeholder = $filter['placeholder'] ?? 'Filtre';
+                    $type = $filter['type'];
+                    $appearance = $filter['appearance'];
+                    $value = $filter['value'];
+                    $name = $filter['name'] ?? $value;
+                    $placeholder = $filter['placeholder'] ?? 'Filtre';
 
-                switch ($type) {
-                    case FilterTypesEnum::TAXONOMY:
-                        $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
-                        break;
-                    case FilterTypesEnum::META:
-                        $fieldClass = $filter['fieldClass'];
-                        $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
-                        break;
-                    default:
-                        break;
+                    switch ($type) {
+                        case FilterTypesEnum::TAXONOMY:
+                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
+                            break;
+                        case FilterTypesEnum::META:
+                            $fieldClass = $filter['fieldClass'];
+                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

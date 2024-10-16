@@ -6,8 +6,8 @@
         $postType = $fields['postType'];
     }
 
-    if (isset($fields['perPage'])) {
-        $perPage = $fields['perPage'];
+    if (!empty($fields['perPage']) && is_numeric($fields['perPage'])) {
+        $perPage = intval($fields['perPage']);
     }
 @endphp
 
