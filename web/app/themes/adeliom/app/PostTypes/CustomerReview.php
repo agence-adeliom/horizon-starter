@@ -12,6 +12,8 @@ use Extended\ACF\Fields\Text;
 
 class CustomerReview extends AbstractPostType
 {
+    public static ?string $slug = 'customer-review';
+
     public const string FIELD_REVIEW = 'review';
     public const string FIELD_REVIEWER = 'reviewer';
     public const string FIELD_RATING = 'rating';
@@ -19,8 +21,8 @@ class CustomerReview extends AbstractPostType
     public const string FIELD_FIRSTNAME = 'firstname';
     public const string FIELD_JOB = 'job';
     public const string FIELD_AVATAR = 'avatar';
-    //global parameters
-    public static ?string $slug = 'customer-review';
+
+    // Blade component used to render the card in the listing
     public static ?string $card = null;
 
     public function getConfig(array $config = []): array

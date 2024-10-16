@@ -9,8 +9,12 @@ use Adeliom\HorizonTools\PostTypes\AbstractPostType;
 
 class LandingPage extends AbstractPostType
 {
-    public const string BTN_HIGHLIGHT = "btn-highlight";
     public static ?string $slug = 'landing-page';
+
+    public const string BTN_HIGHLIGHT = "btn-highlight";
+
+    // Blade component used to render the card in the listing
+    public static ?string $card = null;
 
     public function getConfig(array $config = []): array
     {
