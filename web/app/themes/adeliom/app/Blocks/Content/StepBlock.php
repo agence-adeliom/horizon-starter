@@ -19,12 +19,13 @@ use Extended\ACF\Fields\Text;
 
 class StepBlock extends AbstractBlock
 {
+    public static ?string $slug = 'step';
+    public static ?string $title = 'Étapes';
+
     final public const string FIELDS_STEPS = 'steps';
     final public const string FIELDS_STEP_TITLE = 'title';
     final public const string FIELDS_STEP_CONTENT = 'content';
     final public const string FIELDS_STEP_IMG = 'img';
-    public static ?string $slug = 'step';
-    public static ?string $title = 'Étapes';
 
     public function getFields(): ?iterable
     {

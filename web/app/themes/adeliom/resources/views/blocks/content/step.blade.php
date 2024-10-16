@@ -1,31 +1,31 @@
 <x-block :fields="$fields" class="overflow-hidden">
-    @isset($fields['uptitle'])
-        <x-typography.heading :content="$fields['uptitle']" size="headline" />
-    @endisset
-    @isset($fields['title'])
-        <x-typography.heading :fields="$fields['title']" size="3" />
-    @endisset
+  @isset($fields['uptitle'])
+    <x-typography.heading :content="$fields['uptitle']" size="headline"/>
+  @endisset
+  @isset($fields['title'])
+    <x-typography.heading :fields="$fields['title']" size="3"/>
+  @endisset
 
-    <div class="mt-text-image-mobile lg:mt-text-image-desktop" x-data="initStepsSlider()">
-        <div class="swiper w-full overflow-visible" x-ref="swiperContainer">
-            <x-action.button @class(['center-top left-0 z-10']) type="primary" variant="outline" icon="angle-left"
-                x-ref="buttonPrev" />
-            <x-action.button @class(['center-top right-0 z-10']) type="primary" variant="outline" icon="angle-right"
-                x-ref="buttonNext" />
-            <div class="swiper-wrapper">
-                @if (isset($fields['steps']) && $fields['steps'])
-                    @foreach ($fields['steps'] as $step)
-                        <x-cards.card-step :step="$step" class="swiper-slide h-auto" />
-                    @endforeach
-                @endif
-            </div>
+  <div class="mt-text-image-mobile lg:mt-text-image-desktop" x-data="initStepsSlider()">
+    <div class="swiper w-full overflow-visible" x-ref="swiperContainer">
+      <x-action.button @class(['center-top left-0 z-10']) type="primary" variant="outline" icon="angle-left"
+                       x-ref="buttonPrev"/>
+      <x-action.button @class(['center-top right-0 z-10']) type="primary" variant="outline" icon="angle-right"
+                       x-ref="buttonNext"/>
+      <div class="swiper-wrapper">
+        @if (isset($fields['steps']) && $fields['steps'])
+          @foreach ($fields['steps'] as $step)
+            <x-cards.card-step :step="$step" class="swiper-slide h-auto"/>
+          @endforeach
+        @endif
+      </div>
 
-        </div>
     </div>
-    <div class="mt-text-image-mobile flex justify-center lg:mt-text-image-desktop">
-        @if (isset($fields['button']) && $fields['button']['link'])
-            <x-action.button :fields="$fields['button']" class="max-md:w-full" type="tertiary" />
-        @endisset
-</div>
+  </div>
 
+  <div class="mt-text-image-mobile flex justify-center lg:mt-text-image-desktop">
+    @if (isset($fields['button']) && $fields['button']['link'])
+      <x-action.button :fields="$fields['button']" class="max-md:w-full" type="tertiary"/>
+    @endisset
+  </div>
 </x-block>
