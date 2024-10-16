@@ -12,17 +12,17 @@ class Img extends Component
 {
     /**
      * Image ID
-     * 
+     *
      * @var int|null
      */
     public ?int $id = null;
 
     /**
      * Generated image HTML
-     * 
+     *
      * @var string|null
      */
-    public ?string $content;
+    public ?string $content = null;
 
     /**
      * Image component instance
@@ -35,7 +35,7 @@ class Img extends Component
      * @param string|null $ratio            Image ratio (e.g. '16:9', '4:3').
      */
     public function __construct(
-        public ?array  $image,
+        public null|false|array $image = null,
         public ?string $size = 'large',
         public ?string $class = null,
         public ?string $loading = 'lazy',
