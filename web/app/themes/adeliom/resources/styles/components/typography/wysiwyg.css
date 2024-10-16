@@ -56,9 +56,7 @@
     ol,
     p,
     li {
-        & + p {
-            @apply mt-2;
-        }
+        & + p,
         & + ul,
         & + ol,
         & + li {

@@ -51,6 +51,7 @@ class Button extends Component
         public ?string $icon = null,
         public ?string $iconClass = null,
         public ?bool   $iconStart = false,
+        public ?bool   $fullLink = false,
     ) {
         $this->validateType($type);
         $this->validateVariant($variant);

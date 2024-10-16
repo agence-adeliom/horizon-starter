@@ -10,14 +10,32 @@ use Illuminate\View\Component;
 
 class Img extends Component
 {
+    /**
+     * Image ID
+     *
+     * @var int|null
+     */
     public ?int $id = null;
-    public ?string $content;
 
     /**
-     * Create a new component instance.
+     * Generated image HTML
+     *
+     * @var string|null
+     */
+    public ?string $content = null;
+
+    /**
+     * Image component instance
+     *
+     * @param array|null  $image            Image array (e.g. ['ID' => 123]).
+     * @param string|null $size             Image size (from Wordpress) : 'thumbnail', 'small', 'medium', 'medium_large', 'large' (default), 'full'.
+     * @param string|null $class            Image classes.
+     * @param string|null $loading          Image loading attribute : 'lazy' (default), 'eager', 'auto'.
+     * @param string|null $containerClass   Container CSS classes. Default : null.
+     * @param string|null $ratio            Image ratio (e.g. '16:9', '4:3').
      */
     public function __construct(
-        public ?array  $image,
+        public null|false|array $image = null,
         public ?string $size = 'large',
         public ?string $class = null,
         public ?string $loading = 'lazy',

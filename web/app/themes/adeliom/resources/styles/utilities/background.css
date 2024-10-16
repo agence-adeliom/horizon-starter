@@ -1,12 +1,9 @@
 @layer utilities {
-    .bg-full{
+    .bg-full {
         @apply bg-cover bg-center;
     }
 
     .bg-linear {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00)0%, rgba(0, 0, 0, 0.50)67.19%);
-
-
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 67.19%);
     }
-
 }
