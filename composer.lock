@@ -12,17 +12,17 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "git@github.com:agence-adeliom/horizon-blocks.git",
-                                                "reference": "a5429c09c0e55bb7b874a6f81ef1ed1d254e9e9c"
+                                                "reference": "0e0d428a85a68b00749a1ef9a18ead8c4a49492b"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/a5429c09c0e55bb7b874a6f81ef1ed1d254e9e9c",
-                                                "reference": "a5429c09c0e55bb7b874a6f81ef1ed1d254e9e9c",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/0e0d428a85a68b00749a1ef9a18ead8c4a49492b",
+                                                "reference": "0e0d428a85a68b00749a1ef9a18ead8c4a49492b",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "agence-adeliom/horizon-tools": "dev-main",
-                                                "php": ">=8.2"
+                                                "php": ">=8.3"
                                     },
                                     "default-branch": true,
                                     "type": "library",
@@ -41,7 +41,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2024-10-23T09:06:47+00:00"
+                                    "time": "2024-10-23T14:24:31+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -49,12 +49,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "9977cda208dc7178468283fb1548394c208f8618"
+                                                "reference": "136da644a176dc62d65413b41848f6293d252c95"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/9977cda208dc7178468283fb1548394c208f8618",
-                                                "reference": "9977cda208dc7178468283fb1548394c208f8618",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/136da644a176dc62d65413b41848f6293d252c95",
+                                                "reference": "136da644a176dc62d65413b41848f6293d252c95",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -85,7 +85,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2024-10-23T08:50:29+00:00"
+                                    "time": "2024-10-23T13:06:54+00:00"
                         },
                         {
                                     "name": "brick/math",
