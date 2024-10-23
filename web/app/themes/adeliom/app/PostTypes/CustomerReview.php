@@ -20,6 +20,9 @@ class CustomerReview extends AbstractPostType
     // Blade component used to render the card in the listing
     public static ?string $card = 'cards.card-listing';
 
+    // Set to true to allow post-type in automatic listing block
+    public static bool $availableInListingBlock = true;
+
     public const string FIELD_REVIEW = 'review';
     public const string FIELD_REVIEWER = 'reviewer';
     public const string FIELD_RATING = 'rating';

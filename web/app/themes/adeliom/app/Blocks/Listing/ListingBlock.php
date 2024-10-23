@@ -45,7 +45,13 @@ class ListingBlock extends AbstractBlock
 
     public function getFields(): ?iterable
     {
-        $postTypeField = PostTypeSelectField::make();
+        $postTypeField = PostTypeSelectField::make(callback: function ($postType): bool {
+            if (property_exists($postType, 'availableInListingBlock')) {
+                return (bool)$postType::$availableInListingBlock;
+            }
+
+            return false;
+        });
 
         if (self::USE_FIELDS_TO_DEFINE_FILTERS) {
             $postTypeField->helperText('Enregistrez la page après modification de ce champ pour afficher les bonnes valeurs dans les filtres.');
