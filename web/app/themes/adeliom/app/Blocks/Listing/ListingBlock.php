@@ -24,6 +24,7 @@ use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Location;
 
 class ListingBlock extends AbstractBlock
 {
@@ -95,19 +96,21 @@ class ListingBlock extends AbstractBlock
             $filterFields[] = ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
                 ->required()
                 ->choices($typeChoices);
-            $filterFields[] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required();
-            $filterFields[] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required();
+            $filterFields[] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->helperText(__('Il s’agit du texte affiché lorsqu’aucune option n’est sélectionnée'))->required();
+            $filterFields[] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->helperText(__('Il s’agit du nom du filtre utilisé (notamment) dans l’URL pré-filtrée'))->required();
             $filterFields[] = Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
                 'select' => 'Sélection',
             ])
                 ->default('select');
             $filterFields[] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)
                 ->stylized()
+                ->helperText(__('Si aucune option n’est sélectionnée, le filtre ne s’affichera pas.'))
                 ->choices($availableFields)
                 ->lazyLoad()
                 ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
             $filterFields[] = Select::make(__('Taxonomie'), self::FIELD_FILTERS_TAXONOMY)
                 ->stylized()
+                ->helperText(__('Si aucune option n’est sélectionnée, le filtre ne s’affichera pas.'))
                 ->choices($availableTaxonomies)
                 ->lazyLoad()
                 ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::TAXONOMY->value)]);
@@ -198,20 +201,52 @@ class ListingBlock extends AbstractBlock
     {
         $fields = [];
 
-        if (!in_array($postTypeSlug, ['post', 'page'])) {
+        if (in_array($postTypeSlug, ['post', 'page'])) {
+            foreach (FileService::getCustomAdminFiles() as $customAdminFile) {
+                require_once $customAdminFile;
+            }
+
+            foreach (ClassService::getAllCustomAdminClasses() as $adminClass) {
+                if (method_exists($adminClass, 'getLocation') && method_exists($adminClass, 'getFields')) {
+                    $class = new $adminClass();
+                    foreach (iterator_to_array($class->getLocation(), false) as $item) {
+                        if ($item instanceof Location) {
+                            // Use reflection to get protected "rules" property
+                            $reflection = new \ReflectionClass($item);
+
+                            $property = $reflection->getProperty('rules');
+                            $rules = $property->getValue($item);
+
+                            foreach ($rules as $rule) {
+                                if (isset($rule['param'], $rule['operator'], $rule['value'])) {
+                                    if ($rule['param'] === 'post_type') {
+                                        if (($rule['operator'] === '==' && $rule['value'] === $postTypeSlug) || $rule['operator'] === '!=' && $rule['value'] !== $postTypeSlug) {
+                                            $this->handleFieldClass(classInstance: $class, fields: $fields);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
             $class = ClassService::getPostTypeClassBySlug(slug: $postTypeSlug);
             $classInstance = new $class();
 
-            if (method_exists($classInstance, 'getFields')) {
-                $classFields = iterator_to_array($classInstance->getFields(), preserve_keys: false);
-
-                if ($classFields) {
-                    $this->handleFields(fields: $classFields, array: $fields);
-                }
-            }
+            $this->handleFieldClass(classInstance: $classInstance, fields: $fields);
         }
 
         return $fields;
+    }
+
+    private function handleFieldClass($classInstance, array &$fields): void
+    {
+        if (method_exists($classInstance, 'getFields')) {
+            if ($classFields = iterator_to_array($classInstance->getFields(), preserve_keys: false)) {
+                $this->handleFields(fields: $classFields, array: $fields);
+            }
+        }
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Listing;
 
 use Adeliom\HorizonTools\Database\MetaQuery;
@@ -46,7 +48,7 @@ class Listing extends Component
         'date.ASC' => 'Plus ancien',
     ];
 
-    private const MANUAL_POST_TYPES = [
+    private const array MANUAL_POST_TYPES = [
         'post', 'page',
     ];
 
@@ -81,6 +83,8 @@ class Listing extends Component
 
     private function initTaxonomyFilter(string $taxonomyName, string $filterName, FilterTypesEnum $filterType, string $appearance, string $placeholder): void
     {
+        $filterName = sanitize_title($filterName);
+
         $taxQb = new QueryBuilder();
         $taxQb->taxonomy($taxonomyName)
             ->fetchEmptyTaxonomies(false);
@@ -118,7 +122,7 @@ class Listing extends Component
         WHERE meta_key = %s AND post_type = %s AND post_status = 'publish'
         EOF;
 
-            $query = $wpdb->prepare($query, $metaKey, $postType::$slug);
+            $query = $wpdb->prepare($query, $metaKey, $this->postTypeClass ? $postType::$slug : $postType);
 
             $results = $wpdb->get_results($query);
 
@@ -241,7 +245,7 @@ class Listing extends Component
 
                     switch ($type) {
                         case FilterTypesEnum::META:
-                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass ?? $this->postType, fieldClass: $fieldClass, placeholder: $placeholder);
                             break;
                         case FilterTypesEnum::TAXONOMY:
                             $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
