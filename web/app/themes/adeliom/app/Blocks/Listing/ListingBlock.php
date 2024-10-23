@@ -32,6 +32,7 @@ class ListingBlock extends AbstractBlock
     public static ?string $mode = 'preview';
 
     public const bool USE_FIELDS_TO_DEFINE_FILTERS = true;
+    public const bool ALWAYS_DISPLAY_FILTERS = true;
 
     public const string FIELD_PER_PAGE = 'perPage';
     public const string FIELD_FILTERS = 'filters';
@@ -81,43 +82,45 @@ class ListingBlock extends AbstractBlock
         $availableTaxonomies = $this->getAvailableTaxonomies();
 
         $typeChoices = [];
-        if (!empty($availableFields)) {
+        if (!empty($availableFields) || self::ALWAYS_DISPLAY_FILTERS) {
             $typeChoices[FilterTypesEnum::META->value] = __('Méta');
         }
 
-        if (!empty($availableTaxonomies)) {
+        if (!empty($availableTaxonomies) || self::ALWAYS_DISPLAY_FILTERS) {
             $typeChoices[FilterTypesEnum::TAXONOMY->value] = __('Taxonomie');
         }
 
-        $filterFields = [];
-        $filterFields[] = ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
-            ->required()
-            ->choices($typeChoices);
-        $filterFields[] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required();
-        $filterFields[] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required();
-        $filterFields[] = Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
-            'select' => 'Sélection',
-        ])
-            ->default('select');
-        $filterFields[] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)
-            ->stylized()
-            ->choices($availableFields)
-            ->lazyLoad()
-            ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
-        $filterFields[] = Select::make(__('Taxonomie'), self::FIELD_FILTERS_TAXONOMY)
-            ->stylized()
-            ->choices($availableTaxonomies)
-            ->lazyLoad()
-            ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::TAXONOMY->value)]);
+        if (!empty($availableFields) || !empty($availableTaxonomies) || self::ALWAYS_DISPLAY_FILTERS) {
+            $filterFields = [];
+            $filterFields[] = ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
+                ->required()
+                ->choices($typeChoices);
+            $filterFields[] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required();
+            $filterFields[] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required();
+            $filterFields[] = Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
+                'select' => 'Sélection',
+            ])
+                ->default('select');
+            $filterFields[] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)
+                ->stylized()
+                ->choices($availableFields)
+                ->lazyLoad()
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
+            $filterFields[] = Select::make(__('Taxonomie'), self::FIELD_FILTERS_TAXONOMY)
+                ->stylized()
+                ->choices($availableTaxonomies)
+                ->lazyLoad()
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::TAXONOMY->value)]);
 
-        yield from SettingsTab::make()->fields([
-            Repeater::make(__('Filtres'), self::FIELD_FILTERS)
-                ->button(__('Ajouter un filtre'))
-                ->layout('block')
-                ->minRows(0)
-                ->maxRows(3)
-                ->fields($filterFields)
-        ]);
+            yield from SettingsTab::make()->fields([
+                Repeater::make(__('Filtres'), self::FIELD_FILTERS)
+                    ->button(__('Ajouter un filtre'))
+                    ->layout('block')
+                    ->minRows(0)
+                    ->maxRows(3)
+                    ->fields($filterFields)
+            ]);
+        }
     }
 
     public function addToContext(): array
@@ -150,6 +153,15 @@ class ListingBlock extends AbstractBlock
     {
         $postType = $this->getFilteredPostType();
         $taxonomyChoices = [];
+
+        switch ($postType) {
+            case 'post':
+                $taxonomyChoices['category'] = __('Catégories');
+                break;
+            case 'page':
+            default:
+                break;
+        }
 
         if ($postType) {
             if ($taxonomies = FileService::getCustomTaxonomyFiles()) {

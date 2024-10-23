@@ -36,8 +36,8 @@ class Listing extends Component
     public string $order = self::DEFAULT_ORDER;
     public int $perPage = 12;
 
-    public array $filters = [];
-    private array $baseFilters = [];
+    public null|false|array $filters = [];
+    private null|false|array $baseFilters = [];
     public ?string $postTypeClass = null;
     public ?string $card = null;
 
@@ -181,101 +181,99 @@ class Listing extends Component
             $this->filters = [];
         }
 
-        if (!in_array($this->postType, self::MANUAL_POST_TYPES)) {
-            $classInstance = new $this->postTypeClass();
+        $classInstance = null !== $this->postTypeClass ? new $this->postTypeClass() : null;
 
-            if (ListingBlock::USE_FIELDS_TO_DEFINE_FILTERS) {
-                if ($this->baseFilters) {
-                    foreach ($this->baseFilters as $filter) {
-                        $type = $filter[ListingBlock::FIELD_FILTERS_TYPE];
-                        $appearance = $filter[ListingBlock::FIELD_FILTERS_APPEARANCE];
-                        $name = $filter[ListingBlock::FIELD_FILTERS_NAME];
-                        $placeholder = $filter[ListingBlock::FIELD_FILTERS_PLACEHOLDER];
-                        $fieldType = null;
-                        $fieldClass = null;
+        if (ListingBlock::USE_FIELDS_TO_DEFINE_FILTERS) {
+            if ($this->baseFilters) {
+                foreach ($this->baseFilters as $filter) {
+                    $type = $filter[ListingBlock::FIELD_FILTERS_TYPE];
+                    $appearance = $filter[ListingBlock::FIELD_FILTERS_APPEARANCE];
+                    $name = $filter[ListingBlock::FIELD_FILTERS_NAME];
+                    $placeholder = $filter[ListingBlock::FIELD_FILTERS_PLACEHOLDER];
+                    $fieldType = null;
+                    $fieldClass = null;
 
-                        $value = match ($type) {
-                            FilterTypesEnum::META->value => $filter[ListingBlock::FIELD_FILTERS_FIELD],
-                            FilterTypesEnum::TAXONOMY->value => $filter[ListingBlock::FIELD_FILTERS_TAXONOMY],
-                            default => null,
-                        };
+                    $value = match ($type) {
+                        FilterTypesEnum::META->value => $filter[ListingBlock::FIELD_FILTERS_FIELD],
+                        FilterTypesEnum::TAXONOMY->value => $filter[ListingBlock::FIELD_FILTERS_TAXONOMY],
+                        default => null,
+                    };
 
-                        if ($type === FilterTypesEnum::META->value) {
-                            preg_match('/([a-zA-Z]+)_(.+)/', $value, $matches);
+                    if ($type === FilterTypesEnum::META->value) {
+                        preg_match('/([a-zA-Z]+)_(.+)/', $value, $matches);
 
-                            if (isset($matches[1], $matches[2])) {
-                                //dd($matches);
-                                $value = $matches[2];
-                                $fieldType = $matches[1];
+                        if (isset($matches[1], $matches[2])) {
+                            //dd($matches);
+                            $value = $matches[2];
+                            $fieldType = $matches[1];
 
-                                switch ($fieldType) {
-                                    case 'number':
-                                        $fieldClass = Number::class;
-                                        break;
-                                    case 'text':
-                                        $fieldClass = Text::class;
-                                        break;
-                                    case 'image':
-                                        $fieldClass = Image::class;
-                                        break;
-                                    case 'wysiwyg':
-                                        $fieldClass = WYSIWYGEditor::class;
-                                        break;
-                                    default:
-                                        throw new \Exception(sprintf('Field type "%s" not handled', $fieldType));
-                                }
+                            switch ($fieldType) {
+                                case 'number':
+                                    $fieldClass = Number::class;
+                                    break;
+                                case 'text':
+                                    $fieldClass = Text::class;
+                                    break;
+                                case 'image':
+                                    $fieldClass = Image::class;
+                                    break;
+                                case 'wysiwyg':
+                                    $fieldClass = WYSIWYGEditor::class;
+                                    break;
+                                default:
+                                    throw new \Exception(sprintf('Field type "%s" not handled', $fieldType));
                             }
                         }
+                    }
 
-                        if (empty($appearance)) {
-                            $appearance = 'select';
-                        }
+                    if (empty($appearance)) {
+                        $appearance = 'select';
+                    }
 
-                        switch ($type) {
-                            case FilterTypesEnum::META->value:
-                                $type = FilterTypesEnum::META;
-                                break;
-                            case FilterTypesEnum::TAXONOMY->value:
-                                $type = FilterTypesEnum::TAXONOMY;
-                                break;
-                        }
+                    switch ($type) {
+                        case FilterTypesEnum::META->value:
+                            $type = FilterTypesEnum::META;
+                            break;
+                        case FilterTypesEnum::TAXONOMY->value:
+                            $type = FilterTypesEnum::TAXONOMY;
+                            break;
+                    }
 
-                        switch ($type) {
-                            case FilterTypesEnum::META:
-                                $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
-                                break;
-                            case FilterTypesEnum::TAXONOMY:
-                                $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
-                                break;
-                            default:
-                                break;
-                        }
+                    switch ($type) {
+                        case FilterTypesEnum::META:
+                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                            break;
+                        case FilterTypesEnum::TAXONOMY:
+                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
+                            break;
+                        default:
+                            break;
                     }
                 }
-            } else {
-                if (method_exists($classInstance, 'getFilters')) {
-                    foreach ($classInstance->getFilters() as $filter) {
-                        if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
-                            throw new \Exception("Filter must have a type, appearance and value");
-                        }
+            }
+        } else {
+            if (method_exists($classInstance, 'getFilters')) {
+                foreach ($classInstance->getFilters() as $filter) {
+                    if (!isset($filter['type'], $filter['appearance'], $filter['value'])) {
+                        throw new \Exception("Filter must have a type, appearance and value");
+                    }
 
-                        $type = $filter['type'];
-                        $appearance = $filter['appearance'];
-                        $value = $filter['value'];
-                        $name = $filter['name'] ?? $value;
-                        $placeholder = $filter['placeholder'] ?? 'Filtre';
+                    $type = $filter['type'];
+                    $appearance = $filter['appearance'];
+                    $value = $filter['value'];
+                    $name = $filter['name'] ?? $value;
+                    $placeholder = $filter['placeholder'] ?? 'Filtre';
 
-                        switch ($type) {
-                            case FilterTypesEnum::TAXONOMY:
-                                $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
-                                break;
-                            case FilterTypesEnum::META:
-                                $fieldClass = $filter['fieldClass'];
-                                $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
-                                break;
-                            default:
-                                break;
-                        }
+                    switch ($type) {
+                        case FilterTypesEnum::TAXONOMY:
+                            $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
+                            break;
+                        case FilterTypesEnum::META:
+                            $fieldClass = $filter['fieldClass'];
+                            $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
