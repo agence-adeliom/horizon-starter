@@ -77,36 +77,46 @@ class ListingBlock extends AbstractBlock
 
     private function filterFields(): iterable
     {
+        $availableFields = $this->getAvailableFilterChoices();
+        $availableTaxonomies = $this->getAvailableTaxonomies();
+
+        $typeChoices = [];
+        if (!empty($availableFields)) {
+            $typeChoices[FilterTypesEnum::META->value] = __('Méta');
+        }
+
+        if (!empty($availableTaxonomies)) {
+            $typeChoices[FilterTypesEnum::TAXONOMY->value] = __('Taxonomie');
+        }
+
+        $filterFields = [];
+        $filterFields[] = ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
+            ->required()
+            ->choices($typeChoices);
+        $filterFields[] = Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required();
+        $filterFields[] = Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required();
+        $filterFields[] = Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
+            'select' => 'Sélection',
+        ])
+            ->default('select');
+        $filterFields[] = Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)
+            ->stylized()
+            ->choices($availableFields)
+            ->lazyLoad()
+            ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]);
+        $filterFields[] = Select::make(__('Taxonomie'), self::FIELD_FILTERS_TAXONOMY)
+            ->stylized()
+            ->choices($availableTaxonomies)
+            ->lazyLoad()
+            ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::TAXONOMY->value)]);
+
         yield from SettingsTab::make()->fields([
             Repeater::make(__('Filtres'), self::FIELD_FILTERS)
                 ->button(__('Ajouter un filtre'))
                 ->layout('block')
                 ->minRows(0)
                 ->maxRows(3)
-                ->fields([
-                    ButtonGroup::make(__('Type'), self::FIELD_FILTERS_TYPE)
-                        ->required()
-                        ->choices([
-                            FilterTypesEnum::META->value => __('Méta'),
-                            FilterTypesEnum::TAXONOMY->value => __('Taxonomie'),
-                        ]),
-                    Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required(),
-                    Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required(),
-                    Select::make(__('Apparence du filtre'), self::FIELD_FILTERS_APPEARANCE)->stylized()->choices([
-                        'select' => 'Sélection',
-                    ])
-                        ->default('select'),
-                    Select::make(__('Champ'), self::FIELD_FILTERS_FIELD)
-                        ->stylized()
-                        ->choices($this->getAvailableFilterChoices())
-                        ->lazyLoad()
-                        ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]),
-                    Select::make(__('Taxonomie'), self::FIELD_FILTERS_TAXONOMY)
-                        ->stylized()
-                        ->choices($this->getAvailableTaxonomies())
-                        ->lazyLoad()
-                        ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::TAXONOMY->value)]),
-                ])
+                ->fields($filterFields)
         ]);
     }
 
