@@ -6,11 +6,9 @@ namespace App\PostTypes;
 
 use Adeliom\HorizonTools\Enum\FilterTypesEnum;
 use Adeliom\HorizonTools\PostTypes\AbstractPostType;
-use App\Taxonomies\CustomerReview\TestTaxonomy;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Number;
-use Extended\ACF\Fields\Taxonomy;
 use Extended\ACF\Fields\Text;
 
 class CustomerReview extends AbstractPostType
@@ -69,10 +67,6 @@ class CustomerReview extends AbstractPostType
 
     public function getFields(): ?iterable
     {
-        yield Taxonomy::make(__('Test'), 'test')
-            ->taxonomy(TestTaxonomy::$slug)
-            ->load(true)
-            ->save(true);
         yield Group::make("Avis client", self::FIELD_REVIEW)
             ->fields([
                 Number::make("Note", self::FIELD_RATING)
