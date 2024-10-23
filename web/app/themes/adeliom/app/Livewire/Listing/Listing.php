@@ -189,34 +189,41 @@ class Listing extends Component
                     foreach ($this->baseFilters as $filter) {
                         $type = $filter[ListingBlock::FIELD_FILTERS_TYPE];
                         $appearance = $filter[ListingBlock::FIELD_FILTERS_APPEARANCE];
-                        $value = $filter[ListingBlock::FIELD_FILTERS_FIELD];
                         $name = $filter[ListingBlock::FIELD_FILTERS_NAME];
                         $placeholder = $filter[ListingBlock::FIELD_FILTERS_PLACEHOLDER];
                         $fieldType = null;
                         $fieldClass = null;
 
-                        preg_match('/([a-zA-Z]+)_(.+)/', $value, $matches);
+                        $value = match ($type) {
+                            FilterTypesEnum::META->value => $filter[ListingBlock::FIELD_FILTERS_FIELD],
+                            FilterTypesEnum::TAXONOMY->value => $filter[ListingBlock::FIELD_FILTERS_TAXONOMY],
+                            default => null,
+                        };
 
-                        if (isset($matches[1], $matches[2])) {
-                            //dd($matches);
-                            $value = $matches[2];
-                            $fieldType = $matches[1];
+                        if ($type === FilterTypesEnum::META->value) {
+                            preg_match('/([a-zA-Z]+)_(.+)/', $value, $matches);
 
-                            switch ($fieldType) {
-                                case 'number':
-                                    $fieldClass = Number::class;
-                                    break;
-                                case 'text':
-                                    $fieldClass = Text::class;
-                                    break;
-                                case 'image':
-                                    $fieldClass = Image::class;
-                                    break;
-                                case 'wysiwyg':
-                                    $fieldClass = WYSIWYGEditor::class;
-                                    break;
-                                default:
-                                    throw new \Exception(sprintf('Field type "%s" not handled', $fieldType));
+                            if (isset($matches[1], $matches[2])) {
+                                //dd($matches);
+                                $value = $matches[2];
+                                $fieldType = $matches[1];
+
+                                switch ($fieldType) {
+                                    case 'number':
+                                        $fieldClass = Number::class;
+                                        break;
+                                    case 'text':
+                                        $fieldClass = Text::class;
+                                        break;
+                                    case 'image':
+                                        $fieldClass = Image::class;
+                                        break;
+                                    case 'wysiwyg':
+                                        $fieldClass = WYSIWYGEditor::class;
+                                        break;
+                                    default:
+                                        throw new \Exception(sprintf('Field type "%s" not handled', $fieldType));
+                                }
                             }
                         }
 
@@ -238,6 +245,8 @@ class Listing extends Component
                                 $this->initMetaFilter(metaKey: $value, filterName: $name, filterType: $type, appearance: $appearance, postType: $this->postTypeClass, fieldClass: $fieldClass, placeholder: $placeholder);
                                 break;
                             case FilterTypesEnum::TAXONOMY:
+                                $this->initTaxonomyFilter(taxonomyName: $value, filterName: $name, filterType: $type, appearance: $appearance, placeholder: $placeholder);
+                                break;
                             default:
                                 break;
                         }

@@ -14,6 +14,8 @@ use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Services\BudService;
 use Adeliom\HorizonTools\Services\ClassService;
+use Adeliom\HorizonTools\Services\FileService;
+use Adeliom\HorizonTools\Taxonomies\AbstractTaxonomy;
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\ButtonGroup;
 use Extended\ACF\Fields\Field;
@@ -37,6 +39,7 @@ class ListingBlock extends AbstractBlock
     public const string FIELD_FILTERS_TYPE = 'type';
     public const string FIELD_FILTERS_NAME = 'name';
     public const string FIELD_FILTERS_FIELD = 'field';
+    public const string FIELD_FILTERS_TAXONOMY = 'taxonomy';
     public const string FIELD_FILTERS_APPEARANCE = 'appearance';
     public const string FIELD_FILTERS_PLACEHOLDER = 'placeholder';
 
@@ -79,7 +82,7 @@ class ListingBlock extends AbstractBlock
                         ->required()
                         ->choices([
                             FilterTypesEnum::META->value => __('Méta'),
-                            //FilterTypesEnum::TAXONOMY->value => __('Taxonomie'),
+                            FilterTypesEnum::TAXONOMY->value => __('Taxonomie'),
                         ]),
                     Text::make(__('Placeholder'), self::FIELD_FILTERS_PLACEHOLDER)->required(),
                     Text::make(__('Nom du filtre'), self::FIELD_FILTERS_NAME)->required(),
@@ -91,7 +94,12 @@ class ListingBlock extends AbstractBlock
                         ->stylized()
                         ->choices($this->getAvailableFilterChoices())
                         ->lazyLoad()
-                        ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)])
+                        ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::META->value)]),
+                    Select::make(__('Taxonomie'), self::FIELD_FILTERS_TAXONOMY)
+                        ->stylized()
+                        ->choices($this->getAvailableTaxonomies())
+                        ->lazyLoad()
+                        ->conditionalLogic([ConditionalLogic::where(self::FIELD_FILTERS_TYPE, '==', FilterTypesEnum::TAXONOMY->value)]),
                 ])
         ]);
     }
@@ -120,6 +128,42 @@ class ListingBlock extends AbstractBlock
         }
 
         return $fieldChoices;
+    }
+
+    private function getAvailableTaxonomies(): array
+    {
+        $postType = $this->getFilteredPostType();
+        $taxonomyChoices = [];
+
+        if ($postType) {
+            if ($taxonomies = FileService::getCustomTaxonomyFiles()) {
+                foreach ($taxonomies as $taxonomy) {
+                    require_once $taxonomy;
+                }
+
+                if ($availableTaxonomies = ClassService::getAllCustomTaxonomyClasses()) {
+                    foreach ($availableTaxonomies as $availableTaxonomy) {
+                        $availableTaxonomy = new $availableTaxonomy();
+
+                        if ($availableTaxonomy instanceof AbstractTaxonomy) {
+                            if (in_array($postType, $availableTaxonomy->getPostTypes())) {
+                                $name = get_class($availableTaxonomy);
+
+                                if (isset($availableTaxonomy->getConfig()['args']['label'])) {
+                                    $name = $availableTaxonomy->getConfig()['args']['label'];
+                                }
+
+                                if (property_exists($availableTaxonomy, 'slug')) {
+                                    $taxonomyChoices[$availableTaxonomy::$slug] = $name;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $taxonomyChoices;
     }
 
     private function getPostTypeFields(string $postTypeSlug): array

@@ -49,12 +49,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "090cba81453077f96b6c6ffd0b10bc1a2a4d3876"
+                                                "reference": "d5762cbbe55cdfdbc6bf1c477fe3772cf5f46ccd"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/090cba81453077f96b6c6ffd0b10bc1a2a4d3876",
-                                                "reference": "090cba81453077f96b6c6ffd0b10bc1a2a4d3876",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/d5762cbbe55cdfdbc6bf1c477fe3772cf5f46ccd",
+                                                "reference": "d5762cbbe55cdfdbc6bf1c477fe3772cf5f46ccd",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -85,7 +85,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2024-10-16T09:02:42+00:00"
+                                    "time": "2024-10-23T08:09:03+00:00"
                         },
                         {
                                     "name": "brick/math",
@@ -984,16 +984,16 @@
                         },
                         {
                                     "name": "guzzlehttp/promises",
-                                    "version": "2.0.3",
+                                    "version": "2.0.4",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/guzzle/promises.git",
-                                                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8"
+                                                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/guzzle/promises/zipball/6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
-                                                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
+                                                "url": "https://api.github.com/repos/guzzle/promises/zipball/f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
+                                                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -1047,7 +1047,7 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/guzzle/promises/issues",
-                                                "source": "https://github.com/guzzle/promises/tree/2.0.3"
+                                                "source": "https://github.com/guzzle/promises/tree/2.0.4"
                                     },
                                     "funding": [
                                                 {
@@ -1063,7 +1063,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2024-07-18T10:29:17+00:00"
+                                    "time": "2024-10-17T10:06:22+00:00"
                         },
                         {
                                     "name": "guzzlehttp/psr7",
@@ -6813,13 +6813,14 @@
                                     "version": "6.3.9",
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.3.9"
+                                                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.3.9"
                                     },
                                     "require": {
                                                 "composer/installers": "~1.0 || ~2.0"
                                     },
                                     "replace": {
-                                                "wpackagist-plugin/advanced-custom-fields": "self.version"
+                                                "wpackagist-plugin/advanced-custom-fields": "self.version",
+                                                "wpengine/advanced-custom-fields": "self.version"
                                     },
                                     "type": "wordpress-plugin"
                         }
@@ -6827,20 +6828,24 @@
             "packages-dev": [
                         {
                                     "name": "deployer/deployer",
-                                    "version": "v7.4.1",
+                                    "version": "v7.5.3",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/deployphp/deployer.git",
-                                                "reference": "9d6397f25d8185622717e6e66d3eed737fd9d99b"
+                                                "reference": "12e99f965ade27bc00c54541096715e1904acd3f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/deployphp/deployer/zipball/9d6397f25d8185622717e6e66d3eed737fd9d99b",
-                                                "reference": "9d6397f25d8185622717e6e66d3eed737fd9d99b",
+                                                "url": "https://api.github.com/repos/deployphp/deployer/zipball/12e99f965ade27bc00c54541096715e1904acd3f",
+                                                "reference": "12e99f965ade27bc00c54541096715e1904acd3f",
                                                 "shasum": ""
                                     },
+                                    "require": {
+                                                "ext-json": "*",
+                                                "php": "^8.0|^7.3"
+                                    },
                                     "bin": [
-                                                "dep"
+                                                "bin/dep"
                                     ],
                                     "type": "library",
                                     "notification-url": "https://packagist.org/downloads/",
@@ -6866,7 +6871,7 @@
                                                             "type": "github"
                                                 }
                                     ],
-                                    "time": "2024-10-12T20:42:52+00:00"
+                                    "time": "2024-10-22T12:37:24+00:00"
                         },
                         {
                                     "name": "roave/security-advisories",
@@ -6874,17 +6879,17 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "c3c55a0f6643119fa8699577cc83ca6256d98ab5"
+                                                "reference": "51e3fa290bca57eca7ba6c261b8a1278eb13a98a"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c3c55a0f6643119fa8699577cc83ca6256d98ab5",
-                                                "reference": "c3c55a0f6643119fa8699577cc83ca6256d98ab5",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/51e3fa290bca57eca7ba6c261b8a1278eb13a98a",
+                                                "reference": "51e3fa290bca57eca7ba6c261b8a1278eb13a98a",
                                                 "shasum": ""
                                     },
                                     "conflict": {
                                                 "3f/pygmentize": "<1.2",
-                                                "admidio/admidio": "<4.3.10",
+                                                "admidio/admidio": "<4.3.12",
                                                 "adodb/adodb-php": "<=5.20.20|>=5.21,<=5.21.3",
                                                 "aheinze/cockpit": "<2.2",
                                                 "aimeos/ai-admin-graphql": ">=2022.04.1,<2022.10.10|>=2023.04.1,<2023.10.6|>=2024.04.1,<2024.04.6",
@@ -7099,7 +7104,7 @@
                                                 "froxlor/froxlor": "<=2.2.0.0-RC3",
                                                 "frozennode/administrator": "<=5.0.12",
                                                 "fuel/core": "<1.8.1",
-                                                "funadmin/funadmin": "<=3.2|>=3.3.2,<=3.3.3",
+                                                "funadmin/funadmin": "<=5.0.2",
                                                 "gaoming13/wechat-php-sdk": "<=1.10.2",
                                                 "genix/cms": "<=1.1.11",
                                                 "getformwork/formwork": "<1.13.1|==2.0.0.0-beta1",
@@ -7393,7 +7398,7 @@
                                                 "rap2hpoutre/laravel-log-viewer": "<0.13",
                                                 "react/http": ">=0.7,<1.9",
                                                 "really-simple-plugins/complianz-gdpr": "<6.4.2",
-                                                "redaxo/source": "<=5.15.1",
+                                                "redaxo/source": "<=5.17.1",
                                                 "remdex/livehelperchat": "<4.29",
                                                 "reportico-web/reportico": "<=8.1",
                                                 "rhukster/dom-sanitizer": "<1.0.7",
@@ -7467,7 +7472,7 @@
                                                 "subhh/libconnect": "<7.0.8|>=8,<8.1",
                                                 "sukohi/surpass": "<1",
                                                 "sulu/form-bundle": ">=2,<2.5.3",
-                                                "sulu/sulu": "<1.6.44|>=2,<2.6.5",
+                                                "sulu/sulu": "<1.6.44|>=2,<2.5.21|>=2.6,<2.6.5",
                                                 "sumocoders/framework-user-bundle": "<1.4",
                                                 "superbig/craft-audit": "<3.0.2",
                                                 "swag/paypal": "<5.4.4",
@@ -7698,7 +7703,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2024-10-11T18:06:00+00:00"
+                                    "time": "2024-10-21T20:05:20+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
@@ -7784,8 +7789,8 @@
             "aliases": [],
             "minimum-stability": "dev",
             "stability-flags": {
-                        "agence-adeliom/horizon-tools": 20,
                         "agence-adeliom/horizon-blocks": 20,
+                        "agence-adeliom/horizon-tools": 20,
                         "roave/security-advisories": 20
             },
             "prefer-stable": true,
@@ -7793,6 +7798,6 @@
             "platform": {
                         "php": ">=8.3"
             },
-            "platform-dev": [],
+            "platform-dev": {},
             "plugin-api-version": "2.6.0"
 }
