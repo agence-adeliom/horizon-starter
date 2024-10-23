@@ -27,35 +27,33 @@
                                 <awc-rating label="Rating" value="{{ $context['global-rating'] }}" readonly show-rate
                                     precision="0.5"
                                     style="--symbol-color-active: var(--awc-color-orange-400);"></awc-rating>
-                            @endisset
+                            @endif
 
                             @if (@isset($context['btn-reviews']) && $context['btn-reviews']['link'])
-                                <x-action.button :fields="$context['btn-reviews']" icon="arrow-right" variant="text" />
+                                <x-action.button :fields="$context['btn-reviews']" icon="arrow-right" type="tertiary" />
                             @endif
-                    </div>
-                @endisset
-        </div>
-    </div>
-
-
-    <div class="col-span-full" x-data="initReviewsSlider()">
-        <div class="swiper w-full overflow-visible" x-ref="swiperContainer">
-            <div class="swiper-wrapper cursor-grab">
-                @if (isset($fields['reviews']) && $fields['reviews'])
-                    @foreach ($fields['reviews'] as $review)
-                        @if (is_object($review) && property_exists($review, 'ID'))
-                            <x-cards.card-customer-review :review="get_fields($review->ID)" class="swiper-slide" />
-                        @endif
-                    @endforeach
-                @endif
+                        </div>
+                    @endif
+                </div>
             </div>
 
-            <div x-ref="swiperPagination" class="mt-6 flex justify-center gap-2"></div>
+
+            <div class="col-span-full" x-data="initReviewsSlider()">
+                <div class="swiper w-full overflow-visible" x-ref="swiperContainer">
+                    <div class="swiper-wrapper cursor-grab">
+                        @if (isset($fields['reviews']) && $fields['reviews'])
+                            @foreach ($fields['reviews'] as $review)
+                                @if (is_object($review) && property_exists($review, 'ID'))
+                                    <x-cards.card-customer-review :review="get_fields($review->ID)" class="swiper-slide" />
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+
+                    <div x-ref="swiperPagination" class="mt-6 flex justify-center gap-2"></div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</x-block>
-<<<<<<< HEAD @endif
-=======
+    </x-block>
+
 @endif
->>>>>>> main
