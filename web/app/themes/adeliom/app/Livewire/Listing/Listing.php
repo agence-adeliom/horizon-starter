@@ -78,13 +78,12 @@ class Listing extends Component
                 $this->page = $page;
             }
         }
+
         $this->getData();
     }
 
     private function initTaxonomyFilter(string $taxonomyName, string $filterName, FilterTypesEnum $filterType, string $appearance, string $placeholder): void
     {
-        $filterName = sanitize_title($filterName);
-
         $taxQb = new QueryBuilder();
         $taxQb->taxonomy($taxonomyName)
             ->fetchEmptyTaxonomies(false);
@@ -192,9 +191,8 @@ class Listing extends Component
                 foreach ($this->baseFilters as $filter) {
                     $type = $filter[ListingBlock::FIELD_FILTERS_TYPE];
                     $appearance = $filter[ListingBlock::FIELD_FILTERS_APPEARANCE];
-                    $name = $filter[ListingBlock::FIELD_FILTERS_NAME];
+                    $name = sanitize_title($filter[ListingBlock::FIELD_FILTERS_NAME]);
                     $placeholder = $filter[ListingBlock::FIELD_FILTERS_PLACEHOLDER];
-                    $fieldType = null;
                     $fieldClass = null;
 
                     $value = match ($type) {
@@ -294,8 +292,8 @@ class Listing extends Component
         $qb = new QueryBuilder();
 
         $qb->postType($this->postType)
-            ->setPage($this->page)
-            ->setPerPage($this->perPage)
+            ->page($this->page)
+            ->perPage($this->perPage)
             ->as(BasePostViewModel::class);
 
         if (is_array($this->filterFields)) {
