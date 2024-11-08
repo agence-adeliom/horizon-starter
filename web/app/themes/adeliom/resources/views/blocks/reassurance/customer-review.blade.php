@@ -44,7 +44,7 @@
                         @if (isset($fields['reviews']) && $fields['reviews'])
                             @foreach ($fields['reviews'] as $review)
                                 @if (is_object($review) && property_exists($review, 'ID'))
-                                    <x-cards.card-customer-review :review="get_fields($review->ID)" class="swiper-slide" />
+                                    <x-cards.card-customer-review :review="get_fields($review->ID)" class="swiper-slide h-auto" />
                                 @endif
                             @endforeach
                         @endif
