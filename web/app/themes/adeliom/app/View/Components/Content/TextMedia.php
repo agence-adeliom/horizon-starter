@@ -22,15 +22,15 @@ class TextMedia extends Component
         'portrait' => [
             LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
                 'text' => 'lg:row-start-1 lg:col-span-6',
-                'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13',
+                'media' => 'max-lg:order-1 lg:col-start-7 lg:col-end-13 xl:col-start-8',
             ],
             LayoutField::VALUE_MEDIA_POSITION_LEFT => [
                 'text' => 'order-2 lg:col-start-7 lg:col-end-13',
                 'media' => 'order-1 lg:col-start-1 lg:col-end-6',
             ],
             LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
-                'text' => 'flex flex-col items-center justify-center',
-                'media' => 'w-full',
+                'text' => 'text-center flex flex-col items-center lg:col-start-3 lg:col-end-11',
+                'media' => 'lg:col-start-4 lg:col-end-10',
             ]
         ],
         'paysage' => [
@@ -40,11 +40,11 @@ class TextMedia extends Component
             ],
             LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
                 'text' => 'lg:row-start-1 lg:col-span-6',
-                'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13'
+                'media' => 'max-lg:order-1 lg:col-start-7 lg:col-end-13 xl:col-start-8'
             ],
             LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
-                'text' => 'flex flex-col items-center justify-center',
-                'media' => 'w-full',
+                'text' => 'text-center flex flex-col items-center lg:col-start-3 lg:col-end-11',
+                'media' => 'lg:col-start-3 lg:col-end-11',
             ]
         ],
     ];
@@ -77,8 +77,7 @@ class TextMedia extends Component
     public function __construct(
         public ?array  $fields = [],
         public ?string $class = null,
-    )
-    {
+    ) {
         $this->handleTitles();
         $this->handleContent();
         $this->handleMediaPosition();
@@ -140,9 +139,8 @@ class TextMedia extends Component
             }
         }
 
-        if (!$this->mediaHasRatio || $this->mediaRatio === 'auto') {
+        if ($this->mediaHasRatio && $this->mediaRatio === 'auto') {
             $this->mediaRatio = 'paysage';
-            $this->mediaHasRatio = true;
 
             $baseImage = null;
 
@@ -221,23 +219,16 @@ class TextMedia extends Component
 
     private function handleClasses(): void
     {
-        switch ($this->mediaPosition) {
-            case LayoutField::VALUE_MEDIA_POSITION_BOTTOM:
-                $this->containerClass .= 'flex gap-6 flex-col items-center justify-center max-w-[792px] mx-auto text-center';
-                break;
-            default:
-                $this->containerClass = 'grid items-center gap-6 lg:grid-cols-12';
-                break;
-        }
+        $this->containerClass = 'grid items-center gap-6 lg:grid-cols-12';
 
         $this->mediaClass = implode(' ', [
             'col-span-full',
-            self::POSITIONS[$this->mediaRatio][$this->mediaPosition]['media'],
+            self::POSITIONS[$this->mediaRatio ?? 'paysage'][$this->mediaPosition]['media'],
         ]);
 
         $this->contentClass = implode(' ', [
             'col-span-full',
-            self::POSITIONS[$this->mediaRatio][$this->mediaPosition]['text'],
+            self::POSITIONS[$this->mediaRatio ?? 'paysage'][$this->mediaPosition]['text'],
         ]);
     }
 

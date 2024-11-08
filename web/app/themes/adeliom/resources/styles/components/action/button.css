@@ -91,5 +91,12 @@
                 }
             }
         }
+
+        &--play {
+            @apply w-14 h-14 !rounded-full;
+            @apply bg-tertiary !border-tertiary;
+            @apply hover:bg-primary-dark hover:!border-primary-dark;
+            @apply group-hover:bg-primary-dark group-hover:!border-primary-dark;
+        }
     }
 }

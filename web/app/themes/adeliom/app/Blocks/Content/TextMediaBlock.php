@@ -15,6 +15,7 @@ use Adeliom\HorizonTools\Fields\Tabs\SettingsTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
+use Adeliom\HorizonTools\Services\BudService;
 
 class TextMediaBlock extends AbstractBlock
 {
@@ -50,6 +51,7 @@ class TextMediaBlock extends AbstractBlock
 
     public function renderBlockCallback(): void
     {
-        return;
+        wp_enqueue_style('text-media-block-css', BudService::getUrl('text-media.css'));
+        wp_enqueue_script('text-media-block-js', BudService::getUrl('text-media.js'));
     }
 }

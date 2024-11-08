@@ -49,7 +49,6 @@ document.addEventListener('alpine:init', () => {
 
                 this.$nextTick(() => {
                     this.swiper.init();
-                    console.log(this.swiper);
                 });
             },
         };

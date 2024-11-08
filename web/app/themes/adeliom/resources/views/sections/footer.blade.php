@@ -5,16 +5,12 @@
         <div class="flex flex-col items-center justify-between gap-6 border-b py-6 md:flex-row">
             <div class="flex w-full flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                    <span class="text-title font-bold tracking-widest">
-                        @if ($footerTitle)
-                            {{ $footerTitle }}
-                        @endif
-                    </span>
-                    <p class="text-paragraph">
-                        @if ($footerText)
-                            {{ $footerText }}
-                        @endif
-                    </p>
+                    @if ($footerTitle)
+                        <x-typography.text :content="$footerTitle" class="text-xlarge font-semibold" />
+                    @endif
+                    @if ($footerText)
+                        <x-typography.text :content="$footerText" />
+                    @endif
                 </div>
 
             </div>
@@ -25,10 +21,9 @@
                     <ul class="flex gap-2 text-sm">
                         @foreach ($socialNetworks as $item)
                             <li>
-                                <a href="{{ $item['link'] }}" target="_blank"
-                                    class="border-states-outlined-border hover:border-primary-800 h-6xlarge rounded-button border p-medium text-primary">
-                                    <x-typography.icon icon="{{ $item['icon']->id }}" type="secondary" />
-                                </a>
+                                <x-action.button url="{{ $item['link'] }}" target="_blank" class="text-primary"
+                                    icon="{{ $item['icon']->id }}" iconOnly="true"
+                                    type="secondary">{!! $item['icon']->element !!}</x-action.button>
                             </li>
                         @endforeach
                     </ul>
@@ -41,18 +36,18 @@
             <div class="col-span-full mb-6 lg:col-span-2 lg:pr-12">
                 <!-- logo - start -->
                 <div class="mb-4 lg:-mt-2">
-                    <a href="/" class="inline-flex items-center gap-2 text-xl font-bold text-primary md:text-2xl"
+                    <a href="/"
+                        class="inline-flex w-40 items-center gap-2 text-xl font-bold text-primary md:text-2xl"
                         aria-label="logo">
                         @if ($logoFooter)
-                            <img src="{{ $logoFooter['sizes']['large'] }}" alt="">
+                            <img class="w-40" src="{{ $logoFooter['sizes']['large'] }}" alt="">
                         @endif
                     </a>
                 </div>
                 <!-- logo - end -->
+
                 @if ($clientBaseline)
-                    <p class="mb-6 sm:pr-8">
-                        {{ $clientBaseline }}
-                    </p>
+                    <x-typography.text :content="$clientBaseline" />
                 @endif
             </div>
             <!-- nav - start -->
@@ -96,11 +91,10 @@
 
             <!-- highlight - start -->
             <div class="flex flex-col gap-6 border border-card bg-white p-card">
-                <div class="text-title mb-2 text-lg font-semibold tracking-widest">
-                    @if ($titleHighlight)
-                        {{ $titleHighlight }}
-                    @endif
-                </div>
+
+                @if ($titleHighlight)
+                    <x-typography.text :content="$titleHighlight" class="text-xlarge font-semibold" />
+                @endif
 
                 @if ($btnHighlight)
                     <x-action.button :fields="$btnHighlight" class="w-full" />
