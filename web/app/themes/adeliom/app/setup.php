@@ -116,12 +116,35 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-            'name' => __('Primary', 'sage'),
-            'id'   => 'sidebar-primary',
-        ] + $config);
+        'name' => __('Primary', 'sage'),
+        'id'   => 'sidebar-primary',
+    ] + $config);
 
     register_sidebar([
-            'name' => __('Footer', 'sage'),
-            'id'   => 'sidebar-footer',
-        ] + $config);
+        'name' => __('Footer', 'sage'),
+        'id'   => 'sidebar-footer',
+    ] + $config);
+});
+
+/**
+ * Register perfect images sizes.
+ *
+ * @return void
+ */
+add_action('after_setup_theme', function () {
+
+    //Small
+    add_image_size('small', 400, 260);
+
+    // Medium size.
+    update_option('medium_size_w', 600);
+    update_option('medium_size_h', 480);
+
+    // Medium_large size.
+    update_option('medium_large_size_w', 800);
+    update_option('medium_large_size_h', 540);
+
+    // Large size.
+    update_option('large_size_w', 1080);
+    update_option('large_size_h', 720);
 });

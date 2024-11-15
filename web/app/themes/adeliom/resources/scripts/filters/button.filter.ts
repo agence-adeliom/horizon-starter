@@ -16,10 +16,10 @@ export const name = 'sage/button';
  * @returns modified settings
  */
 export function callback(settings, name) {
-  if (name !== 'core/button') return settings;
+    if (name !== 'core/button') return settings;
 
-  return {
-    ...settings,
-    styles: [{ label: 'Outline', name: 'outline' }],
-  };
+    return {
+        ...settings,
+        styles: [{ label: 'Outline', name: 'outline' }],
+    };
 }

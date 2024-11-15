@@ -18,8 +18,14 @@
   hostname: fh1guo.ftp.infomaniak.com
 
 hosts:
-  staging:
+  horizon:
     <<: *base
-    deploy_path: /home/clients/1ba2ec060e28b438b2e85181c129c41d/sites/starter.a-dev.cloud
-    stage: staging
-    branch: feature/si
+    deploy_path: /home/clients/1ba2ec060e28b438b2e85181c129c41d/sites/horizon.adeliom.com
+    stage: production
+    branch: main
+
+  aussi:
+    <<: *base
+    deploy_path: /home/clients/1ba2ec060e28b438b2e85181c129c41d/sites/aussi.adeliom.com
+    stage: production
+    branch: main

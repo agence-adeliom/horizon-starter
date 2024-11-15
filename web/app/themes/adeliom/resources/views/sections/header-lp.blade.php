@@ -1,9 +1,17 @@
-<header class="banner bg-white b-bottom border-card py-4">
-    <div class="container">
+@php
+    //Gérer dans le CPT LP
+    $btnHighlight = get_field('btn-highlight');
+    $btnLp = !empty($btnHighlight['link']) ? $btnHighlight['link'] : null;
+@endphp
+
+<header class="banner b-bottom border-card bg-white py-4">
+    <div class="{{ $btnLp ? 'flex justify-between items-center' : '' }} container">
         @if ($logo)
-            <a href="{{ home_url('/') }}" class="mx-auto flex justify-center">
-                <img src="{{ $logo['sizes']['large'] }}" alt="Logo" class="w-24 h-auto">
-            </a>
+            <x-media.img :image="$logo" class="mx-auto h-auto w-24" />
+        @endif
+
+        @if ($btnLp)
+            <x-action.button :fields="$btnHighlight" class="max-md:w-full" />
         @endif
     </div>
 </header>

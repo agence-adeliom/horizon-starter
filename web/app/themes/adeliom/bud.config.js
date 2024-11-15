@@ -6,7 +6,14 @@
  *
  * @type {import('@roots/bud').Config}
  */
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export default async (app) => {
+
   /**
    * Application assets & entrypoints
    *
@@ -17,16 +24,13 @@ export default async (app) => {
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .entry('listing', ['@scripts/blocks/listing'])
-    .runtime('multiple')
+    .entry('customer-review', ['@scripts/blocks/customer-review'])
+    .entry('logos', ['@scripts/blocks/logos'])
+    .entry('steps', ['@scripts/blocks/steps'])
+    .runtime('single')
     .hash()
     .assets(['images']);
 
-  /**
-   * Set public path
-   *
-   * @see {@link https://bud.js.org/reference/bud.setPublicPath}
-   */
-  app.setPublicPath('/app/themes/cir/public/');
 
   /**
    * Development server settings
@@ -40,6 +44,12 @@ export default async (app) => {
     .proxy('https://starter-2024.ddev.site')
     .setPublicPath('/app/themes/adeliom/public/')
     .setPublicUrl('https://starter-2024.ddev.site:3001');
+
+    app.assets({
+      from: resolve(__dirname, 'node_modules/@agence-adeliom/awc/dist/assets'),
+      to: app.path(`@dist`, 'awc/assets', `@name`),
+      context: app.path()
+    });
 
   /**
    * Generate WordPress `theme.json`

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Content;
 
+use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Medias\MediaField;
 use Adeliom\HorizonTools\Fields\Medias\VideoField;
@@ -14,29 +15,37 @@ use Illuminate\View\Component;
 
 class TextMedia extends Component
 {
-    private const MEDIA_POSITIONS = ['left', 'right'];
-    private const MEDIA_RATIOS = ['auto', 'paysage', 'portrait'];
+    private const array MEDIA_POSITIONS = [LayoutField::VALUE_MEDIA_POSITION_LEFT, LayoutField::VALUE_MEDIA_POSITION_RIGHT, LayoutField::VALUE_MEDIA_POSITION_BOTTOM];
+    private const array MEDIA_RATIOS = ['auto', 'paysage', 'portrait'];
 
-    private const POSITIONS = [
+    private const array POSITIONS = [
         'portrait' => [
-            'right' => [
+            LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
                 'text' => 'lg:row-start-1 lg:col-span-6',
                 'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13',
             ],
-            'left' => [
-                'text' => 'lg:col-start-7 lg:col-end-13',
-                'media' => 'lg:col-start-1 lg:col-end-6',
+            LayoutField::VALUE_MEDIA_POSITION_LEFT => [
+                'text' => 'order-2 lg:col-start-7 lg:col-end-13',
+                'media' => 'order-1 lg:col-start-1 lg:col-end-6',
             ],
+            LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
+                'text' => 'flex flex-col items-center justify-center',
+                'media' => 'w-full',
+            ]
         ],
         'paysage' => [
-            'right' => [
-                'text' => 'lg:row-start-1 lg:col-span-5',
-                'media' => 'lg:col-start-7 lg:col-end-13',
+            LayoutField::VALUE_MEDIA_POSITION_LEFT => [
+                'text' => 'order-2 lg:col-start-7 lg:col-end-13',
+                'media' => 'order-1 lg:col-start-1 lg:col-end-6',
             ],
-            'left' => [
-                'text' => 'lg:col-start-8 lg:col-end-13',
-                'media' => 'lg:col-span-6'
+            LayoutField::VALUE_MEDIA_POSITION_RIGHT => [
+                'text' => 'lg:row-start-1 lg:col-span-6',
+                'media' => 'max-lg:order-1 lg:col-start-8 lg:col-end-13'
             ],
+            LayoutField::VALUE_MEDIA_POSITION_BOTTOM => [
+                'text' => 'flex flex-col items-center justify-center',
+                'media' => 'w-full',
+            ]
         ],
     ];
 
@@ -47,6 +56,7 @@ class TextMedia extends Component
     public ?array $title = null;
     public ?string $uptitle = null;
     public ?string $content = null;
+    public ?array $buttons = null;
 
     public bool $isVideo = false;
     public bool $isImage = false;
@@ -94,12 +104,16 @@ class TextMedia extends Component
         if (isset($this->fields[WysiwygField::WYSIWYG]) && $this->fields[WysiwygField::WYSIWYG]) {
             $this->content = $this->fields[WysiwygField::WYSIWYG];
         }
+
+        if (isset($this->fields[ButtonField::BUTTONS]) && $this->fields[ButtonField::BUTTONS]) {
+            $this->buttons = $this->fields[ButtonField::BUTTONS];
+        }
     }
 
     private function handleMediaPosition(): void
     {
-        if (isset($this->fields[LayoutField::MEDIA_POSITION]) && $this->fields[LayoutField::MEDIA_POSITION]) {
-            $tempPosition = $this->fields[LayoutField::MEDIA_POSITION];
+        if (isset($this->fields[LayoutField::FIELD_MEDIA_POSITION]) && $this->fields[LayoutField::FIELD_MEDIA_POSITION]) {
+            $tempPosition = $this->fields[LayoutField::FIELD_MEDIA_POSITION];
 
             if (in_array($tempPosition, self::MEDIA_POSITIONS)) {
                 $this->mediaPosition = $tempPosition;
@@ -110,15 +124,15 @@ class TextMedia extends Component
     private function handleMediaRatio(): void
     {
         if ($this->isImage || $this->isVideo || $this->isYouTube) {
-            if (isset($this->fields[LayoutField::MEDIA_RATIO]) && $this->fields[LayoutField::MEDIA_RATIO]) {
-                $ratioData = $this->fields[LayoutField::MEDIA_RATIO];
+            if (isset($this->fields[LayoutField::FIELD_MEDIA_RATIO]) && $this->fields[LayoutField::FIELD_MEDIA_RATIO]) {
+                $ratioData = $this->fields[LayoutField::FIELD_MEDIA_RATIO];
 
                 if (is_array($ratioData)) {
-                    if (isset($ratioData[LayoutField::HAS_MEDIA_RATIO]) && $ratioData[LayoutField::HAS_MEDIA_RATIO]) {
-                        if (isset($ratioData[LayoutField::MEDIA_RATIO_VALUE]) && $ratioData[LayoutField::MEDIA_RATIO_VALUE]) {
-                            if (in_array($ratioData[LayoutField::MEDIA_RATIO_VALUE], self::MEDIA_RATIOS)) {
+                    if (isset($ratioData[LayoutField::FIELD_HAS_MEDIA_RATIO]) && $ratioData[LayoutField::FIELD_HAS_MEDIA_RATIO]) {
+                        if (isset($ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE]) && $ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE]) {
+                            if (in_array($ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE], self::MEDIA_RATIOS)) {
                                 $this->mediaHasRatio = true;
-                                $this->mediaRatio = $ratioData[LayoutField::MEDIA_RATIO_VALUE];
+                                $this->mediaRatio = $ratioData[LayoutField::FIELD_MEDIA_RATIO_VALUE];
                             }
                         }
                     }
@@ -207,7 +221,14 @@ class TextMedia extends Component
 
     private function handleClasses(): void
     {
-        $this->containerClass = 'grid items-center gap-6 lg:grid-cols-12';
+        switch ($this->mediaPosition) {
+            case LayoutField::VALUE_MEDIA_POSITION_BOTTOM:
+                $this->containerClass .= 'flex gap-6 flex-col items-center justify-center max-w-[792px] mx-auto text-center';
+                break;
+            default:
+                $this->containerClass = 'grid items-center gap-6 lg:grid-cols-12';
+                break;
+        }
 
         $this->mediaClass = implode(' ', [
             'col-span-full',

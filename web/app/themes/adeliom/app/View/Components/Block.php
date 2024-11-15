@@ -40,12 +40,19 @@ class Block extends Component
         'fluid'  => 'max-w-[1400px] m-auto px-20',
     ];
 
+    final public const BACKGROUND_TYPES = [
+        'none'  => '',
+        'color' => 'bg_color',
+        'image' => 'bg_image',
+    ];
+
     public ?string $baseClass = 'relative';
     public ?string $backgroundClass = null;
     public ?string $paddingClass = null;
     public ?string $containerClass = null;
     public ?string $darkModeClass = null;
     public ?string $freeClass = null;
+    public ?array $bgImage = null;
 
     public ?string $fullClass = null;
 
@@ -59,7 +66,8 @@ class Block extends Component
         public ?string          $container = null,
         public ?string          $anchor = null,
         public ?string          $class = null,
-    ) {
+    )
+    {
 
         $this->handleClassName();
         $this->handleBackground();
@@ -81,19 +89,33 @@ class Block extends Component
 
     private function handleBackground(): void
     {
-        if (null === $this->background || !in_array($this->background, array_keys(self::BACKGROUNDS))) {
-            $this->background = 'white';
-        }
+        if (isset($this->fields[LayoutField::FIELD_BG_GROUP])) {
+            $bgType = $this->fields[LayoutField::FIELD_BG_GROUP][LayoutField::FIELD_BG_TYPE] ?? 'none';
 
-        if (isset(self::BACKGROUNDS[$this->background])) {
+            if ($bgType === self::BACKGROUND_TYPES['none']) {
+                $this->background = 'none';
+            } else if ($bgType === self::BACKGROUND_TYPES['color']) {
+                $this->background = 'none';
+                $this->backgroundClass = $this->fields[LayoutField::FIELD_BG_GROUP][LayoutField::FIELD_BG_COLOR];
+            } else if ($bgType === self::BACKGROUND_TYPES['image'] && isset($this->fields[LayoutField::FIELD_BG_GROUP][LayoutField::FIELD_BG_IMAGE])) {
+                $this->background = 'none';
+                $this->containerClass = 'relative z-10';
+                $this->bgImage = $this->fields[LayoutField::FIELD_BG_GROUP][LayoutField::FIELD_BG_IMAGE];
+
+
+            }
+        } else if (null === $this->background || !in_array($this->background, array_keys(self::BACKGROUNDS))) {
+            $this->background = 'white';
+        } else if (isset(self::BACKGROUNDS[$this->background])) {
             $this->backgroundClass = self::BACKGROUNDS[$this->background];
         }
+
     }
 
     private function handlePaddings(): void
     {
-        $marginTopSizeField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_SIZE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_TOP_SIZE] : null;
-        $marginBottomSizeField = isset($this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_SIZE]) ? $this->fields[LayoutField::MARGIN][LayoutField::MARGIN_BOTTOM_SIZE] : null;
+        $marginTopSizeField = $this->fields[LayoutField::FIELD_MARGIN][LayoutField::FIELD_MARGIN_TOP_SIZE] ?? null;
+        $marginBottomSizeField = $this->fields[LayoutField::FIELD_MARGIN][LayoutField::FIELD_MARGIN_BOTTOM_SIZE] ?? null;
 
         // if padding is not set or not in the list of paddings, set it to large
         if (null === $this->padding || !in_array($this->padding, array_keys(self::PADDINGS))) {
@@ -124,13 +146,13 @@ class Block extends Component
         }
 
         if (isset(self::CONTAINERS[$this->container])) {
-            $this->containerClass = self::CONTAINERS[$this->container];
+            $this->containerClass .= ' ' . self::CONTAINERS[$this->container];
         }
     }
 
     private function handleDarkmode(): void
     {
-        if (isset($this->fields[LayoutField::DARK_MODE]) && $this->fields[LayoutField::DARK_MODE]) {
+        if (isset($this->fields[LayoutField::FIELD_DARK_MODE]) && $this->fields[LayoutField::FIELD_DARK_MODE]) {
             $this->darkModeClass = "dark awc-theme-dark";
         }
     }
