@@ -1,0 +1,41 @@
+.step-progress {
+    @apply h-auto w-0.5 bg-neutral-300 overflow-hidden flex-none relative;
+}
+
+.step-progress-inner {
+    @apply absolute bottom-0 left-0 w-full h-full bg-neutral-300;
+
+    .is-active & {
+        @apply bg-primary;
+        animation: progressBarX 6s ease-in-out forwards;
+        animation-duration: 6s;
+        @screen lg {
+            animation: progressBarY ease-in-out forwards;
+            animation-duration: 6s;
+        }
+    }
+}
+
+.swiper-paused {
+    animation-play-state: paused !important;
+}
+
+@keyframes progressBarX {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes progressBarY {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
