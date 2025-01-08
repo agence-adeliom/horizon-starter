@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "c6d4b9d8b726350d37182eda0c23e2bb",
+            "content-hash": "4e87bc4bc9d3d71852aee3199016a894",
             "packages": [
                         {
                                     "name": "agence-adeliom/horizon-blocks",
@@ -49,12 +49,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "8c44d009a47601284030b80c78b5fcf24d5a8f32"
+                                                "reference": "5cec3d56cdc84a309a7cfee2a85800e9d1409902"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/8c44d009a47601284030b80c78b5fcf24d5a8f32",
-                                                "reference": "8c44d009a47601284030b80c78b5fcf24d5a8f32",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/5cec3d56cdc84a309a7cfee2a85800e9d1409902",
+                                                "reference": "5cec3d56cdc84a309a7cfee2a85800e9d1409902",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -85,7 +85,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-01-03T09:37:49+00:00"
+                                    "time": "2025-01-03T14:40:46+00:00"
                         },
                         {
                                     "name": "brick/math",
@@ -4367,16 +4367,16 @@
                         },
                         {
                                     "name": "roots/wordpress",
-                                    "version": "6.7",
+                                    "version": "6.7.1",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/roots/wordpress.git",
-                                                "reference": "1bdabdb9171ac5323edbf4792ce353d475467d27"
+                                                "reference": "9451af491af7124c12186398c56ab87a6e145123"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/roots/wordpress/zipball/1bdabdb9171ac5323edbf4792ce353d475467d27",
-                                                "reference": "1bdabdb9171ac5323edbf4792ce353d475467d27",
+                                                "url": "https://api.github.com/repos/roots/wordpress/zipball/9451af491af7124c12186398c56ab87a6e145123",
+                                                "reference": "9451af491af7124c12186398c56ab87a6e145123",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -4398,7 +4398,7 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/roots/wordpress/issues",
-                                                "source": "https://github.com/roots/wordpress/tree/6.7"
+                                                "source": "https://github.com/roots/wordpress/tree/6.7.1"
                                     },
                                     "funding": [
                                                 {
@@ -4406,7 +4406,7 @@
                                                             "type": "github"
                                                 }
                                     ],
-                                    "time": "2024-07-16T12:03:00+00:00"
+                                    "time": "2024-11-13T09:56:09+00:00"
                         },
                         {
                                     "name": "roots/wordpress-core-installer",
@@ -4481,22 +4481,22 @@
                         },
                         {
                                     "name": "roots/wordpress-no-content",
-                                    "version": "6.7",
+                                    "version": "6.7.1",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/WordPress/WordPress.git",
-                                                "reference": "6.7"
+                                                "reference": "6.7.1"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/release/wordpress-6.7-no-content.zip",
-                                                "shasum": "d30558244ed409b6421a5454f9c837d0884317f2"
+                                                "url": "https://downloads.wordpress.org/release/wordpress-6.7.1-no-content.zip",
+                                                "shasum": "321a5b819369e772ce606fbc12b1e264fb73da5b"
                                     },
                                     "require": {
                                                 "php": ">= 7.2.24"
                                     },
                                     "provide": {
-                                                "wordpress/core-implementation": "6.7"
+                                                "wordpress/core-implementation": "6.7.1"
                                     },
                                     "suggest": {
                                                 "ext-curl": "Performs remote request operations.",
@@ -4547,7 +4547,7 @@
                                                             "type": "other"
                                                 }
                                     ],
-                                    "time": "2024-11-12T20:51:37+00:00"
+                                    "time": "2024-11-21T14:15:19+00:00"
                         },
                         {
                                     "name": "roots/wp-config",
@@ -6888,12 +6888,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "43628df4c324d77a9e4e6e5b7d0479586b5ee2b6"
+                                                "reference": "19bf84017a308ac32893551b899bac74d2aba856"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/43628df4c324d77a9e4e6e5b7d0479586b5ee2b6",
-                                                "reference": "43628df4c324d77a9e4e6e5b7d0479586b5ee2b6",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/19bf84017a308ac32893551b899bac74d2aba856",
+                                                "reference": "19bf84017a308ac32893551b899bac74d2aba856",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7137,6 +7137,7 @@
                                                 "grumpydictator/firefly-iii": "<6.1.17",
                                                 "gugoan/economizzer": "<=0.9.0.0-beta1",
                                                 "guzzlehttp/guzzle": "<6.5.8|>=7,<7.4.5",
+                                                "guzzlehttp/oauth-subscriber": "<0.8.1",
                                                 "guzzlehttp/psr7": "<1.9.1|>=2,<2.4.5",
                                                 "haffner/jh_captcha": "<=2.1.3|>=3,<=3.0.2",
                                                 "harvesthq/chosen": "<1.8.7",
@@ -7297,6 +7298,7 @@
                                                 "neos/media-browser": "<7.3.19|>=8,<8.0.16|>=8.1,<8.1.11|>=8.2,<8.2.11|>=8.3,<8.3.9",
                                                 "neos/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4|>=2.3,<3.0.20|>=3.1,<3.1.18|>=3.2,<3.2.14|>=3.3,<5.3.10|>=7,<7.0.9|>=7.1,<7.1.7|>=7.2,<7.2.6|>=7.3,<7.3.4|>=8,<8.0.2",
                                                 "neos/swiftmailer": "<5.4.5",
+                                                "netcarver/textile": "<=4.1.2",
                                                 "netgen/tagsbundle": ">=3.4,<3.4.11|>=4,<4.0.15",
                                                 "nette/application": ">=2,<2.0.19|>=2.1,<2.1.13|>=2.2,<2.2.10|>=2.3,<2.3.14|>=2.4,<2.4.16|>=3,<3.0.6",
                                                 "nette/nette": ">=2,<2.0.19|>=2.1,<2.1.13",
@@ -7364,7 +7366,7 @@
                                                 "phpmyfaq/phpmyfaq": "<3.2.5|==3.2.5|>=3.2.10,<=4.0.1",
                                                 "phpoffice/common": "<0.2.9",
                                                 "phpoffice/phpexcel": "<1.8.1",
-                                                "phpoffice/phpspreadsheet": "<1.29.4|>=2,<2.1.3|>=2.2,<2.3.2|>=3.3,<3.4",
+                                                "phpoffice/phpspreadsheet": "<=1.29.6|>=2,<=2.1.5|>=2.2,<=2.3.4|>=3,<3.7",
                                                 "phpseclib/phpseclib": "<2.0.47|>=3,<3.0.36",
                                                 "phpservermon/phpservermon": "<3.6",
                                                 "phpsysinfo/phpsysinfo": "<3.4.3",
@@ -7490,6 +7492,7 @@
                                                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
                                                 "ssddanbrown/bookstack": "<24.05.1",
                                                 "starcitizentools/citizen-skin": ">=2.6.3,<2.31",
+                                                "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2",
                                                 "statamic/cms": "<=5.16",
                                                 "stormpath/sdk": "<9.9.99",
                                                 "studio-42/elfinder": "<=2.1.64",
@@ -7645,7 +7648,7 @@
                                                 "xpressengine/xpressengine": "<3.0.15",
                                                 "yab/quarx": "<2.4.5",
                                                 "yeswiki/yeswiki": "<=4.4.4",
-                                                "yetiforce/yetiforce-crm": "<=6.4",
+                                                "yetiforce/yetiforce-crm": "<6.5",
                                                 "yidashi/yii2cmf": "<=2",
                                                 "yii2mod/yii2-cms": "<1.9.2",
                                                 "yiisoft/yii": "<1.1.29",
@@ -7735,7 +7738,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-01-02T23:04:41+00:00"
+                                    "time": "2025-01-07T18:06:22+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
