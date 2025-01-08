@@ -10,7 +10,6 @@ use Adeliom\HorizonTools\Fields\OfferField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
-use Adeliom\HorizonTools\Services\FormService;
 use Adeliom\HorizonTools\Fields\Select\FormField;
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\Image;
