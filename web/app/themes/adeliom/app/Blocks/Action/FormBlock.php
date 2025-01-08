@@ -38,7 +38,7 @@ class FormBlock extends AbstractBlock
             HeadingField::make()->required(),
             Text::make('Description', self::FIELD_DESC),
             OfferField::make(),
-            FormField::selectGravityForm(FormService::getAllFormChoices()),
+            FormField::selectGravityForm(),
         ]);
 
         yield from LayoutTab::make()->fields([
