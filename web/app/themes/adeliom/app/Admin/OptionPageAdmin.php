@@ -7,14 +7,17 @@ namespace App\Admin;
 use Adeliom\HorizonTools\Admin\AbstractAdmin;
 use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Text\IconField;
+use App\Fields\Links\LinkField;
+use Extended\ACF\ConditionalLogic;
+use Extended\ACF\Fields\ButtonGroup;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Number;
 
-use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Fields\URL;
 
 class OptionPageAdmin extends AbstractAdmin
@@ -42,6 +45,16 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_REVIEWS_FIELDS = "reviews";
     public const string FIELD_GLOBAL_RATING = "global-rating";
     public const string FIELD_BTN_REVIEWS = "btn-reviews";
+
+    public const string FIELD_TOP_NAVIGATION = "top-navigation";
+    public const string FIELD_TOP_NAVIGATION_ENABLED = "is-enabled";
+    public const string FIELD_TOP_NAVIGATION_REVIEWS_TYPE = "reviews-type";
+    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN = "hidden";
+    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT = "default";
+    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK = "default-with-link";
+    public const string FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL = "reviews-link-label";
+    public const string FIELD_TOP_NAVIGATION_LINKS_REPEATER = "links";
+    public const string FIELD_TOP_NAVIGATION_LINK = "link";
 
     public function getFields(): ?iterable
     {
@@ -88,6 +101,40 @@ class OptionPageAdmin extends AbstractAdmin
                     ->step(0.5)
                     ->required(),
                 ButtonField::make("Liens de tous les avis", self::FIELD_BTN_REVIEWS),
+            ]);
+
+        yield Tab::make("Navigation supérieure");
+
+        yield Group::make("Paramètres de la navigation supérieure", self::FIELD_TOP_NAVIGATION)
+            ->fields([
+                TrueFalse::make("Activer la navigation supérieure", self::FIELD_TOP_NAVIGATION_ENABLED)
+                    ->helperText('Permet d’afficher, ou non, la navigation supérieure.')
+                    ->stylized(),
+                ButtonGroup::make("Affichage des avis", self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE)
+                    ->helperText("Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure.")
+                    ->choices([
+                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT => "Afficher",
+                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK => "Afficher avec un lien vers la page d'avis",
+                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN => "Masquer les avis",
+                    ])->conditionalLogic([
+                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
+                    ]),
+                Text::make("Libellé du lien vers les avis", self::FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL)
+                    ->required()
+                    ->default("Lire les avis")
+                    ->conditionalLogic([
+                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE, "==", self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK)
+                    ]),
+                Repeater::make("Liens", self::FIELD_TOP_NAVIGATION_LINKS_REPEATER)
+                    ->minRows(0)
+                    ->maxRows(3)
+                    ->layout('block')
+                    ->fields([
+                        LinkField::make(name: self::FIELD_TOP_NAVIGATION_LINK),
+                    ])
+                    ->conditionalLogic([
+                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
+                    ])
             ]);
     }
 

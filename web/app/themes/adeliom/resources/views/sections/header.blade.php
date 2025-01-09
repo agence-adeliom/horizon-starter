@@ -1,3 +1,5 @@
+<x-navigation.top-navigation/>
+
 <header class="header">
     @include('navigations.header.mobile-bar')
     <div class="menu-overlay" :class="$store.submenu && 'is-open'" x-cloak></div>
