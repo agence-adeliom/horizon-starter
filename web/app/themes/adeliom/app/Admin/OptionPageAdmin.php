@@ -48,6 +48,7 @@ class OptionPageAdmin extends AbstractAdmin
 
     public const string FIELD_TOP_NAVIGATION = "top-navigation";
     public const string FIELD_TOP_NAVIGATION_ENABLED = "is-enabled";
+    public const string FIELD_TOP_NAVIGATION_SHOW_SEARCH = "show-search";
     public const string FIELD_TOP_NAVIGATION_REVIEWS_TYPE = "reviews-type";
     public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN = "hidden";
     public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT = "default";
@@ -110,6 +111,11 @@ class OptionPageAdmin extends AbstractAdmin
                 TrueFalse::make("Activer la navigation supérieure", self::FIELD_TOP_NAVIGATION_ENABLED)
                     ->helperText('Permet d’afficher, ou non, la navigation supérieure.')
                     ->stylized(),
+                TrueFalse::make("Activer la recherche", self::FIELD_TOP_NAVIGATION_SHOW_SEARCH)
+                    ->stylized()
+                    ->conditionalLogic([
+                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
+                    ]),
                 ButtonGroup::make("Affichage des avis", self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE)
                     ->helperText("Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure.")
                     ->choices([

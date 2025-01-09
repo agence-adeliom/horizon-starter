@@ -29,8 +29,6 @@ class TopNavigation extends Component
         $this->retrieveFields();
         $this->handleFields();
         $this->handleContainerClass();
-
-        $this->withSearch = true;
     }
 
     private function handleReviews(): void
@@ -80,6 +78,10 @@ class TopNavigation extends Component
         if (null !== $this->fields) {
             if (isset($this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_REVIEWS_TYPE])) {
                 $this->reviewsType = $this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_REVIEWS_TYPE];
+
+                if (isset($this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_SHOW_SEARCH]) && $this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_SHOW_SEARCH]) {
+                    $this->withSearch = true;
+                }
 
                 switch ($this->reviewsType) {
                     case OptionPageAdmin::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT:
