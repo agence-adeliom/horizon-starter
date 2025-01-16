@@ -1,4 +1,3 @@
-import  initCustomSelect  from '@scripts/components/select';
 
 document.addEventListener('alpine:init', () => {
     window.Alpine.data('initPage', () => {
@@ -6,9 +5,6 @@ document.addEventListener('alpine:init', () => {
             scrollDown: false,
             mobileOpen: false,
             closeBanner: false,
-            init() {
-                initCustomSelect();
-            },
             scrollToAnchor(anchorName) {
                 const element = document.getElementById(anchorName);
                 element &&

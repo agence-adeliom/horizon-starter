@@ -24,12 +24,14 @@
                 @if ($socialNetworks)
                     <ul class="flex gap-2 text-sm">
                         @foreach ($socialNetworks as $item)
-                            <li>
-                                <a href="{{ $item['link'] }}" target="_blank"
-                                    class="border-states-outlined-border hover:border-primary-800 h-6xlarge rounded-button border p-medium text-primary">
-                                    <x-typography.icon icon="{{ $item['icon']->id }}" type="secondary" />
-                                </a>
-                            </li>
+                            @if ($item['link'] && $item['icon'])
+                                <li>
+                                    <a href="{{ $item['link'] }}" target="_blank"
+                                        class="border-states-outlined-border hover:border-primary-800 h-6xlarge rounded-button border p-medium text-primary">
+                                        <x-typography.icon icon="{{ $item['icon']->id }}" type="secondary" />
+                                    </a>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 @endif

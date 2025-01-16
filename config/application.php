@@ -53,6 +53,8 @@ if (file_exists($root_dir . '/.env')) {
  */
 define('WP_ENV', env('WP_ENV') ?: 'production');
 
+define('APP_ENV', env('APP_ENV') ?: 'production');
+
 /**
  * Infer WP_ENVIRONMENT_TYPE based on WP_ENV
  */
