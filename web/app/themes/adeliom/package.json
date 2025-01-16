@@ -24,11 +24,13 @@
     "@roots/bud-tailwindcss": "6.20.0",
     "@roots/bud-typescript": "^6.23.2",
     "@roots/sage": "6.20.0",
+    "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.14"
   },
   "dependencies": {
     "@agence-adeliom/awc": "^2.0.0",
     "@fortawesome/fontawesome-pro": "^6.6.0",
+    "choices.js": "^11.0.3",
     "swiper": "^11.1.14"
   }
 }

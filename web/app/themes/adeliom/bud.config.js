@@ -23,10 +23,10 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
-    .entry('listing', ['@scripts/blocks/listing'])
     .entry('customer-review', ['@scripts/blocks/customer-review'])
     .entry('logos', ['@scripts/blocks/logos'])
     .entry('steps', ['@scripts/blocks/steps'])
+    .entry('listing', ['@scripts/blocks/listing'])
     .runtime('single')
     .hash()
     .assets(['images']);

@@ -1,7 +1,7 @@
 @php
     $postType = null;
     $perPage = 12;
-    $filters = $fields['filters']??[];
+    $filters = $fields['filters'] ?? [];
 
     if (isset($fields['postType'])) {
         $postType = $fields['postType'];
@@ -18,8 +18,8 @@
     @endisset
 
     @isset($fields['title'])
-        <x-typography.heading :fields="$fields['title']" />
+        <x-typography.heading :fields="$fields['title']" size="2" />
     @endisset
 
-      <livewire:listing.listing :post-type="$postType" :per-page="$perPage" :filters="$filters"/>
+    <livewire:listing.listing :post-type="$postType" :per-page="$perPage" :filters="$filters" />
 </x-block>
