@@ -1,7 +1,9 @@
-<x-block :fields="$fields">
+@php
+    $isFullWidth = isset($fields['appearance']) && $fields['appearance'] == 'full-width';
+@endphp <x-block :fields="$fields" background="{{ $isFullWidth ? 'primary' : '' }}" padding="none">
     <div
-        class="flex flex-col items-start gap-6 p-3xlarge bg-primary rounded-xlarge lg:flex-row lg:items-center lg:justify-between lg:gap-7xlarge lg:p-6xlarge">
-        <div class="flex flex-col gap-title-text-mobile lg:gap-title-text-desktop awc-theme-dark">
+        class="{{ $isFullWidth ? '' : 'bg-primary ' }} flex flex-col items-start gap-6 rounded-xlarge p-3xlarge lg:flex-row lg:items-center lg:justify-between lg:gap-7xlarge lg:p-6xlarge">
+        <div class="awc-theme-dark flex flex-col gap-title-text-mobile lg:gap-title-text-desktop">
             @isset($fields['title'])
                 <x-typography.heading :fields="$fields['title']" size="5" />
             @endisset
@@ -11,7 +13,7 @@
             @endisset
         </div>
         @isset($fields['button'])
-            <x-action.button :fields="$fields['button']" type="tertiary" size="large" />
+            <x-action.button :fields="$fields['button']" type="primary" size="large" />
         @endisset
     </div>
 </x-block>

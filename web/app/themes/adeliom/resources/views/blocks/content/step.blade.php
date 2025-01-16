@@ -1,27 +1,34 @@
-<x-block :fields="$fields">
-    <div class="grid-12">
-        <div class="lg:col-span-full">
-            @isset($fields['uptitle'])
-                <x-typography.heading :content="$fields['uptitle']" size="headline" />
-            @endisset
-            @isset($fields['title'])
-                <x-typography.heading :fields="$fields['title']" size="3" />
-            @endisset
-        </div>
-        <div class="lg:col-span-full">
-            <div class="flex gap-6">
+<x-block :fields="$fields" class="overflow-hidden">
+    @isset($fields['uptitle'])
+        <x-typography.heading :content="$fields['uptitle']" size="headline" />
+    @endisset
+    @isset($fields['title'])
+        <x-typography.heading :fields="$fields['title']" size="3" />
+    @endisset
+
+    <div class="mt-text-image-mobile lg:mt-text-image-desktop" x-data="initStepsSlider()">
+        <div class="swiper w-full overflow-visible" x-ref="swiperContainer">
+            <x-action.button @class(['center-top left-0 z-10']) type="primary" variant="outline" iconOnly x-ref="buttonPrev">
+                <x-typography.icon icon="angle-left" />
+            </x-action.button>
+
+            <x-action.button @class(['center-top right-0 z-10']) type="primary" variant="outline" iconOnly x-ref="buttonNext">
+                <x-typography.icon icon="angle-right" />
+            </x-action.button>
+            <div class="swiper-wrapper">
                 @if (isset($fields['steps']) && $fields['steps'])
                     @foreach ($fields['steps'] as $step)
-                        <x-cards.card-step :step="$step" />
+                        <x-cards.card-step :step="$step" class="swiper-slide h-auto" />
                     @endforeach
                 @endif
             </div>
-        </div>
-        <div class="col-span-full flex justify-center">
-            @isset($fields['button'])
-                <x-action.button :fields="$fields['button']" size="large" type="tertiary" />
-            @endisset
-        </div>
 
+        </div>
     </div>
+
+    <div class="mt-text-image-mobile flex justify-center lg:mt-text-image-desktop">
+        @if (isset($fields['button']) && $fields['button']['link'])
+            <x-action.button :fields="$fields['button']" class="max-md:w-full" />
+        @endisset
+</div>
 </x-block>

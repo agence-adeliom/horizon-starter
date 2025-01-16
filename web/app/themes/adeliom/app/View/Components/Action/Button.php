@@ -6,17 +6,37 @@ use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use InvalidArgumentException;
 
 class Button extends Component
 {
+    public ?string $label = null;
     private ?string $typeClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
+    final public const string ICON_ONLY = "btn--icon-only";
 
+    /** 
+     * Button hierarchy level 
+     * Adjust color and variant to your need
+     *  **/
     final public const TYPES = [
+        'primary'   => self::COLORS['tertiary'] . ' ' . self::VARIANTS['contain'],
+        'secondary' => self::COLORS['primary'] . ' ' . self::VARIANTS['outline'],
+        'tertiary'  => self::COLORS['primary'] . ' ' . self::VARIANTS['text'],
+    ];
+
+
+    private const COLORS = [
         'primary'   => 'btn--primary',
         'secondary' => 'btn--secondary',
         'tertiary'  => 'btn--tertiary',
+    ];
+
+    private const VARIANTS = [
+        'contain'   => 'btn--contained',
+        'outline' => 'btn--outlined',
+        'text'  => 'btn--text',
     ];
 
     final public const SIZES = [
@@ -31,17 +51,22 @@ class Button extends Component
     public function __construct(
         public ?string $size = 'medium',
         public ?string $type = 'primary',
-        public ?string $label = null,
         public ?string $url = null,
         public ?string $target = null,
         public ?string $id = null,
         public ?string $tag = "div",
         public ?string $ariaLabel = null,
+        public ?bool   $iconOnly = false,
+        public ?bool   $fullLink = false,
+        // Only for fields button
         public ?array  $fields = null,
         public ?string $icon = null,
         public ?string $iconClass = null,
         public ?bool   $iconStart = false,
     ) {
+        $this->validateType($type);
+        $this->validateSize($size);
+
         $this->handleType();
         $this->handleSize();
         $this->handleUrl();
@@ -49,6 +74,21 @@ class Button extends Component
         $this->handleLabel();
 
         $this->handleFullClass();
+    }
+
+
+    private function validateType(?string $type): void
+    {
+        if ($type !== null && !in_array($type, array_keys(self::TYPES))) {
+            throw new InvalidArgumentException("Invalid button type: '{$type}'. Allowed types are: " . implode(', ', array_keys(self::TYPES)) . ".");
+        }
+    }
+
+    private function validateSize(?string $size): void
+    {
+        if ($size !== null && !in_array($size, array_keys(self::SIZES))) {
+            throw new InvalidArgumentException("Invalid button size: '{$size}'. Allowed sizes are: " . implode(', ', array_keys(self::SIZES)) . ".");
+        }
     }
 
     private function handleType(): void
@@ -150,6 +190,7 @@ class Button extends Component
             $this->iconStart ? 'flex-row-reverse' : '',
             $this->typeClass,
             $this->sizeClass,
+            $this->iconOnly ? self::ICON_ONLY : '',
         ]);
     }
 
