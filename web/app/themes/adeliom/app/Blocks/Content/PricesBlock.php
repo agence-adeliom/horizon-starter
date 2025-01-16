@@ -70,7 +70,7 @@ class PricesBlock extends AbstractBlock
                         ->layout('block')
                         ->button(__('Ajouter un groupe'))
                         ->fields([
-                            IconField::make(),
+                            IconField::make()->format("object"),
                             Text::make(__('Titre'), self::FIELD_PRICE_CHARACTERISTIC_TITLE),
                             Repeater::make(__('Éléments'), self::FIELD_PRICE_CHARACTERISTIC_ITEMS)
                                 ->button(__('Ajouter une caractéristique'))

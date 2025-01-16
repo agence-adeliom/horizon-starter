@@ -99,11 +99,8 @@ class Button extends Component
             $type = $this->type && in_array($this->type, array_keys(self::TYPES)) ? $this->type : null;
         }
 
-
-        if (null === $type) {
-            if (null === $this->type && isset($this->fields[ButtonField::BUTTON_TYPE])) {
-                $type = $this->fields[ButtonField::BUTTON_TYPE];
-            }
+        if (isset($this->fields[ButtonField::BUTTON_TYPE]) && in_array($this->fields[ButtonField::BUTTON_TYPE], array_keys(self::TYPES))) {
+            $type = $this->fields[ButtonField::BUTTON_TYPE];
         }
 
         if (null !== $type) {
