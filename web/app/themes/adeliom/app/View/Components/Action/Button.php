@@ -10,19 +10,30 @@ use InvalidArgumentException;
 
 class Button extends Component
 {
+    public ?string $label = null;
     private ?string $typeClass = null;
-    private ?string $variantClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
     final public const string ICON_ONLY = "btn--icon-only";
 
+    /** 
+     * Button hierarchy level 
+     * Adjust color and variant to your need
+     *  **/
     final public const TYPES = [
+        'primary'   => self::COLORS['tertiary'] . ' ' . self::VARIANTS['contain'],
+        'secondary' => self::COLORS['primary'] . ' ' . self::VARIANTS['outline'],
+        'tertiary'  => self::COLORS['primary'] . ' ' . self::VARIANTS['text'],
+    ];
+
+
+    private const COLORS = [
         'primary'   => 'btn--primary',
         'secondary' => 'btn--secondary',
         'tertiary'  => 'btn--tertiary',
     ];
 
-    final public const VARIANTS = [
+    private const VARIANTS = [
         'contain'   => 'btn--contained',
         'outline' => 'btn--outlined',
         'text'  => 'btn--text',
@@ -40,25 +51,23 @@ class Button extends Component
     public function __construct(
         public ?string $size = 'medium',
         public ?string $type = 'primary',
-        public ?string $variant = 'contain',
-        public ?string $label = null,
         public ?string $url = null,
         public ?string $target = null,
         public ?string $id = null,
         public ?string $tag = "div",
         public ?string $ariaLabel = null,
+        public ?bool   $iconOnly = false,
+        public ?bool   $fullLink = false,
+        // Only for fields button
         public ?array  $fields = null,
         public ?string $icon = null,
         public ?string $iconClass = null,
         public ?bool   $iconStart = false,
-        public ?bool   $fullLink = false,
     ) {
         $this->validateType($type);
-        $this->validateVariant($variant);
         $this->validateSize($size);
 
         $this->handleType();
-        $this->handleVariant();
         $this->handleSize();
         $this->handleUrl();
         $this->handleTarget();
@@ -67,18 +76,14 @@ class Button extends Component
         $this->handleFullClass();
     }
 
+
     private function validateType(?string $type): void
     {
         if ($type !== null && !in_array($type, array_keys(self::TYPES))) {
             throw new InvalidArgumentException("Invalid button type: '{$type}'. Allowed types are: " . implode(', ', array_keys(self::TYPES)) . ".");
         }
     }
-    private function validateVariant(?string $variant): void
-    {
-        if ($variant !== null && !in_array($variant, array_keys(self::VARIANTS))) {
-            throw new InvalidArgumentException("Invalid button variant: '{$variant}'. Allowed variants are: " . implode(', ', array_keys(self::VARIANTS)) . ".");
-        }
-    }
+
     private function validateSize(?string $size): void
     {
         if ($size !== null && !in_array($size, array_keys(self::SIZES))) {
@@ -104,20 +109,6 @@ class Button extends Component
         if (null !== $type) {
             $this->type = $type;
             $this->typeClass = self::TYPES[$this->type];
-        }
-    }
-
-    private function handleVariant(): void
-    {
-        $variant = null;
-
-        if (null !== $this->variant) {
-            $variant = $this->variant && in_array($this->variant, array_keys(self::VARIANTS)) ? $this->variant : null;
-        }
-
-        if (null !== $variant) {
-            $this->variant = $variant;
-            $this->variantClass = self::VARIANTS[$this->variant];
         }
     }
 
@@ -198,9 +189,8 @@ class Button extends Component
             'btn',
             $this->iconStart ? 'flex-row-reverse' : '',
             $this->typeClass,
-            $this->variantClass,
             $this->sizeClass,
-            !$this->label ? self::ICON_ONLY : '',
+            $this->iconOnly ? self::ICON_ONLY : '',
         ]);
     }
 

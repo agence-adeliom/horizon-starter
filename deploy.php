@@ -33,6 +33,7 @@ set('shared_files', [
 	'web/.htaccess',
 	'auth.json',
 	'.env',
+	'web/app/themes/adeliom/.npmrc'
 ]);
 
 set('writable_dirs', []);
