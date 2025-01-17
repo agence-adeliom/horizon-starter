@@ -15,6 +15,7 @@ use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Fields\URL;
 
 class OptionPageAdmin extends AbstractAdmin
@@ -42,6 +43,12 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_REVIEWS_FIELDS = "reviews";
     public const string FIELD_GLOBAL_RATING = "global-rating";
     public const string FIELD_BTN_REVIEWS = "btn-reviews";
+
+    public const string FIELD_BANNER = "banner";
+    public const string FIELD_PROMO_ACTIVE = "is_active";
+    public const string FIELD_PROMO_DARK = "is_dark";
+    public const string FIELD_BANNER_TITLE = "title";
+    public const string FIELD_BANNER_LINK = "link";
 
     public function getFields(): ?iterable
     {
@@ -79,7 +86,7 @@ class OptionPageAdmin extends AbstractAdmin
 
         yield Tab::make("Avis clients");
 
-        yield Group::make('Paramètres du pied de page', self::FIELD_REVIEWS_FIELDS)
+        yield Group::make('Paramètres des avis clients', self::FIELD_REVIEWS_FIELDS)
             ->fields([
                 Number::make("Note globale", self::FIELD_GLOBAL_RATING)
                     ->helperText("Note attribuée à l'ensemble des avis clients, entre 0 et 5, par pas de 0.5")
@@ -88,6 +95,16 @@ class OptionPageAdmin extends AbstractAdmin
                     ->step(0.5)
                     ->required(),
                 ButtonField::make("Liens de tous les avis", self::FIELD_BTN_REVIEWS),
+            ]);
+
+        yield Tab::make("Bannière promotionnelle");
+
+        yield Group::make('Paramètres de la bannière promotionnelle', self::FIELD_BANNER)
+            ->fields([
+                TrueFalse::make("Activer la bannière promotionnelle", self::FIELD_PROMO_ACTIVE)->stylized()->wrapper(['width' => 50]),
+                TrueFalse::make("Activer le mode sombre", self::FIELD_PROMO_DARK)->stylized()->wrapper(['width' => 50]),
+                Text::make("Texte de la bannière", self::FIELD_BANNER_TITLE),
+                Link::make("Lien de la bannière", self::FIELD_BANNER_LINK)
             ]);
     }
 

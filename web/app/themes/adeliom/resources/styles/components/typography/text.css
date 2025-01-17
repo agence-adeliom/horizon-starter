@@ -8,6 +8,6 @@
     }
 
     .link {
-        @apply text-primary dark:text-tertiary text-hover underline;
+        @apply text-primary font-semibold dark:text-tertiary text-hover underline;
     }
 }

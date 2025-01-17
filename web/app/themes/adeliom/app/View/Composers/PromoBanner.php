@@ -2,7 +2,7 @@
 
 namespace App\View\Composers;
 
-use App\Admin\PromoBannerAdmin;
+use App\Admin\OptionPageAdmin;
 use Roots\Acorn\View\Composer;
 
 class PromoBanner extends Composer
@@ -19,26 +19,30 @@ class PromoBanner extends Composer
     protected function with()
     {
         $isActive = false;
+        $isActive = false;
         $bannerTitle = null;
         $bannerLink = null;
 
-        if ($options = get_field(PromoBannerAdmin::FIELD_BANNER, 'option')) {
+        if ($options = get_field(OptionPageAdmin::FIELD_BANNER, 'option')) {
             if (is_array($options)) {
-                if (isset($options[PromoBannerAdmin::FIELD_PROMO_ACTIVE])) {
-                    $isActive = $options[PromoBannerAdmin::FIELD_PROMO_ACTIVE];
+                if (isset($options[OptionPageAdmin::FIELD_PROMO_ACTIVE])) {
+                    $isActive = $options[OptionPageAdmin::FIELD_PROMO_ACTIVE];
                 }
-
-                if (isset($options[PromoBannerAdmin::FIELD_BANNER_TITLE])) {
-                    $bannerTitle = $options[PromoBannerAdmin::FIELD_BANNER_TITLE];
+                if (isset($options[OptionPageAdmin::FIELD_PROMO_DARK])) {
+                    $isDark = $options[OptionPageAdmin::FIELD_PROMO_DARK];
                 }
-                if (isset($options[PromoBannerAdmin::FIELD_BANNER_LINK])) {
-                    $bannerLink = $options[PromoBannerAdmin::FIELD_BANNER_LINK];
+                if (isset($options[OptionPageAdmin::FIELD_BANNER_TITLE])) {
+                    $bannerTitle = $options[OptionPageAdmin::FIELD_BANNER_TITLE];
+                }
+                if (isset($options[OptionPageAdmin::FIELD_BANNER_LINK])) {
+                    $bannerLink = $options[OptionPageAdmin::FIELD_BANNER_LINK];
                 }
             }
         }
 
         return [
             "isActive"    => $isActive,
+            "isDark"    => $isDark,
             "bannerTitle" => $bannerTitle,
             "bannerLink"  => $bannerLink,
         ];

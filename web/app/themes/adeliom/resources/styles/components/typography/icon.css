@@ -1,3 +1,6 @@
+.icon {
+    @apply text-text-secondary;
+}
 
 .icon-12 {
     @apply w-3 h-3;
