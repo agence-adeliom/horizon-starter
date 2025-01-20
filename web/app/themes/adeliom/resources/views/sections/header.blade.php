@@ -18,7 +18,7 @@
 
                 @if ($headerCta)
                     <div class="header-main__cta">
-                        <x-action.button :fields="$headerCta" />
+                        <x-action.button :fields="$headerCta" class="max-lg:w-full" />
                     </div>
                 @endif
             </div>

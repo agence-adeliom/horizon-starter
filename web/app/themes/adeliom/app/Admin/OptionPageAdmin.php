@@ -12,6 +12,7 @@ use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\ButtonGroup;
 use Extended\ACF\Fields\Group;
 use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Number;
 
 use Extended\ACF\Fields\Repeater;
@@ -57,6 +58,12 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_TOP_NAVIGATION_LINKS_REPEATER = "links";
     public const string FIELD_TOP_NAVIGATION_LINK = "link";
 
+    public const string FIELD_BANNER = "banner";
+    public const string FIELD_PROMO_ACTIVE = "is_active";
+    public const string FIELD_PROMO_DARK = "is_dark";
+    public const string FIELD_BANNER_TITLE = "title";
+    public const string FIELD_BANNER_LINK = "link";
+
     public function getFields(): ?iterable
     {
         yield Tab::make("Général");
@@ -93,7 +100,7 @@ class OptionPageAdmin extends AbstractAdmin
 
         yield Tab::make("Avis clients");
 
-        yield Group::make('Paramètres du pied de page', self::FIELD_REVIEWS_FIELDS)
+        yield Group::make('Paramètres des avis clients', self::FIELD_REVIEWS_FIELDS)
             ->fields([
                 Number::make("Note globale", self::FIELD_GLOBAL_RATING)
                     ->helperText("Note attribuée à l'ensemble des avis clients, entre 0 et 5, par pas de 0.5")
@@ -103,6 +110,7 @@ class OptionPageAdmin extends AbstractAdmin
                     ->required(),
                 ButtonField::make("Liens de tous les avis", self::FIELD_BTN_REVIEWS),
             ]);
+
 
         yield Tab::make("Navigation supérieure");
 
@@ -141,6 +149,17 @@ class OptionPageAdmin extends AbstractAdmin
                     ->conditionalLogic([
                         ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
                     ])
+            ]);
+
+        yield Tab::make("Bannière promotionnelle");
+
+        yield Group::make('Paramètres de la bannière promotionnelle', self::FIELD_BANNER)
+            ->fields([
+                TrueFalse::make("Activer la bannière promotionnelle", self::FIELD_PROMO_ACTIVE)->stylized()->wrapper(['width' => 50]),
+                TrueFalse::make("Activer le mode sombre", self::FIELD_PROMO_DARK)->stylized()->wrapper(['width' => 50]),
+                Text::make("Texte de la bannière", self::FIELD_BANNER_TITLE),
+                Link::make("Lien de la bannière", self::FIELD_BANNER_LINK)
+
             ]);
     }
 
