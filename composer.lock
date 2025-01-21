@@ -12,12 +12,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "git@github.com:agence-adeliom/horizon-blocks.git",
-                                                "reference": "ca09a7862c7ee24e7daff5031a5edc2f69ccd781"
+                                                "reference": "66d120da8c0f20510f59a453b3009d3756696554"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/ca09a7862c7ee24e7daff5031a5edc2f69ccd781",
-                                                "reference": "ca09a7862c7ee24e7daff5031a5edc2f69ccd781",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/66d120da8c0f20510f59a453b3009d3756696554",
+                                                "reference": "66d120da8c0f20510f59a453b3009d3756696554",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -41,7 +41,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-01-08T09:22:31+00:00"
+                                    "time": "2025-01-21T14:06:59+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -49,12 +49,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "5cec3d56cdc84a309a7cfee2a85800e9d1409902"
+                                                "reference": "897429bec07ad2819d002d5c3f1bb7ea45b66a48"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/5cec3d56cdc84a309a7cfee2a85800e9d1409902",
-                                                "reference": "5cec3d56cdc84a309a7cfee2a85800e9d1409902",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/897429bec07ad2819d002d5c3f1bb7ea45b66a48",
+                                                "reference": "897429bec07ad2819d002d5c3f1bb7ea45b66a48",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -85,7 +85,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-01-03T14:40:46+00:00"
+                                    "time": "2025-01-21T14:03:59+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -3198,12 +3198,12 @@
                                     "version": "2.72.6",
                                     "source": {
                                                 "type": "git",
-                                                "url": "https://github.com/briannesbitt/Carbon.git",
+                                                "url": "https://github.com/CarbonPHP/carbon.git",
                                                 "reference": "1e9d50601e7035a4c61441a208cb5bed73e108c5"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1e9d50601e7035a4c61441a208cb5bed73e108c5",
+                                                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/1e9d50601e7035a4c61441a208cb5bed73e108c5",
                                                 "reference": "1e9d50601e7035a4c61441a208cb5bed73e108c5",
                                                 "shasum": ""
                                     },
@@ -6935,15 +6935,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/seo-by-rank-math",
-                                    "version": "1.0.235",
+                                    "version": "1.0.236",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                                                "reference": "tags/1.0.235"
+                                                "reference": "tags/1.0.236"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.235.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.236.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7029,12 +7029,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "19bf84017a308ac32893551b899bac74d2aba856"
+                                                "reference": "e7a38fcc13e4ddfe9a28d5c7bf50aa9a9da758ec"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/19bf84017a308ac32893551b899bac74d2aba856",
-                                                "reference": "19bf84017a308ac32893551b899bac74d2aba856",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/e7a38fcc13e4ddfe9a28d5c7bf50aa9a9da758ec",
+                                                "reference": "e7a38fcc13e4ddfe9a28d5c7bf50aa9a9da758ec",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7270,6 +7270,7 @@
                                                 "gilacms/gila": "<=1.15.4",
                                                 "gleez/cms": "<=1.3|==2",
                                                 "globalpayments/php-sdk": "<2",
+                                                "goalgorilla/open_social": "<12.3.8|>=12.4,<12.4.5|>=13.0.0.0-alpha1,<13.0.0.0-alpha11",
                                                 "gogentooss/samlbase": "<1.2.7",
                                                 "google/protobuf": "<3.15",
                                                 "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
@@ -7317,6 +7318,7 @@
                                                 "intelliants/subrion": "<4.2.2",
                                                 "inter-mediator/inter-mediator": "==5.5",
                                                 "ipl/web": "<0.10.1",
+                                                "islandora/crayfish": "<4.1",
                                                 "islandora/islandora": ">=2,<2.4.1",
                                                 "ivankristianto/phpwhois": "<=4.3",
                                                 "jackalope/jackalope-doctrine-dbal": "<1.7.4",
@@ -7399,6 +7401,7 @@
                                                 "mediawiki/abuse-filter": "<1.39.9|>=1.40,<1.41.3|>=1.42,<1.42.2",
                                                 "mediawiki/cargo": "<3.6.1",
                                                 "mediawiki/core": "<1.39.5|==1.40",
+                                                "mediawiki/data-transfer": ">=1.39,<1.39.11|>=1.41,<1.41.3|>=1.42,<1.42.2",
                                                 "mediawiki/matomo": "<2.4.3",
                                                 "mediawiki/semantic-media-wiki": "<4.0.2",
                                                 "melisplatform/melis-asset-manager": "<5.0.1",
@@ -7439,6 +7442,7 @@
                                                 "neos/media-browser": "<7.3.19|>=8,<8.0.16|>=8.1,<8.1.11|>=8.2,<8.2.11|>=8.3,<8.3.9",
                                                 "neos/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4|>=2.3,<3.0.20|>=3.1,<3.1.18|>=3.2,<3.2.14|>=3.3,<5.3.10|>=7,<7.0.9|>=7.1,<7.1.7|>=7.2,<7.2.6|>=7.3,<7.3.4|>=8,<8.0.2",
                                                 "neos/swiftmailer": "<5.4.5",
+                                                "nesbot/carbon": "<2.72.6|>=3,<3.8.4",
                                                 "netcarver/textile": "<=4.1.2",
                                                 "netgen/tagsbundle": ">=3.4,<3.4.11|>=4,<4.0.15",
                                                 "nette/application": ">=2,<2.0.19|>=2.1,<2.1.13|>=2.2,<2.2.10|>=2.3,<2.3.14|>=2.4,<2.4.16|>=3,<3.0.6",
@@ -7593,7 +7597,7 @@
                                                 "silverstripe/cms": "<4.11.3",
                                                 "silverstripe/comments": ">=1.3,<3.1.1",
                                                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
-                                                "silverstripe/framework": "<5.2.16",
+                                                "silverstripe/framework": "<5.3.8",
                                                 "silverstripe/graphql": ">=2,<2.0.5|>=3,<3.8.2|>=4,<4.3.7|>=5,<5.1.3",
                                                 "silverstripe/hybridsessions": ">=1,<2.4.1|>=2.5,<2.5.1",
                                                 "silverstripe/recipe-cms": ">=4.5,<4.5.3",
@@ -7725,13 +7729,20 @@
                                                 "twig/twig": "<3.11.2|>=3.12,<3.14.1",
                                                 "typo3/cms": "<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
                                                 "typo3/cms-backend": "<4.1.14|>=4.2,<4.2.15|>=4.3,<4.3.7|>=4.4,<4.4.4|>=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<10.4.46|>=11,<11.5.40|>=12,<12.4.21|>=13,<13.3.1",
-                                                "typo3/cms-core": "<=8.7.56|>=9,<=9.5.47|>=10,<=10.4.44|>=11,<=11.5.36|>=12,<=12.4.14|>=13,<=13.1",
+                                                "typo3/cms-belog": ">=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
+                                                "typo3/cms-beuser": ">=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
+                                                "typo3/cms-core": "<=8.7.56|>=9,<=9.5.48|>=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
+                                                "typo3/cms-dashboard": ">=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
                                                 "typo3/cms-extbase": "<6.2.24|>=7,<7.6.8|==8.1.1",
+                                                "typo3/cms-extensionmanager": ">=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
                                                 "typo3/cms-fluid": "<4.3.4|>=4.4,<4.4.1",
-                                                "typo3/cms-form": ">=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
+                                                "typo3/cms-form": ">=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
                                                 "typo3/cms-frontend": "<4.3.9|>=4.4,<4.4.5",
-                                                "typo3/cms-install": "<4.1.14|>=4.2,<4.2.16|>=4.3,<4.3.9|>=4.4,<4.4.5|>=12.2,<12.4.8",
+                                                "typo3/cms-indexed-search": ">=10,<=10.4.47|>=11,<=11.5.41|>=12,<=12.4.24|>=13,<=13.4.2",
+                                                "typo3/cms-install": "<4.1.14|>=4.2,<4.2.16|>=4.3,<4.3.9|>=4.4,<4.4.5|>=12.2,<12.4.8|==13.4.2",
+                                                "typo3/cms-lowlevel": ">=11,<=11.5.41",
                                                 "typo3/cms-rte-ckeditor": ">=9.5,<9.5.42|>=10,<10.4.39|>=11,<11.5.30",
+                                                "typo3/cms-scheduler": ">=11,<=11.5.41",
                                                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.12|>=3.1,<3.1.10|>=3.2,<3.2.13|>=3.3,<3.3.13|>=4,<4.0.6",
                                                 "typo3/html-sanitizer": ">=1,<=1.5.2|>=2,<=2.1.3",
                                                 "typo3/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4|>=2.3,<2.3.99|>=3,<3.0.20|>=3.1,<3.1.18|>=3.2,<3.2.14|>=3.3,<3.3.23|>=4,<4.0.17|>=4.1,<4.1.16|>=4.2,<4.2.12|>=4.3,<4.3.3",
@@ -7879,7 +7890,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-01-07T18:06:22+00:00"
+                                    "time": "2025-01-15T23:05:13+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
