@@ -1,10 +1,9 @@
-@if($url && $title)
-  <a href="{{ $url }}" @if($target) target="{{ $target }}" @endif>
-    @if($icon)
-      {!! $icon !!}
-    @endif
-    <span>
-      {{ $title }}
-    </span>
-  </a>
+@if ($url && $title)
+    <a href="{{ $url }}" @if ($target) target="{{ $target }}" @endif
+        @class(['', $attributes['class']])>
+        @if ($icon)
+            <x-ui.icon :icon="$icon" class="icon-16" />
+        @endif
+        {{ $title }}
+    </a>
 @endif

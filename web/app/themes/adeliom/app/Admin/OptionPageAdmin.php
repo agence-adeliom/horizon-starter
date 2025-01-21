@@ -125,7 +125,7 @@ class OptionPageAdmin extends AbstractAdmin
                         ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
                     ]),
                 ButtonGroup::make("Affichage des avis", self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE)
-                    ->helperText("Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure.")
+                    ->helperText("Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure. Les données relatives aux données sont définies dans l'onglet 'Avis clients' de cette page.")
                     ->choices([
                         self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT => "Afficher",
                         self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK => "Afficher avec un lien vers la page d'avis",

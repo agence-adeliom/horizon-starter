@@ -56,7 +56,7 @@ class LinkField
                 ->conditionalLogic([
                     ConditionalLogic::where(self::FIELD_TYPE, '==', self::VALUE_TYPE_EXTERNAL)
                 ]),
-            IconField::make(__('Icône'), self::FIELD_ICON)
+            IconField::make(__('Icône'), self::FIELD_ICON)->format('object')
         ]);
     }
 }

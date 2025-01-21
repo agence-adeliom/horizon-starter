@@ -17,8 +17,7 @@ class TopNavigation extends Component
     public bool $enabled = false;
     public bool $withReviews = false;
     public bool $withReviewsLink = false;
-    public ?string $allReviewsLink = null;
-    public ?string $allReviewsLabel = null;
+    public ?array $allReviewsLink = null;
     private ?string $reviewsType = null;
     public ?array $links = null;
     public bool $withSearch = false;
@@ -42,7 +41,12 @@ class TopNavigation extends Component
                 if ($this->withReviewsLink) {
                     if (isset($reviewsFields[OptionPageAdmin::FIELD_BTN_REVIEWS])) {
                         if (isset($reviewsFields[OptionPageAdmin::FIELD_BTN_REVIEWS][ButtonField::BUTTON_LINK])) {
-                            $linkArray = $reviewsFields[OptionPageAdmin::FIELD_BTN_REVIEWS][ButtonField::BUTTON_LINK];
+                            $linkArray = $reviewsFields[OptionPageAdmin::FIELD_BTN_REVIEWS];
+                            if (isset($this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL])) {
+                                $linkArray[ButtonField::BUTTON_LINK]['title'] = $this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL];
+                            }
+                            $this->allReviewsLink = $linkArray;
+                            /*  dump($linkArray);
 
                             if (isset($linkArray['url'])) {
                                 $this->allReviewsLink = $linkArray['url'];
@@ -52,7 +56,7 @@ class TopNavigation extends Component
                                 } elseif (isset($linkArray['title'])) {
                                     $this->allReviewsLabel = $linkArray['title'];
                                 }
-                            }
+                            } */
                         }
                     }
                 }
@@ -62,12 +66,12 @@ class TopNavigation extends Component
 
     private function handleContainerClass(): void
     {
-        $classes = ['flex'];
+        $classes = ['flex flex-col gap-8 container lg:flex-row'];
 
         if ($this->withReviews) {
-            $classes[] = 'justify-between';
+            $classes[] = 'lg:justify-between';
         } else {
-            $classes[] = 'justify-end';
+            $classes[] = 'lg:justify-end';
         }
 
         $this->containerClass = implode(' ', $classes);

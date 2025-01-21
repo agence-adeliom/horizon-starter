@@ -8,11 +8,12 @@ use App\Fields\Links\LinkField;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use stdClass;
 
 class Link extends Component
 {
     private readonly string $type;
-    public ?string $icon = null;
+    public ?stdClass $icon = null;
     public ?string $title = null;
     public ?string $url = null;
     public ?string $target = null;

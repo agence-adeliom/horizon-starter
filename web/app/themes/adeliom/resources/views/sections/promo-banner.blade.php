@@ -2,7 +2,7 @@
     <section class="{{ $isDark ? 'bg-primary' : 'bg-neutral-100' }}" x-data="{ isHidden: getCookie('promo_banner_hidden') }" x-cloak x-show="!isHidden"
         aria-hidden="isHidden">
         <div @class([
-            'promo-banner p-medium relative flex items-start justify-start',
+            'promo-banner p-3 relative flex items-start justify-start',
             'awc-theme-dark' => $isDark,
         ])>
             <div class="flex flex-col gap-4 items-start justify-center flex-grow md:flex-row md:items-center">
