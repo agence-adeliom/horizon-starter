@@ -39,8 +39,15 @@
         @apply marker:text-primary marker:font-semibold marker:text-medium;
     }
 
+    ul {
+        list-style-type: disc;
+        list-style-position: inside;
+        @apply pl-3;
+    }
+
     ol {
         list-style-type: decimal-leading-zero;
+        @apply pl-8;
     }
 }
 
@@ -58,9 +65,12 @@
     li {
         & + p,
         & + ul,
-        & + ol,
-        & + li {
+        & + ol {
             @apply mt-4;
         }
+    }
+
+    li + li {
+        @apply mt-2;
     }
 }

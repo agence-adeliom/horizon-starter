@@ -1,4 +1,4 @@
-@php
+{{-- @php
     $postType = null;
     $perPage = 12;
 
@@ -22,3 +22,4 @@
 
     <livewire:listing.listing :post-type="$postType" :per-page="$perPage" />
 </x-block>
+ --}}
