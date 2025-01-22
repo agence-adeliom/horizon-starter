@@ -23,6 +23,8 @@ class NotFound extends Composer
         $title = '';
         $firstCol = null;
         $secondCol = null;
+        $searchActive = false;
+        $searchTitle = null;
 
         if ($options = get_field(OptionPageAdmin::FIELD_404, 'option')) {
             if (is_array($options)) {
@@ -38,6 +40,12 @@ class NotFound extends Composer
                 if (isset($options[OptionPageAdmin::FIELD_404_SECOND_COLUMN])) {
                     $secondCol = $options[OptionPageAdmin::FIELD_404_SECOND_COLUMN];
                 }
+                if (isset($options[OptionPageAdmin::FIELD_404_SEARCH_ACTIVE])) {
+                    $searchActive = $options[OptionPageAdmin::FIELD_404_SEARCH_ACTIVE];
+                }
+                if (isset($options[OptionPageAdmin::FIELD_404_SEARCH_TITLE])) {
+                    $searchTitle = $options[OptionPageAdmin::FIELD_404_SEARCH_TITLE];
+                }
             }
         }
 
@@ -47,6 +55,8 @@ class NotFound extends Composer
             "title"    => $title,
             "firstCol"    => $firstCol,
             "secondCol"    => $secondCol,
+            "searchActive"    => $searchActive,
+            "searchTitle"    => $searchTitle,
         ];
     }
 }

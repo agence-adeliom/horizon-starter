@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-block class="pb-40 lg:pb-60">
+    <x-block @class(['pb-40 lg:pb-60' => !$searchActive])>
         @if ($upTitle)
             <x-typography.uptitle :content="$upTitle" />
         @endif
@@ -40,5 +40,16 @@
                 </div>
             @endif
         </div>
+
+        @if ($searchActive)
+            <div class="w-full bg-neutral-100 p-4 mt-6 sm:p-6 lg:p-12 lg:mt-10">
+                <div class="max-w-lg mx-auto flex flex-col gap-4 lg:items-center">
+                    @if ($searchTitle)
+                        <x-typography.heading :content="$searchTitle" size="5" class="lg:text-center" />
+                    @endif
+                    <x-form.search />
+                </div>
+            </div>
+        @endif
     </x-block>
 @endsection

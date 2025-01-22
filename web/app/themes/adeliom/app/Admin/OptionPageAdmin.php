@@ -73,6 +73,8 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_404_FIRST_COLUMN_TITLE = "title";
     public const string FIELD_404_SECOND_COLUMN = "404_second_column";
     public const string FIELD_404_SECOND_COLUMN_TITLE = "title";
+    public const string FIELD_404_SEARCH_ACTIVE = "has_search";
+    public const string FIELD_404_SEARCH_TITLE = "search_title";
 
     public function getFields(): ?iterable
     {
@@ -187,6 +189,10 @@ class OptionPageAdmin extends AbstractAdmin
                         Text::make("Titre", self::FIELD_404_SECOND_COLUMN_TITLE)->default("Pour retrouver votre chemin... "),
                         WysiwygField::make(),
                     ])->wrapper(['width' => 50]),
+                TrueFalse::make("Activer la recherche", self::FIELD_404_SEARCH_ACTIVE)->stylized()->wrapper(['width' => 25]),
+                Text::make("Titre de la recherche", self::FIELD_404_SEARCH_TITLE)->default("Recherche rapide")->wrapper(['width' => 75])->conditionalLogic([
+                    ConditionalLogic::where(self::FIELD_404_SEARCH_ACTIVE, "==", "1")
+                ]),
             ]);
     }
 
