@@ -6,7 +6,10 @@ namespace App\Admin;
 
 use Adeliom\HorizonTools\Admin\AbstractAdmin;
 use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
+use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\IconField;
+use Adeliom\HorizonTools\Fields\Text\UptitleField;
+use Adeliom\HorizonTools\Fields\Text\WysiwygField;
 use App\Fields\Links\LinkField;
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\ButtonGroup;
@@ -64,6 +67,15 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_BANNER_TITLE = "title";
     public const string FIELD_BANNER_LINK = "link";
 
+    public const string FIELD_404 = "404";
+    public const string FIELD_404_TITLE = "404_title";
+    public const string FIELD_404_FIRST_COLUMN = "404_first_column";
+    public const string FIELD_404_FIRST_COLUMN_TITLE = "title";
+    public const string FIELD_404_SECOND_COLUMN = "404_second_column";
+    public const string FIELD_404_SECOND_COLUMN_TITLE = "title";
+    public const string FIELD_404_SEARCH_ACTIVE = "has_search";
+    public const string FIELD_404_SEARCH_TITLE = "search_title";
+
     public function getFields(): ?iterable
     {
         yield Tab::make("Général");
@@ -87,7 +99,6 @@ class OptionPageAdmin extends AbstractAdmin
         yield Tab::make("Pied de page");
 
         yield Group::make('Paramètres du pied de page', self::FIELD_FOOTER_FIELDS)
-
             ->fields([
                 Text::make("Titre", self::FIELD_FOOTER_TITLE),
                 Text::make("Texte", self::FIELD_FOOTER_TEXT),
@@ -160,6 +171,28 @@ class OptionPageAdmin extends AbstractAdmin
                 Text::make("Texte de la bannière", self::FIELD_BANNER_TITLE),
                 Link::make("Lien de la bannière", self::FIELD_BANNER_LINK)
 
+            ]);
+
+        yield Tab::make("Page 404");
+
+        yield Group::make('Paramètres de la page 404', self::FIELD_404)
+            ->fields([
+                UptitleField::make()->default("Erreur 404"),
+                Text::make("Titre", self::FIELD_404_TITLE)->default("Cette page semble introuvable"),
+                Group::make('Colonne 1', self::FIELD_404_FIRST_COLUMN)
+                    ->fields([
+                        Text::make("Titre", self::FIELD_404_FIRST_COLUMN_TITLE)->default("Parmi les causes probables"),
+                        WysiwygField::make(),
+                    ])->wrapper(['width' => 50]),
+                Group::make('Colonne 2', self::FIELD_404_SECOND_COLUMN)
+                    ->fields([
+                        Text::make("Titre", self::FIELD_404_SECOND_COLUMN_TITLE)->default("Pour retrouver votre chemin... "),
+                        WysiwygField::make(),
+                    ])->wrapper(['width' => 50]),
+                TrueFalse::make("Activer la recherche", self::FIELD_404_SEARCH_ACTIVE)->stylized()->wrapper(['width' => 25]),
+                Text::make("Titre de la recherche", self::FIELD_404_SEARCH_TITLE)->default("Recherche rapide")->wrapper(['width' => 75])->conditionalLogic([
+                    ConditionalLogic::where(self::FIELD_404_SEARCH_ACTIVE, "==", "1")
+                ]),
             ]);
     }
 

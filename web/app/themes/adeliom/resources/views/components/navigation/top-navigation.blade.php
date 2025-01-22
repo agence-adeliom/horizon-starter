@@ -32,19 +32,11 @@
                                         <div class="max-w-2xl mx-auto flex flex-col gap-6">
                                             <x-typography.heading content="Que recherchez-vous?" class="text-center"
                                                 size="3" />
-                                            <form action=""
-                                                class="flex flex-col sm:flex-row sm:justify-center gap-3">
-                                                <x-form.input x-init="$watch('open', value => $focus.focus($el))" name="search" type="text"
-                                                    wrapper-class="flex-1" class="h-[42px]"
-                                                    placeholder="Tapez un mot clé..." required />
-                                                <x-action.button icon="fas-search" type="primary"
-                                                    submit>Rechercher</x-action.button>
-                                            </form>
+                                            <x-form.search isModal />
                                         </div>
                                     </div>
                                 </x-structure.drawer>
                             </template>
-
                         </span>
                     @endif
                 </div>
