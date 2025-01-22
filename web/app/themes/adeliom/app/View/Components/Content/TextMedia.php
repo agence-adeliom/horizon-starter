@@ -70,6 +70,7 @@ class TextMedia extends Component
     public ?array $video = null;
     public ?array $thumbnail = null;
     public ?string $idYouTube = null;
+    public ?string $videoUrl = null;
 
     /**
      * Create a new component instance.
@@ -193,12 +194,14 @@ class TextMedia extends Component
                                     if (isset($mediaData['video'][VideoField::ID_YOUTUBE])) {
                                         $this->isYouTube = true;
                                         $this->idYouTube = $mediaData['video'][VideoField::ID_YOUTUBE];
+                                        $this->videoUrl = 'https://www.youtube.com/embed/' . $this->idYouTube;
                                     }
                                 } elseif (isset($mediaData['video'][VideoField::VIDEO_FILE]) && $mediaData['video'][VideoField::VIDEO_FILE]) {
                                     $file = $mediaData['video'][VideoField::VIDEO_FILE];
                                     if (is_array($file)) {
                                         $this->isVideo = true;
                                         $this->video = $file;
+                                        $this->videoUrl = $file['url'];
                                     }
                                 }
                             }

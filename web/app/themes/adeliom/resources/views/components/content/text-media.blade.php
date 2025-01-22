@@ -18,24 +18,20 @@
         @endisset
     </div>
 
-    <div @class(['relative', $mediaClass]) x-data="initMedia()">
+    <div @class(['relative', $mediaClass]) @if ($videoUrl) x-data="initLightbox()" @endif>
         @if ($isImage)
             <x-media.img :image="$image" @class(['rounded-image', 'cover-full' => $ratioClass]) :ratio="$ratioClass" size="large" />
         @elseif($isVideo || $isYouTube)
-            @php
-                $videoUrl =
-                    $isVideo && $video && isset($video['url'])
-                        ? $video['url']
-                        : 'https://www.youtube.com/embed/' . $idYouTube;
-            @endphp
             <x-media.img :image="$thumbnail" @class(['w-full rounded-image', 'cover-full' => $ratioClass]) :ratio="$ratioClass" />
 
-            <a href="{{ $videoUrl }}" data-glightbox x-ref="playMedia"
-                class="absolute-full group flex items-center justify-center">
-                <div class="btn btn--play">
-                    <x-typography.icon icon="play" variant="solid" class="ml-1" />
-                </div>
-            </a>
+            @if ($videoUrl)
+                <a href="{{ $videoUrl }}" data-glightbox x-ref="opener"
+                    class="absolute-full group flex items-center justify-center">
+                    <div class="btn btn--play">
+                        <x-fas-play class="icon-24 ml-1" />
+                    </div>
+                </a>
+            @endif
         @endif
     </div>
 </div>

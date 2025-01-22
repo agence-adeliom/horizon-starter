@@ -2,6 +2,7 @@ import domReady from '@roots/sage/client/dom-ready';
 import '@fortawesome/fontawesome-pro/css/all.css';
 import '@scripts/navigations/menu';
 import '@scripts/structure/modal';
+import '@scripts/structure/lightbox';
 import '@scripts/layouts/page';
 
 /**
