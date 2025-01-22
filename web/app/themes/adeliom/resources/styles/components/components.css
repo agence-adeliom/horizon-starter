@@ -8,6 +8,7 @@
 @import './structure/list.css';
 
 @import './typography/heading';
+@import './typography/icon';
 @import './typography/text';
 @import './typography/wysiwyg';
 @import './typography/uptitle';

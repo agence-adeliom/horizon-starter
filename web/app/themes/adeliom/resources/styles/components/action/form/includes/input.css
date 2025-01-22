@@ -42,47 +42,7 @@
     @apply !text-medium !px-medium !py-xsmall !mb-0;
   }
 
-  input[type='text'],
-  input[type='password'],
-  input[type='email'],
-  input[type='url'],
-  input[type='date'],
-  input[type='month'],
-  input[type='time'],
-  input[type='datetime'],
-  input[type='datetime-local'],
-  input[type='week'],
-  input[type='number'],
-  input[type='search'],
-  input[type='tel'],
-  input[type='color'],
-  select,
-  textarea {
-    &::placeholder {
-      @apply !font-normal !text-medium !text-input-placeholder;
-    }
-
-    --gform-theme-control-box-shadow-focus: transparent !important;
-    --gform-theme-local-line-height: var(--awc-line-height-normal) !important;
-
-    @apply w-full;
-    @apply shadow-none text-medium !text-text-secondary bg-input;
-    @apply !px-medium;
-    @apply !rounded-small !border !border-neutral-300 !border-solid !bg-neutral-0;
-
-    &:hover {
-      @apply !border-primary-dark;
-    }
-
-    &:has(input:focus),
-    &:has(textarea:focus) {
-      @apply !border-primary;
-    }
-
-    .gfield_error & {
-      @apply !border-danger;
-    }
-  }
+  
 
   .gform_heading {
     @apply mb-6 text-small text-neutral-500;
@@ -139,3 +99,46 @@
     }
   }
 }
+
+
+input[type='text'],
+  input[type='password'],
+  input[type='email'],
+  input[type='url'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='week'],
+  input[type='number'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='color'],
+  select,
+  textarea {
+    &::placeholder {
+      @apply !font-normal !text-medium !text-input-placeholder;
+    }
+
+    --gform-theme-control-box-shadow-focus: transparent !important;
+    --gform-theme-local-line-height: var(--awc-line-height-normal) !important;
+
+    @apply w-full;
+    @apply shadow-none text-medium !text-text-secondary bg-input;
+    @apply !px-medium;
+    @apply !rounded-small !border !border-neutral-300 !border-solid !bg-neutral-0;
+
+    &:hover {
+      @apply !border-primary-dark;
+    }
+
+    &:has(input:focus),
+    &:has(textarea:focus) {
+      @apply !border-primary;
+    }
+
+    .gfield_error & {
+      @apply !border-danger;
+    }
+  }

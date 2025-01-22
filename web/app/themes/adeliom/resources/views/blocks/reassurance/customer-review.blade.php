@@ -23,13 +23,11 @@
                         <div
                             class="mt-title-text-mobile flex flex-col items-center gap-medium lg:mt-title-text-desktop lg:flex-row lg:gap-xlarge">
                             @if (@isset($context['global-rating']) && $context['global-rating'])
-                                <awc-rating label="Rating" value="{{ $context['global-rating'] }}" readonly show-rate
-                                    precision="0.5"
-                                    style="--symbol-color-active: var(--awc-color-orange-400);"></awc-rating>
+                                <x-ui.rating :score="$context['global-rating']" showScore />
                             @endisset
 
                             @if (@isset($context['btn-reviews']) && $context['btn-reviews']['link'])
-                                <x-action.button :fields="$context['btn-reviews']" icon="arrow-right" type="tertiary" />
+                                <x-action.button :fields="$context['btn-reviews']" icon="fas-arrow-right" type="tertiary" />
                             @endif
                     </div>
                 @endisset

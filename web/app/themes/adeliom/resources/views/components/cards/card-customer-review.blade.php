@@ -6,8 +6,7 @@
     @endphp
 
     @isset($reviewInfo['rating'])
-        <awc-rating label="Rating" value="{{ $reviewInfo['rating'] }}" readonly precision="0.5"
-            style="--symbol-color-active: var(--awc-color-orange-400);"></awc-rating>
+        <x-ui.rating :score="$reviewInfo['rating']" />
     @endisset
 
     @isset($reviewInfo['review'])
