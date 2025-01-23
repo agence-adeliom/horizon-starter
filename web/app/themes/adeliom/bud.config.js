@@ -26,6 +26,7 @@ export default async (app) => {
     .entry('customer-review', ['@scripts/blocks/customer-review'])
     .entry('logos', ['@scripts/blocks/logos'])
     .entry('steps', ['@scripts/blocks/steps'])
+    .entry('arguments', ['@scripts/blocks/arguments'])
     .entry('listing', ['@scripts/blocks/listing'])
     .runtime('single')
     .hash()
