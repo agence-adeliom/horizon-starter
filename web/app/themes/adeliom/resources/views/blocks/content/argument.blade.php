@@ -33,10 +33,10 @@
                 @endisset
                 <x-action.button class="max-lg:hidden" type="tertiary" @click="togglePause">
                     <template x-if="isPlaying">
-                        <x-typography.icon icon="pause-circle" />
+                        <x-far-circle-pause class="icon-16" />
                     </template>
                     <template x-if="!isPlaying">
-                        <x-typography.icon icon="play-circle" />
+                        <x-far-circle-play class="icon-16" />
                     </template>
                     <span x-text="isPlaying ? 'Pause' : 'Lecture'"></span>
                 </x-action.button>

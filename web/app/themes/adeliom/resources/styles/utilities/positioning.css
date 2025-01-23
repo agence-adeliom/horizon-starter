@@ -7,6 +7,10 @@
         @apply absolute inset-y-2/4 inset-x-2/4 -translate-x-1/2 -translate-y-1/2;
     }
 
+    .absolute-y {
+        @apply absolute inset-y-2/4 -translate-y-1/2;
+    }
+
     .center-top {
         @apply absolute top-1/2 -translate-y-1/2;
     }
