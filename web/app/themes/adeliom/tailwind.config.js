@@ -303,6 +303,7 @@ const config = {
                 'input-help-text-lg': 'var(--awc-input-help-text-font-size-large)',
             },
             spacing: {
+                'top-bar': '48px',  
                 '3xsmall': 'var(--awc-spacing-3xsmall)',
                 '2xsmall': 'var(--awc-spacing-2xsmall)',
                 xsmall: 'var(--awc-spacing-xsmall)',

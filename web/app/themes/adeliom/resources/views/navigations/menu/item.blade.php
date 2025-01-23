@@ -13,7 +13,7 @@
                 <span class="menu-item__title group-hover:text-primary">
                     {{ $item->title }}
                     @if ($hasChildren && !$parent)
-                        <x-typography.icon class="max-lg:-rotate-90" size="sm" icon="angle-down" />
+                        <x-far-angle-down class="icon-16 max-lg:-rotate-90" />
                     @endif
                 </span>
                 @if (isset($item->description) && $item->description && $parent)
@@ -36,19 +36,18 @@
                                 @php
                                     $back_link_class =
                                         'cursor-pointer inline-flex font-semibold items-center gap-2 transition-colors duration-300 ease-in-out hover:text-primary lg:text-medium';
-                                    $back_arrow_class =
-                                        'px-x-small w-3.5 h-3.5 grid place-items-center text-x-small text-primary';
+                                    $back_arrow_class = 'icon-16 grid place-items-center text-primary';
                                 @endphp
 
                                 @if (isset($item->parentId) && $item->parentId > 0 && $parent)
                                     <button class="{{ $back_link_class }}"
                                         @click.stop="toggleSubMenu({{ $parent->id }})">
-                                        <x-typography.icon @class($back_arrow_class) icon="angle-left" />
+                                        <x-fas-angle-left @class([$back_arrow_class]) />
                                         {{ $parent->submenu_back_label ?? __('Retour') }}
                                     </button>
                                 @else
                                     <button class="{{ $back_link_class }} lg:hidden" @click="closeAllSubmenu">
-                                        <x-typography.icon @class($back_arrow_class) icon="angle-left" />
+                                        <x-fas-angle-left @class([$back_arrow_class]) />
                                         {{ __('Retour') }}
                                     </button>
                                 @endif
@@ -82,8 +81,7 @@
 
                     <span @click="closeAllSubmenu"
                         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">
-                        <x-typography.icon icon="xmark" />
-
+                        <x-far-xmark class="icon-20 text-text-secondary" />
                     </span>
                 </div>
             </template>
