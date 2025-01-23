@@ -57,7 +57,12 @@ class ArgumentBlock extends AbstractBlock
 
     public function renderBlockCallback(): void
     {
-        wp_enqueue_style('arguments-block-css', BudService::getUrl('arguments.css'));
-        wp_enqueue_script('arguments-block-js', BudService::getUrl('arguments.js'));
+        if ($argumentsCss = BudService::getUrl('arguments.css')) {
+            wp_enqueue_style('arguments-block-css', $argumentsCss);
+        }
+
+        if ($argumentsJs = BudService::getUrl('arguments.js')) {
+            wp_enqueue_script('arguments-block-js', $argumentsJs);
+        }
     }
 }
