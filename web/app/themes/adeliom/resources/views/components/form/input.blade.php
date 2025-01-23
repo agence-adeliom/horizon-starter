@@ -1,4 +1,4 @@
-<div @class(['form-group', $wrapperClass])>
+<div @class(['input-group', $wrapperClass])>
     <!-- Label -->
     @if ($label)
         <label for="{{ $id }}" class="block text-sm font-medium text-gray-700">

@@ -1,13 +1,14 @@
-{{-- @php
+@php
     $postType = null;
     $perPage = 12;
+    $filters = $fields['filters'] ?? [];
 
     if (isset($fields['postType'])) {
         $postType = $fields['postType'];
     }
 
-    if (isset($fields['perPage'])) {
-        $perPage = $fields['perPage'];
+    if (!empty($fields['perPage']) && is_numeric($fields['perPage'])) {
+        $perPage = intval($fields['perPage']);
     }
 @endphp
 
@@ -17,9 +18,8 @@
     @endisset
 
     @isset($fields['title'])
-        <x-typography.heading :fields="$fields['title']" />
+        <x-typography.heading :fields="$fields['title']" size="2" />
     @endisset
 
-    <livewire:listing.listing :post-type="$postType" :per-page="$perPage" />
+    <livewire:listing.listing :post-type="$postType" :per-page="$perPage" :filters="$filters" />
 </x-block>
- --}}

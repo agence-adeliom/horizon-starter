@@ -1,5 +1,34 @@
 {
-    "extends": "@roots/bud-typescript/tsconfig/tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Bud",
+    "compilerOptions": {
+      "lib": [
+        "DOM",
+        "DOM.Iterable",
+        "ESNext"
+      ],
+      "module": "esnext",
+      "target": "esnext",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "moduleResolution": "node",
+      "noFallthroughCasesInSwitch": true,
+      "outDir": "dist",
+      "baseUrl": ".",
+      "paths": {
+        "@src/*": [
+          "src/*"
+        ],
+        "@scripts/*": [
+          "scripts/*"
+        ]
+      },
+      "skipLibCheck": true
+    },
     "include": ["./resources/scripts/**/*.ts", "./resources/scripts/types/**/*.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
   }

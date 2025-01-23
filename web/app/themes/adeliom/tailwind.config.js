@@ -2,11 +2,13 @@
 
 import plugin from 'tailwindcss/plugin.js';
 import tailwindTypographyPlugin from '@tailwindcss/typography';
+import tailwindFormsPlugin from '@tailwindcss/forms';
 
 const config = {
     content: ['./app/**/*.php', './resources/**/*.{php,vue,js,ts}', './../../../../vendor/agence-adeliom/horizon-blocks/resources/views/**/*.blade.php'],
     safelist: [
         'basis-1/2 lg:basis-1/3 lg:basis-1/4',
+        'max-sm:w-full'
     ],
     future: {
         hoverOnlyWhenSupported: true,
@@ -492,6 +494,7 @@ const config = {
     },
     plugins: [
         tailwindTypographyPlugin,
+        tailwindFormsPlugin,
         plugin(function ({ addVariant }) {
             addVariant('is-active', ['&.is-active', '.is-active &']);
             addVariant('is-open', ['&.is-open', '.is-open &']);

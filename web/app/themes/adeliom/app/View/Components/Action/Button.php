@@ -189,6 +189,7 @@ class Button extends Component
         $this->fullClass = implode(' ', [
             'btn',
             $this->iconStart ? 'flex-row-reverse' : '',
+            $this->fullLink ? 'static' : '',
             $this->typeClass,
             $this->sizeClass,
             $this->iconOnly ? self::ICON_ONLY : '',

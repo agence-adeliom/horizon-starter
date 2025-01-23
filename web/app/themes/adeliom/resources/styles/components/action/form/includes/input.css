@@ -100,8 +100,9 @@
   }
 }
 
-
-input[type='text'],
+.input-group, 
+.gform-theme--framework {
+  input[type='text'],
   input[type='password'],
   input[type='email'],
   input[type='url'],
@@ -142,3 +143,4 @@ input[type='text'],
       @apply !border-danger;
     }
   }
+}
