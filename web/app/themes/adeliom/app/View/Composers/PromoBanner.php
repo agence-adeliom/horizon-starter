@@ -42,7 +42,7 @@ class PromoBanner extends Composer
 
         return [
             "isActive"    => $isActive,
-            "isDark"    => $isDark,
+            "isDark" => $isDark ?? false,
             "bannerTitle" => $bannerTitle,
             "bannerLink"  => $bannerLink,
         ];
