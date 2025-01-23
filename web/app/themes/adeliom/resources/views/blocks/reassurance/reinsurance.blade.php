@@ -1,24 +1,26 @@
 @if ($fields && $fields['items'])
 
-@php
-    // Handle different display if both data and title are filled or not
-    $hasDataAndTitle = !empty(array_filter($fields['items'], function ($item) {
-        return !empty($item['data']) && !empty($item['title']);
-    }));
-@endphp
+    @php
+        // Handle different display if both data and title are filled or not
+        $hasDataAndTitle = !empty(
+            array_filter($fields['items'], function ($item) {
+                return !empty($item['data']) && !empty($item['title']);
+            })
+        );
+    @endphp
 
     <x-block :fields="$fields">
         <div class="flex flex-wrap">
             @foreach ($fields['items'] as $item)
                 <div @class([
-                    "lg:basis-1/" . count($fields['items']) . " flex flex-row  gap-medium p-small mx-auto md:p-xlarge",
-                    "basis-full md:basis-1/2 items-center" => $hasDataAndTitle,
-                    "basis-1/2 items-baseline" => !$hasDataAndTitle,
+                    'lg:basis-1/' .
+                    count($fields['items']) .
+                    ' flex flex-row gap-medium p-small mx-auto md:p-xlarge',
+                    'basis-full md:basis-1/2 items-center' => $hasDataAndTitle,
+                    'basis-1/2 items-baseline' => !$hasDataAndTitle,
                 ])>
                     @if (@isset($item['icon']) && $item['icon'])
-                        <div class="text-xl text-primary lg:text-2xl">
-                            {!! $item['icon'] !!}
-                        </div>
+                        <x-ui.icon :icon="$item['icon']" class="icon-24 text-primary" />
                     @endisset
 
                     @if (@isset($item['data']) && $item['data'])
@@ -32,8 +34,8 @@
                             {{ $item['title'] }}
                         </div>
                     @endisset
-                </div>
-            @endforeach
-        </div>
-    </x-block>
+    </div>
+@endforeach
+</div>
+</x-block>
 @endif
