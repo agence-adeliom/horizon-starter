@@ -6,4 +6,8 @@
     .text-hover {
         @apply hover:opacity-70 transition-all;
     }
+
+    .link {
+        @apply text-primary font-semibold dark:text-tertiary text-hover underline;
+    }
 }

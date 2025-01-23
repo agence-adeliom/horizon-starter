@@ -1,12 +1,12 @@
 @layer components {
     .header {
-        @apply lg:sticky lg:top-0 lg:inset-x-0 lg:z-[100] shrink-0 transition-all mb-0;
+        @apply sticky top-0 inset-x-0 z-[102] shrink-0 transition-all mb-0 lg:-top-top-bar;
     }
 
     .header-mix {
         @apply border-b-card bg-white;
         @apply transition transform-gpu duration-500 ease-smooth;
-        @apply max-lg:fixed max-lg:z-[101];
+        @apply max-lg:absolute max-lg:z-[101];
         @apply max-lg:pt-[72px] max-lg:h-dvh max-lg:top-0 max-lg:inset-x-0;
         @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0;
         @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
@@ -14,13 +14,47 @@
 
     .header-main {
         @apply flex items-center justify-between lg:gap-x-5xlarge;
-        @apply max-lg:py-5xlarge max-lg:flex-col max-lg:items-start lg:py-medium;
+        @apply max-lg:py-6 max-lg:flex-col max-lg:items-start lg:py-4;
         &__logo {
             @apply max-lg:hidden;
         }
 
         &__cta {
-            @apply max-lg:mt-6;
+            @apply max-lg:mt-6 max-lg:w-full;
+        }
+    }
+
+    .top-navigation {
+        @apply w-full bg-neutral-100;
+        @apply max-lg:py-6;
+        @apply lg:border-b-card lg:h-top-bar lg:flex lg:items-center ;
+
+        .reviews {
+            @apply flex items-center gap-6;
+        }
+
+        .links {
+            @apply flex flex-col lg:flex-row;
+        }
+
+        .top-item {
+            @apply flex items-center gap-2 text-text-secondary;
+            @apply text-sm font-semibold;
+            @apply transition-opacity hover:opacity-70;
+
+
+            &__icon {
+                @apply w-4 h-4;
+            }
+
+            &--link {
+                @apply max-lg:mb-4 lg:mr-4;
+            }
+
+            &--search {
+                @apply max-lg:pt-4 max-lg:border-t max-lg:border-t-neutral-200 max-lg:w-full;
+                @apply lg:pl-4 lg:border-l lg:border-l-neutral-200;
+            }
         }
     }
 
@@ -33,7 +67,7 @@
     }
 
     .mobile-bar {
-        @apply lg:hidden bg-white fixed top-0 inset-x-0 z-[110] transition duration-300 border-b-card;
+        @apply lg:hidden bg-white inset-x-0 relative z-[110] transition duration-300 border-b-card;
 
         &__wrapper {
             @apply container h-[72px] py-xsmall flex items-center justify-between gap-x-medium;
