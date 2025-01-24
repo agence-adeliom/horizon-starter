@@ -9,12 +9,15 @@
             @apply flex gap-xsmall items-baseline;
             @apply max-lg:text-large font-semibold lg:hover:text-primary;
             @apply max-lg:w-full max-lg:border-b-card;
+
+            .menu-item__title {
+                @apply flex items-center gap-2;
+            }
         }
 
         & > li.is-active > a {
             @apply text-primary;
         }
-
     }
 
     .submenu {

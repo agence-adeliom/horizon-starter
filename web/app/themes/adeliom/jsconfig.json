@@ -1,7 +1,7 @@
 {
   "extends": [
     "@roots/bud/config/jsconfig.json",
-    "@roots/sage/config/jsconfig.json"
+    "@roots/sage/config/jsconfig.json",
   ],
   "compilerOptions": {
     "baseUrl": "resources",

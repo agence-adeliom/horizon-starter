@@ -1,4 +1,3 @@
-import '@agence-adeliom/awc/dist/components/rating/rating.js';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 // Uncomment when problem from Swiper lib fixed
@@ -49,7 +48,6 @@ document.addEventListener('alpine:init', () => {
 
                 this.$nextTick(() => {
                     this.swiper.init();
-                    console.log(this.swiper);
                 });
             },
         };

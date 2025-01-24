@@ -66,8 +66,7 @@ class Block extends Component
         public ?string          $container = null,
         public ?string          $anchor = null,
         public ?string          $class = null,
-    )
-    {
+    ) {
 
         $this->handleClassName();
         $this->handleBackground();
@@ -101,15 +100,12 @@ class Block extends Component
                 $this->background = 'none';
                 $this->containerClass = 'relative z-10';
                 $this->bgImage = $this->fields[LayoutField::FIELD_BG_GROUP][LayoutField::FIELD_BG_IMAGE];
-
-
             }
         } else if (null === $this->background || !in_array($this->background, array_keys(self::BACKGROUNDS))) {
             $this->background = 'white';
         } else if (isset(self::BACKGROUNDS[$this->background])) {
             $this->backgroundClass = self::BACKGROUNDS[$this->background];
         }
-
     }
 
     private function handlePaddings(): void
@@ -161,10 +157,10 @@ class Block extends Component
     {
         $this->fullClass = implode(' ', [
             $this->baseClass,
-            $this->freeClass,
             $this->backgroundClass,
             $this->paddingClass,
             $this->darkModeClass,
+            $this->freeClass,
         ]);
     }
 
