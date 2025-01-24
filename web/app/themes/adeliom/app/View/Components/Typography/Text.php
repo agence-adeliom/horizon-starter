@@ -10,11 +10,12 @@ class Text extends Component
 {
     public string $fullClass;
     public string $tag = 'p';
+
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public ?string $class = null,
+        public ?string      $class = null,
         public string|array $content = '',
     ) {
         $this->initializeContent();
@@ -26,7 +27,7 @@ class Text extends Component
         if (is_array($this->content) && isset($this->content['wysiwyg'])) {
             $this->content = $this->content['wysiwyg'];
             $this->tag = 'div';
-        } elseif (is_string($this->content) && preg_match('/<\s*[a-z][^>]*>/i', $this->content)) {
+        } else if (is_string($this->content) && preg_match('/<\s*[a-z][^>]*>/i', $this->content)) {
             $this->tag = 'div';
         }
     }
