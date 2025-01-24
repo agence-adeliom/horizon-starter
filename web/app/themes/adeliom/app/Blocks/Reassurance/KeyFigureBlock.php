@@ -41,7 +41,7 @@ class KeyFigureBlock extends AbstractBlock
                 ->layout('block')
                 ->collapsed(self::FIELD_TITLE)
                 ->fields([
-                    FontAwesomeIcon::make(__('Icône'), self::FIELD_ICON),
+                    FontAwesomeIcon::make(__('Icône'), self::FIELD_ICON)->format('object'),
                     Text::make(__('Donnée'), self::FIELD_DATA),
                     Text::make(__('Titre'), self::FIELD_TITLE)
                         ->maxLength(self::TITLE_MAX_LENGTH)
