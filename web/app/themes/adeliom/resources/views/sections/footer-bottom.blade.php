@@ -9,7 +9,7 @@
                 <a href="{{ $item->url }}" class="text-hover">{{ $item->title }}</a>
             @endforeach
         @endif
-        <span class="text-hover">Gestion des cookies</span>
+        <button class="text-hover">Gestion des cookies</button>
     </nav>
 
     <div class="md:flex-end">
