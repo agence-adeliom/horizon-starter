@@ -3,10 +3,9 @@
         @apply lg:flex lg:justify-end lg:flex-1 lg:items-center lg:gap-x-5xlarge;
 
         & > li > .menu-item {
-            @apply relative inline-flex items-center;
+            @apply relative flex items-center gap-2;
             @apply transition-colors duration-300 ease-smooth text-neutral-1000;
             @apply py-medium lg:py-0;
-            @apply flex gap-xsmall items-baseline;
             @apply max-lg:text-large font-semibold lg:hover:text-primary;
             @apply max-lg:w-full max-lg:border-b-card;
 
@@ -34,7 +33,7 @@
             @apply grid lg:grid-cols-3 auto-rows-max gap-x-5xlarge gap-y-6;
 
             .menu-item {
-                @apply flex gap-xsmall items-baseline;
+                @apply flex gap-2 items-baseline;
                 &__title {
                     @apply flex flex-row items-center gap-2;
                     @apply text-large lg:text-medium font-semibold;

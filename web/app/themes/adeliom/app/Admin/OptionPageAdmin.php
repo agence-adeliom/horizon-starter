@@ -91,7 +91,7 @@ class OptionPageAdmin extends AbstractAdmin
                     ->fields([
                         URL::make("Lien", "link"),
                         IconField::make()->format("object"),
-
+                        Text::make("Nom du réseau", "title")->helperText("Ex: Linkedin"),
                     ])
                     ->maxRows(6),
             ]);

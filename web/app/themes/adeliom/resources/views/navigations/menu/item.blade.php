@@ -3,11 +3,12 @@
     <li @class($item->classes)
         @if ($hasChildren) aria-haspopup="true"
         @click.prevent.stop="toggleSubMenu({{ $item->id }})"
+        :aria-expanded="openSubmenus.includes({{ $item->id }})"
         :class="openSubmenus.includes({{ $item->id }}) && 'is-active'" @endif>
 
         <a class="menu-item group" href="{{ $item->url }}">
             @if (isset($item->customFields['menu_item']['icon']) && $item->customFields['menu_item']['icon'])
-                {!! $item->customFields['menu_item']['icon'] !!}
+                <x-ui.icon :icon="$item->customFields['menu_item']['icon']" class="icon-20" />
             @endif
             <span class="flex flex-col gap-1">
                 <span class="menu-item__title group-hover:text-primary">
@@ -24,13 +25,15 @@
 
         @if ($hasChildren)
             <template x-teleport="#submenu-teleport">
-                <div aria-expanded="false" :aria-expanded="openSubmenus.includes({{ $item->id }})" data-mode="light"
-                    class="submenu" :class="openSubmenus.includes({{ $item->id }}) && 'is-active'"
-                    x-show="openSubmenus.includes({{ $item->id }})" x-transition:enter="ease-smooth duration-500"
-                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                    x-transition:leave="ease-smooth duration-500" x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0" x-cloak>
-                    <div class="submenu__container">
+                <div x-bind:aria-hidden="openSubmenus.includes({{ $item->id }})"
+                    x-bind:aria-expanded="openSubmenus.includes({{ $item->id }})" data-mode="light" class="submenu"
+                    :class="openSubmenus.includes({{ $item->id }}) && 'is-active'"
+                    x-show="openSubmenus.includes({{ $item->id }})"
+                    x-trap.inert.noscroll="openSubmenus.includes({{ $item->id }})"
+                    x-transition:enter="ease-smooth duration-500" x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100" x-transition:leave="ease-smooth duration-500"
+                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-cloak>
+                    <nav aria-label="Sous-menu" class="submenu__container">
                         <span class="submenu__sidebar">
                             <div class="flex flex-col gap-y-medium">
                                 @php
@@ -64,7 +67,8 @@
 
                             @if (isset($item->url) && $item->url && $item->url !== '#')
                                 @php $button_label = isset($item->customFields['menu_item']['label']) && $item->customFields['menu_item']['label'] && $item->customFields['menu_item']['label'] !== '' ? $item->customFields['menu_item']['label'] : $item->title; @endphp
-                                <x-action.button :label="$button_label" :url="$item->url" class="mt-4 lg:mt-6" />
+                                <x-action.button :url="$item->url"
+                                    class="mt-4 lg:mt-6">{{ $button_label }}</x-action.button>
                             @endif
                         </span>
 
@@ -77,12 +81,12 @@
                                 ])
                             @endforeach
                         </ul>
-                    </div>
+                    </nav>
 
-                    <span @click="closeAllSubmenu"
+                    <button @click="closeAllSubmenu" aria-label="Fermer le sous-menu"
                         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">
                         <x-far-xmark class="icon-20 text-text-secondary" />
-                    </span>
+                    </button>
                 </div>
             </template>
         @endif

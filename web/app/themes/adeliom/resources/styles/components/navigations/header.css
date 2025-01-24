@@ -59,7 +59,7 @@
     }
 
     .menu-overlay {
-        @apply absolute w-full h-screen inset-0 bg-black opacity-0 pointer-events-none transition-opacity;
+        @apply absolute w-full h-screen inset-0 top-top-bar bg-black opacity-0 pointer-events-none transition-opacity;
 
         &.is-open {
             @apply opacity-25 pointer-events-auto;

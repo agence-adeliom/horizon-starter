@@ -23,7 +23,7 @@ class MenuAdmin extends AbstractAdmin
 
         yield Group::make('Menu item', self::MENU_ITEM)
             ->fields([
-                IconField::make(),
+                IconField::make()->format('object'),
                 Text::make("Label du CTA principal", "label")->helperText(__('(dans le cas où l\'item parent est un lien)')),
             ]);
     }
@@ -39,6 +39,6 @@ class MenuAdmin extends AbstractAdmin
      */
     public function getLocation(): iterable
     {
-        yield Location::where('nav_menu_item', '=', "3");
+        yield Location::where('nav_menu_item', '=', "4");
     }
 }
