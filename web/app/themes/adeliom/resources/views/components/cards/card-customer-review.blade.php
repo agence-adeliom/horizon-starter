@@ -1,4 +1,4 @@
-<div class="relative rounded-card p-card border-card flex flex-col gap-card {{ $attributes['class'] ?? '' }}">
+<div class="{{ $attributes['class'] ?? '' }} relative flex flex-col gap-card rounded-card border-card p-card">
 
     @php
         $reviewInfo = $review['review'] ?? null;
@@ -15,10 +15,10 @@
 
     <div class="flex items-center gap-small">
         @if (@isset($reviewer['avatar']) && $reviewer['avatar'] !== false)
-            <x-media.img :image="$reviewer['avatar']" class="flex-none rounded-pill w-10 h-10" size="thumbnail" />
+            <x-media.img :image="$reviewer['avatar']" class="h-10 w-10 flex-none rounded-pill" size="thumbnail" />
         @else
             <div
-                class="flex-none bg-gray-400 rounded-pill w-10 h-10 flex items-center justify-center text-large uppercase text-white">
+                class="flex h-10 w-10 flex-none items-center justify-center rounded-pill bg-gray-400 text-large uppercase text-white">
                 {{ !empty($reviewer['firstname']) ? substr($reviewer['firstname'], 0, 1) : '' }}{{ !empty($reviewer['lastname']) ? substr($reviewer['lastname'], 0, 1) : '' }}
             </div>
         @endif

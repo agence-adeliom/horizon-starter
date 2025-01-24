@@ -19,6 +19,7 @@ document.addEventListener('alpine:init', () => {
                     spaceBetween: '12',
                     loop: false,
                     mousewheel: true,
+                    centerInsufficientSlides: true,
                     navigation: {
                         nextEl: this.$refs.buttonNext,
                         prevEl: this.$refs.buttonPrev,
@@ -28,6 +29,8 @@ document.addEventListener('alpine:init', () => {
                         el: this.$refs.swiperPagination,
                         type: 'bullets',
                         clickable: true,
+                        lockClass: 'hidden',
+                        hiddenClass: 'hidden',
                         bulletActiveClass: 'bg-primary',
                         bulletClass: 'bg-neutral-300 w-6 h-1 rounded-full inline-block transition-colors cursor-pointer',
                     },
