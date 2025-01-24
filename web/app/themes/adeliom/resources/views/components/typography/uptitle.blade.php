@@ -1,5 +1,5 @@
 @if($content)
-  <{{ $tag }} class="{{ $fullClass }}">
-  {{ $content }}
-  </{{ $tag }}>
+    <{{ $tag }} class="{{ $fullClass }}">
+    {{ $content }}
+    </{{ $tag }}>
 @endif

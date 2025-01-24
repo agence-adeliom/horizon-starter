@@ -6,12 +6,11 @@ namespace App\Blocks\Action;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
+use Adeliom\HorizonTools\Fields\OfferField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
-use Adeliom\HorizonTools\Services\FormService;
-use App\Fields\FormField;
-use App\Fields\OfferField;
+use Adeliom\HorizonTools\Fields\Select\FormField;
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\RadioButton;
@@ -38,7 +37,7 @@ class FormBlock extends AbstractBlock
             HeadingField::make()->required(),
             Text::make('Description', self::FIELD_DESC),
             OfferField::make(),
-            FormField::selectGF(FormService::getAllFormChoices()),
+            FormField::selectGravityForm(),
         ]);
 
         yield from LayoutTab::make()->fields([

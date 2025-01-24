@@ -16,3 +16,5 @@ use Roots\WPConfig\Config;
 
 Config::define('DISALLOW_INDEXING', true);
 Config::define('ENABLED_HTTP_LOGIN', true);
+Config::define('DISABLE_QUERY_BUILDER_CACHE', false);
+Config::define('SCRIPT_DEBUG', false);

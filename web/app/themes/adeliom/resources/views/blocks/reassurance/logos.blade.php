@@ -71,7 +71,7 @@
         'lg:hidden' => $logoCount < 5,
         'xl:hidden' => $logoCount < 6,
     ]) type="secondary" x-ref="buttonPrev" iconOnly>
-        <x-typography.icon icon="angle-left" />
+        <x-fas-angle-left />
     </x-action.button>
     <x-action.button @class([
         'center-top right-0',
@@ -79,7 +79,7 @@
         'lg:hidden' => $logoCount < 5,
         'xl:hidden' => $logoCount < 6,
     ]) type="secondary" x-ref="buttonNext" iconOnly>
-        <x-typography.icon icon="angle-right" />
+        <x-fas-angle-right />
     </x-action.button>
     </div>
 @endisset

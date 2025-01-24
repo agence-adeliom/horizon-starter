@@ -1,0 +1,9 @@
+.select-group {
+    @apply flex-1 relative flex flex-col gap-1 lg:max-w-72;
+
+    .select {
+        @apply w-full py-2 px-4;
+        @apply text-input-placeholder;
+        @apply rounded border border-gray-300;
+    }
+}

@@ -10,12 +10,13 @@ use Extended\ACF\Fields\Text;
 
 class FAQ extends AbstractPostType
 {
-    public const string FIELD_QUESTION = 'question';
-    public const string FIELD_ANSWER = 'answer';
     public static ?string $slug = 'faq';
 
+    public const string FIELD_QUESTION = 'question';
+    public const string FIELD_ANSWER = 'answer';
+
     // Blade component used to render the card in the listing
-    public static ?string $card = null;
+    public static ?string $card = 'cards.card-listing';
 
     public function getConfig(array $config = []): array
     {

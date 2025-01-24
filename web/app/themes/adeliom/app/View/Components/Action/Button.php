@@ -58,6 +58,7 @@ class Button extends Component
         public ?string $ariaLabel = null,
         public ?bool   $iconOnly = false,
         public ?bool   $fullLink = false,
+        public ?bool   $submit = null,
         // Only for fields button
         public ?array  $fields = null,
         public ?string $icon = null,
@@ -188,6 +189,7 @@ class Button extends Component
         $this->fullClass = implode(' ', [
             'btn',
             $this->iconStart ? 'flex-row-reverse' : '',
+            $this->fullLink ? 'static' : '',
             $this->typeClass,
             $this->sizeClass,
             $this->iconOnly ? self::ICON_ONLY : '',
