@@ -21,6 +21,7 @@ class TopNavigation extends Component
     private ?string $reviewsType = null;
     public ?array $links = null;
     public bool $withSearch = false;
+    public ?array $searchInfos = null;
     public ?float $reviewsAverage = null;
 
     public function __construct()
@@ -85,6 +86,9 @@ class TopNavigation extends Component
 
                 if (isset($this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_SHOW_SEARCH]) && $this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_SHOW_SEARCH]) {
                     $this->withSearch = true;
+                    if (isset($this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_SEARCH_INFOS])) {
+                        $this->searchInfos = $this->fields[OptionPageAdmin::FIELD_TOP_NAVIGATION_SEARCH_INFOS];
+                    }
                 }
 
                 switch ($this->reviewsType) {

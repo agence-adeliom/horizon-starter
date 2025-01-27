@@ -21,6 +21,7 @@ use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\Textarea as FieldsTextarea;
 use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Fields\URL;
 
@@ -53,6 +54,7 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_TOP_NAVIGATION = "top-navigation";
     public const string FIELD_TOP_NAVIGATION_ENABLED = "is-enabled";
     public const string FIELD_TOP_NAVIGATION_SHOW_SEARCH = "show-search";
+    public const string FIELD_TOP_NAVIGATION_SEARCH_INFOS = "search-infos";
     public const string FIELD_TOP_NAVIGATION_REVIEWS_TYPE = "reviews-type";
     public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN = "hidden";
     public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT = "default";
@@ -134,6 +136,18 @@ class OptionPageAdmin extends AbstractAdmin
                     ->stylized()
                     ->conditionalLogic([
                         ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
+                    ]),
+                Repeater::make("Section informative sous la recherche", self::FIELD_TOP_NAVIGATION_SEARCH_INFOS)
+                    ->minRows(0)
+                    ->maxRows(2)
+                    ->layout('block')
+                    ->fields([
+                        Text::make(__("Titre du bloc"), "title")->required(),
+                        FieldsTextarea::make(__("Description du bloc"), "description")->maxLength(220)->helperText(__("Maximum 220 caractères")),
+                        ButtonField::make(__("Bouton du bloc"), "button"),
+                    ])
+                    ->conditionalLogic([
+                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_SHOW_SEARCH, "==", "1")
                     ]),
                 ButtonGroup::make("Affichage des avis", self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE)
                     ->helperText("Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure. Les données relatives aux données sont définies dans l'onglet 'Avis clients' de cette page.")

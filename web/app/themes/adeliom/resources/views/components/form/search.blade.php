@@ -5,5 +5,5 @@
 
     <x-form.input :x-init="$isModal ? '$watch(\'open\', value => $focus.focus($el))' : ''" name="search" label="Recherche" hideLabel type="text" wrapper-class="flex-1"
         class="h-[42px]" placeholder="Tapez un mot clé..." required />
-    <x-action.button icon="fas-search" type="primary" submit>Rechercher</x-action.button>
+    <x-action.button icon="fas-search" type="primary" tag="button" submit>Rechercher</x-action.button>
 </form>

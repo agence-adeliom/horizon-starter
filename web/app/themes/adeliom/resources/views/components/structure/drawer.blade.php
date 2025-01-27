@@ -30,7 +30,7 @@
         @endisset
 
         <!-- Content Slot -->
-        <div class="py-4 overflow-y-auto">
+        <div class="overflow-y-auto">
             {{ $slot }}
         </div>
 
