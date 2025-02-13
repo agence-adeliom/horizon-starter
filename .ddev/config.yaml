@@ -1,16 +1,16 @@
 name: starter-2024
 type: php
 docroot: web
-php_version: "8.3"
+php_version: '8.4'
 webserver_type: apache-fpm
 xdebug_enabled: false
 additional_hostnames: []
 additional_fqdns: []
 database:
     type: mariadb
-    version: "10.11"
+    version: '10.11'
 use_dns_when_possible: true
-composer_version: "2"
+composer_version: '2'
 performance_mode: none
 hooks:
     post-start:
@@ -18,14 +18,13 @@ hooks:
         - composer: install
         - exec-host: ddev theme:install
 web_environment: []
-nodejs_version: "20"
+nodejs_version: '20'
 corepack_enable: false
 web_extra_exposed_ports:
     - name: bud
       container_port: 3000
       http_port: 3000
       https_port: 3001
-
 # Key features of DDEV's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
