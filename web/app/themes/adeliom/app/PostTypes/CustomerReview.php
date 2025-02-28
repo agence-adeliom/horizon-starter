@@ -14,6 +14,7 @@ use Extended\ACF\Fields\Text;
 class CustomerReview extends AbstractPostType
 {
     public static ?string $slug = 'customer-review';
+    public static bool $searchable = false;
 
     // Blade component used to render the card in the listing
     public static ?string $card = 'cards.card-listing';

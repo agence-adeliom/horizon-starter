@@ -11,6 +11,7 @@ use Extended\ACF\Fields\Text;
 class FAQ extends AbstractPostType
 {
     public static ?string $slug = 'faq';
+    public static bool $searchable = true;
 
     public const string FIELD_QUESTION = 'question';
     public const string FIELD_ANSWER = 'answer';

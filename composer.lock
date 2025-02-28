@@ -4,57 +4,20 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "576269b1a9eeb2745bda32cc325a033f",
+            "content-hash": "d22ddb036cce44078c1a06b06a9441ac",
             "packages": [
                         {
-                                    "name": "agence-adeliom/horizon-blocks",
-                                    "version": "dev-main",
-                                    "source": {
-                                                "type": "git",
-                                                "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "0de81d88e11f83d9517c871e5f24419a8c2ae84e"
-                                    },
-                                    "dist": {
-                                                "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/0de81d88e11f83d9517c871e5f24419a8c2ae84e",
-                                                "reference": "0de81d88e11f83d9517c871e5f24419a8c2ae84e",
-                                                "shasum": ""
-                                    },
-                                    "require": {
-                                                "agence-adeliom/horizon-tools": "dev-main",
-                                                "php": ">=8.3"
-                                    },
-                                    "default-branch": true,
-                                    "type": "library",
-                                    "autoload": {
-                                                "psr-4": {
-                                                            "Adeliom\\HorizonBlocks\\": "src/"
-                                                }
-                                    },
-                                    "authors": [
-                                                {
-                                                            "name": "Agence Adeliom",
-                                                            "email": "dev@adeliom.com"
-                                                }
-                                    ],
-                                    "support": {
-                                                "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
-                                                "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
-                                    },
-                                    "time": "2025-02-26T18:16:14+00:00"
-                        },
-                        {
                                     "name": "agence-adeliom/horizon-tools",
-                                    "version": "dev-main",
+                                    "version": "dev-27-feat-global-and-per-post-type-search",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "95b837058aea1cad582cf82925365e8c0cf029d5"
+                                                "reference": "49cd0d1e1e477c9659eca936541e3ad69a2bde97"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/95b837058aea1cad582cf82925365e8c0cf029d5",
-                                                "reference": "95b837058aea1cad582cf82925365e8c0cf029d5",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/49cd0d1e1e477c9659eca936541e3ad69a2bde97",
+                                                "reference": "49cd0d1e1e477c9659eca936541e3ad69a2bde97",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -64,7 +27,6 @@
                                                 "roots/acorn": "^4.0",
                                                 "vinkla/extended-acf": "^14.0"
                                     },
-                                    "default-branch": true,
                                     "type": "library",
                                     "autoload": {
                                                 "psr-4": {
@@ -82,10 +44,10 @@
                                     ],
                                     "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
                                     "support": {
-                                                "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
+                                                "source": "https://github.com/agence-adeliom/horizon-tools/tree/27-feat-global-and-per-post-type-search",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-02-25T15:18:30+00:00"
+                                    "time": "2025-02-28T13:52:40+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -170,16 +132,16 @@
                         },
                         {
                                     "name": "brick/math",
-                                    "version": "0.12.2",
+                                    "version": "0.12.3",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/brick/math.git",
-                                                "reference": "901eddb1e45a8e0f689302e40af871c181ecbe40"
+                                                "reference": "866551da34e9a618e64a819ee1e01c20d8a588ba"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/brick/math/zipball/901eddb1e45a8e0f689302e40af871c181ecbe40",
-                                                "reference": "901eddb1e45a8e0f689302e40af871c181ecbe40",
+                                                "url": "https://api.github.com/repos/brick/math/zipball/866551da34e9a618e64a819ee1e01c20d8a588ba",
+                                                "reference": "866551da34e9a618e64a819ee1e01c20d8a588ba",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -218,7 +180,7 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/brick/math/issues",
-                                                "source": "https://github.com/brick/math/tree/0.12.2"
+                                                "source": "https://github.com/brick/math/tree/0.12.3"
                                     },
                                     "funding": [
                                                 {
@@ -226,7 +188,7 @@
                                                             "type": "github"
                                                 }
                                     ],
-                                    "time": "2025-02-26T10:21:45+00:00"
+                                    "time": "2025-02-28T13:11:00+00:00"
                         },
                         {
                                     "name": "carbonphp/carbon-doctrine-types",
@@ -7029,12 +6991,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "eec07a3f265e855f870e52b7c18c44822208e303"
+                                                "reference": "34461e30edf463b5f9522c60bd4f326f955fca69"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/eec07a3f265e855f870e52b7c18c44822208e303",
-                                                "reference": "eec07a3f265e855f870e52b7c18c44822208e303",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/34461e30edf463b5f9522c60bd4f326f955fca69",
+                                                "reference": "34461e30edf463b5f9522c60bd4f326f955fca69",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7398,7 +7360,7 @@
                                                 "mantisbt/mantisbt": "<=2.26.3",
                                                 "marcwillmann/turn": "<0.3.3",
                                                 "matyhtf/framework": "<3.0.6",
-                                                "mautic/core": "<4.4.13|>=5.0.0.0-alpha,<5.1.1",
+                                                "mautic/core": "<5.2.3",
                                                 "mautic/core-lib": ">=1.0.0.0-beta,<4.4.13|>=5.0.0.0-alpha,<5.1.1",
                                                 "maximebf/debugbar": "<1.19",
                                                 "mdanter/ecc": "<2",
@@ -7897,7 +7859,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-02-25T16:05:58+00:00"
+                                    "time": "2025-02-26T21:04:53+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
@@ -7987,7 +7949,6 @@
             "aliases": [],
             "minimum-stability": "dev",
             "stability-flags": {
-                        "agence-adeliom/horizon-blocks": 20,
                         "agence-adeliom/horizon-tools": 20,
                         "roave/security-advisories": 20
             },

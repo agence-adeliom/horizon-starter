@@ -10,6 +10,7 @@ use Adeliom\HorizonTools\PostTypes\AbstractPostType;
 class LandingPage extends AbstractPostType
 {
     public static ?string $slug = 'landing-page';
+    public static bool $searchable = true;
 
     // Blade component used to render the card in the listing
     public static ?string $card = 'cards.card-listing';
