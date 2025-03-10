@@ -1,3 +1,7 @@
+/*************************
+*       DEFINITIONS
+************************/
+
 .wysiwyg {
     .h1,
     h1 {
@@ -41,13 +45,97 @@
 
     ul {
         list-style-type: disc;
-        list-style-position: inside;
-        @apply pl-3;
+        @apply pl-5;
     }
 
     ol {
         list-style-type: decimal-leading-zero;
         @apply pl-8;
+    }
+}
+
+
+/*************************
+*       MARGINS
+************************/
+
+
+.wysiwyg {
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+
+    p, ul, ol {
+        & + h2, & + h3, & + h4, & + h5 {
+            @apply mt-8;
+        }
+    }
+
+    h2 {
+        & + h3, & + h4 {
+            @apply mt-2.5;
+        }
+    }
+
+    h3 {
+        & + h2, & + h4 {
+            @apply mt-4;
+
+            @screen md {
+                @apply mt-8;
+            }
+        }
+    }
+
+    h4 {
+        & + h3, & + h2 {
+            @apply mt-2.5;
+        }
+    }
+
+    h5 {
+        & + h3, & + h2 {
+            @apply mt-2.5;
+        }
+    }
+
+    h2, h3, h4, h5 {
+        & + ul, & + ol, & + p {
+            @apply mt-4;
+            @screen md {
+                @apply mt-6;
+            }
+        }
+    }
+
+    p {
+        & + ul, & + ol {
+            @apply mt-2.5;
+        }
+
+        & + p {
+            @apply mt-4;
+        }
+    }
+
+    ul {
+        & + ul, & + ol {
+            @apply mt-2.5;
+        }
+
+        & + p {
+            @apply mt-5;
+        }
+    }
+
+    ol {
+        & + ol, & + ul {
+            @apply mt-2.5;
+        }
+
+        & + p {
+            @apply mt-5;
+        }
     }
 }
 
