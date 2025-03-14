@@ -55,7 +55,7 @@
             @apply gap-small text-xsmall;
 
             &:not(.btn--text) {
-                @apply px-small leading-input-sm;
+                @apply px-small leading-[26px];
             }
 
             .icon {
@@ -67,7 +67,7 @@
             @apply gap-medium text-small;
 
             &:not(.btn--text) {
-                @apply px-medium leading-input-md;
+                @apply px-medium leading-[36px];
             }
 
             .icon {
@@ -79,7 +79,7 @@
             @apply gap-large text-medium;
 
             &:not(.btn--text) {
-                @apply px-large leading-input-lg;
+                @apply px-large leading-[46px];
             }
 
             .icon {
