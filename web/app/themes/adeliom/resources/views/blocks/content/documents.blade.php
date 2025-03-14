@@ -14,9 +14,11 @@
             @endif
         </div>
         <div class="col-span-full flex flex-col gap-2 lg:gap-4 lg:col-span-8 lg:col-start-3">
-            @foreach ($fields['documents'] as $document)
-                <x-cards.card-document :document="$document" />
-            @endforeach
+            @if (@isset($fields['documents']) && $fields['documents'])
+                @foreach ($fields['documents'] as $document)
+                    <x-cards.card-document :document="$document" />
+                @endforeach
+            @endif
         </div>
     </div>
 </x-block>

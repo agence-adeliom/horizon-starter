@@ -27,7 +27,7 @@ class DocumentsBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make(),
+            HeadingField::make(HeadingField::LABEL, HeadingField::NAME, null, 'h2'),
             WysiwygField::minimal(),
             Repeater::make("Documents", self::FIELD_DOCUMENTS)
                 ->fields([
@@ -37,7 +37,7 @@ class DocumentsBlock extends AbstractBlock
                 ->layout('row')
                 ->collapsed(HeadingField::NAME)
                 ->minRows(1)
-                ->maxRows(2),
+                ->maxRows(10),
         ]);
 
         yield from LayoutTab::make()->fields([
