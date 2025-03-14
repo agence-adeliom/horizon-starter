@@ -31,11 +31,11 @@
                 <div class="wysiwyg mt-title-text-desktop">
                     {!! $fields['wysiwyg'] !!}
                 </div>
-                @endif
+            @endisset
 
-                @isset($fields['buttons'])
-                    <x-action.buttons class="mt-8" :buttons="$fields['buttons']" />
-                @endisset
-            </div>
+            @isset($fields['buttons'])
+                <x-action.buttons class="mt-8" :buttons="$fields['buttons']" />
+            @endisset
         </div>
-    </x-block>
+    </div>
+</x-block>

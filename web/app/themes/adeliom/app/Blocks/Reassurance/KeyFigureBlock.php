@@ -32,7 +32,7 @@ class KeyFigureBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make()->required(),
+            HeadingField::make(HeadingField::LABEL, HeadingField::NAME, null, 'h2')->required(),
             WysiwygField::minimal(),
             Repeater::make(__('Éléments'), self::FIELD_ITEMS)
                 ->minRows(3)

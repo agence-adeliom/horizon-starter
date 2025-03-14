@@ -31,7 +31,7 @@ class ArgumentBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make()->required(),
+            HeadingField::make(HeadingField::LABEL, HeadingField::NAME, null, 'h2')->required(),
             Repeater::make(__("Liste d'arguments"), self::FIELD_ARGS)
                 ->fields([
                     Text::make(__("Titre de l'argument"), self::FIELD_ARG_TITLE)->maxLength(100)->helperText(__("Maximum 100 caractères"))->required(),

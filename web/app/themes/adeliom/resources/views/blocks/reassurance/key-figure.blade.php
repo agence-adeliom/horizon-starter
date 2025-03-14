@@ -36,21 +36,21 @@
                 ])>
                     @if (@isset($item['icon']) && $item['icon'])
                         <x-ui.icon :icon="$item['icon']" class="icon-24 text-primary lg:w-10 lg:h-10" />
-                    @endisset
+                    @endif
 
                     @if (@isset($item['data']) && $item['data'])
-                        <div @class(['heading-2 font-semibold'])>
+                        <div @class(['heading text-3xlarge md:text-4xlarge lg:text-6xlarge'])>
                             {{ $item['data'] }}
                         </div>
-                    @endisset
+                    @endif
 
                     @if (@isset($item['title']) && $item['title'])
                         <div class="text-large text-text-secondary">
                             {{ $item['title'] }}
                         </div>
-                    @endisset
-    </div>
-@endforeach
-</div>
-</x-block>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+    </x-block>
 @endif

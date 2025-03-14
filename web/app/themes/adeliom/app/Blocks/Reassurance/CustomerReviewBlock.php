@@ -29,7 +29,7 @@ class CustomerReviewBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make()->required(),
+            HeadingField::make(HeadingField::LABEL, HeadingField::NAME, null, 'h2')->required(),
             WysiwygField::default(),
             Message::make("Information")
                 ->body("La note globale est gérée au niveau général de votre thème."),

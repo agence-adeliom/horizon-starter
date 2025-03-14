@@ -28,7 +28,7 @@ class TextMediaBlock extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make()->required(),
+            HeadingField::make(HeadingField::LABEL, HeadingField::NAME, null, 'h2')->required(),
             WysiwygField::make(),
             ButtonField::group(),
         ]);

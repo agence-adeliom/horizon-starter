@@ -27,7 +27,7 @@ class Hero extends AbstractBlock
     {
         yield from ContentTab::make()->fields([
             UptitleField::make(),
-            HeadingField::make()->required(),
+            HeadingField::make(HeadingField::LABEL, HeadingField::NAME, null, 'h1')->required(),
             WysiwygField::simple(),
             ButtonField::group(),
         ]);
