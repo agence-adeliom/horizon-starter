@@ -210,6 +210,11 @@ class OptionPageAdmin extends AbstractAdmin
             ]);
     }
 
+    public function getOptionPageParams(): array
+    {
+        return array_merge(parent::getOptionPageParams(), ['capability' => 'edit_posts']);
+    }
+
     public function getStyle(): string
     {
         return "seamless";
