@@ -108,6 +108,13 @@ task('install:theme', function () {
 	run('cd {{release_or_current_path}}/web/app/themes/adeliom && {{bin/composer}} install');
 });
 
+task('cache:icons', static function (): void {
+	within('{{release_or_current_path}}', function () {
+		run('{{bin/wp}} acorn icons:cache');
+		info('✅ Les icones Blade ont été mis en cache avec succès!');
+	});
+});
+
 // Define deployment flow
 before('deploy:vendors', 'deploy:shared');
 after('deploy:update_code', 'deploy:vendors');
@@ -115,4 +122,5 @@ after('deploy:vendors', 'install:theme');
 before('deploy:symlink', 'npm:build');
 after('npm:build', 'deploy:language');
 after('deploy:symlink', 'reset:cache');
+after('reset:cache', 'cache:icons');
 after('deploy:failed', 'deploy:unlock');
