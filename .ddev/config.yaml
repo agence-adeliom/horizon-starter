@@ -17,6 +17,7 @@ hooks:
         - exec-host: ddev auth ssh
         - composer: install
         - exec-host: ddev theme:install
+        - exec-host: ddev acorn icons:cache
 web_environment: []
 nodejs_version: '20'
 corepack_enable: false
