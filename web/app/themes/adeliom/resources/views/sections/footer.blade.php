@@ -21,7 +21,7 @@
                                 <x-action.button :url="$item['link']" target="_blank" rel="noopener"
                                     aria-label="Visitez notre page {{ $item['title'] ?? '' }} (Ouvrir dans un nouvel onglet)"
                                     type="secondary" iconOnly>
-                                    <x-ui.icon :icon="$item['icon']" class="icon-16" />
+                                    <x-ui.icon :icon="$item['icon']" class="icon-4" />
                                 </x-action.button>
                             </li>
                         @endif

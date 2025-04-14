@@ -15,7 +15,7 @@
     <div class="md:flex-end">
         <a href="https://adeliom.com/" target="_blank" rel="noopener nofollow" class="text-hover flex items-center gap-1">
             <span class="text-xsmall">Conception</span>
-            <x-icon-adeliom class="icon-12" />
+            <x-icon-adeliom class="icon-3" />
             <span class="text-xs">Agence Adeliom</span>
         </a>
     </div>

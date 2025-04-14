@@ -1,27 +1,27 @@
 .icon {
-    
+    @apply inline-block p-[0.1em];
 }
 
-.icon-12 {
+.icon-3 {
     @apply w-3 h-3;
 }
 
-.icon-16 {
+.icon-4 {
     @apply w-4 h-4;
 }
 
-.icon-20 {
+.icon-5 {
     @apply w-5 h-5;
 }
 
-.icon-24 {
+.icon-6 {
     @apply w-6 h-6;
 }
 
-.icon-32 {
+.icon-8 {
     @apply w-8 h-8;
 }
 
-.icon-40 {
+.icon-10 {
     @apply w-10 h-10;
 }

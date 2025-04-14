@@ -8,13 +8,13 @@
 
         <a class="menu-item group" href="{{ $item->url }}">
             @if (isset($item->customFields['menu_item']['icon']) && $item->customFields['menu_item']['icon'])
-                <x-ui.icon :icon="$item->customFields['menu_item']['icon']" class="icon-20" />
+                <x-ui.icon :icon="$item->customFields['menu_item']['icon']" class="icon-5" />
             @endif
             <span class="flex flex-col gap-1">
                 <span class="menu-item__title group-hover:text-primary">
                     {{ $item->title }}
                     @if ($hasChildren && !$parent)
-                        <x-far-angle-down class="icon-16 max-lg:-rotate-90" />
+                        <x-far-angle-down class="icon-4 max-lg:-rotate-90" />
                     @endif
                 </span>
                 @if (isset($item->description) && $item->description && $parent)
@@ -39,7 +39,7 @@
                                 @php
                                     $back_link_class =
                                         'cursor-pointer inline-flex font-semibold items-center gap-2 transition-colors duration-300 ease-in-out hover:text-primary lg:text-medium';
-                                    $back_arrow_class = 'icon-16 grid place-items-center text-primary';
+                                    $back_arrow_class = 'icon-4 grid place-items-center text-primary';
                                 @endphp
 
                                 @if (isset($item->parentId) && $item->parentId > 0 && $parent)
@@ -85,7 +85,7 @@
 
                     <button @click="closeAllSubmenu" aria-label="Fermer le sous-menu"
                         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">
-                        <x-far-xmark class="icon-20 text-text-secondary" />
+                        <x-far-xmark class="icon-5 text-text-secondary" />
                     </button>
                 </div>
             </template>

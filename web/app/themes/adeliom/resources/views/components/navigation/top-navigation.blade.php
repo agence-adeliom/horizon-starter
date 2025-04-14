@@ -22,7 +22,7 @@
                     @if ($withSearch)
                         <span class="flex" x-data="initModal()">
                             <button class="top-item top-item--search" x-on:click="openModal()">
-                                <x-fas-magnifying-glass class="icon-16" />
+                                <x-fas-magnifying-glass class="icon-4" />
                                 Rechercher
                             </button>
 

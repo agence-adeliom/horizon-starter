@@ -2,14 +2,14 @@
     <div class="flex space-x-1 text-orange-400">
         @foreach ($stars() as $star)
             @if ($star === 'full')
-                <x-fas-star class="icon-20" />
-                {{-- <x-fas:sharp-star-sharp class="icon-20" /> --}}
+                <x-fas-star class="icon-5" />
+                {{-- <x-fas:sharp-star-sharp class="icon-5" /> --}}
             @elseif ($star === 'half')
-                <x-fas-star-half-stroke class="icon-20" />
-                {{-- <x-far:sharp-star-sharp-half-stroke class="icon-20" /> --}}
+                <x-fas-star-half-stroke class="icon-5" />
+                {{-- <x-far:sharp-star-sharp-half-stroke class="icon-5" /> --}}
             @elseif ($star === 'empty')
-                <x-far-star class="icon-20 " />
-                {{-- <x-far:sharp-star-sharp class="icon-20" /> --}}
+                <x-far-star class="icon-5 " />
+                {{-- <x-far:sharp-star-sharp class="icon-5" /> --}}
             @endif
         @endforeach
     </div>

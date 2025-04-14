@@ -28,7 +28,7 @@
                 <a href="{{ $videoUrl }}" data-glightbox x-ref="opener"
                     class="absolute-full group flex items-center justify-center">
                     <div class="btn btn--play">
-                        <x-fas-play class="icon-24 ml-1" />
+                        <x-fas-play class="icon-6 ml-1" />
                     </div>
                 </a>
             @endif

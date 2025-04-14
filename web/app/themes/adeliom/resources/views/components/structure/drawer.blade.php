@@ -19,7 +19,7 @@
         ])>
 
         <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6">
-            <x-far-xmark class="icon-20 text-neutral-500" />
+            <x-far-xmark class="icon-5 text-neutral-500" />
         </button>
 
         <!-- Header Slot -->

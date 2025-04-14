@@ -28,7 +28,7 @@
 
             <x-action.button url="{{ get_permalink($content->ID) }}" type="tertiary" class="mt-auto" full-link="true">
                 Voir plus
-                <x-fas-arrow-right class="icon-16" />
+                <x-fas-arrow-right class="icon-4" />
             </x-action.button>
         </div>
     </div>
