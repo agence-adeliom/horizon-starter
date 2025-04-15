@@ -36,8 +36,6 @@
             @isset($fields['buttons'])
                 <x-action.buttons class="mt-8" :buttons="$fields['buttons']" />
             @endisset
-            <x-fab-apper class="icon-6" />
-            <x-fab-square-vimeo class="icon-6" />
         </div>
     </div>
 </x-block>
