@@ -50,6 +50,10 @@
             "url": "git@github.com:agence-adeliom/horizon-blocks.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "junaidbhura/gravityforms",
