@@ -1,3 +1,4 @@
+@php use App\Admin\OptionPageAdmin; @endphp
 <!doctype html>
 <html @php(language_attributes())>
 
@@ -15,10 +16,17 @@
 
     @php(do_action('get_header'))
     @php(wp_head())
+    
+    @if (!empty($scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS]))
+        {!! $scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS] !!}
+    @endif
 </head>
 
 <body @php(body_class()) x-data="initPage()">
     @php(wp_body_open())
+    @if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS]))
+        {!! $scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS] !!}
+    @endif
 
     <div id="app">
         <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-[9999]" href="#main">
@@ -46,6 +54,10 @@
 
     @php(do_action('get_footer'))
     @php(wp_footer())
+    
+    @if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS]))
+        {!! $scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS] !!}
+    @endif
 </body>
 
 </html>

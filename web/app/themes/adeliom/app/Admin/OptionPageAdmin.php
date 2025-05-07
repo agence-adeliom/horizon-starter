@@ -21,6 +21,7 @@ use Extended\ACF\Fields\Number;
 use Extended\ACF\Fields\Repeater;
 use Extended\ACF\Fields\Tab;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\Textarea;
 use Extended\ACF\Fields\Textarea as FieldsTextarea;
 use Extended\ACF\Fields\TrueFalse;
 use Extended\ACF\Fields\URL;
@@ -31,6 +32,8 @@ class OptionPageAdmin extends AbstractAdmin
     public static bool $isOptionPage = true;
     public static ?string $optionPageIcon = null;
 
+
+    //Footer
     public const string FIELD_PARAM_FIELDS = "param";
     public const string FIELD_FOOTER_FIELDS = "footer";
     public const string FIELD_SOCIAL_NETWORKS = "social-networks";
@@ -40,6 +43,7 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_CLIENT_BASELINE = "client-baseline";
     public const string FIELD_HEADER_CTA = "header-cta";
 
+    // Navigation
     public const string FIELD_MAIN_NAVIGATION_TITLE = "main-navigation-title";
     public const string FIELD_SECOND_NAVIGATION_TITLE = "second-navigation-title";
     public const string FIELD_TITLE_HIGHLIGHT = "title-highlight";
@@ -47,10 +51,12 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_FOOTER_TITLE = "footer-title";
     public const string FIELD_FOOTER_TEXT = "footer-text";
 
+    // Reviews
     public const string FIELD_REVIEWS_FIELDS = "reviews";
     public const string FIELD_GLOBAL_RATING = "global-rating";
     public const string FIELD_BTN_REVIEWS = "btn-reviews";
 
+    //Top navigation
     public const string FIELD_TOP_NAVIGATION = "top-navigation";
     public const string FIELD_TOP_NAVIGATION_ENABLED = "is-enabled";
     public const string FIELD_TOP_NAVIGATION_SHOW_SEARCH = "show-search";
@@ -63,12 +69,16 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_TOP_NAVIGATION_LINKS_REPEATER = "links";
     public const string FIELD_TOP_NAVIGATION_LINK = "link";
 
+
+    //Banner
     public const string FIELD_BANNER = "banner";
     public const string FIELD_PROMO_ACTIVE = "is_active";
     public const string FIELD_PROMO_DARK = "is_dark";
     public const string FIELD_BANNER_TITLE = "title";
     public const string FIELD_BANNER_LINK = "link";
 
+
+    //404
     public const string FIELD_404 = "404";
     public const string FIELD_404_TITLE = "404_title";
     public const string FIELD_404_FIRST_COLUMN = "404_first_column";
@@ -77,6 +87,14 @@ class OptionPageAdmin extends AbstractAdmin
     public const string FIELD_404_SECOND_COLUMN_TITLE = "title";
     public const string FIELD_404_SEARCH_ACTIVE = "has_search";
     public const string FIELD_404_SEARCH_TITLE = "search_title";
+
+
+    //Scripts
+    public const FIELD_SCRIPTS = 'script';
+    public const FIELD_HEAD_SCRIPTS = 'head_scripts';
+    public const FIELD_BEFORE_BEGIN_BODY_SCRIPTS = 'before_begin_body_scripts';
+    public const FIELD_BEFORE_END_BODY_SCRIPTS = 'before_end_body_scripts';
+    public const FIELD_ADMIN_SCRIPTS = 'admin_scripts';
 
     public function getFields(): ?iterable
     {
@@ -207,6 +225,22 @@ class OptionPageAdmin extends AbstractAdmin
                 Text::make("Titre de la recherche", self::FIELD_404_SEARCH_TITLE)->default("Recherche rapide")->wrapper(['width' => 75])->conditionalLogic([
                     ConditionalLogic::where(self::FIELD_404_SEARCH_ACTIVE, "==", "1")
                 ]),
+            ]);
+
+
+        yield Tab::make(__('Scripts'), 'other_tab');
+        yield Group::make(__('Script', self::FIELD_SCRIPTS))
+            ->fields([
+                Textarea::make(__('Head script'), self::FIELD_HEAD_SCRIPTS)
+                    ->helperText('Add your scripts here'),
+                Textarea::make(__('Just after body open'), self::FIELD_BEFORE_BEGIN_BODY_SCRIPTS)
+                    ->helperText('Add your scripts here'),
+
+                Textarea::make(__('Before end body'), self::FIELD_BEFORE_END_BODY_SCRIPTS)
+                    ->helperText('Add your scripts here'),
+
+                Textarea::make(__('Admin scripts'), self::FIELD_ADMIN_SCRIPTS)
+                    ->helperText('Add your scripts here'),
             ]);
     }
 

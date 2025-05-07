@@ -2,6 +2,7 @@
 
 namespace App\View\Composers;
 
+use App\Admin\OptionPageAdmin;
 use App\PostTypes\LandingPage;
 use Roots\Acorn\View\Composer;
 
@@ -27,6 +28,8 @@ class App extends Composer
             'siteName' => $this->siteName(),
             'postType' => get_post_type(),
             'isLp'     => self::isLandingPage(),
+            'scripts'  => get_field(OptionPageAdmin::FIELD_SCRIPTS, 'options') ?? [],
+
         ];
     }
 
