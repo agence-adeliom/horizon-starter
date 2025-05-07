@@ -30,3 +30,4 @@ wp-cli.local.yml
 .idea
 web/wp-cli.phar
 auth.json
+node_modules
