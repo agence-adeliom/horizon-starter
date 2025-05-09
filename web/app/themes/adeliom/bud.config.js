@@ -21,6 +21,7 @@ export default async app => {
      */
     app.entry('app', ['@scripts/app', '@styles/app'])
         .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .entry('listing', ['@scripts/blocks/listing'])
         .runtime('single')
         .hash()
         .assets(['images']);
