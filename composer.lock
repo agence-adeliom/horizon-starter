@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "9a575786bb8f09e37db5d3cc443e190ee03207bd"
+                                                "reference": "fa1aa7f6cbdc0ffc287eea4f66f5a45e34d5b60a"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/9a575786bb8f09e37db5d3cc443e190ee03207bd",
-                                                "reference": "9a575786bb8f09e37db5d3cc443e190ee03207bd",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/fa1aa7f6cbdc0ffc287eea4f66f5a45e34d5b60a",
+                                                "reference": "fa1aa7f6cbdc0ffc287eea4f66f5a45e34d5b60a",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -80,7 +80,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-05-07T14:59:14+00:00"
+                                    "time": "2025-05-09T09:16:34+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -6707,23 +6707,23 @@
                         },
                         {
                                     "name": "vinkla/extended-acf",
-                                    "version": "14.3.0",
+                                    "version": "14.4.0",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/vinkla/extended-acf.git",
-                                                "reference": "9142fb37b39683fc1b5eeadaf32dcf4c0a1e4ba3"
+                                                "reference": "d60eef4cdf8b8154d1c65e10d3da0d47fb7d778f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/vinkla/extended-acf/zipball/9142fb37b39683fc1b5eeadaf32dcf4c0a1e4ba3",
-                                                "reference": "9142fb37b39683fc1b5eeadaf32dcf4c0a1e4ba3",
+                                                "url": "https://api.github.com/repos/vinkla/extended-acf/zipball/d60eef4cdf8b8154d1c65e10d3da0d47fb7d778f",
+                                                "reference": "d60eef4cdf8b8154d1c65e10d3da0d47fb7d778f",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "php": "^8.2"
                                     },
                                     "require-dev": {
-                                                "phpunit/phpunit": "^11.0",
+                                                "phpunit/phpunit": "^11.0 || ^12.0",
                                                 "symfony/var-dumper": "^7.0"
                                     },
                                     "suggest": {
@@ -6732,7 +6732,7 @@
                                     "type": "library",
                                     "extra": {
                                                 "branch-alias": {
-                                                            "dev-master": "14.3-dev"
+                                                            "dev-master": "14.4-dev"
                                                 }
                                     },
                                     "autoload": {
@@ -6764,9 +6764,9 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/vinkla/extended-acf/issues",
-                                                "source": "https://github.com/vinkla/extended-acf/tree/14.3.0"
+                                                "source": "https://github.com/vinkla/extended-acf/tree/14.4.0"
                                     },
-                                    "time": "2025-02-25T09:16:11+00:00"
+                                    "time": "2025-05-08T12:50:23+00:00"
                         },
                         {
                                     "name": "vlucas/phpdotenv",
@@ -6964,15 +6964,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/folders",
-                                    "version": "3.0.9",
+                                    "version": "3.1.0",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/folders/",
-                                                "reference": "tags/3.0.9"
+                                                "reference": "tags/3.1.0"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/folders.3.0.9.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/folders.3.1.0.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -6982,15 +6982,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/seo-by-rank-math",
-                                    "version": "1.0.243",
+                                    "version": "1.0.244",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                                                "reference": "tags/1.0.243"
+                                                "reference": "tags/1.0.244"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.243.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.244.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7054,10 +7054,10 @@
                         },
                         {
                                     "name": "wpengine/advanced-custom-fields-pro",
-                                    "version": "6.4.0.1",
+                                    "version": "6.4.1",
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.4.0.1"
+                                                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.4.1"
                                     },
                                     "require": {
                                                 "composer/installers": "~1.0 || ~2.0"
@@ -7130,12 +7130,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "00a1b51fda5bb2305e7ae7ecbfa88cf826856f2c"
+                                                "reference": "59be420c5cdc0c3c9cdae31804d32fefb515a918"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/00a1b51fda5bb2305e7ae7ecbfa88cf826856f2c",
-                                                "reference": "00a1b51fda5bb2305e7ae7ecbfa88cf826856f2c",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/59be420c5cdc0c3c9cdae31804d32fefb515a918",
+                                                "reference": "59be420c5cdc0c3c9cdae31804d32fefb515a918",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7153,7 +7153,7 @@
                                                 "airesvsg/acf-to-rest-api": "<=3.1",
                                                 "akaunting/akaunting": "<2.1.13",
                                                 "akeneo/pim-community-dev": "<5.0.119|>=6,<6.0.53",
-                                                "alextselegidis/easyappointments": "<=1.5",
+                                                "alextselegidis/easyappointments": "<=1.5.1",
                                                 "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
                                                 "amazing/media2click": ">=1,<1.3.3",
                                                 "ameos/ameos_tarteaucitron": "<1.2.23",
@@ -7257,7 +7257,7 @@
                                                 "contao/managed-edition": "<=1.5",
                                                 "corveda/phpsandbox": "<1.3.5",
                                                 "cosenary/instagram": "<=2.3",
-                                                "craftcms/cms": "<=4.14.14|>=5,<=5.6.16",
+                                                "craftcms/cms": "<4.15.3|>=5,<5.7.5",
                                                 "croogo/croogo": "<4",
                                                 "cuyz/valinor": "<0.12",
                                                 "czim/file-handling": "<1.5|>=2,<2.3",
@@ -7490,6 +7490,7 @@
                                                 "klaviyo/magento2-extension": ">=1,<3",
                                                 "knplabs/knp-snappy": "<=1.4.2",
                                                 "kohana/core": "<3.3.3",
+                                                "koillection/koillection": "<1.6.12",
                                                 "krayin/laravel-crm": "<=1.3",
                                                 "kreait/firebase-php": ">=3.2,<3.8.1",
                                                 "kumbiaphp/kumbiapp": "<=1.1.1",
@@ -8052,7 +8053,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-05-05T21:05:31+00:00"
+                                    "time": "2025-05-08T20:06:04+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
