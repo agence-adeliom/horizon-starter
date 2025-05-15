@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "fa1aa7f6cbdc0ffc287eea4f66f5a45e34d5b60a"
+                                                "reference": "8334380834e051ebb447432b14cf0fe643ced623"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/fa1aa7f6cbdc0ffc287eea4f66f5a45e34d5b60a",
-                                                "reference": "fa1aa7f6cbdc0ffc287eea4f66f5a45e34d5b60a",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/8334380834e051ebb447432b14cf0fe643ced623",
+                                                "reference": "8334380834e051ebb447432b14cf0fe643ced623",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -80,7 +80,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-05-09T09:16:34+00:00"
+                                    "time": "2025-05-15T14:24:59+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -7000,15 +7000,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/w3-total-cache",
-                                    "version": "2.8.8",
+                                    "version": "2.8.9",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/w3-total-cache/",
-                                                "reference": "tags/2.8.8"
+                                                "reference": "tags/2.8.9"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.8.8.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.8.9.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7130,12 +7130,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "59be420c5cdc0c3c9cdae31804d32fefb515a918"
+                                                "reference": "4aa0a0890ece3b361fc4179b1e30fdcc0d2c689b"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/59be420c5cdc0c3c9cdae31804d32fefb515a918",
-                                                "reference": "59be420c5cdc0c3c9cdae31804d32fefb515a918",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4aa0a0890ece3b361fc4179b1e30fdcc0d2c689b",
+                                                "reference": "4aa0a0890ece3b361fc4179b1e30fdcc0d2c689b",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7398,8 +7398,8 @@
                                                 "geshi/geshi": "<1.0.8.11-dev",
                                                 "getformwork/formwork": "<1.13.1|>=2.0.0.0-beta1,<2.0.0.0-beta4",
                                                 "getgrav/grav": "<1.7.46",
-                                                "getkirby/cms": "<=3.6.6.5|>=3.7,<=3.7.5.4|>=3.8,<=3.8.4.3|>=3.9,<=3.9.8.1|>=3.10,<=3.10.1|>=4,<=4.3",
-                                                "getkirby/kirby": "<=2.5.12",
+                                                "getkirby/cms": "<3.9.8.3-dev|>=3.10,<3.10.1.2-dev|>=4,<4.7.1",
+                                                "getkirby/kirby": "<3.9.8.3-dev|>=3.10,<3.10.1.2-dev|>=4,<4.7.1",
                                                 "getkirby/panel": "<2.5.14",
                                                 "getkirby/starterkit": "<=3.7.0.2",
                                                 "gilacms/gila": "<=1.15.4",
@@ -7630,7 +7630,7 @@
                                                 "oro/customer-portal": ">=4.1,<=4.1.13|>=4.2,<=4.2.10|>=5,<=5.0.11|>=5.1,<=5.1.3",
                                                 "oro/platform": ">=1.7,<1.7.4|>=3.1,<3.1.29|>=4.1,<4.1.17|>=4.2,<=4.2.10|>=5,<=5.0.12|>=5.1,<=5.1.3",
                                                 "oveleon/contao-cookiebar": "<1.16.3|>=2,<2.1.3",
-                                                "oxid-esales/oxideshop-ce": "<4.5",
+                                                "oxid-esales/oxideshop-ce": "<=7.0.5",
                                                 "oxid-esales/paymorrow-module": ">=1,<1.0.2|>=2,<2.0.1",
                                                 "packbackbooks/lti-1-3-php-library": "<5",
                                                 "padraic/humbug_get_contents": "<1.1.2",
@@ -7739,8 +7739,8 @@
                                                 "serluck/phpwhois": "<=4.2.6",
                                                 "sfroemken/url_redirect": "<=1.2.1",
                                                 "sheng/yiicms": "<1.2.1",
-                                                "shopware/core": "<6.6.10.3-dev|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
-                                                "shopware/platform": "<6.6.10.3-dev|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
+                                                "shopware/core": "<6.5.8.18-dev|>=6.6,<6.6.10.3-dev|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
+                                                "shopware/platform": "<6.5.8.18-dev|>=6.6,<6.6.10.3-dev|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
                                                 "shopware/production": "<=6.3.5.2",
                                                 "shopware/shopware": "<=5.7.17",
                                                 "shopware/storefront": "<=6.4.8.1|>=6.5.8,<6.5.8.7-dev",
@@ -8053,20 +8053,20 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-05-08T20:06:04+00:00"
+                                    "time": "2025-05-14T18:07:05+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
-                                    "version": "3.12.2",
+                                    "version": "3.13.0",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                                                "reference": "6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa"
+                                                "reference": "65ff2489553b83b4597e89c3b8b721487011d186"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa",
-                                                "reference": "6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa",
+                                                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/65ff2489553b83b4597e89c3b8b721487011d186",
+                                                "reference": "65ff2489553b83b4597e89c3b8b721487011d186",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -8137,7 +8137,7 @@
                                                             "type": "thanks_dev"
                                                 }
                                     ],
-                                    "time": "2025-04-13T04:10:18+00:00"
+                                    "time": "2025-05-11T03:36:00+00:00"
                         }
             ],
             "aliases": [],
