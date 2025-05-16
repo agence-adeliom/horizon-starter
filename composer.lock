@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "8334380834e051ebb447432b14cf0fe643ced623"
+                                                "reference": "8d0d0c87249fa2a428cb56609f55f09eb94d00ec"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/8334380834e051ebb447432b14cf0fe643ced623",
-                                                "reference": "8334380834e051ebb447432b14cf0fe643ced623",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/8d0d0c87249fa2a428cb56609f55f09eb94d00ec",
+                                                "reference": "8d0d0c87249fa2a428cb56609f55f09eb94d00ec",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -80,7 +80,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-05-15T14:24:59+00:00"
+                                    "time": "2025-05-16T10:18:22+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -7130,12 +7130,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "4aa0a0890ece3b361fc4179b1e30fdcc0d2c689b"
+                                                "reference": "98ed8a7be061968455a548ceb0ba2790b11b119f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4aa0a0890ece3b361fc4179b1e30fdcc0d2c689b",
-                                                "reference": "4aa0a0890ece3b361fc4179b1e30fdcc0d2c689b",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/98ed8a7be061968455a548ceb0ba2790b11b119f",
+                                                "reference": "98ed8a7be061968455a548ceb0ba2790b11b119f",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7803,7 +7803,7 @@
                                                 "subhh/libconnect": "<7.0.8|>=8,<8.1",
                                                 "sukohi/surpass": "<1",
                                                 "sulu/form-bundle": ">=2,<2.5.3",
-                                                "sulu/sulu": "<1.6.44|>=2,<2.5.21|>=2.6,<2.6.5",
+                                                "sulu/sulu": "<1.6.44|>=2,<2.5.25|>=2.6,<2.6.9|>=3.0.0.0-alpha1,<3.0.0.0-alpha3",
                                                 "sumocoders/framework-user-bundle": "<1.4",
                                                 "superbig/craft-audit": "<3.0.2",
                                                 "svewap/a21glossary": "<=0.4.10",
@@ -8053,7 +8053,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-05-14T18:07:05+00:00"
+                                    "time": "2025-05-15T17:04:55+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
