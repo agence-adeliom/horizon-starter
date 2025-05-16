@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "a120974033755166fd6eb2828f2f419c6ff0d9e5"
+                                                "reference": "ec608bddaf9882666018d92b93494ab76d05798f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/a120974033755166fd6eb2828f2f419c6ff0d9e5",
-                                                "reference": "a120974033755166fd6eb2828f2f419c6ff0d9e5",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/ec608bddaf9882666018d92b93494ab76d05798f",
+                                                "reference": "ec608bddaf9882666018d92b93494ab76d05798f",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -81,7 +81,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-05-16T12:39:59+00:00"
+                                    "time": "2025-05-16T12:43:48+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
