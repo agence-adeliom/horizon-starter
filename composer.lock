@@ -51,16 +51,17 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "d4d0d9647ad643aca86d5e42f12ef890329a54ab"
+                                                "reference": "a120974033755166fd6eb2828f2f419c6ff0d9e5"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/d4d0d9647ad643aca86d5e42f12ef890329a54ab",
-                                                "reference": "d4d0d9647ad643aca86d5e42f12ef890329a54ab",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/a120974033755166fd6eb2828f2f419c6ff0d9e5",
+                                                "reference": "a120974033755166fd6eb2828f2f419c6ff0d9e5",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "agence-adeliom/horizon-tools": "dev-main",
+                                                "laravel/prompts": "^0.1.25",
                                                 "php": ">=8.4"
                                     },
                                     "default-branch": true,
@@ -80,7 +81,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-05-16T10:30:12+00:00"
+                                    "time": "2025-05-16T12:39:59+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
