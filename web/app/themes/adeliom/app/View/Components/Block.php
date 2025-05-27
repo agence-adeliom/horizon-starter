@@ -54,6 +54,7 @@ class Block extends Component
     public ?string $freeClass = null;
     public ?array $bgImage = null;
 
+
     public ?string $fullClass = null;
 
     /**
@@ -66,6 +67,7 @@ class Block extends Component
         public ?string          $container = null,
         public ?string          $anchor = null,
         public ?string          $class = null,
+        public ?array           $block = null,
     ) {
 
         $this->handleClassName();
