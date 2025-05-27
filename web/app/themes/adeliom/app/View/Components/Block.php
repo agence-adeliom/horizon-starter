@@ -76,6 +76,7 @@ class Block extends Component
         $this->handleContainer();
         $this->handleDarkmode();
         $this->handleFullClass();
+        $this->handleAnchor();
     }
 
 
@@ -164,6 +165,13 @@ class Block extends Component
             $this->darkModeClass,
             $this->freeClass,
         ]);
+    }
+
+    private function handleAnchor(): void
+    {
+        if (!empty($this->block['anchor'])) {
+            $this->anchor = $this->block['anchor'];
+        }
     }
 
     /**
