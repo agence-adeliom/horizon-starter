@@ -125,8 +125,7 @@ return [
     */
 
     'attributes' => [
-        // 'width' => 50,
-        // 'height' => 50,
+        'aria-hidden' => 'true',
     ],
 
     /*
