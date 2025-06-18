@@ -4,6 +4,7 @@
 
 @import './navigations/header.css';
 @import './navigations/menu.css';
+@import './navigations/breadcrumb.css';
 
 @import './structure/list.css';
 
