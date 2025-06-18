@@ -33,6 +33,7 @@ class Img extends Component
      * @param string|null $loading          Image loading attribute : 'lazy' (default), 'eager', 'auto'.
      * @param string|null $containerClass   Container CSS classes. Default : null.
      * @param string|null $ratio            Image ratio (e.g. '16:9', '4:3').
+     * @param bool|null   $decorative       Is image decorative.
      */
     public function __construct(
         public null|false|array $image = null,
@@ -41,6 +42,7 @@ class Img extends Component
         public ?string $loading = 'lazy',
         public ?string $containerClass = null,
         public ?string $ratio = null,
+        public ?bool   $decorative = false,
     ) {
         $this->handleData();
     }
@@ -52,10 +54,15 @@ class Img extends Component
         }
 
         if ($this->id) {
-            $this->content = wp_get_attachment_image(attachment_id: $this->id, size: $this->size, attr: [
+            $attr = [
                 'class' => $this->class,
                 'loading' => $this->loading,
-            ]);
+            ];
+            if ($this->decorative) {
+                $attr['role'] = "presentation";
+            }
+
+            $this->content = wp_get_attachment_image(attachment_id: $this->id, size: $this->size, attr: $attr);
 
             $this->containerClass = trim(implode(' ', [
                 null !== $this->containerClass ? $this->containerClass : 'relative',
