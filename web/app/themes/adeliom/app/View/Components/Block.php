@@ -77,6 +77,7 @@ class Block extends Component
         $this->handleDarkmode();
         $this->handleFullClass();
         $this->handleAnchor();
+        $this->handleBlockClass();
     }
 
 
@@ -171,6 +172,18 @@ class Block extends Component
     {
         if (!empty($this->block['anchor'])) {
             $this->anchor = $this->block['anchor'];
+        }
+    }
+
+    private function handleBlockClass(): void
+    {
+
+        if (!empty($this->block['name'])) {
+            $this->fullClass = sprintf(
+                'block-%s %s',
+                str_replace('acf/', '', $this->block['name']),
+                $this->fullClass
+            );
         }
     }
 
