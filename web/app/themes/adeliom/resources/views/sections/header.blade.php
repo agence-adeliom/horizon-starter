@@ -1,4 +1,4 @@
-<header class="header">
+<header role="banner" class="header">
     @include('navigations.header.mobile-bar')
     <div class="menu-overlay" :class="$store.submenu && 'is-open'" x-cloak></div>
     <div class="header-mix" :class="mobileOpen && 'is-open'">

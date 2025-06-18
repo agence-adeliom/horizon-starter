@@ -33,7 +33,7 @@
                     x-transition:enter="ease-smooth duration-500" x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100" x-transition:leave="ease-smooth duration-500"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-cloak>
-                    <nav aria-label="Sous-menu" class="submenu__container">
+                    <div class="submenu__container">
                         <span class="submenu__sidebar">
                             <div class="flex flex-col gap-y-medium">
                                 @php
@@ -81,7 +81,7 @@
                                 ])
                             @endforeach
                         </ul>
-                    </nav>
+                    </div>
 
                     <button @click="closeAllSubmenu" aria-label="Fermer le sous-menu"
                         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">

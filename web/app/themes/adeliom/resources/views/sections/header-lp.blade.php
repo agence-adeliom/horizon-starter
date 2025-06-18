@@ -4,7 +4,7 @@
     $btnLp = !empty($btnHighlight['link']) ? $btnHighlight['link'] : null;
 @endphp
 
-<header class="banner b-bottom border-card bg-white py-4">
+<header role="banner" class="banner b-bottom border-card bg-white py-4">
     <div class="{{ $btnLp ? 'flex justify-between items-center' : '' }} container">
         @if ($logo)
             <x-media.img :image="$logo" class="mx-auto h-auto w-24" />

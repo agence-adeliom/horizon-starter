@@ -16,7 +16,7 @@
 
     @php(do_action('get_header'))
     @php(wp_head())
-    
+
     @if (!empty($scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS]))
         {!! $scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS] !!}
     @endif
@@ -41,7 +41,7 @@
             @include('sections.header')
         @endif
 
-        <main id="main" class="main">
+        <main role="main" id="main" class="main">
             @yield('content')
         </main>
 
@@ -54,7 +54,7 @@
 
     @php(do_action('get_footer'))
     @php(wp_footer())
-    
+
     @if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS]))
         {!! $scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS] !!}
     @endif

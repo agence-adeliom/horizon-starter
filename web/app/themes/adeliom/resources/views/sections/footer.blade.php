@@ -1,7 +1,7 @@
 @php use Adeliom\HorizonTools\ViewModels\Menu\MenuViewModel; @endphp
 
 <div class="bg-neutral-100 py-section-mobile lg:py-section-desktop">
-    <footer class="container mx-auto px-4 md:px-8">
+    <footer role="contentinfo" class="container mx-auto px-4 md:px-8">
         <div class="flex flex-col justify-between gap-6 border-b pb-6 md:flex-row md:items-center">
             <div class="flex flex-col gap-1 w-full">
                 @if ($footerTitle)
@@ -47,39 +47,36 @@
 
             <div>
                 @if ($primaryFooterMenu instanceof MenuViewModel && $primaryFooterMenu->items)
-                    <nav aria-labelledby="primary-footer-navigation-title">
-                        @if ($primaryNavTitle)
-                            <x-typography.text id="primary-footer-navigation-title" :content="$primaryNavTitle"
-                                class="text-xl font-semibold text-text-primary mb-4" />
-                        @endif
-                        <ul class="flex flex-col gap-4 md:gap-2">
-                            @foreach ($primaryFooterMenu->items as $item)
-                                <li>
-                                    <a @class($navItemClass) href="{{ $item->url }}"
-                                        @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </nav>
+                    @if ($primaryNavTitle)
+                        <x-typography.text id="primary-footer-navigation-title" :content="$primaryNavTitle"
+                            class="text-xl font-semibold text-text-primary mb-4" />
+                    @endif
+                    <ul class="flex flex-col gap-4 md:gap-2">
+                        @foreach ($primaryFooterMenu->items as $item)
+                            <li>
+                                <a @class($navItemClass) href="{{ $item->url }}"
+                                    @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
                 @endif
             </div>
 
             <div>
                 @if ($secondaryFooterMenu instanceof MenuViewModel && $secondaryFooterMenu->items)
-                    <nav aria-labelledby="secondary-footer-navigation-title">
-                        @if ($secondNavTitle)
-                            <x-typography.text id="secondary-footer-navigation-title" :content="$secondNavTitle"
-                                class="text-xl font-semibold text-text-primary mb-4" />
-                        @endif
-                        <ul class="flex flex-col gap-4 md:gap-2">
-                            @foreach ($secondaryFooterMenu->items as $item)
-                                <li>
-                                    <a @class($navItemClass) href="{{ $item->url }}"
-                                        @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </nav>
+                    @if ($secondNavTitle)
+                        <x-typography.text id="secondary-footer-navigation-title" :content="$secondNavTitle"
+                            class="text-xl font-semibold text-text-primary mb-4" />
+                    @endif
+                    <ul class="flex flex-col gap-4 md:gap-2">
+                        @foreach ($secondaryFooterMenu->items as $item)
+                            <li>
+                                <a @class($navItemClass) href="{{ $item->url }}"
+                                    @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+
                 @endif
             </div>
 
