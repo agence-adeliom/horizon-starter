@@ -97,3 +97,7 @@ html :where(.wp-block) {
 .mce-menu-item.mce-menu-item-preview.mce-active .mce-text {
     color: white !important;
 }
+
+table.fixed{
+    position : relative;
+}
