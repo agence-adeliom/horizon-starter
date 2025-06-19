@@ -1,5 +1,5 @@
 @layer components {
-    .menu {
+    .menu:not(.ui-sortable) {
         @apply lg:flex lg:justify-end lg:flex-1 lg:items-center lg:gap-x-5xlarge;
 
         & > li > .menu-item {
