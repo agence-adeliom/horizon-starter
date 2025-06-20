@@ -35,6 +35,15 @@ class BackOfficeHook extends AbstractHook
         }
     }
 
+    public static function allowPrivacyPagetoEditor($caps, $cap, $user_id, $args)
+    {
+        if ('manage_privacy_options' === $cap) {
+            $manage_name = is_multisite() ? 'manage_network' : 'manage_options';
+            $caps = array_diff($caps, [$manage_name]);
+        }
+        return $caps;
+    }
+
     public function init(): void
     {
 
@@ -42,6 +51,11 @@ class BackOfficeHook extends AbstractHook
             $this,
             'enqueueAdminScripts',
         ]);
+
+        add_action('map_meta_cap', [
+            $this,
+            'allowPrivacyPagetoEditor',
+        ], 1, 4);
 
     }
 }
