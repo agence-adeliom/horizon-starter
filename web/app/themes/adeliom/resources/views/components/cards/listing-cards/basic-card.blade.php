@@ -1,3 +1,3 @@
-<div>
-    <!-- Order your soul. Reduce your wants. - Augustine -->
+<div class="h-full w-full bg-primary">
+    <p>Card basique</p>
 </div>

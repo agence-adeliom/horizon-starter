@@ -86,7 +86,7 @@ class ListingBlock extends AbstractBlock
 	public const string VALUE_FILTER_APPEARANCE_MULTISELECT = 'multiselect';
 	public const string VALUE_FILTER_APPEARANCE_SINGLESELECT = 'singleselect';
 
-	public function getFields(): ?iterable
+    public function getFields(): ?iterable
 	{
 		$postTypeField = PostTypeSelectField::make(callback: function ($postType): bool {
 			if (property_exists($postType, 'availableInListingBlock')) {
