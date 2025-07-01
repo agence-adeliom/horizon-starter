@@ -5,6 +5,7 @@ import tailwindTypographyPlugin from '@tailwindcss/typography';
 import tailwindFormsPlugin from '@tailwindcss/forms';
 
 const config = {
+    darkMode: 'class',
     content: [
         './app/**/*.php',
         './resources/**/*.{php,vue,js,ts}',
