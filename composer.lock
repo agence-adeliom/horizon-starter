@@ -89,16 +89,17 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "cc97c8875b306565c5b90063b3833e076f38b12e"
+                                                "reference": "43db8eddc6d9c1ffbe6ea70a4477c1ac9a790db5"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/cc97c8875b306565c5b90063b3833e076f38b12e",
-                                                "reference": "cc97c8875b306565c5b90063b3833e076f38b12e",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/43db8eddc6d9c1ffbe6ea70a4477c1ac9a790db5",
+                                                "reference": "43db8eddc6d9c1ffbe6ea70a4477c1ac9a790db5",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "enshrined/svg-sanitize": "^0.19.0",
+                                                "league/color-extractor": "^0.4.0",
                                                 "livewire/livewire": "^3.5",
                                                 "php": ">=8.2",
                                                 "roots/acorn": "^4.0",
@@ -125,7 +126,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-07-09T13:06:57+00:00"
+                                    "time": "2025-07-09T14:22:16+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -2865,6 +2866,67 @@
                                                 "source": "https://github.com/laravel/serializable-closure"
                                     },
                                     "time": "2024-11-14T18:34:49+00:00"
+                        },
+                        {
+                                    "name": "league/color-extractor",
+                                    "version": "0.4.0",
+                                    "source": {
+                                                "type": "git",
+                                                "url": "https://github.com/thephpleague/color-extractor.git",
+                                                "reference": "21fcac6249c5ef7d00eb83e128743ee6678fe505"
+                                    },
+                                    "dist": {
+                                                "type": "zip",
+                                                "url": "https://api.github.com/repos/thephpleague/color-extractor/zipball/21fcac6249c5ef7d00eb83e128743ee6678fe505",
+                                                "reference": "21fcac6249c5ef7d00eb83e128743ee6678fe505",
+                                                "shasum": ""
+                                    },
+                                    "require": {
+                                                "ext-gd": "*",
+                                                "php": "^7.3 || ^8.0"
+                                    },
+                                    "replace": {
+                                                "matthecat/colorextractor": "*"
+                                    },
+                                    "require-dev": {
+                                                "friendsofphp/php-cs-fixer": "~2",
+                                                "phpunit/phpunit": "^9.5"
+                                    },
+                                    "suggest": {
+                                                "ext-curl": "To download images from remote URLs if allow_url_fopen is disabled for security reasons"
+                                    },
+                                    "type": "library",
+                                    "autoload": {
+                                                "psr-4": {
+                                                            "League\\ColorExtractor\\": "src"
+                                                }
+                                    },
+                                    "notification-url": "https://packagist.org/downloads/",
+                                    "license": [
+                                                "MIT"
+                                    ],
+                                    "authors": [
+                                                {
+                                                            "name": "Mathieu Lechat",
+                                                            "email": "math.lechat@gmail.com",
+                                                            "homepage": "http://matthecat.com",
+                                                            "role": "Developer"
+                                                }
+                                    ],
+                                    "description": "Extract colors from an image as a human would do.",
+                                    "homepage": "https://github.com/thephpleague/color-extractor",
+                                    "keywords": [
+                                                "color",
+                                                "extract",
+                                                "human",
+                                                "image",
+                                                "palette"
+                                    ],
+                                    "support": {
+                                                "issues": "https://github.com/thephpleague/color-extractor/issues",
+                                                "source": "https://github.com/thephpleague/color-extractor/tree/0.4.0"
+                                    },
+                                    "time": "2022-09-24T15:57:16+00:00"
                         },
                         {
                                     "name": "league/flysystem",

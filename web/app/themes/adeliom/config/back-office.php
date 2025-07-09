@@ -12,7 +12,8 @@ return [
                 'radius' => 120,
                 'backgroundColor' => '#FFFFFF',
             ]
-        ]
+        ],
+        'useMainColor' => true,
     ],
     'bo' => [
         'footerText' => null,
