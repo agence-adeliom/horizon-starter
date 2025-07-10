@@ -89,12 +89,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "172f18a7c437ab1d5db349f9c0a7bdcc237a5262"
+                                                "reference": "0641a0eb4a2f4ddf150b45532a12f9891e8070bc"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/172f18a7c437ab1d5db349f9c0a7bdcc237a5262",
-                                                "reference": "172f18a7c437ab1d5db349f9c0a7bdcc237a5262",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/0641a0eb4a2f4ddf150b45532a12f9891e8070bc",
+                                                "reference": "0641a0eb4a2f4ddf150b45532a12f9891e8070bc",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -126,7 +126,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-07-09T16:22:21+00:00"
+                                    "time": "2025-07-10T14:23:25+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -7179,12 +7179,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "a76f62e135c8b583602bd99df737b5c20f4d7200"
+                                                "reference": "b34bea5e19970433575063dd74b68e5e880e10ee"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/a76f62e135c8b583602bd99df737b5c20f4d7200",
-                                                "reference": "a76f62e135c8b583602bd99df737b5c20f4d7200",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/b34bea5e19970433575063dd74b68e5e880e10ee",
+                                                "reference": "b34bea5e19970433575063dd74b68e5e880e10ee",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7624,7 +7624,7 @@
                                                 "microsoft/microsoft-graph": ">=1.16,<1.109.1|>=2,<2.0.1",
                                                 "microsoft/microsoft-graph-beta": "<2.0.1",
                                                 "microsoft/microsoft-graph-core": "<2.0.2",
-                                                "microweber/microweber": "<=2.0.16",
+                                                "microweber/microweber": "<=2.0.19",
                                                 "mikehaertl/php-shellcommand": "<1.6.1",
                                                 "miniorange/miniorange-saml": "<1.4.3",
                                                 "mittwald/typo3_forum": "<1.2.1",
@@ -7985,6 +7985,7 @@
                                                 "ua-parser/uap-php": "<3.8",
                                                 "uasoft-indonesia/badaso": "<=2.9.7",
                                                 "unisharp/laravel-filemanager": "<2.9.1",
+                                                "universal-omega/dynamic-page-list3": "<3.6.4",
                                                 "unopim/unopim": "<0.1.5",
                                                 "userfrosting/userfrosting": ">=0.3.1,<4.6.3",
                                                 "usmanhalalit/pixie": "<1.0.3|>=2,<2.0.2",
@@ -8126,7 +8127,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-07-04T13:13:44+00:00"
+                                    "time": "2025-07-10T13:15:28+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",

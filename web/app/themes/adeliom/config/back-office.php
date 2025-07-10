@@ -14,6 +14,7 @@ return [
             ]
         ],
         'useMainColor' => true,
+        'useMainColorTheme' => true,
     ],
     'bo' => [
         'footerText' => null,
