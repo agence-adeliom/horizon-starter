@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "30dcd42fd27792d0117ac4b54dd31f8d",
+            "content-hash": "61abf77e03b148797d2e960d7e3650bb",
             "packages": [
                         {
                                     "name": "agence-adeliom/gutenberg-blocks-inspector",
@@ -47,24 +47,23 @@
                         },
                         {
                                     "name": "agence-adeliom/horizon-blocks",
-                                    "version": "dev-main",
+                                    "version": "dev-feature/search-engine",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "27cdb078549ce8c4ad04e1ca7f70e83941f59875"
+                                                "reference": "90cd44b7a3e67999fbacf0af92ac7e00d83bb531"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/27cdb078549ce8c4ad04e1ca7f70e83941f59875",
-                                                "reference": "27cdb078549ce8c4ad04e1ca7f70e83941f59875",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/90cd44b7a3e67999fbacf0af92ac7e00d83bb531",
+                                                "reference": "90cd44b7a3e67999fbacf0af92ac7e00d83bb531",
                                                 "shasum": ""
                                     },
                                     "require": {
-                                                "agence-adeliom/horizon-tools": "dev-main",
+                                                "agence-adeliom/horizon-tools": "dev-feature/search-engine",
                                                 "laravel/prompts": "^0.1.25",
                                                 "php": ">=8.4"
                                     },
-                                    "default-branch": true,
                                     "type": "library",
                                     "autoload": {
                                                 "psr-4": {
@@ -78,23 +77,23 @@
                                                 }
                                     ],
                                     "support": {
-                                                "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
+                                                "source": "https://github.com/agence-adeliom/horizon-blocks/tree/feature/search-engine",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-07-01T15:30:57+00:00"
+                                    "time": "2025-07-11T12:51:34+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
-                                    "version": "dev-main",
+                                    "version": "dev-feature/search-engine",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "2e9c82d490e6893e4c345e43c7322eaf8a582a74"
+                                                "reference": "c4ee166e322c2c38419a5f1652628af2424ba580"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/2e9c82d490e6893e4c345e43c7322eaf8a582a74",
-                                                "reference": "2e9c82d490e6893e4c345e43c7322eaf8a582a74",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/c4ee166e322c2c38419a5f1652628af2424ba580",
+                                                "reference": "c4ee166e322c2c38419a5f1652628af2424ba580",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -105,7 +104,6 @@
                                                 "roots/acorn": "^4.0",
                                                 "vinkla/extended-acf": "^14.0"
                                     },
-                                    "default-branch": true,
                                     "type": "library",
                                     "autoload": {
                                                 "psr-4": {
@@ -123,10 +121,10 @@
                                     ],
                                     "description": "Tools for Sage WordPress Theme, made by the Adeliom Agency",
                                     "support": {
-                                                "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
+                                                "source": "https://github.com/agence-adeliom/horizon-tools/tree/feature/search-engine",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-07-10T15:08:57+00:00"
+                                    "time": "2025-07-11T13:43:35+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
