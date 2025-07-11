@@ -14,6 +14,7 @@ class SearchEngineResults extends Component
     public int $perPage = 12;
     public int $page = 1;
     public bool $separateResultsByType = false;
+    public bool $displayTypeFilters = false;
     public array $results = [];
     public array $typeChoices = [];
     public string $typeChoice = self::VALUE_ALL_TYPE;
@@ -81,6 +82,12 @@ class SearchEngineResults extends Component
                     $this->searchParam = $config[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER];
                 }
             }
+
+            if (!empty($config[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
+                if (is_bool($config[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
+                    $this->displayTypeFilters = $config[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE];
+                }
+            }
         }
     }
 
@@ -111,7 +118,7 @@ class SearchEngineResults extends Component
                 }
             }
 
-            if ($this->typeChoice !== self::VALUE_ALL_TYPE && in_array($this->typeChoice, $this->types)) {
+            if ($this->displayTypeFilters && $this->typeChoice !== self::VALUE_ALL_TYPE && in_array($this->typeChoice, $this->types)) {
                 $this->typesToFetch = [$this->typeChoice];
             } else {
                 $this->typesToFetch = $this->types;

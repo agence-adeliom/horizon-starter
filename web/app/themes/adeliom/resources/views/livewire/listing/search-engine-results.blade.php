@@ -1,6 +1,6 @@
 <div>
     @if(!$separateResultsByType)
-        @if($typeChoices)
+        @if($displayTypeFilters && $typeChoices)
             @foreach($typeChoices as $typeSlug => $typeName)
                 <label for="type_{{$typeSlug}}">{{$typeName}}</label>
                 <input id="type_{{$typeSlug}}" type="radio" wire:model.live="typeChoice" value="{{$typeSlug}}"
