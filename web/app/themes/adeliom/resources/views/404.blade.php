@@ -6,7 +6,7 @@
             <x-typography.uptitle :content="$upTitle" />
         @endif
         @if ($title)
-            <x-typography.heading :content="$title" size="3" />
+            <x-typography.heading :content="$title" size="4" />
         @endif
 
         <div class="grid gap-6 mt-6 lg:grid-cols-2 lg:mt-10">
@@ -14,7 +14,7 @@
                 <div class="flex flex-col gap-4">
                     @isset($firstCol['title'])
                         @if ($firstCol['title'])
-                            <x-typography.heading :content="$firstCol['title']" size="4" />
+                            <x-typography.heading :content="$firstCol['title']" size="5" />
                         @endif
                     @endisset
                     @isset($firstCol['wysiwyg'])
@@ -29,7 +29,7 @@
                 <div class="flex flex-col gap-4">
                     @isset($secondCol['title'])
                         @if ($secondCol['title'])
-                            <x-typography.heading :content="$secondCol['title']" size="4" />
+                            <x-typography.heading :content="$secondCol['title']" size="5" />
                         @endif
                     @endisset
                     @isset($secondCol['wysiwyg'])
