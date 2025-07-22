@@ -64,6 +64,18 @@ class FAQ extends AbstractPostType
             ->required();
     }
 
+    public function getSearchResultsTitle(): string
+    {
+        return __('Toutes les questions');
+    }
+
+    public static function getSearchableFields(): ?array
+    {
+        return [
+            self::FIELD_ANSWER
+        ];
+    }
+
 
     /**
      * Allow to set filters that will be used inside generic listings

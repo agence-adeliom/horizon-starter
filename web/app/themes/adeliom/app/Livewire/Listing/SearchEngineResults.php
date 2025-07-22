@@ -1,11 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Listing;
 
 use Adeliom\HorizonTools\Admin\SearchEngineOptionsAdmin;
-use Adeliom\HorizonTools\Database\QueryBuilder;
 use Adeliom\HorizonTools\Services\SearchEngineService;
-use Adeliom\HorizonTools\ViewModels\Post\BasePostViewModel;
 use Livewire\Component;
 
 class SearchEngineResults extends Component
@@ -26,16 +26,43 @@ class SearchEngineResults extends Component
 
     public function mount(): void
     {
+        $this->triggerChange();
+    }
+
+    public function updated(): void
+    {
+        $this->triggerChange();
+    }
+
+    public function triggerChange(): void
+    {
         $this->initConfig();
         $this->initData();
         $this->fetchData();
     }
 
-    public function updated(): void
+    public function setPage(int $page, ?string $postType = null): void
     {
-        $this->initConfig();
-        $this->initData();
-        $this->fetchData();
+        $hasChanged = false;
+
+        if (null === $postType) {
+            $this->page = $page;
+            $hasChanged = true;
+        } else {
+
+        }
+
+        if ($hasChanged) {
+            $this->triggerChange();
+        }
+    }
+
+    private function getPostTypePaginationKey(string $postTypeSlug): string
+    {
+        // convert to camelCase with - and _ handling
+        $key = str_replace(['-', '_'], '', ucwords($postTypeSlug, '-_'));
+
+        return sprintf('pagination%s', $key);
     }
 
     protected function queryString(): array
@@ -128,42 +155,19 @@ class SearchEngineResults extends Component
 
     private function fetchData(): void
     {
-        switch (true) {
-            case $this->separateResultsByType:
-                foreach ($this->types as $type) {
-                    $this->fetchDataByType(type: $type);
-                }
-                break;
-            default:
-                $this->fetchAllData();
-                break;
+        $this->results = SearchEngineService::searchPostTypes(postTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage);
+
+        if (!$this->separateResultsByType) {
+            if (isset($this->results['total']) && $this->results['total'] === 0) {
+                $this->setPage(1);
+            }
+        } else {
+            foreach ($this->results as $postTypeSlug => $postTypeData) {
+                $postTypeData['extraHandleParams'] = [$postTypeSlug];
+
+                $this->results[$postTypeSlug] = $postTypeData;
+            }
         }
-    }
-
-    private function getBaseSearchQueryBuilder(): QueryBuilder
-    {
-        $qb = new QueryBuilder();
-        $qb->page($this->page)->perPage($this->perPage)->search($this->searchQuery);
-
-        if ($searchPage = SearchEngineService::getSearchEngineResultsPage()) {
-            $qb->whereIdNotIn($searchPage->ID);
-        }
-
-        return $qb;
-    }
-
-    private function fetchAllData(): void
-    {
-        $qb = $this->getBaseSearchQueryBuilder()->postType($this->typesToFetch)->as(BasePostViewModel::class);
-
-        $this->results = $qb->getPaginatedData(callback: function (BasePostViewModel $result) {
-            return $result->toStdClass();
-        });
-    }
-
-    private function fetchDataByType(string $type): void
-    {
-
     }
 
     public function render()

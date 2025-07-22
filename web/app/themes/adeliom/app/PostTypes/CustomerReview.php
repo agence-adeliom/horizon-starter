@@ -92,6 +92,11 @@ class CustomerReview extends AbstractPostType
             ]);
     }
 
+    public function getSearchResultsTitle(): string
+    {
+        return __('Tous les avis');
+    }
+
     /**
      * Allow to set filters that will be used inside generic listings
      * @return array
