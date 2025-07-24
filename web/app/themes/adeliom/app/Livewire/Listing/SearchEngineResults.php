@@ -6,13 +6,14 @@ namespace App\Livewire\Listing;
 
 use Adeliom\HorizonTools\Admin\SearchEngineOptionsAdmin;
 use Adeliom\HorizonTools\Services\SearchEngineService;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class SearchEngineResults extends Component
 {
     public array $types = [];
     public int $perPage = 12;
-    public int $page = 1;
+    public int|array $page = 1;
     public bool $separateResultsByType = false;
     public bool $displayTypeFilters = false;
     public array $results = [];
@@ -49,7 +50,10 @@ class SearchEngineResults extends Component
             $this->page = $page;
             $hasChanged = true;
         } else {
-
+            if (isset($this->page[$postType])) {
+                $this->page[$postType] = $page;
+                $hasChanged = true;
+            }
         }
 
         if ($hasChanged) {
@@ -116,6 +120,16 @@ class SearchEngineResults extends Component
                 }
             }
         }
+
+        if ($this->separateResultsByType && is_int($this->page)) {
+            $this->page = [];
+
+            foreach ($this->types as $type) {
+                $this->page[$type] = 1;
+            }
+        } elseif (!$this->separateResultsByType && is_array($this->page)) {
+            $this->page = 1;
+        }
     }
 
     private function initData(): void
@@ -150,13 +164,41 @@ class SearchEngineResults extends Component
             } else {
                 $this->typesToFetch = $this->types;
             }
+        } else {
+            foreach ($this->page as $postTypeSlug => $page) {
+                if (is_numeric($page)) {
+                    $page = intval($page);
+                }
+
+                $this->page[$postTypeSlug] = $page;
+            }
         }
     }
 
     private function fetchData(): void
     {
-        $this->results = SearchEngineService::searchPostTypes(postTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage);
+        $this->results = $this->getResults();
 
+        $this->handlePageReset();
+    }
+
+    /**
+     * Fetches the search results based on the current configuration.
+     */
+    private function getResults(): array
+    {
+        if (!empty($this->searchQuery)) {
+            return SearchEngineService::searchPostTypes(postTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage);
+        }
+
+        return [];
+    }
+
+    /**
+     * Handles the reset of the page number when there are no results.
+     */
+    private function handlePageReset(): void
+    {
         if (!$this->separateResultsByType) {
             if (isset($this->results['total']) && $this->results['total'] === 0) {
                 $this->setPage(1);
@@ -166,11 +208,15 @@ class SearchEngineResults extends Component
                 $postTypeData['extraHandleParams'] = [$postTypeSlug];
 
                 $this->results[$postTypeSlug] = $postTypeData;
+
+                if (!empty($this->results[$postTypeSlug]) && $this->results[$postTypeSlug]['total'] === 0) {
+                    $this->setPage(1, $postTypeSlug);
+                }
             }
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.listing.search-engine-results');
     }

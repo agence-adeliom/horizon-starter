@@ -97,6 +97,11 @@ class CustomerReview extends AbstractPostType
         return __('Tous les avis');
     }
 
+    public static function getSearchableFields(): ?array
+    {
+        return ['review_review'];
+    }
+
     /**
      * Allow to set filters that will be used inside generic listings
      * @return array
