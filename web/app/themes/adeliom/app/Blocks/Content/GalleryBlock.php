@@ -22,7 +22,9 @@ class GalleryBlock extends AbstractBlock
     public static ?string $slug = 'gallery';
     public static ?string $title = 'Galerie';
     public static ?string $mode = 'preview';
+    public static ?string $icon = 'format-gallery';
     public const string FIELD_GALLERY = "gallery";
+    public static ?string $description = "Présente des photos ou visuels organisés sous forme de galerie.";
 
     public function getFields(): ?iterable
     {
