@@ -134,31 +134,31 @@ class SearchEngineResults extends Component
 
     private function initData(): void
     {
-        if (!$this->separateResultsByType) {
-            $this->typeChoices[self::VALUE_ALL_TYPE] = 'Tous les résultats';
+        $this->typeChoices[self::VALUE_ALL_TYPE] = 'Tous les résultats';
 
-            foreach ($this->types as $typeSlug) {
-                $label = null;
+        foreach ($this->types as $typeSlug) {
+            $label = null;
 
-                switch ($typeSlug) {
-                    case 'post':
-                        $label = 'Articles';
-                        break;
-                    case 'page':
-                        $label = 'Pages';
-                        break;
-                    default:
-                        if ($postTypeObject = get_post_type_object($typeSlug)) {
-                            $label = $postTypeObject->labels->name ?? null;
-                        }
-                        break;
-                }
-
-                if ($label) {
-                    $this->typeChoices[$typeSlug] = $label;
-                }
+            switch ($typeSlug) {
+                case 'post':
+                    $label = 'Articles';
+                    break;
+                case 'page':
+                    $label = 'Pages';
+                    break;
+                default:
+                    if ($postTypeObject = get_post_type_object($typeSlug)) {
+                        $label = $postTypeObject->labels->name ?? null;
+                    }
+                    break;
             }
 
+            if ($label) {
+                $this->typeChoices[$typeSlug] = $label;
+            }
+        }
+
+        if (!$this->separateResultsByType) {
             if ($this->displayTypeFilters && $this->typeChoice !== self::VALUE_ALL_TYPE && in_array($this->typeChoice, $this->types)) {
                 $this->typesToFetch = [$this->typeChoice];
             } else {
