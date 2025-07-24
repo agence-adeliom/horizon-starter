@@ -19,3 +19,13 @@
         @endif
     @endif
 </div>
+
+@script
+<script>
+  $wire.on('setMetaTitle', (params) => {
+    if (params[0]?.title) {
+      document.title = params[0].title;
+    }
+  });
+</script>
+@endscript

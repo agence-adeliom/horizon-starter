@@ -6,6 +6,7 @@ namespace App\Livewire\Listing;
 
 use Adeliom\HorizonTools\Admin\SearchEngineOptionsAdmin;
 use Adeliom\HorizonTools\Services\SearchEngineService;
+use Adeliom\HorizonTools\Services\SeoService;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -23,6 +24,8 @@ class SearchEngineResults extends Component
     public array $typesToFetch = [];
     public ?string $searchQuery = '';
 
+    private readonly array $searchConfig;
+
     private const VALUE_ALL_TYPE = 'all';
 
     public function mount(): void
@@ -35,13 +38,40 @@ class SearchEngineResults extends Component
         $this->triggerChange();
     }
 
+    /**
+     * Updates the meta title based on the search query.
+     */
+    public function updatedSearchQuery(): void
+    {
+        if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_META_TITLE])) {
+            $baseMetaTitle = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_META_TITLE];
+
+            if (str_contains($baseMetaTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
+                $baseMetaTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $baseMetaTitle);
+                $baseMetaTitle = sprintf('%s %s', $baseMetaTitle, SeoService::getMetaTitleSuffix());
+
+                $this->dispatch('setMetaTitle', [
+                    'title' => $baseMetaTitle,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Runs the necessary methods to reinitialize the component's data
+     */
     public function triggerChange(): void
     {
+        $this->searchConfig = SearchEngineService::getSearchEngineConfig();
+
         $this->initConfig();
         $this->initData();
         $this->fetchData();
     }
 
+    /**
+     * Sets the search query and triggers a re-fetch of the results.
+     */
     public function setPage(int $page, ?string $postType = null): void
     {
         $hasChanged = false;
@@ -61,19 +91,11 @@ class SearchEngineResults extends Component
         }
     }
 
-    private function getPostTypePaginationKey(string $postTypeSlug): string
-    {
-        // convert to camelCase with - and _ handling
-        $key = str_replace(['-', '_'], '', ucwords($postTypeSlug, '-_'));
-
-        return sprintf('pagination%s', $key);
-    }
-
     protected function queryString(): array
     {
         return [
             'searchQuery' => [
-                'as' => SearchEngineService::getSearchEngineConfig()[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER] ?? 'recherche',
+                'as' => $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER] ?? 'recherche',
             ],
             'page' => [
                 'as' => 'pagination',
@@ -86,37 +108,40 @@ class SearchEngineResults extends Component
         ];
     }
 
+    /**
+     * Initializes the configuration based on the search engine settings.
+     */
     private function initConfig(): void
     {
-        if ($config = SearchEngineService::getSearchEngineConfig()) {
-            if (!empty($config[SearchEngineOptionsAdmin::FIELD_PER_PAGE])) {
-                if (is_numeric($config[SearchEngineOptionsAdmin::FIELD_PER_PAGE])) {
-                    $this->perPage = (int)$config[SearchEngineOptionsAdmin::FIELD_PER_PAGE];
+        if ($this->searchConfig) {
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_PER_PAGE])) {
+                if (is_numeric($this->searchConfig[SearchEngineOptionsAdmin::FIELD_PER_PAGE])) {
+                    $this->perPage = (int)$this->searchConfig[SearchEngineOptionsAdmin::FIELD_PER_PAGE];
                 }
             }
 
-            if (!empty($config[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES])) {
-                if (is_array($config[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES])) {
-                    $this->types = $config[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES];
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES])) {
+                if (is_array($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES])) {
+                    $this->types = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES];
                     $this->typesToFetch = $this->types;
                 }
             }
 
-            if (!empty($config[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES])) {
-                if (is_bool($config[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES])) {
-                    $this->separateResultsByType = $config[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES];
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES])) {
+                if (is_bool($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES])) {
+                    $this->separateResultsByType = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES];
                 }
             }
 
-            if (!empty($config[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER])) {
-                if (is_string($config[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER])) {
-                    $this->searchParam = $config[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER];
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER])) {
+                if (is_string($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER])) {
+                    $this->searchParam = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER];
                 }
             }
 
-            if (!empty($config[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
-                if (is_bool($config[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
-                    $this->displayTypeFilters = $config[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE];
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
+                if (is_bool($this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
+                    $this->displayTypeFilters = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE];
                 }
             }
         }
@@ -132,6 +157,9 @@ class SearchEngineResults extends Component
         }
     }
 
+    /**
+     * Initializes the data for the component, including type choices and results to fetch.
+     */
     private function initData(): void
     {
         $this->typeChoices[self::VALUE_ALL_TYPE] = 'Tous les résultats';
@@ -187,11 +215,11 @@ class SearchEngineResults extends Component
      */
     private function getResults(): array
     {
-        if (!empty($this->searchQuery)) {
-            return SearchEngineService::searchPostTypes(postTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage);
+        if (empty($this->searchQuery)) {
+            return [];
         }
 
-        return [];
+        return SearchEngineService::searchPostTypes(postTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage);
     }
 
     /**
