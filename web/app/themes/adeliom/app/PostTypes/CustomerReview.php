@@ -99,7 +99,7 @@ class CustomerReview extends AbstractPostType
 
     public static function getSearchableFields(): ?array
     {
-        return ['review_review'];
+        return ['review_review', 'reviewer_firstname'];
     }
 
     /**

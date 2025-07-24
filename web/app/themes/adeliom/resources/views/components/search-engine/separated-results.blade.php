@@ -13,6 +13,10 @@
                     [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results]:not([search-results="{{$typeSlug}}"]) {
                         display: none;
                     }
+
+                    [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results] [search-results-title] {
+                        display: none;
+                    }
                 </style>
             @endif
         @endforeach
@@ -21,7 +25,7 @@
     <div class="grid grid-cols-1 gap-4">
         @foreach($results as $postTypeSlug => $postTypeData)
             <div search-results="{{$postTypeSlug}}">
-                <div class="flex gap-2">
+                <div search-results-title class="flex gap-2">
                     {{-- Titre de la section de résultats --}}
                     <h2>{{$postTypeData['title']}}</h2>
 
