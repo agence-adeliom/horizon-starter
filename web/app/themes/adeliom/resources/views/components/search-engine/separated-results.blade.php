@@ -38,7 +38,9 @@
                 {{-- Affichage des résultats --}}
                 <div class="grid grid-cols-4 gap-4">
                     @foreach($postTypeData['items'] as $item)
-                        @dump($item)
+                        @if($item->card)
+                            <x-dynamic-component :component="$item->card" :content="$item" />
+                        @endif
                     @endforeach
                 </div>
 
