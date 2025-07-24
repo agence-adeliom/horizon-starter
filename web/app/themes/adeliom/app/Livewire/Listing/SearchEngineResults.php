@@ -23,6 +23,7 @@ class SearchEngineResults extends Component
     public array $resultsPerType = [];
     public array $typesToFetch = [];
     public ?string $searchQuery = '';
+    public ?string $blockTitle = null;
 
     private readonly array $searchConfig;
 
@@ -39,7 +40,7 @@ class SearchEngineResults extends Component
     }
 
     /**
-     * Updates the meta title based on the search query.
+     * Updates the meta-title based on the search query.
      */
     public function updatedSearchQuery(): void
     {
@@ -144,6 +145,14 @@ class SearchEngineResults extends Component
                     $this->displayTypeFilters = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE];
                 }
             }
+
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_TITLE])) {
+                $baseTitle = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_TITLE];
+
+                if (str_contains($baseTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
+                    $this->blockTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $baseTitle);
+                }
+            }
         }
 
         if ($this->separateResultsByType && is_int($this->page)) {
@@ -206,6 +215,14 @@ class SearchEngineResults extends Component
     private function fetchData(): void
     {
         $this->results = $this->getResults();
+
+        foreach ($this->typeChoices as $typeSlug => $typeChoice) {
+            if ($typeSlug !== self::VALUE_ALL_TYPE) {
+                if (empty($this->results[$typeSlug])) {
+                    unset($this->typeChoices[$typeSlug]);
+                }
+            }
+        }
 
         $this->handlePageReset();
     }

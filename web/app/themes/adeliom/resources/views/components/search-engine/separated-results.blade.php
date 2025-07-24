@@ -24,7 +24,7 @@
     {{-- Conteneur des résultats séparés par type --}}
     <div class="grid grid-cols-1 gap-4">
         @foreach($results as $postTypeSlug => $postTypeData)
-            <div search-results="{{$postTypeSlug}}">
+            <div search-results="{{$postTypeSlug}}" class="@if(!$loop->first) mt-8 @endif">
                 <div search-results-title class="flex gap-2">
                     {{-- Titre de la section de résultats --}}
                     <h2>{{$postTypeData['title']}}</h2>

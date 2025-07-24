@@ -1,5 +1,13 @@
 <div>
     <div>
+        @if($blockTitle)
+            {{-- Affichage du titre dynamique --}}
+            <h1>
+                {{ $blockTitle }}
+            </h1>
+        @endif
+    </div>
+    <div>
         {{-- Champ permettant de modifier la recherche --}}
         <input type="text" wire:model.live.debounce="searchQuery">
     </div>
