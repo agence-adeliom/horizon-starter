@@ -36,11 +36,13 @@
         @if($separateResultsByType)
             <x-search-engine.separated-results :display-type-filters="$displayTypeFilters"
                                                :type-choices="$typeChoices" :results="$results"
-                                               :found-post-types="$foundPostTypes" :type-choice="$typeChoice" />
+                                               :found-post-types="$foundPostTypes" :type-choice="$typeChoice"
+                                               :per-page="$perPage" :total-per-type="$totalPerType" />
         @else
             <x-search-engine.merged-results :display-type-filters="$displayTypeFilters" :type-choices="$typeChoices"
                                             :results="$results" :type-choice="$typeChoice"
-                                            :found-post-types="$foundPostTypes" />
+                                            :found-post-types="$foundPostTypes" :per-page="$perPage"
+                                            :total-per-type="$totalPerType" />
         @endif
     @else
         @if(empty($searchQuery))

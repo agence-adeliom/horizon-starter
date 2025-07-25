@@ -6,20 +6,31 @@
         <div class="results-filters">
             @foreach($typeChoices as $typeSlug => $typeName)
                 @if($typeSlug === SearchEngineResults::VALUE_ALL_TYPE || in_array($typeSlug, $foundPostTypes))
-                    <label for="type_{{$typeSlug}}">{{$typeName}}</label>
+                    <label for="type_{{$typeSlug}}">
+                        {{$typeName}}
+
+                        @if($typeSlug!== SearchEngineResults::VALUE_ALL_TYPE&&!empty($totalPerType[$typeSlug]))
+                            <span>
+                                {{-- Nombre de résultats par type --}}
+                                {{ $totalPerType[$typeSlug] }}
+                            </span>
+                        @endif
+                    </label>
                     <input id="type_{{$typeSlug}}" type="radio" wire:model.live="typeChoice" value="{{$typeSlug}}"
-                           @if($typeChoice === $typeSlug) checked="checked" @endif>
+                           @if($typeChoice === $typeSlug) checked="checked" @endif wire:loading.attr="disabled"
+                           wire:click="clickOnFilter">
                 @endif
             @endforeach
         </div>
     @endif
 
     <p>
-        {{ $results['total'] }} {{ StringService::singularOrPlural($results['total'], 'résultat', 'résultats') }}
+        <span wire:target="clickOnFilter"
+              wire:loading.class="blur-sm">{{ $results['total'] }}</span>{{ ' ' }}{{ StringService::singularOrPlural($results['total'], 'résultat', 'résultats') }}
     </p>
 
     {{-- Conteneur des résultats non-séparés par type --}}
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-4 gap-4 transition-all" wire:loading.class="blur">
         @foreach($results['items'] as $item)
             @if($item->card)
                 <x-dynamic-component :component="$item->card" :content="$item" />

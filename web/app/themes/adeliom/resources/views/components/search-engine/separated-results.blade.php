@@ -1,14 +1,25 @@
+@php use Adeliom\HorizonTools\Services\StringService;use App\Livewire\Listing\SearchEngineResults; @endphp
+
 <div search-results-container="separated">
     @if($displayTypeFilters)
         {{-- Affichage du filtre par type de résultat --}}
         <div class="results-filters">
             @foreach($typeChoices as $typeSlug => $typeName)
-            <label for="type_{{$typeSlug}}">{{$typeName}}</label>
-            <input id="type_{{$typeSlug}}" type="radio" name="type_filter"
-                   wire:model.live="typeChoice" value="{{$typeSlug}}"
-                   @if($typeChoice === $typeSlug) checked="checked" @endif>
+                <label for="type_{{$typeSlug}}">
+                    {{$typeName}}
 
-            @if($typeSlug !== 'all')
+                    @if($typeSlug!==SearchEngineResults::VALUE_ALL_TYPE&&!empty($totalPerType[$typeSlug]))
+                        <span>
+              {{-- Nombre de résultats par type --}}
+                            {{$totalPerType[$typeSlug]}}
+            </span>
+                    @endif
+                </label>
+                <input id="type_{{$typeSlug}}" type="radio" name="type_filter"
+                       wire:model.live="typeChoice" value="{{$typeSlug}}"
+                       @if($typeChoice === $typeSlug) checked="checked" @endif>
+
+                @if($typeSlug !== 'all')
                     {{-- Style permettant de masquer en fonction du type --}}
                     <style>
                         [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results]:not([search-results="{{$typeSlug}}"]) {
@@ -19,7 +30,7 @@
                             display: none;
                         }
                     </style>
-            @endif
+                @endif
             @endforeach
         </div>
     @endif
@@ -38,7 +49,8 @@
                 </div>
 
                 {{-- Affichage des résultats --}}
-                <div class="grid grid-cols-4 gap-4">
+                <div class="grid grid-cols-4 gap-4" wire:loading.class="blur"
+                     wire:target="searchQuery, setTypePage">
                     @foreach($postTypeData['items'] as $item)
                         @if($item->card)
                             <x-dynamic-component :component="$item->card" :content="$item" />
@@ -46,8 +58,10 @@
                     @endforeach
                 </div>
 
-                <x-horizon.pagination :data="$postTypeData" handle="setPage"
+                <x-horizon.pagination :data="$postTypeData"
+                                      handle="setTypePage"
                                       :extra-handle-params="$postTypeData['extraHandleParams']"
+                                      :extra-handle-params-first="true"
                                       :has-buttons="true" />
             </div>
         @endforeach

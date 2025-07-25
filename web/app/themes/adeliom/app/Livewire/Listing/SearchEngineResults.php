@@ -27,6 +27,7 @@ class SearchEngineResults extends Component
     public ?string $headerTitle = null;
     public ?array $headerImage = null;
     public ?array $foundPostTypes = [];
+    public ?array $totalPerType = [];
 
     private readonly array $searchConfig;
 
@@ -71,7 +72,9 @@ class SearchEngineResults extends Component
             $this->searchQuery = 'a';
         }
 
-        $this->searchConfig = SearchEngineService::getSearchEngineConfig();
+        if (!isset($this->searchConfig)) {
+            $this->searchConfig = SearchEngineService::getSearchEngineConfig();
+        }
 
         $this->initConfig();
         $this->initData();
@@ -98,6 +101,11 @@ class SearchEngineResults extends Component
         if ($hasChanged) {
             $this->triggerChange();
         }
+    }
+
+    public function setTypePage(string $postType, int $page): void
+    {
+        $this->setPage($page, $postType);
     }
 
     protected function queryString(): array
@@ -235,6 +243,7 @@ class SearchEngineResults extends Component
     private function fetchData(): void
     {
         $this->foundPostTypes = [];
+        $this->totalPerType = [];
 
         $this->results = $this->getResults(foundPostTypes: $this->foundPostTypes);
 
@@ -276,7 +285,7 @@ class SearchEngineResults extends Component
             return [];
         }
 
-        return SearchEngineService::searchPostTypes(postTypes: $this->types, onlyGetResultsFromPostTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage, foundPostTypes: $foundPostTypes);
+        return SearchEngineService::searchPostTypes(postTypes: $this->types, onlyGetResultsFromPostTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage, foundPostTypes: $foundPostTypes, totalPerType: $this->totalPerType);
     }
 
     /**
@@ -299,6 +308,11 @@ class SearchEngineResults extends Component
                 }
             }
         }
+    }
+
+    public function clickOnFilter(): void
+    {
+        // Empty method just to allow specific loading attribute
     }
 
     public function render(): View
