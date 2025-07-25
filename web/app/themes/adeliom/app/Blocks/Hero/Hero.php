@@ -20,6 +20,7 @@ class Hero extends AbstractBlock
     public const string FIELD_MAIN_IMAGE = "main_image";
     public static ?string $slug = 'hero';
     public static ?string $title = 'Haut de page';
+    public static ?string $icon = 'admin-home';
     public static ?string $description = "Premier élément de la page, offrant une introduction percutante.";
     public static string $category = 'hero';
 
