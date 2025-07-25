@@ -1,13 +1,17 @@
-@php use Adeliom\HorizonTools\Services\StringService; @endphp
+@php use Adeliom\HorizonTools\Services\StringService;use App\Livewire\Listing\SearchEngineResults; @endphp
 
 <div search-results-container="merged">
     @if($displayTypeFilters && $typeChoices)
         {{-- Affichage du filtre par type de résultat --}}
-        @foreach($typeChoices as $typeSlug => $typeName)
-            <label for="type_{{$typeSlug}}">{{$typeName}}</label>
-            <input id="type_{{$typeSlug}}" type="radio" wire:model.live="typeChoice" value="{{$typeSlug}}"
-                   @if($typeChoice === $typeSlug) checked="checked" @endif>
-        @endforeach
+        <div class="results-filters">
+            @foreach($typeChoices as $typeSlug => $typeName)
+                @if($typeSlug === SearchEngineResults::VALUE_ALL_TYPE || in_array($typeSlug, $foundPostTypes))
+                    <label for="type_{{$typeSlug}}">{{$typeName}}</label>
+                    <input id="type_{{$typeSlug}}" type="radio" wire:model.live="typeChoice" value="{{$typeSlug}}"
+                           @if($typeChoice === $typeSlug) checked="checked" @endif>
+                @endif
+            @endforeach
+        </div>
     @endif
 
     <p>

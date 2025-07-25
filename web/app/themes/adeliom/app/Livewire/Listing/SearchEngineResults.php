@@ -17,17 +17,20 @@ class SearchEngineResults extends Component
     public int|array $page = 1;
     public bool $separateResultsByType = false;
     public bool $displayTypeFilters = false;
+    public bool $displayBreadcrumbs = false;
     public array $results = [];
     public array $typeChoices = [];
     public string $typeChoice = self::VALUE_ALL_TYPE;
     public array $resultsPerType = [];
     public array $typesToFetch = [];
     public ?string $searchQuery = '';
-    public ?string $blockTitle = null;
+    public ?string $headerTitle = null;
+    public ?array $headerImage = null;
+    public ?array $foundPostTypes = [];
 
     private readonly array $searchConfig;
 
-    private const VALUE_ALL_TYPE = 'all';
+    public const VALUE_ALL_TYPE = 'all';
 
     public function mount(): void
     {
@@ -63,6 +66,11 @@ class SearchEngineResults extends Component
      */
     public function triggerChange(): void
     {
+        if (is_admin()) {
+            // Here to display results in the Gutenberg editor by default
+            $this->searchQuery = 'a';
+        }
+
         $this->searchConfig = SearchEngineService::getSearchEngineConfig();
 
         $this->initConfig();
@@ -150,7 +158,19 @@ class SearchEngineResults extends Component
                 $baseTitle = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_TITLE];
 
                 if (str_contains($baseTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
-                    $this->blockTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $baseTitle);
+                    $this->headerTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $baseTitle);
+                }
+            }
+
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_HAS_BREADCRUMBS])) {
+                if (is_bool($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_HAS_BREADCRUMBS])) {
+                    $this->displayBreadcrumbs = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_HAS_BREADCRUMBS];
+                }
+            }
+
+            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_IMAGE])) {
+                if (is_array($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_IMAGE])) {
+                    $this->headerImage = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_IMAGE];
                 }
             }
         }
@@ -214,29 +234,49 @@ class SearchEngineResults extends Component
 
     private function fetchData(): void
     {
-        $this->results = $this->getResults();
+        $this->foundPostTypes = [];
 
-        foreach ($this->typeChoices as $typeSlug => $typeChoice) {
-            if ($typeSlug !== self::VALUE_ALL_TYPE) {
-                if (empty($this->results[$typeSlug])) {
-                    unset($this->typeChoices[$typeSlug]);
+        $this->results = $this->getResults(foundPostTypes: $this->foundPostTypes);
+
+        $this->handleTypeChoices();
+        $this->handlePageReset();
+    }
+
+    private function handleTypeChoices(): void
+    {
+        if ($this->separateResultsByType) {
+            foreach ($this->typeChoices as $typeSlug => $typeChoice) {
+                if ($typeSlug !== self::VALUE_ALL_TYPE) {
+                    if (empty($this->results[$typeSlug])) {
+                        unset($this->typeChoices[$typeSlug]);
+
+                        if ($this->typeChoice === $typeSlug) {
+                            $this->typeChoice = self::VALUE_ALL_TYPE;
+                        }
+                    }
+                }
+            }
+        } else {
+            foreach ($this->typeChoices as $typeSlug => $typeChoice) {
+                if ($typeSlug !== self::VALUE_ALL_TYPE && $typeSlug === $this->typeChoice) {
+                    if (!in_array($this->typeChoice, $this->foundPostTypes)) {
+                        $this->typeChoice = self::VALUE_ALL_TYPE;
+                    }
                 }
             }
         }
-
-        $this->handlePageReset();
     }
 
     /**
      * Fetches the search results based on the current configuration.
      */
-    private function getResults(): array
+    private function getResults(array &$foundPostTypes = []): array
     {
         if (empty($this->searchQuery)) {
             return [];
         }
 
-        return SearchEngineService::searchPostTypes(postTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage);
+        return SearchEngineService::searchPostTypes(postTypes: $this->types, onlyGetResultsFromPostTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage, foundPostTypes: $foundPostTypes);
     }
 
     /**

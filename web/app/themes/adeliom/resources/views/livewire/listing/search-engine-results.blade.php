@@ -1,23 +1,46 @@
-<div>
-    <div>
-        @if($blockTitle)
-            {{-- Affichage du titre dynamique --}}
-            <h1>
-                {{ $blockTitle }}
-            </h1>
+@php use Adeliom\HorizonTools\Services\SeoService; @endphp
+
+<div class="results-container">
+    <div class="results-header">
+        @if(!empty($headerImage))
+            <div class="results-header-background" wire:ignore>
+                {!! wp_get_attachment_image(attachment_id: $headerImage['ID'], size: 'large',attr: ['class'=>'results-header-image']) !!}
+            </div>
+        @endif
+
+        <div class="results-header-content">
+            @if($displayBreadcrumbs)
+                {{-- Affichage du fil d'ariane si nécessaire --}}
+                <div wire:ignore>
+                    {{SeoService::getBreadcrumbs()}}
+                </div>
+            @endif
+
+            @if(!empty($headerTitle))
+                {{-- Affichage du titre dynamique --}}
+                <div class="results-header-title">
+                    <h1 class="h1">
+                        {{ $headerTitle }}
+                    </h1>
+                </div>
         @endif
     </div>
-    <div>
-        {{-- Champ permettant de modifier la recherche --}}
-        <input type="text" wire:model.live.debounce="searchQuery">
     </div>
+
+    <div class="results-search">
+        {{-- Champ permettant de modifier la recherche --}}
+        <input type="text" wire:model.live.debounce="searchQuery" placeholder="{{__('Saisissez votre recherche...')}}">
+    </div>
+
     @if(!empty($results))
         @if($separateResultsByType)
             <x-search-engine.separated-results :display-type-filters="$displayTypeFilters"
-                                               :type-choices="$typeChoices" :results="$results" />
+                                               :type-choices="$typeChoices" :results="$results"
+                                               :found-post-types="$foundPostTypes" :type-choice="$typeChoice" />
         @else
             <x-search-engine.merged-results :display-type-filters="$displayTypeFilters" :type-choices="$typeChoices"
-                                            :results="$results" :type-choice="$typeChoice" />
+                                            :results="$results" :type-choice="$typeChoice"
+                                            :found-post-types="$foundPostTypes" />
         @endif
     @else
         @if(empty($searchQuery))

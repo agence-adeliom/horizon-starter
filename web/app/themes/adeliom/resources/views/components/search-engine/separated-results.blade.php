@@ -1,25 +1,27 @@
 <div search-results-container="separated">
     @if($displayTypeFilters)
         {{-- Affichage du filtre par type de résultat --}}
-        @foreach($typeChoices as $typeSlug => $typeName)
+        <div class="results-filters">
+            @foreach($typeChoices as $typeSlug => $typeName)
             <label for="type_{{$typeSlug}}">{{$typeName}}</label>
             <input id="type_{{$typeSlug}}" type="radio" name="type_filter"
-                   @if($loop->first) checked="checked"
-                @endif>
+                   wire:model.live="typeChoice" value="{{$typeSlug}}"
+                   @if($typeChoice === $typeSlug) checked="checked" @endif>
 
             @if($typeSlug !== 'all')
-                {{-- Style permettant de masquer en fonction du type --}}
-                <style>
-                    [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results]:not([search-results="{{$typeSlug}}"]) {
-                        display: none;
-                    }
+                    {{-- Style permettant de masquer en fonction du type --}}
+                    <style>
+                        [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results]:not([search-results="{{$typeSlug}}"]) {
+                            display: none;
+                        }
 
-                    [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results] [search-results-title] {
-                        display: none;
-                    }
-                </style>
+                        [search-results-container="separated"]:has(#type_{{$typeSlug}}[name="type_filter"]:checked) [search-results] [search-results-title] {
+                            display: none;
+                        }
+                    </style>
             @endif
-        @endforeach
+            @endforeach
+        </div>
     @endif
     {{-- Conteneur des résultats séparés par type --}}
     <div class="grid grid-cols-1 gap-4">
