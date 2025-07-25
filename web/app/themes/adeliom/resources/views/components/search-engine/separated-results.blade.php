@@ -49,7 +49,7 @@
                 </div>
 
                 {{-- Affichage des résultats --}}
-                <div class="grid grid-cols-4 gap-4" wire:loading.class="blur"
+                <div class="grid grid-cols-4 gap-4 transition-all" wire:loading.class="blur"
                      wire:target="searchQuery, setTypePage">
                     @foreach($postTypeData['items'] as $item)
                         @if($item->card)

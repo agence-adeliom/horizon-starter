@@ -25,7 +25,7 @@
     @endif
 
     <p>
-        <span wire:target="clickOnFilter"
+        <span wire:target="clickOnFilter" class="transition-all"
               wire:loading.class="blur-sm">{{ $results['total'] }}</span>{{ ' ' }}{{ StringService::singularOrPlural($results['total'], 'résultat', 'résultats') }}
     </p>
 
