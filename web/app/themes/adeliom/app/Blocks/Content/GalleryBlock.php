@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Blocks\Content;
 
 use Adeliom\HorizonTools\Blocks\AbstractBlock;
+use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
 use Adeliom\HorizonTools\Fields\Layout\LayoutField;
 use Adeliom\HorizonTools\Fields\Tabs\ContentTab;
 use Adeliom\HorizonTools\Fields\Tabs\LayoutTab;
@@ -12,18 +13,17 @@ use Adeliom\HorizonTools\Fields\Tabs\MediaTab;
 use Adeliom\HorizonTools\Fields\Text\HeadingField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
-use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
-use Extended\ACF\Fields\Gallery;
 use Adeliom\HorizonTools\Services\BudService;
+use Extended\ACF\Fields\Gallery;
 
 
 class GalleryBlock extends AbstractBlock
 {
+    public const string FIELD_GALLERY = "gallery";
     public static ?string $slug = 'gallery';
     public static ?string $title = 'Galerie';
     public static ?string $mode = 'preview';
     public static ?string $icon = 'format-gallery';
-    public const string FIELD_GALLERY = "gallery";
     public static ?string $description = "Présente des photos ou visuels organisés sous forme de galerie.";
 
     public function getFields(): ?iterable
@@ -40,7 +40,6 @@ class GalleryBlock extends AbstractBlock
         ]);
 
         yield from LayoutTab::make()->fields([
-            LayoutField::darkMode(),
             LayoutField::margin(),
         ]);
     }
@@ -50,7 +49,7 @@ class GalleryBlock extends AbstractBlock
         return [];
     }
 
-     public function renderBlockCallback(): void
+    public function renderBlockCallback(): void
     {
         if ($galleryCss = BudService::getUrl('gallery.css')) {
             wp_enqueue_style('gallery-css', $galleryCss);
