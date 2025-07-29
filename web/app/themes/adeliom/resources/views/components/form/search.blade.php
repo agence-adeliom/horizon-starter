@@ -7,6 +7,7 @@
 
     <x-form.input :x-init="$isModal ? '$watch(\'open\', value => $focus.focus($el))' : ''"
                   :name="SearchEngineService::getSearchEngineGETParameter()"
+                  :value="SearchEngineService::getSearchEngineCurrentSearchQuery()"
                   label="Recherche" hideLabel type="text" wrapper-class="flex-1"
                   class="h-[42px]" placeholder="Tapez un mot clé..." required />
 

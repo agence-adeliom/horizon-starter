@@ -51,8 +51,8 @@
                 </div>
 
                 {{-- Affichage des résultats --}}
-                <div class="grid grid-cols-4 gap-4 transition-all" search-results-grid
-                     wire:target="searchQuery, setTypePage">
+                <div class="grid grid-cols-4 gap-4 transition-all {{ $blockLoadingClass }}" search-results-grid
+                     wire:target="searchQuery, setTypePage" wire:loading.class="{{ $loadingClass }}">
                     {{-- Faire en sorte de gérer le blur via le Js --}}
                     {{-- Il faudra l'activer et le désactiver potentiellement une fois le loading terminé --}}
                     @foreach($postTypeData['items'] as $item)
@@ -75,13 +75,14 @@
 @script
 <script>
     const searchResultContainers = Array.from(document.querySelectorAll('[search-results]'));
+    const gridContainers = Array.from(document.querySelectorAll('[search-results-grid]'));
 
     if (searchResultContainers.length > 0) {
         searchResultContainers.forEach(container => {
             const paginationElt = container.querySelector('.pagination');
-            const resultsContainer = container.querySelector('[search-results-grid]');
+            const gridContainer = container.querySelector('[search-results-grid]');
 
-            if (paginationElt && resultsContainer) {
+            if (paginationElt && gridContainer) {
                 paginationElt.addEventListener('click', (e) => {
                     let realTarget = e.target;
 
@@ -93,7 +94,7 @@
                     }
 
                     if (realTarget) {
-                        resultsContainer.classList.add('{{ $loadingClass }}');
+                        gridContainer.classList.remove('{{ $blockLoadingClass }}');
                     }
                 });
             }
