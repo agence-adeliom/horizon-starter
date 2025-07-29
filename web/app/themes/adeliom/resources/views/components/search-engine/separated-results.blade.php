@@ -1,4 +1,6 @@
-@php use Adeliom\HorizonTools\Services\StringService;use App\Livewire\Listing\SearchEngineResults; @endphp
+@php
+    use App\Livewire\Listing\SearchEngineResults;
+@endphp
 
 <div search-results-container="separated">
     @if($displayTypeFilters)
@@ -49,8 +51,10 @@
                 </div>
 
                 {{-- Affichage des résultats --}}
-                <div class="grid grid-cols-4 gap-4 transition-all" wire:loading.class="blur"
+                <div class="grid grid-cols-4 gap-4 transition-all" search-results-grid
                      wire:target="searchQuery, setTypePage">
+                    {{-- Faire en sorte de gérer le blur via le Js --}}
+                    {{-- Il faudra l'activer et le désactiver potentiellement une fois le loading terminé --}}
                     @foreach($postTypeData['items'] as $item)
                         @if($item->card)
                             <x-dynamic-component :component="$item->card" :content="$item" />
@@ -62,8 +66,38 @@
                                       handle="setTypePage"
                                       :extra-handle-params="$postTypeData['extraHandleParams']"
                                       :extra-handle-params-first="true"
-                                      :has-buttons="true" />
+                                      :has-buttons="true" container-class="pagination pagination-{{ $postTypeSlug }}" />
             </div>
         @endforeach
     </div>
 </div>
+
+@script
+<script>
+    const searchResultContainers = Array.from(document.querySelectorAll('[search-results]'));
+
+    if (searchResultContainers.length > 0) {
+        searchResultContainers.forEach(container => {
+            const paginationElt = container.querySelector('.pagination');
+            const resultsContainer = container.querySelector('[search-results-grid]');
+
+            if (paginationElt && resultsContainer) {
+                paginationElt.addEventListener('click', (e) => {
+                    let realTarget = e.target;
+
+                    if (!realTarget.hasAttribute('wire:click.prevent') && e.target.closest('[wire\\:click\\.prevent]')) {
+                        // If the target is not a link with wire:click.prevent, we prevent the default action
+                        realTarget = e.target.closest('[wire\\:click\\.prevent]');
+                    } else if (!realTarget.hasAttribute('wire:click.prevent')) {
+                        realTarget = null;
+                    }
+
+                    if (realTarget) {
+                        resultsContainer.classList.add('{{ $loadingClass }}');
+                    }
+                });
+            }
+        });
+    }
+</script>
+@endscript

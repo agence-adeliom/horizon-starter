@@ -10,7 +10,7 @@ use Illuminate\View\Component;
 
 class SeparatedResults extends Component
 {
-    public function __construct(public readonly array $results, public readonly string $typeChoice, public readonly bool $displayTypeFilters = true, public readonly array $typeChoices = [], public readonly array $foundPostTypes = [], public readonly int $perPage = 12, public readonly array $totalPerType = [])
+    public function __construct(public readonly array $results, public readonly string $typeChoice, public readonly bool $displayTypeFilters = true, public readonly array $typeChoices = [], public readonly array $foundPostTypes = [], public readonly int $perPage = 12, public readonly array $totalPerType = [], public readonly string $loadingClass = 'blur')
     {
         //
     }
