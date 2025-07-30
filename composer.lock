@@ -88,12 +88,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "0beffb2ce9916d5ee93c0bb8cd0b6597a77aeef5"
+                                                "reference": "eebcbd3c291974f3140e5cbd97f8b4fc511a8956"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/0beffb2ce9916d5ee93c0bb8cd0b6597a77aeef5",
-                                                "reference": "0beffb2ce9916d5ee93c0bb8cd0b6597a77aeef5",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/eebcbd3c291974f3140e5cbd97f8b4fc511a8956",
+                                                "reference": "eebcbd3c291974f3140e5cbd97f8b4fc511a8956",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -124,7 +124,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/feature/search-engine",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-07-30T13:12:18+00:00"
+                                    "time": "2025-07-30T13:29:21+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",

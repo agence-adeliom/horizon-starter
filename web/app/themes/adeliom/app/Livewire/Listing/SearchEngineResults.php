@@ -263,7 +263,9 @@ class SearchEngineResults extends Component
             return [];
         }
 
-        return SearchEngineService::searchPostTypes(postTypes: $this->types, onlyGetResultsFromPostTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage, foundPostTypes: $foundPostTypes, totalPerType: $this->totalPerType);
+        $hasResetTypeToFilter = false;
+
+        return SearchEngineService::searchPostTypes(postTypes: $this->types, onlyGetResultsFromPostTypes: $this->typesToFetch, query: $this->searchQuery, separateResultsByType: $this->separateResultsByType, page: $this->page, perPage: $this->perPage, foundPostTypes: $foundPostTypes, totalPerType: $this->totalPerType, hasResetTypeToFilter: $hasResetTypeToFilter);
     }
 
     /**
