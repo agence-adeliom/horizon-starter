@@ -28,6 +28,7 @@ class SearchEngineResults extends Component
     public ?array $headerImage = null;
     public ?array $foundPostTypes = [];
     public ?array $totalPerType = [];
+    public bool $addPageInMetaTitle = true;
 
     private readonly array $searchConfig;
 
@@ -48,18 +49,30 @@ class SearchEngineResults extends Component
      */
     public function updatedSearchQuery(): void
     {
-        if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_META_TITLE])) {
-            $baseMetaTitle = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_META_TITLE];
-
-            if (str_contains($baseMetaTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
-                $baseMetaTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $baseMetaTitle);
-                $baseMetaTitle = sprintf('%s %s', $baseMetaTitle, SeoService::getMetaTitleSuffix());
+        if ($metaTitle = SearchEngineService::getMetaTitle()) {
+            if (str_contains($metaTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
+                $metaTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $metaTitle);
+                $metaTitle = $this->handleMetaTitlePagination($metaTitle);
+                $metaTitle = sprintf('%s %s', $metaTitle, SeoService::getMetaTitleSuffix());
 
                 $this->dispatch('setMetaTitle', [
-                    'title' => $baseMetaTitle,
+                    'title' => $metaTitle,
                 ]);
             }
         }
+    }
+
+    private function handleMetaTitlePagination($metaTitle): string
+    {
+        if ($this->addPageInMetaTitle) {
+            if (!$this->separateResultsByType) {
+                if ($this->page > 1) {
+                    $metaTitle = SeoService::appendPageToMetaTitle($metaTitle, $this->page);
+                }
+            }
+        }
+
+        return $metaTitle;
     }
 
     /**
@@ -99,6 +112,10 @@ class SearchEngineResults extends Component
         }
 
         if ($hasChanged) {
+            if ($this->addPageInMetaTitle) {
+                $this->updatedSearchQuery();
+            }
+
             $this->triggerChange();
         }
     }
@@ -112,10 +129,10 @@ class SearchEngineResults extends Component
     {
         return [
             'searchQuery' => [
-                'as' => $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER] ?? 'recherche',
+                'as' => SearchEngineService::getSearchEngineGETParameter() ?? 'recherche',
             ],
             'page' => [
-                'as' => 'pagination',
+                'as' => SearchEngineService::getSearchEnginePageGETParameter() ?? 'pagination',
                 'except' => '1',
             ],
             'typeChoice' => [
@@ -130,57 +147,35 @@ class SearchEngineResults extends Component
      */
     private function initConfig(): void
     {
-        if ($this->searchConfig) {
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_PER_PAGE])) {
-                if (is_numeric($this->searchConfig[SearchEngineOptionsAdmin::FIELD_PER_PAGE])) {
-                    $this->perPage = (int)$this->searchConfig[SearchEngineOptionsAdmin::FIELD_PER_PAGE];
-                }
+        $this->separateResultsByType = SearchEngineService::getSeparateByTypes();
+        $this->displayTypeFilters = SearchEngineService::getAllowFilterByType();
+        $this->displayBreadcrumbs = SearchEngineService::getDisplayBreadcrumbs();
+        $this->addPageInMetaTitle = SearchEngineService::getAddPageToMetaTitle();
+
+        if ($perPage = SearchEngineService::getPerPage()) {
+            $this->perPage = $perPage;
+        }
+
+        if ($postTypes = SearchEngineService::getPostTypes()) {
+            $this->types = $postTypes;
+            $this->typesToFetch = $postTypes;
+        }
+
+
+        if ($getParameter = SearchEngineService::getSearchEngineGETParameter()) {
+            $this->searchParam = $getParameter;
+        }
+
+        if ($headerTitle = SearchEngineService::getHeaderTitle()) {
+            if (str_contains($headerTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
+                $headerTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $headerTitle);
             }
 
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES])) {
-                if (is_array($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES])) {
-                    $this->types = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_TYPES];
-                    $this->typesToFetch = $this->types;
-                }
-            }
+            $this->headerTitle = $headerTitle;
+        }
 
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES])) {
-                if (is_bool($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES])) {
-                    $this->separateResultsByType = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEPARATE_BY_TYPES];
-                }
-            }
-
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER])) {
-                if (is_string($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER])) {
-                    $this->searchParam = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_GET_PARAMETER];
-                }
-            }
-
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
-                if (is_bool($this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE])) {
-                    $this->displayTypeFilters = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_ALLOW_FILTER_BY_TYPE];
-                }
-            }
-
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_TITLE])) {
-                $baseTitle = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_TITLE];
-
-                if (str_contains($baseTitle, SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER)) {
-                    $this->headerTitle = str_replace(SearchEngineOptionsAdmin::SEARCH_PLACEHOLDER, $this->searchQuery, $baseTitle);
-                }
-            }
-
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_HAS_BREADCRUMBS])) {
-                if (is_bool($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_HAS_BREADCRUMBS])) {
-                    $this->displayBreadcrumbs = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_HAS_BREADCRUMBS];
-                }
-            }
-
-            if (!empty($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_IMAGE])) {
-                if (is_array($this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_IMAGE])) {
-                    $this->headerImage = $this->searchConfig[SearchEngineOptionsAdmin::FIELD_SEARCH_HEADER_IMAGE];
-                }
-            }
+        if ($headerImage = SearchEngineService::getHeaderImage()) {
+            $this->headerImage = $headerImage;
         }
 
         if ($this->separateResultsByType && is_int($this->page)) {
