@@ -12,12 +12,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector.git",
-                                                "reference": "1a11bdcdfc1c15e6f684ccb69ffec017d1a6be11"
+                                                "reference": "10d850b29f43882618a824e3a5f85a557aeb6eb5"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/gutenberg-blocks-inspector/zipball/1a11bdcdfc1c15e6f684ccb69ffec017d1a6be11",
-                                                "reference": "1a11bdcdfc1c15e6f684ccb69ffec017d1a6be11",
+                                                "url": "https://api.github.com/repos/agence-adeliom/gutenberg-blocks-inspector/zipball/10d850b29f43882618a824e3a5f85a557aeb6eb5",
+                                                "reference": "10d850b29f43882618a824e3a5f85a557aeb6eb5",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -43,7 +43,7 @@
                                                 "source": "https://github.com/agence-adeliom/gutenberg-blocks-inspector/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/gutenberg-blocks-inspector/issues"
                                     },
-                                    "time": "2024-02-27T09:24:41+00:00"
+                                    "time": "2025-07-30T10:48:44+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-blocks",
@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "27cdb078549ce8c4ad04e1ca7f70e83941f59875"
+                                                "reference": "ec44ae0b9eae4510343ed095d0b895530d323d6b"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/27cdb078549ce8c4ad04e1ca7f70e83941f59875",
-                                                "reference": "27cdb078549ce8c4ad04e1ca7f70e83941f59875",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/ec44ae0b9eae4510343ed095d0b895530d323d6b",
+                                                "reference": "ec44ae0b9eae4510343ed095d0b895530d323d6b",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -81,7 +81,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-07-01T15:30:57+00:00"
+                                    "time": "2025-07-30T14:32:51+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -89,12 +89,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "2e9c82d490e6893e4c345e43c7322eaf8a582a74"
+                                                "reference": "602d1d725035b81f2106d5d05f7967ff85352c9a"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/2e9c82d490e6893e4c345e43c7322eaf8a582a74",
-                                                "reference": "2e9c82d490e6893e4c345e43c7322eaf8a582a74",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/602d1d725035b81f2106d5d05f7967ff85352c9a",
+                                                "reference": "602d1d725035b81f2106d5d05f7967ff85352c9a",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -126,7 +126,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-07-10T15:08:57+00:00"
+                                    "time": "2025-07-30T13:51:20+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -3118,16 +3118,16 @@
                         },
                         {
                                     "name": "livewire/livewire",
-                                    "version": "v3.6.3",
+                                    "version": "v3.6.4",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/livewire/livewire.git",
-                                                "reference": "56aa1bb63a46e06181c56fa64717a7287e19115e"
+                                                "reference": "ef04be759da41b14d2d129e670533180a44987dc"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/livewire/livewire/zipball/56aa1bb63a46e06181c56fa64717a7287e19115e",
-                                                "reference": "56aa1bb63a46e06181c56fa64717a7287e19115e",
+                                                "url": "https://api.github.com/repos/livewire/livewire/zipball/ef04be759da41b14d2d129e670533180a44987dc",
+                                                "reference": "ef04be759da41b14d2d129e670533180a44987dc",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -3182,7 +3182,7 @@
                                     "description": "A front-end framework for Laravel.",
                                     "support": {
                                                 "issues": "https://github.com/livewire/livewire/issues",
-                                                "source": "https://github.com/livewire/livewire/tree/v3.6.3"
+                                                "source": "https://github.com/livewire/livewire/tree/v3.6.4"
                                     },
                                     "funding": [
                                                 {
@@ -3190,7 +3190,7 @@
                                                             "type": "github"
                                                 }
                                     ],
-                                    "time": "2025-04-12T22:26:52+00:00"
+                                    "time": "2025-07-17T05:12:15+00:00"
                         },
                         {
                                     "name": "monolog/monolog",
@@ -4583,20 +4583,20 @@
                         },
                         {
                                     "name": "roots/wordpress",
-                                    "version": "6.8.1",
+                                    "version": "6.8.2",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/roots/wordpress.git",
-                                                "reference": "c53e4173d239dcaf8889f9f84c0b827a0cf643e9"
+                                                "reference": "29e4eb49b2f4c591e39d4eb6705a27cf1ea40e45"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/roots/wordpress/zipball/c53e4173d239dcaf8889f9f84c0b827a0cf643e9",
-                                                "reference": "c53e4173d239dcaf8889f9f84c0b827a0cf643e9",
+                                                "url": "https://api.github.com/repos/roots/wordpress/zipball/29e4eb49b2f4c591e39d4eb6705a27cf1ea40e45",
+                                                "reference": "29e4eb49b2f4c591e39d4eb6705a27cf1ea40e45",
                                                 "shasum": ""
                                     },
                                     "require": {
-                                                "roots/wordpress-core-installer": "^1.0.0",
+                                                "roots/wordpress-core-installer": "^3.0",
                                                 "roots/wordpress-no-content": "self.version"
                                     },
                                     "type": "metapackage",
@@ -4614,7 +4614,7 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/roots/wordpress/issues",
-                                                "source": "https://github.com/roots/wordpress/tree/6.8.1"
+                                                "source": "https://github.com/roots/wordpress/tree/6.8.2"
                                     },
                                     "funding": [
                                                 {
@@ -4622,25 +4622,25 @@
                                                             "type": "github"
                                                 }
                                     ],
-                                    "time": "2024-12-15T16:32:37+00:00"
+                                    "time": "2025-05-23T18:54:22+00:00"
                         },
                         {
                                     "name": "roots/wordpress-core-installer",
-                                    "version": "1.100.0",
+                                    "version": "3.0.0",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/roots/wordpress-core-installer.git",
-                                                "reference": "73f8488e5178c5d54234b919f823a9095e2b1847"
+                                                "reference": "714d2e2a9e523f6e7bde4810d5a04aedf0ec217f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/roots/wordpress-core-installer/zipball/73f8488e5178c5d54234b919f823a9095e2b1847",
-                                                "reference": "73f8488e5178c5d54234b919f823a9095e2b1847",
+                                                "url": "https://api.github.com/repos/roots/wordpress-core-installer/zipball/714d2e2a9e523f6e7bde4810d5a04aedf0ec217f",
+                                                "reference": "714d2e2a9e523f6e7bde4810d5a04aedf0ec217f",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "composer-plugin-api": "^1.0 || ^2.0",
-                                                "php": ">=5.6.0"
+                                                "php": ">=7.2.24"
                                     },
                                     "conflict": {
                                                 "composer/installers": "<1.0.6"
@@ -4650,7 +4650,7 @@
                                     },
                                     "require-dev": {
                                                 "composer/composer": "^1.0 || ^2.0",
-                                                "phpunit/phpunit": ">=5.7.27"
+                                                "phpunit/phpunit": "^8.5"
                                     },
                                     "type": "composer-plugin",
                                     "extra": {
@@ -4675,45 +4675,41 @@
                                                             "email": "team@roots.io"
                                                 }
                                     ],
-                                    "description": "A custom installer to handle deploying WordPress with composer",
+                                    "description": "A Composer custom installer to handle installing WordPress as a dependency",
                                     "keywords": [
                                                 "wordpress"
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/roots/wordpress-core-installer/issues",
-                                                "source": "https://github.com/roots/wordpress-core-installer/tree/master"
+                                                "source": "https://github.com/roots/wordpress-core-installer/tree/3.0.0"
                                     },
                                     "funding": [
                                                 {
                                                             "url": "https://github.com/roots",
                                                             "type": "github"
-                                                },
-                                                {
-                                                            "url": "https://www.patreon.com/rootsdev",
-                                                            "type": "patreon"
                                                 }
                                     ],
-                                    "time": "2020-08-20T00:27:30+00:00"
+                                    "time": "2025-05-23T18:47:25+00:00"
                         },
                         {
                                     "name": "roots/wordpress-no-content",
-                                    "version": "6.8.1",
+                                    "version": "6.8.2",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/WordPress/WordPress.git",
-                                                "reference": "6.8.1"
+                                                "reference": "6.8.2"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/release/wordpress-6.8.1-no-content.zip",
-                                                "reference": "6.8.1",
-                                                "shasum": "33a47970c8e42d9d8719cfae34e02a7a75920959"
+                                                "url": "https://downloads.wordpress.org/release/wordpress-6.8.2-no-content.zip",
+                                                "reference": "6.8.2",
+                                                "shasum": "7d8dcb839f4754e331d93b86f9adc8c171d81e97"
                                     },
                                     "require": {
                                                 "php": ">= 7.2.24"
                                     },
                                     "provide": {
-                                                "wordpress/core-implementation": "6.8.1"
+                                                "wordpress/core-implementation": "6.8.2"
                                     },
                                     "suggest": {
                                                 "ext-curl": "Performs remote request operations.",
@@ -4764,7 +4760,7 @@
                                                             "type": "other"
                                                 }
                                     ],
-                                    "time": "2025-04-30T16:53:41+00:00"
+                                    "time": "2025-07-15T15:29:08+00:00"
                         },
                         {
                                     "name": "roots/wp-config",
@@ -7031,15 +7027,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/seo-by-rank-math",
-                                    "version": "1.0.248",
+                                    "version": "1.0.249",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                                                "reference": "tags/1.0.248"
+                                                "reference": "tags/1.0.249"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.248.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.249.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7103,10 +7099,10 @@
                         },
                         {
                                     "name": "wpengine/advanced-custom-fields-pro",
-                                    "version": "6.4.2",
+                                    "version": "6.4.3",
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.4.2"
+                                                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?s=composer&p=pro&t=6.4.3"
                                     },
                                     "require": {
                                                 "composer/installers": "~1.0 || ~2.0"
@@ -7179,12 +7175,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "b34bea5e19970433575063dd74b68e5e880e10ee"
+                                                "reference": "d7c8dd1164e41c2a9f1a1e7861c1fb081c04e635"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/b34bea5e19970433575063dd74b68e5e880e10ee",
-                                                "reference": "b34bea5e19970433575063dd74b68e5e880e10ee",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d7c8dd1164e41c2a9f1a1e7861c1fb081c04e635",
+                                                "reference": "d7c8dd1164e41c2a9f1a1e7861c1fb081c04e635",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7255,6 +7251,7 @@
                                                 "bednee/cooluri": "<1.0.30",
                                                 "bigfork/silverstripe-form-capture": ">=3,<3.1.1",
                                                 "billz/raspap-webgui": "<3.3.6",
+                                                "binarytorch/larecipe": "<2.8.1",
                                                 "bk2k/bootstrap-package": ">=7.1,<7.1.2|>=8,<8.0.8|>=9,<9.0.4|>=9.1,<9.1.3|>=10,<10.0.10|>=11,<11.0.3",
                                                 "blueimp/jquery-file-upload": "==6.4.4",
                                                 "bmarshall511/wordpress_zero_spam": "<5.2.13",
@@ -7293,7 +7290,7 @@
                                                 "cockpit-hq/cockpit": "<2.11.4",
                                                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                                                 "codeigniter/framework": "<3.1.10",
-                                                "codeigniter4/framework": "<4.5.8",
+                                                "codeigniter4/framework": "<4.6.2",
                                                 "codeigniter4/shield": "<1.0.0.0-beta8",
                                                 "codiad/codiad": "<=2.8.4",
                                                 "codingms/additional-tca": ">=1.7,<1.15.17|>=1.16,<1.16.9",
@@ -7344,7 +7341,7 @@
                                                 "doctrine/mongodb-odm": "<1.0.2",
                                                 "doctrine/mongodb-odm-bundle": "<3.0.1",
                                                 "doctrine/orm": ">=1,<1.2.4|>=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                                                "dolibarr/dolibarr": "<19.0.2|==21.0.0.0-beta",
+                                                "dolibarr/dolibarr": "<=21.0.2",
                                                 "dompdf/dompdf": "<2.0.4",
                                                 "doublethreedigital/guest-entries": "<3.1.2",
                                                 "drupal/admin_audit_trail": "<1.0.5",
@@ -7380,7 +7377,7 @@
                                                 "elefant/cms": "<2.0.7",
                                                 "elgg/elgg": "<3.3.24|>=4,<4.0.5",
                                                 "elijaa/phpmemcacheadmin": "<=1.3",
-                                                "elmsln/haxcms": "<11",
+                                                "elmsln/haxcms": "<11.0.14",
                                                 "encore/laravel-admin": "<=1.8.19",
                                                 "endroid/qr-code-bundle": "<3.4.2",
                                                 "enhavo/enhavo-app": "<=0.13.1",
@@ -7508,10 +7505,10 @@
                                                 "imdbphp/imdbphp": "<=5.1.1",
                                                 "impresscms/impresscms": "<=1.4.5",
                                                 "impresspages/impresspages": "<1.0.13",
-                                                "in2code/femanager": "<5.5.5|>=6,<6.4.1|>=7,<7.4.2|>=8,<8.2.2",
+                                                "in2code/femanager": "<6.4.2|>=7,<7.5.3|>=8,<8.3.1",
                                                 "in2code/ipandlanguageredirect": "<5.1.2",
                                                 "in2code/lux": "<17.6.1|>=18,<24.0.2",
-                                                "in2code/powermail": "<7.5.1|>=8,<8.5.1|>=9,<10.9.1|>=11,<12.4.1",
+                                                "in2code/powermail": "<7.5.1|>=8,<8.5.1|>=9,<10.9.1|>=11,<12.5.3|==13",
                                                 "innologi/typo3-appointments": "<2.0.6",
                                                 "intelliants/subrion": "<4.2.2",
                                                 "inter-mediator/inter-mediator": "==5.5",
@@ -7522,7 +7519,7 @@
                                                 "jackalope/jackalope-doctrine-dbal": "<1.7.4",
                                                 "jambagecom/div2007": "<0.10.2",
                                                 "james-heinrich/getid3": "<1.9.21",
-                                                "james-heinrich/phpthumb": "<1.7.12",
+                                                "james-heinrich/phpthumb": "<=1.7.23",
                                                 "jasig/phpcas": "<1.3.3",
                                                 "jbartels/wec-map": "<3.0.3",
                                                 "jcbrand/converse.js": "<3.3.3",
@@ -7583,7 +7580,7 @@
                                                 "lightsaml/lightsaml": "<1.3.5",
                                                 "limesurvey/limesurvey": "<6.5.12",
                                                 "livehelperchat/livehelperchat": "<=3.91",
-                                                "livewire/livewire": "<2.12.7|>=3.0.0.0-beta1,<3.5.2",
+                                                "livewire/livewire": "<2.12.7|>=3.0.0.0-beta1,<3.6.4",
                                                 "livewire/volt": "<1.7",
                                                 "lms/routes": "<2.1.1",
                                                 "localizationteam/l10nmgr": "<7.4|>=8,<8.7|>=9,<9.2",
@@ -7601,8 +7598,10 @@
                                                 "magneto/core": "<1.9.4.4-dev",
                                                 "maikuolan/phpmussel": ">=1,<1.6",
                                                 "mainwp/mainwp": "<=4.4.3.3",
+                                                "manogi/nova-tiptap": "<=3.2.6",
                                                 "mantisbt/mantisbt": "<=2.26.3",
                                                 "marcwillmann/turn": "<0.3.3",
+                                                "marshmallow/nova-tiptap": "<5.7",
                                                 "matomo/matomo": "<1.11",
                                                 "matyhtf/framework": "<3.0.6",
                                                 "mautic/core": "<5.2.6|>=6.0.0.0-alpha,<6.0.2",
@@ -7833,6 +7832,7 @@
                                                 "silverstripe/taxonomy": ">=1.3,<1.3.1|>=2,<2.0.1",
                                                 "silverstripe/userforms": "<3|>=5,<5.4.2",
                                                 "silverstripe/versioned-admin": ">=1,<1.11.1",
+                                                "simogeo/filemanager": "<=2.5",
                                                 "simple-updates/phpwhois": "<=1",
                                                 "simplesamlphp/saml2": "<=4.16.15|>=5.0.0.0-alpha1,<=5.0.0.0-alpha19",
                                                 "simplesamlphp/saml2-legacy": "<=4.16.15",
@@ -8053,6 +8053,7 @@
                                                 "yoast-seo-for-typo3/yoast_seo": "<7.2.3",
                                                 "yourls/yourls": "<=1.8.2",
                                                 "yuan1994/tpadmin": "<=1.3.12",
+                                                "z-push/z-push-dev": "<2.7.6",
                                                 "zencart/zencart": "<=1.5.7.0-beta",
                                                 "zendesk/zendesk_api_client_php": "<2.2.11",
                                                 "zendframework/zend-cache": ">=2.4,<2.4.8|>=2.5,<2.5.3",
@@ -8127,7 +8128,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-07-10T13:15:28+00:00"
+                                    "time": "2025-07-29T21:05:36+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
