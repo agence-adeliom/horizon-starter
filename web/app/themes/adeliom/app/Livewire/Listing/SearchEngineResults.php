@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Listing;
 
 use Adeliom\HorizonTools\Admin\SearchEngineOptionsAdmin;
+use Adeliom\HorizonTools\Services\PostService;
 use Adeliom\HorizonTools\Services\SearchEngineService;
 use Adeliom\HorizonTools\Services\SeoService;
 use Illuminate\View\View;
@@ -65,10 +66,8 @@ class SearchEngineResults extends Component
     private function handleMetaTitlePagination($metaTitle): string
     {
         if ($this->addPageInMetaTitle) {
-            if (!$this->separateResultsByType) {
-                if ($this->page > 1) {
-                    $metaTitle = SeoService::appendPageToMetaTitle($metaTitle, $this->page);
-                }
+            if (is_array($this->page) || $this->page > 1) {
+                $metaTitle = SeoService::appendPageToMetaTitle($metaTitle, $this->page);
             }
         }
 
@@ -197,23 +196,7 @@ class SearchEngineResults extends Component
         $this->typeChoices[self::VALUE_ALL_TYPE] = 'Tous les résultats';
 
         foreach ($this->types as $typeSlug) {
-            $label = null;
-
-            switch ($typeSlug) {
-                case 'post':
-                    $label = 'Articles';
-                    break;
-                case 'page':
-                    $label = 'Pages';
-                    break;
-                default:
-                    if ($postTypeObject = get_post_type_object($typeSlug)) {
-                        $label = $postTypeObject->labels->name ?? null;
-                    }
-                    break;
-            }
-
-            if ($label) {
+            if ($label = PostService::getPostPrettyNameBySlug($typeSlug)) {
                 $this->typeChoices[$typeSlug] = $label;
             }
         }
