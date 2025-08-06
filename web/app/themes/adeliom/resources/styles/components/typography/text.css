@@ -1,13 +1,11 @@
-@layer components {
-    .p {
+@utility p {
         @apply text-text-secondary;
     }
 
-    .text-hover {
+ @utility text-hover {
         @apply hover:opacity-70 transition-all;
     }
 
-    .link {
+ @utility link {
         @apply text-primary font-semibold dark:text-tertiary text-hover underline;
     }
-}

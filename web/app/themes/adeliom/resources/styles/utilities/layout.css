@@ -1,13 +1,12 @@
-@layer utilities {
-  .grid-12 {
+@utility grid-12 {
     @apply grid gap-6 lg:grid-cols-12;
   }
 
-  .grid-6 {
+@utility grid-6 {
     @apply grid gap-6 lg:grid-cols-6;
   }
 
-  .grid-4 {
+@utility grid-4 {
     @apply grid gap-6 lg:grid-cols-4;
   }
-}
+
