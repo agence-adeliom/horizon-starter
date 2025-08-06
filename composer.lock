@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "e27e63a5090d7342a0f7178ee4f5fb0720708965"
+                                                "reference": "e688462fe681c5849eda0d91c29cb753b1b4e533"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/e27e63a5090d7342a0f7178ee4f5fb0720708965",
-                                                "reference": "e27e63a5090d7342a0f7178ee4f5fb0720708965",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/e688462fe681c5849eda0d91c29cb753b1b4e533",
+                                                "reference": "e688462fe681c5849eda0d91c29cb753b1b4e533",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -80,7 +80,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-08-06T13:21:36+00:00"
+                                    "time": "2025-08-06T14:08:21+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
