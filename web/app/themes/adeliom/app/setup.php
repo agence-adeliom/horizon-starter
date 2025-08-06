@@ -6,7 +6,6 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Vite;
 
 /**
@@ -15,16 +14,30 @@ use Illuminate\Support\Facades\Vite;
  * @return array
  */
 add_filter('block_editor_settings_all', function ($settings) {
-    $style = Vite::asset('resources/css/editor.css');
+    $style = Vite::asset('resources/styles/editor.css');
 
     $settings['styles'][] = [
         'css' => Vite::isRunningHot()
             ? "@import url('{$style}')"
-            : Vite::content('resources/css/editor.css'),
+            : Vite::content('resources/styles/editor.css'),
     ];
 
     return $settings;
 });
+
+/**
+ * Enqueue the main theme styles.
+ */
+add_action('wp_enqueue_scripts', function () {
+    if (is_admin()) {
+        return;
+    }
+
+    $style = Vite::asset('resources/styles/app.css');
+
+    wp_enqueue_style('sage/app', $style, [], Vite::content('resources/styles/app.css'));
+}, 100);
+
 
 /**
  * Inject scripts into the block editor.
@@ -32,14 +45,14 @@ add_filter('block_editor_settings_all', function ($settings) {
  * @return void
  */
 add_filter('admin_head', function () {
-    if (! get_current_screen()?->is_block_editor()) {
+    if (!get_current_screen()?->is_block_editor()) {
         return;
     }
 
     $dependencies = json_decode(Vite::content('editor.deps.json'));
 
     foreach ($dependencies as $dependency) {
-        if (! wp_script_is($dependency)) {
+        if (!wp_script_is($dependency)) {
             wp_enqueue_script($dependency);
         }
     }
@@ -55,11 +68,11 @@ add_filter('admin_head', function () {
  * @return void
  */
 add_action('enqueue_block_assets', function () {
-    if (! is_admin() || ! get_current_screen()?->is_block_editor()) {
+    if (!is_admin() || !get_current_screen()?->is_block_editor()) {
         return;
     }
 
-    if (! Vite::isRunningHot()) {
+    if (!Vite::isRunningHot()) {
         return;
     }
 
@@ -170,19 +183,18 @@ add_action('after_setup_theme', function () {
 add_action('widgets_init', function () {
     $config = [
         'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
     ];
 
     register_sidebar([
             'name' => __('Primary', 'sage'),
-            'id' => 'sidebar-primary',
+            'id'   => 'sidebar-primary',
         ] + $config);
 
     register_sidebar([
             'name' => __('Footer', 'sage'),
-            'id' => 'sidebar-footer',
+            'id'   => 'sidebar-footer',
         ] + $config);
 });
-
