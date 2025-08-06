@@ -1,26 +1,26 @@
 .gform-theme--framework {
-  .ginput_container_consent,
-  .gchoice {
-    @apply flex items-baseline;
-    @apply !cursor-pointer;
+    .ginput_container_consent,
+    .gchoice {
+        @apply flex items-baseline;
+        @apply !cursor-pointer;
 
-    & + .gchoice {
-      @apply mt-2;
+        & + .gchoice {
+            @apply mt-2;
+        }
+
+        input[type='checkbox'] {
+            @apply h-6 w-6 !border-neutral-300 !bg-white focus:!border-primary !rounded-none !shadow-none;
+
+            &:checked:before {
+                @apply !text-neutral-0 !accent-neutral-0;
+            }
+
+            &:checked {
+                @apply !border-primary !bg-primary;
+            }
+        }
+
+        label {
+        }
     }
-
-    input[type='checkbox'] {
-      @apply h-6 w-6 !border-neutral-300 !bg-white focus:!border-primary !rounded-none !shadow-none;
-
-      &:checked:before {
-        @apply !text-neutral-0 !accent-neutral-0;
-      }
-
-      &:checked {
-        @apply !border-primary !bg-primary;
-      }
-    }
-
-    label {
-    }
-  }
 }

@@ -6,121 +6,121 @@
         &:not(.btn--text) {
             @apply border-solid border-input rounded-button;
         }
+    }
 
-        /*-- variants --*/
-        &--primary {
-            &.btn--contained {
-                @apply text-primary-contrast bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark;
-            }
-
-            &.btn--outlined {
-                @apply text-primary bg-white border-primary hover:text-white hover:bg-primary;
-            }
-
-            &.btn--text {
-                @apply text-primary hover:text-primary-dark;
-            }
+    /*-- variants --*/
+    .btn--primary {
+        &.btn--contained {
+            @apply text-primary-contrast bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark;
         }
 
-        &--secondary {
-            &:not(.btn--text) {
-                @apply text-secondary-contrast bg-secondary border-secondary hover:bg-secondary-dark hover:border-secondary-dark;
-            }
-
-            &.btn--text {
-                @apply text-secondary hover:text-secondary-dark;
-            }
+        &.btn--outlined {
+            @apply text-primary bg-white border-primary hover:text-white hover:bg-primary;
         }
 
-        &--tertiary {
-            &:not(.btn--text) {
-                @apply text-tertiary-contrast bg-tertiary border-tertiary hover:bg-tertiary-dark hover:border-tertiary-dark;
-            }
+        &.btn--text {
+            @apply text-primary hover:text-primary-dark;
+        }
+    }
 
-            &.btn--text {
-                @apply text-tertiary hover:text-tertiary-dark;
-            }
+    .btn--secondary {
+        &:not(.btn--text) {
+            @apply text-secondary-contrast bg-secondary border-secondary hover:bg-secondary-dark hover:border-secondary-dark;
         }
 
-        &--disabled {
-            @apply text-neutral-500 cursor-not-allowed pointer-events-none;
+        &.btn--text {
+            @apply text-secondary hover:text-secondary-dark;
+        }
+    }
 
-            &:not(.btn--text) {
-                @apply bg-neutral-300 border-neutral-300;
-            }
+    .btn--tertiary {
+        &:not(.btn--text) {
+            @apply text-tertiary-contrast bg-tertiary border-tertiary hover:bg-tertiary-dark hover:border-tertiary-dark;
         }
 
-        /*-- sizes --*/
-        &--sm {
-            @apply gap-small text-xsmall;
+        &.btn--text {
+            @apply text-tertiary hover:text-tertiary-dark;
+        }
+    }
 
-            &:not(.btn--text) {
-                @apply px-small leading-[26px];
-            }
+    .btn--disabled {
+        @apply text-neutral-500 cursor-not-allowed pointer-events-none;
 
-            .icon {
-                @apply w-2 h-2;
-            }
+        &:not(.btn--text) {
+            @apply bg-neutral-300 border-neutral-300;
+        }
+    }
+
+    /*-- sizes --*/
+    .btn--sm {
+        @apply gap-small text-xsmall;
+
+        &:not(.btn--text) {
+            @apply px-small leading-[26px];
         }
 
-        &--md {
-            @apply gap-medium text-small;
+        .icon {
+            @apply w-2 h-2;
+        }
+    }
 
-            &:not(.btn--text) {
-                @apply px-medium leading-[36px];
-            }
+    .btn--md {
+        @apply gap-medium text-small;
 
-            .icon {
-                @apply w-3 h-3;
-            }
+        &:not(.btn--text) {
+            @apply px-medium leading-[36px];
         }
 
-        &--lg {
-            @apply gap-large text-medium;
+        .icon {
+            @apply w-3 h-3;
+        }
+    }
 
-            &:not(.btn--text) {
-                @apply px-large leading-[46px];
-            }
+    .btn--lg {
+        @apply gap-large text-medium;
 
-            .icon {
-                @apply w-4 h-4;
-            }
+        &:not(.btn--text) {
+            @apply px-large leading-[46px];
         }
 
-        /*-- button icons --*/
-        &--icon-only {
-            &.btn {
-                &--sm {
-                    @apply w-8 h-8 p-1;
+        .icon {
+            @apply w-4 h-4;
+        }
+    }
 
-                    .icon {
-                        @apply w-3 h-3;
-                    }
-                }
+    /*-- button icons --*/
+    .btn--icon-only {
+        &.btn {
+            &--sm {
+                @apply w-8 h-8 p-1;
 
-                &--md {
-                    @apply w-10 h-10 p-2;
-
-                    .icon {
-                        @apply w-4 h-4;
-                    }
-                }
-
-                &--lg {
-                    @apply w-12 h-12 p-3;
-
-                    .icon {
-                        @apply w-5 h-5;
-                    }
+                .icon {
+                    @apply w-3 h-3;
                 }
             }
-        }
 
-        &--play {
-            @apply w-14 h-14 !rounded-full;
-            @apply bg-tertiary !border-tertiary;
-            @apply hover:bg-primary-dark hover:!border-primary-dark;
-            @apply group-hover:bg-primary-dark group-hover:!border-primary-dark;
+            &--md {
+                @apply w-10 h-10 p-2;
+
+                .icon {
+                    @apply w-4 h-4;
+                }
+            }
+
+            &--lg {
+                @apply w-12 h-12 p-3;
+
+                .icon {
+                    @apply w-5 h-5;
+                }
+            }
         }
+    }
+
+    .btn--play {
+        @apply w-14 h-14 !rounded-full;
+        @apply bg-tertiary !border-tertiary;
+        @apply hover:bg-primary-dark hover:!border-primary-dark;
+        @apply group-hover:bg-primary-dark group-hover:!border-primary-dark;
     }
 }
