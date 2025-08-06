@@ -1,4 +1,4 @@
-import domReady from '@roots/sage/client/dom-ready';
+import domReady from '@wordpress/dom-ready';
 import '@scripts/navigations/menu';
 import '@scripts/structure/modal';
 import '@scripts/structure/lightbox';

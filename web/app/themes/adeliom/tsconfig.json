@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Bud",
+    "display": "Vite",
     "compilerOptions": {
       "lib": [
         "DOM",
@@ -17,12 +17,9 @@
       "jsx": "preserve",
       "moduleResolution": "node",
       "noFallthroughCasesInSwitch": true,
-      "outDir": "dist",
+     // "outDir": "dist",
       "baseUrl": ".",
       "paths": {
-        "@src/*": [
-          "src/*"
-        ],
         "@scripts/*": [
           "scripts/*"
         ]
@@ -30,5 +27,5 @@
       "skipLibCheck": true
     },
     "include": ["./resources/scripts/**/*.ts", "./resources/scripts/types/**/*.ts"],
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "vendor"],
   }
