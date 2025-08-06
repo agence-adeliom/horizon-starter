@@ -6,25 +6,88 @@
 
 namespace App;
 
-use function Roots\bundle;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Vite;
 
 /**
- * Register the theme assets.
+ * Inject styles into the block editor.
+ *
+ * @return array
+ */
+add_filter('block_editor_settings_all', function ($settings) {
+    $style = Vite::asset('resources/css/editor.css');
+
+    $settings['styles'][] = [
+        'css' => Vite::isRunningHot()
+            ? "@import url('{$style}')"
+            : Vite::content('resources/css/editor.css'),
+    ];
+
+    return $settings;
+});
+
+/**
+ * Inject scripts into the block editor.
  *
  * @return void
  */
-add_action('wp_enqueue_scripts', function () {
-    bundle('app')->enqueue();
-}, 100);
+add_filter('admin_head', function () {
+    if (! get_current_screen()?->is_block_editor()) {
+        return;
+    }
+
+    $dependencies = json_decode(Vite::content('editor.deps.json'));
+
+    foreach ($dependencies as $dependency) {
+        if (! wp_script_is($dependency)) {
+            wp_enqueue_script($dependency);
+        }
+    }
+
+    echo Vite::withEntryPoints([
+        'resources/js/editor.js',
+    ])->toHtml();
+});
 
 /**
- * Register the theme assets with the block editor.
+ * Add Vite's HMR client to the block editor.
  *
  * @return void
  */
-add_action('enqueue_block_editor_assets', function () {
-    bundle('editor')->enqueue();
-}, 100);
+add_action('enqueue_block_assets', function () {
+    if (! is_admin() || ! get_current_screen()?->is_block_editor()) {
+        return;
+    }
+
+    if (! Vite::isRunningHot()) {
+        return;
+    }
+
+    $script = sprintf(
+        <<<'JS'
+        window.__vite_client_url = '%s';
+
+        window.self !== window.top && document.head.appendChild(
+            Object.assign(document.createElement('script'), { type: 'module', src: '%s' })
+        );
+        JS,
+        untrailingslashit(Vite::asset('')),
+        Vite::asset('@vite/client')
+    );
+
+    wp_add_inline_script('wp-blocks', $script);
+});
+
+/**
+ * Use the generated theme.json file.
+ *
+ * @return string
+ */
+add_filter('theme_file_path', function ($path, $file) {
+    return $file === 'theme.json'
+        ? public_path('build/assets/theme.json')
+        : $path;
+}, 10, 2);
 
 /**
  * Register the initial theme setup.
@@ -45,10 +108,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation'          => __('Navigation principale', 'sage'),
-        'legals_navigation'           => __('Navigation liens légaux', 'sage'),
-        'primary_footer_navigation'   => __('Navigation principale pied de page', 'sage'),
-        'secondary_footer_navigation' => __('Navigation secondaire pied de page', 'sage'),
+        'primary_navigation' => __('Primary Navigation', 'sage'),
     ]);
 
     /**
@@ -110,41 +170,19 @@ add_action('after_setup_theme', function () {
 add_action('widgets_init', function () {
     $config = [
         'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>',
+        'after_widget' => '</section>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id'   => 'sidebar-primary',
-    ] + $config);
+            'name' => __('Primary', 'sage'),
+            'id' => 'sidebar-primary',
+        ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id'   => 'sidebar-footer',
-    ] + $config);
+            'name' => __('Footer', 'sage'),
+            'id' => 'sidebar-footer',
+        ] + $config);
 });
 
-/**
- * Register perfect images sizes.
- *
- * @return void
- */
-add_action('after_setup_theme', function () {
-
-    //Small
-    add_image_size('small', 400, 260);
-
-    // Medium size.
-    update_option('medium_size_w', 600);
-    update_option('medium_size_h', 480);
-
-    // Medium_large size.
-    update_option('medium_large_size_w', 800);
-    update_option('medium_large_size_h', 540);
-
-    // Large size.
-    update_option('large_size_w', 1080);
-    update_option('large_size_h', 720);
-});

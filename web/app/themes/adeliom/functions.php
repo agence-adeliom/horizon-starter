@@ -11,6 +11,7 @@
 |
 */
 
+use App\Providers\ThemeServiceProvider;
 use Roots\Acorn\Application;
 
 if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
@@ -45,7 +46,7 @@ if (! function_exists('\Roots\bootloader')) {
 
 Application::configure()
     ->withProviders([
-        \App\Providers\ThemeServiceProvider::class,
+        ThemeServiceProvider::class,
     ])
     ->withRouting(wordpress: true)
     ->boot();
