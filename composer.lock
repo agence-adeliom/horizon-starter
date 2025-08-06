@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "58d2d04199b776bed9be75aff17706fd",
+            "content-hash": "3e2809f554728e17dff008ef94f39180",
             "packages": [
                         {
                                     "name": "agence-adeliom/gutenberg-blocks-inspector",
@@ -51,17 +51,17 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "4fde29db61414b813dc3cc772cc9e5ab7b32f31f"
+                                                "reference": "e27e63a5090d7342a0f7178ee4f5fb0720708965"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/4fde29db61414b813dc3cc772cc9e5ab7b32f31f",
-                                                "reference": "4fde29db61414b813dc3cc772cc9e5ab7b32f31f",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/e27e63a5090d7342a0f7178ee4f5fb0720708965",
+                                                "reference": "e27e63a5090d7342a0f7178ee4f5fb0720708965",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "agence-adeliom/horizon-tools": "dev-upgrade/sage-11",
-                                                "laravel/prompts": "^0.3",
+                                                "laravel/prompts": "^0.1.25 || ^0.3",
                                                 "php": ">=8.4"
                                     },
                                     "type": "library",
@@ -80,7 +80,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-08-06T08:17:28+00:00"
+                                    "time": "2025-08-06T13:21:36+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -88,12 +88,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "1a5627efad433610fa90e9629a3450106c33cf95"
+                                                "reference": "6168ef2a90941c312a81d0f747360746d88670be"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/1a5627efad433610fa90e9629a3450106c33cf95",
-                                                "reference": "1a5627efad433610fa90e9629a3450106c33cf95",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/6168ef2a90941c312a81d0f747360746d88670be",
+                                                "reference": "6168ef2a90941c312a81d0f747360746d88670be",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -101,7 +101,7 @@
                                                 "league/color-extractor": "^0.4.0",
                                                 "livewire/livewire": "^3.5",
                                                 "php": ">=8.2",
-                                                "roots/acorn": "^5.0",
+                                                "roots/acorn": "^4.0 || ^5.0",
                                                 "vinkla/extended-acf": "^14.0"
                                     },
                                     "type": "library",
@@ -124,7 +124,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-08-06T08:16:25+00:00"
+                                    "time": "2025-08-06T13:28:51+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",

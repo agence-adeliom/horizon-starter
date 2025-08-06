@@ -79,7 +79,7 @@
     "roots/wordpress": "^6.7",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
-    "roots/acorn": "^5.0",
+    "roots/acorn": "^5.0.5",
     "wpengine/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/duplicate-page": "*",
     "wpackagist-plugin/seo-by-rank-math": "*",
