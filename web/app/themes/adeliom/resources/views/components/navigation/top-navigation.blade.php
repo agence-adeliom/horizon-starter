@@ -30,7 +30,7 @@
                                 <x-structure.drawer position='top' class="h-auto flex flex-col">
                                     <div @class([
                                         'bg-white w-full pb-10 pt-20 lg:py-20',
-                                        '!pb-20' => !$searchInfos,
+                                        'pb-20!' => !$searchInfos,
                                     ])>
                                         <div class="container">
                                             <div class="max-w-2xl mx-auto flex flex-col gap-6">

@@ -30,7 +30,7 @@
 @endif
 
 <div id="app">
-	<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-[9999]" href="#main">
+	<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-9999" href="#main">
 		<x-action.button> {{ __('Skip to content', 'sage') }}</x-action.button>
 	</a>
 	
