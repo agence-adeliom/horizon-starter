@@ -42,12 +42,13 @@ if (! function_exists('\Roots\bootloader')) {
     );
 }
 
-add_action('after_setup_theme', function () {
-    Application::configure()
-        ->withProviders([])
-        ->withRouting(wordpress: true)
-        ->boot();
-}, 0);
+
+Application::configure()
+    ->withProviders([
+        \App\Providers\ThemeServiceProvider::class,
+    ])
+    ->withRouting(wordpress: true)
+    ->boot();
 
 /*
 |--------------------------------------------------------------------------

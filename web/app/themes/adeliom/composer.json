@@ -57,6 +57,7 @@
   "extra": {
     "acorn": {
       "providers": [
+        "App\\Providers\\ThemeServiceProvider",
         "Adeliom\\HorizonTools\\Providers\\HorizonToolsServiceProvider"
       ]
     }
