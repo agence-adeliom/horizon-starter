@@ -427,3 +427,12 @@
         padding-inline: 3rem;
     }
 }
+
+/*   addVariant('is-active', ['&.is-active', '.is-active &']);
+            addVariant('is-open', ['&.is-open', '.is-open &']);
+            addVariant('visible', ['&.is-visible', '.is-visible &']);
+            addVariant('keyboard', '.tab-active &'); */
+@custom-variant is-active (&.is-active, .is-active &);
+@custom-variant is-open (&.is-open, .is-open &);
+@custom-variant visible (&.is-visible, .is-visible &);
+@custom-variant keyboard (.tab-active &);
