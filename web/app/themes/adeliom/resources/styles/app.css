@@ -189,7 +189,7 @@
     --color-neutral-950: 'var(--awc-color-neutral-950)';
     --color-neutral-1000: 'var(--awc-color-neutral-1000)';
 
-    --color-text-accent: 'var(--awc-text-accent-color)';
+    --color-accent: 'var(--awc-text-accent-color)';
     --color-transparent: 'var(--awc-color-transparent)';
     --color-tooltip: 'var(--awc-tooltip-color)';
     --color-focus-ring: 'var(--awc-focus-ring-color)';
@@ -428,10 +428,6 @@
     }
 }
 
-/*   addVariant('is-active', ['&.is-active', '.is-active &']);
-            addVariant('is-open', ['&.is-open', '.is-open &']);
-            addVariant('visible', ['&.is-visible', '.is-visible &']);
-            addVariant('keyboard', '.tab-active &'); */
 @custom-variant is-active (&.is-active, .is-active &);
 @custom-variant is-open (&.is-open, .is-open &);
 @custom-variant visible (&.is-visible, .is-visible &);
