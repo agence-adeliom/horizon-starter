@@ -11,6 +11,8 @@
 |
 */
 
+use Roots\Acorn\Application;
+
 if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
     wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
 }
@@ -40,7 +42,12 @@ if (! function_exists('\Roots\bootloader')) {
     );
 }
 
-\Roots\bootloader()->boot();
+add_action('after_setup_theme', function () {
+    Application::configure()
+        ->withProviders([])
+        ->withRouting(wordpress: true)
+        ->boot();
+}, 0);
 
 /*
 |--------------------------------------------------------------------------
