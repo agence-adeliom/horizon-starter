@@ -1,8 +1,7 @@
 @utility bg-full {
-        @apply bg-cover bg-center;
-    }
+    @apply bg-cover bg-center;
+}
 
- @utility bg-linear {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 67.19%);
-    }
-
+@utility bg-linear {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 67.19%);
+}

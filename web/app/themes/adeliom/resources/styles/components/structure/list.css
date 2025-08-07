@@ -5,11 +5,11 @@
             @apply pl-2;
         }
     }
-    .list--none {
+    .list-none {
         @apply list-none;
     }
 
-    .list--disc {
+    .list-disc {
         @apply list-disc;
 
         li {
@@ -17,7 +17,7 @@
         }
     }
 
-    .list--decimal {
+    .list-decimal {
         @apply list-decimal;
     }
 

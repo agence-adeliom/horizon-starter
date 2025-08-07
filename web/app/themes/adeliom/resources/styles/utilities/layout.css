@@ -1,12 +1,36 @@
+@utility container {
+    padding-inline: 1rem;
+    margin-inline: auto;
+
+    @variant sm {
+        padding-inline: 2.5rem;
+    }
+
+    @variant md {
+        padding-inline: 2.25rem;
+    }
+
+    @variant lg {
+        padding-inline: 2.75rem;
+    }
+
+    @variant xl {
+        padding-inline: 2.5rem;
+    }
+
+    @variant 2xl {
+        padding-inline: 3rem;
+    }
+}
+
 @utility grid-12 {
     @apply grid gap-6 lg:grid-cols-12;
-  }
+}
 
 @utility grid-6 {
     @apply grid gap-6 lg:grid-cols-6;
-  }
+}
 
 @utility grid-4 {
     @apply grid gap-6 lg:grid-cols-4;
-  }
-
+}

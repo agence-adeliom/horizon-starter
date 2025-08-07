@@ -1,4 +1,3 @@
 @utility uptitle {
-        @apply text-accent font-semibold tracking-wide uppercase;
-    }
-
+    @apply text-accent font-semibold tracking-wide uppercase;
+}

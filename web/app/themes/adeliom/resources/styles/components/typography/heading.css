@@ -1,31 +1,31 @@
 @utility heading {
-        @apply font-heading leading-tight font-semibold text-text-primary;
-    }
+    @apply font-heading leading-tight font-semibold text-text-primary;
+}
 
 @utility heading-1 {
-        @apply text-5xlarge lg:text-6xlarge xl:text-7xlarge;
-    }
+    @apply text-5xlarge lg:text-6xlarge xl:text-7xlarge;
+}
 
 @utility heading-2 {
-        @apply text-4xlarge lg:text-5xlarge xl:text-6xlarge;
-    }
+    @apply text-4xlarge lg:text-5xlarge xl:text-6xlarge;
+}
 
 @utility heading-3 {
-        @apply text-3xlarge lg:text-4xlarge xl:text-5xlarge;
-    }
+    @apply text-3xlarge lg:text-4xlarge xl:text-5xlarge;
+}
 
 @utility heading-4 {
-        @apply text-2xlarge lg:text-3xlarge xl:text-4xlarge;
-    }
+    @apply text-2xlarge lg:text-3xlarge xl:text-4xlarge;
+}
 
 @utility heading-5 {
-        @apply text-xlarge lg:text-2xlarge xl:text-3xlarge;
-    }
+    @apply text-xlarge lg:text-2xlarge xl:text-3xlarge;
+}
 
 @utility headline {
-        @apply text-accent text-medium font-semibold uppercase leading-normal tracking-wider;
-    }
+    @apply text-accent text-medium font-semibold uppercase leading-normal tracking-wider;
+}
 
 @utility uptitle {
-        @apply headline;
-    }
+    @apply headline;
+}

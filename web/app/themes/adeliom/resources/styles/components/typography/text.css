@@ -1,11 +1,11 @@
 @utility p {
-        @apply text-text-secondary;
-    }
+    @apply text-text-secondary;
+}
 
- @utility text-hover {
-        @apply hover:opacity-70 transition-all;
-    }
+@utility text-hover {
+    @apply hover:opacity-70 transition-all;
+}
 
- @utility link {
-        @apply text-primary font-semibold dark:text-tertiary text-hover underline;
-    }
+@utility link {
+    @apply text-primary font-semibold dark:text-tertiary text-hover underline;
+}
