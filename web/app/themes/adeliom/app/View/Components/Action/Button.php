@@ -16,8 +16,8 @@ class Button extends Component
     public string $fullClass;
     final public const string ICON_ONLY = "btn--icon-only";
 
-    /** 
-     * Button hierarchy level 
+    /**
+     * Button hierarchy level
      * Adjust color and variant to your need
      *  **/
     final public const TYPES = [
@@ -101,10 +101,8 @@ class Button extends Component
         }
 
 
-        if (null === $type) {
-            if (null === $this->type && isset($this->fields[ButtonField::BUTTON_TYPE])) {
-                $type = $this->fields[ButtonField::BUTTON_TYPE];
-            }
+        if (isset($this->fields[ButtonField::BUTTON_TYPE]) && in_array($this->fields[ButtonField::BUTTON_TYPE], array_keys(self::TYPES))) {
+            $type = $this->fields[ButtonField::BUTTON_TYPE];
         }
 
         if (null !== $type) {

@@ -23,6 +23,12 @@ export default async app => {
         .entry('editor', ['@scripts/editor', '@styles/editor'])
         .entry('post-summary', ['@scripts/blocks/post-summary'])
         .entry('logos', ['@scripts/blocks/logos'])
+        .entry('search-engine-results', ['@styles/components/blocks/search-engine-results'])
+        .entry('customer-review', ['@scripts/blocks/customer-review'])
+        .entry('steps', ['@scripts/blocks/steps'])
+        .entry('arguments', ['@scripts/blocks/arguments'])
+        .entry('gallery', ['@scripts/blocks/gallery'])
+        .entry('listing', ['@scripts/blocks/listing'])
         .runtime('single')
         .hash()
         .assets(['images']);
