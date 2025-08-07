@@ -14,14 +14,14 @@
                     @if ($links)
                         <div class="links">
                             @foreach ($links as $link)
-                                <x-navigation.link :fields="$link" class="top-item top-item--link" />
+                                <x-navigation.link :fields="$link" class="top-item top-item-link" />
                             @endforeach
                         </div>
                     @endif
 
                     @if ($withSearch)
                         <span class="flex" x-data="initModal()">
-                            <button class="top-item top-item--search" x-on:click="openModal()">
+                            <button class="top-item top-item-search" x-on:click="openModal()">
                                 <x-fas-magnifying-glass class="icon-4" />
                                 Rechercher
                             </button>

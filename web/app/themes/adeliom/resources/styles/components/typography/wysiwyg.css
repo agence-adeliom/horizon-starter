@@ -1,147 +1,145 @@
-@layer components {
-    .wysiwyg {
-        .h1,
-        h1 {
-            @apply heading heading-1;
-        }
+.wysiwyg {
+    .h1,
+    h1 {
+        @apply heading heading-1;
+    }
 
-        .h2,
-        h2 {
-            @apply heading heading-2;
-        }
+    .h2,
+    h2 {
+        @apply heading heading-2;
+    }
 
-        .h3,
-        h3 {
-            @apply heading heading-3;
-        }
+    .h3,
+    h3 {
+        @apply heading heading-3;
+    }
 
-        .h4,
-        h4 {
-            @apply heading heading-4;
-        }
+    .h4,
+    h4 {
+        @apply heading heading-4;
+    }
 
-        .h5,
-        h5 {
-            @apply heading heading-5;
-        }
+    .h5,
+    h5 {
+        @apply heading heading-5;
+    }
 
-        a:not(.btn) {
-            @apply cursor-pointer underline font-medium text-primary;
-        }
+    a:not(.btn) {
+        @apply cursor-pointer underline font-medium text-primary;
+    }
 
-        ul,
-        ol,
-        p {
-            @apply text-text-secondary;
-        }
+    ul,
+    ol,
+    p {
+        @apply text-text-secondary;
+    }
 
-        ul,
-        ol {
-            @apply marker:text-primary marker:font-semibold marker:text-medium;
-        }
+    ul,
+    ol {
+        @apply marker:text-primary marker:font-semibold marker:text-medium;
+    }
 
-        ul {
-            list-style-type: disc;
-            @apply pl-5;
-        }
+    ul {
+        list-style-type: disc;
+        @apply pl-5;
+    }
 
-        ol {
-            list-style-type: decimal-leading-zero;
-            @apply pl-8;
-        }
+    ol {
+        list-style-type: decimal-leading-zero;
+        @apply pl-8;
+    }
 
-        & > *:last-child {
-            margin-bottom: 0;
-        }
+    & > *:last-child {
+        margin-bottom: 0;
+    }
 
-        p,
-        ul,
-        ol {
-            & + h2,
-            & + h3,
-            & + h4,
-            & + h5 {
+    p,
+    ul,
+    ol {
+        & + h2,
+        & + h3,
+        & + h4,
+        & + h5 {
+            @apply mt-8;
+        }
+    }
+
+    h2 {
+        & + h3,
+        & + h4 {
+            @apply mt-2.5;
+        }
+    }
+
+    h3 {
+        & + h2,
+        & + h4 {
+            @apply mt-4;
+
+            @screen md {
                 @apply mt-8;
             }
         }
+    }
 
-        h2 {
-            & + h3,
-            & + h4 {
-                @apply mt-2.5;
+    h4 {
+        & + h3,
+        & + h2 {
+            @apply mt-2.5;
+        }
+    }
+
+    h5 {
+        & + h3,
+        & + h2 {
+            @apply mt-2.5;
+        }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        & + ul,
+        & + ol,
+        & + p {
+            @apply mt-4;
+            @screen md {
+                @apply mt-6;
             }
         }
+    }
 
-        h3 {
-            & + h2,
-            & + h4 {
-                @apply mt-4;
-
-                @screen md {
-                    @apply mt-8;
-                }
-            }
+    p {
+        & + ul,
+        & + ol {
+            @apply mt-2.5;
         }
 
-        h4 {
-            & + h3,
-            & + h2 {
-                @apply mt-2.5;
-            }
+        & + p {
+            @apply mt-4;
+        }
+    }
+
+    ul {
+        & + ul,
+        & + ol {
+            @apply mt-2.5;
         }
 
-        h5 {
-            & + h3,
-            & + h2 {
-                @apply mt-2.5;
-            }
+        & + p {
+            @apply mt-5;
+        }
+    }
+
+    ol {
+        & + ol,
+        & + ul {
+            @apply mt-2.5;
         }
 
-        h2,
-        h3,
-        h4,
-        h5 {
-            & + ul,
-            & + ol,
-            & + p {
-                @apply mt-4;
-                @screen md {
-                    @apply mt-6;
-                }
-            }
-        }
-
-        p {
-            & + ul,
-            & + ol {
-                @apply mt-2.5;
-            }
-
-            & + p {
-                @apply mt-4;
-            }
-        }
-
-        ul {
-            & + ul,
-            & + ol {
-                @apply mt-2.5;
-            }
-
-            & + p {
-                @apply mt-5;
-            }
-        }
-
-        ol {
-            & + ol,
-            & + ul {
-                @apply mt-2.5;
-            }
-
-            & + p {
-                @apply mt-5;
-            }
+        & + p {
+            @apply mt-5;
         }
     }
 }
