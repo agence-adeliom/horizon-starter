@@ -1,64 +1,65 @@
 @php use App\Admin\OptionPageAdmin; @endphp
-		<!doctype html>
+<!doctype html>
 <html @php(language_attributes())>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	
-	{{--     Following link to change depending on project  --}}
-	<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet">
-	{{--    End   --}}
-	
-	@php(do_action('get_header'))
-	@php(wp_head())
-	
-	
-	@if (!empty($scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS]))
-		{!! $scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS] !!}
-	@endif
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @vite(['resources/scripts/app.ts'])
+
+    {{--     Following link to change depending on project  --}}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    {{--    End   --}}
+
+    @php(do_action('get_header'))
+    @php(wp_head())
+
+
+    @if (!empty($scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS]))
+        {!! $scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS] !!}
+    @endif
 </head>
 
 <body @php(body_class()) x-data="initPage()">
-@php(wp_body_open())
-@if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS]))
-	{!! $scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS] !!}
-@endif
+    @php(wp_body_open())
+    @if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS]))
+        {!! $scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS] !!}
+    @endif
 
-<div id="app">
-	<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-9999" href="#main">
-		<x-action.button> {{ __('Skip to content', 'sage') }}</x-action.button>
-	</a>
-	
-	@include('sections.promo-banner')
-	
-	@if ($isLp)
-		@include('sections.header-lp')
-	@else
-		@include('sections.header')
-	@endif
-	
-	<main role="main" id="main" class="main">
-		@yield('content')
-	</main>
-	
-	@if ($isLp)
-		@include('sections.footer-lp')
-	@else
-		@include('sections.footer')
-	@endif
-</div>
+    <div id="app">
+        <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-9999" href="#main">
+            <x-action.button> {{ __('Skip to content', 'sage') }}</x-action.button>
+        </a>
 
-@php(do_action('get_footer'))
-@php(wp_footer())
+        @include('sections.promo-banner')
 
-@if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS]))
-	{!! $scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS] !!}
-@endif
+        @if ($isLp)
+            @include('sections.header-lp')
+        @else
+            @include('sections.header')
+        @endif
+
+        <main role="main" id="main" class="main">
+            @yield('content')
+        </main>
+
+        @if ($isLp)
+            @include('sections.footer-lp')
+        @else
+            @include('sections.footer')
+        @endif
+    </div>
+
+    @php(do_action('get_footer'))
+    @php(wp_footer())
+
+    @if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS]))
+        {!! $scripts[OptionPageAdmin::FIELD_BEFORE_END_BODY_SCRIPTS] !!}
+    @endif
 </body>
 
 </html>
