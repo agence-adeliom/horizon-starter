@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "74300340f42ba5082dbb72cb16be7c7839832afd"
+                                                "reference": "4fedcc8cfe3cf1d0ec6f36f4467ac2e2cb387992"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/74300340f42ba5082dbb72cb16be7c7839832afd",
-                                                "reference": "74300340f42ba5082dbb72cb16be7c7839832afd",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/4fedcc8cfe3cf1d0ec6f36f4467ac2e2cb387992",
+                                                "reference": "4fedcc8cfe3cf1d0ec6f36f4467ac2e2cb387992",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -80,7 +80,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-08-06T14:53:24+00:00"
+                                    "time": "2025-08-07T07:29:45+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -88,12 +88,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "3c8379270388209a6ff8225d0ae7d0f1356f321e"
+                                                "reference": "a0b227b649ce7732b36f509a0b7892521f68dc23"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/3c8379270388209a6ff8225d0ae7d0f1356f321e",
-                                                "reference": "3c8379270388209a6ff8225d0ae7d0f1356f321e",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/a0b227b649ce7732b36f509a0b7892521f68dc23",
+                                                "reference": "a0b227b649ce7732b36f509a0b7892521f68dc23",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -124,7 +124,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-08-06T14:41:26+00:00"
+                                    "time": "2025-08-07T07:19:57+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -7216,12 +7216,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "1e0e2464bb35bfcda29949fbdf1aea125669a7d2"
+                                                "reference": "90fce983a76dd90a53a5b8171a98421aa703d58d"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1e0e2464bb35bfcda29949fbdf1aea125669a7d2",
-                                                "reference": "1e0e2464bb35bfcda29949fbdf1aea125669a7d2",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/90fce983a76dd90a53a5b8171a98421aa703d58d",
+                                                "reference": "90fce983a76dd90a53a5b8171a98421aa703d58d",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7338,7 +7338,7 @@
                                                 "commerceteam/commerce": ">=0.9.6,<0.9.9",
                                                 "components/jquery": ">=1.0.3,<3.5",
                                                 "composer/composer": "<1.10.27|>=2,<2.2.24|>=2.3,<2.7.7",
-                                                "concrete5/concrete5": "<9.4.0.0-RC2-dev",
+                                                "concrete5/concrete5": "<9.4.3",
                                                 "concrete5/core": "<8.5.8|>=9,<9.1",
                                                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
                                                 "contao/comments-bundle": ">=2,<4.13.40|>=5.0.0.0-RC1-dev,<5.3.4",
@@ -7849,7 +7849,7 @@
                                                 "sfroemken/url_redirect": "<=1.2.1",
                                                 "sheng/yiicms": "<1.2.1",
                                                 "shopware/core": "<6.5.8.18-dev|>=6.6,<6.6.10.3-dev|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
-                                                "shopware/platform": "<6.5.8.18-dev|>=6.6,<6.6.10.3-dev|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
+                                                "shopware/platform": "<=6.6.10.4|>=6.7.0.0-RC1-dev,<6.7.0.0-RC2-dev",
                                                 "shopware/production": "<=6.3.5.2",
                                                 "shopware/shopware": "<=5.7.17",
                                                 "shopware/storefront": "<=6.4.8.1|>=6.5.8,<6.5.8.7-dev",
@@ -8170,7 +8170,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-08-05T16:06:15+00:00"
+                                    "time": "2025-08-06T18:07:51+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
