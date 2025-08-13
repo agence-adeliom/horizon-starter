@@ -6,6 +6,7 @@
 
 namespace App;
 
+use Adeliom\HorizonTools\Services\Compilation\CompilationService;
 use Illuminate\Support\Facades\Vite;
 
 /**
@@ -33,9 +34,7 @@ add_action('wp_enqueue_scripts', function () {
         return;
     }
 
-    $style = Vite::asset('resources/styles/app.css');
-
-    wp_enqueue_style('sage/app', $style, [], Vite::content('resources/styles/app.css'));
+    CompilationService::getAsset('resources/styles/app.css')->enqueue();
 }, 100);
 
 

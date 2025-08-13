@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+@import 'tailwindcss' source(none);
+
+@source "../../app/**/*.php";
+@source "../../resources/**/*{php,vue,js,ts}";
+@source "../../../../../../vendor//agence-adeliom/horizon-blocks/resources/views/**/*.blade.php";
 
 @import './tokens.css';
 @import './theme.css';
