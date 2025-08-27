@@ -3,10 +3,14 @@
 # Accéder au dossier `web`
 cd web || { echo "Le dossier 'web' n'existe pas."; exit 1; }
 
-# Vérifier si le fichier `wp-cli.phar` existe
-if [ ! -f wp-cli.phar ]; then
-  # S'il n'existe pas, lance la commande pour le télécharger
-  echo "wp-cli.phar n'existe pas. Téléchargement en cours..."
+# Vérifier si le fichier `wp-cli.phar` existe et s'il a plus de 15 jours
+if [ ! -f wp-cli.phar ] || [ $(find wp-cli.phar -mtime +15 -print) ]; then
+  if [ -f wp-cli.phar ]; then
+    echo "wp-cli.phar a plus de 15 jours. Suppression et téléchargement en cours..."
+    rm wp-cli.phar
+  else
+    echo "wp-cli.phar n'existe pas. Téléchargement en cours..."
+  fi
   curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 fi
 

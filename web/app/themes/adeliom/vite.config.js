@@ -33,6 +33,14 @@ export default defineConfig({
         },
     },
 
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: () => null,
+            },
+        },
+    },
+
     server: {
         host: '0.0.0.0', // écoute toutes les interfaces dans le conteneur
         port: 5174, // port interne
