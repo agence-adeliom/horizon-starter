@@ -91,22 +91,4 @@ class CustomerReview extends AbstractPostType
                     ->helperText("Si aucune photo n'est renseignée, les initiales du nom et prénom seront affichées."),
             ]);
     }
-
-    /**
-     * Allow to set filters that will be used inside generic listings
-     * @return array
-     */
-    public function getFilters(): array
-    {
-        return [
-            [
-                'name' => 'rating', // Name of the filter field in the filter form
-                'type' => FilterTypesEnum::META, // Filter type (taxonomy or meta)
-                'appearance' => 'select', // Appearance of the filter (only select supported)
-                'value' => sprintf('%s_%s', self::FIELD_REVIEW, self::FIELD_RATING), // Full name of the meta field (be careful if in groups for instance)
-                'fieldClass' => Number::class,
-                'placeholder' => 'Note attribuée' // Placeholder of the field (or label of "all" options)
-            ],
-        ];
-    }
 }

@@ -56,23 +56,4 @@ class LandingPage extends AbstractPostType
     {
         return 'side';
     }
-
-    /**
-     * Allow to set filters that will be used inside generic listings
-     *
-     * @return array
-     */
-    public function getFilters(): array
-    {
-        // return [
-        //     [
-        //         'name' => 'fieldname',
-        //         'type' => FilterTypesEnum::TAXONOMY,
-        //         'appearance' => 'select',
-        //         'value' => 'tested value', // could be taxonomy slug or meta key
-        //     ],
-        // ];
-
-        return [];
-    }
 }

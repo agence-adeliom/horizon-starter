@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "5d6085bfa3cd1a021756eae29c45496964d60996"
+                                                "reference": "5594982d945a1dbc9c36e77f0437acccca3229dc"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/5d6085bfa3cd1a021756eae29c45496964d60996",
-                                                "reference": "5d6085bfa3cd1a021756eae29c45496964d60996",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/5594982d945a1dbc9c36e77f0437acccca3229dc",
+                                                "reference": "5594982d945a1dbc9c36e77f0437acccca3229dc",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -81,7 +81,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-09-04T08:13:03+00:00"
+                                    "time": "2025-09-05T12:49:24+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -89,12 +89,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "4f1c949654ebd0b8c95b9f71021f9ce9a840d3e1"
+                                                "reference": "b28a54505b590ea50b79f4851c86fcf602516c22"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/4f1c949654ebd0b8c95b9f71021f9ce9a840d3e1",
-                                                "reference": "4f1c949654ebd0b8c95b9f71021f9ce9a840d3e1",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/b28a54505b590ea50b79f4851c86fcf602516c22",
+                                                "reference": "b28a54505b590ea50b79f4851c86fcf602516c22",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -126,7 +126,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-09-04T11:33:56+00:00"
+                                    "time": "2025-09-04T13:02:35+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -4207,20 +4207,20 @@
                         },
                         {
                                     "name": "ramsey/uuid",
-                                    "version": "4.9.0",
+                                    "version": "4.9.1",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/ramsey/uuid.git",
-                                                "reference": "4e0e23cc785f0724a0e838279a9eb03f28b092a0"
+                                                "reference": "81f941f6f729b1e3ceea61d9d014f8b6c6800440"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/ramsey/uuid/zipball/4e0e23cc785f0724a0e838279a9eb03f28b092a0",
-                                                "reference": "4e0e23cc785f0724a0e838279a9eb03f28b092a0",
+                                                "url": "https://api.github.com/repos/ramsey/uuid/zipball/81f941f6f729b1e3ceea61d9d014f8b6c6800440",
+                                                "reference": "81f941f6f729b1e3ceea61d9d014f8b6c6800440",
                                                 "shasum": ""
                                     },
                                     "require": {
-                                                "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13",
+                                                "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14",
                                                 "php": "^8.0",
                                                 "ramsey/collection": "^1.2 || ^2.0"
                                     },
@@ -4279,9 +4279,9 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/ramsey/uuid/issues",
-                                                "source": "https://github.com/ramsey/uuid/tree/4.9.0"
+                                                "source": "https://github.com/ramsey/uuid/tree/4.9.1"
                                     },
-                                    "time": "2025-06-25T14:20:11+00:00"
+                                    "time": "2025-09-04T20:59:21+00:00"
                         },
                         {
                                     "name": "roots/acorn",
@@ -7246,12 +7246,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "3602c597d29de335a36c0b50b96cc161d853b54f"
+                                                "reference": "dc5c4ede5c331ae21fb68947ff89672df9b7cc7d"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/3602c597d29de335a36c0b50b96cc161d853b54f",
-                                                "reference": "3602c597d29de335a36c0b50b96cc161d853b54f",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/dc5c4ede5c331ae21fb68947ff89672df9b7cc7d",
+                                                "reference": "dc5c4ede5c331ae21fb68947ff89672df9b7cc7d",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7829,7 +7829,7 @@
                                                 "prestashop/blockwishlist": ">=2,<2.1.1",
                                                 "prestashop/contactform": ">=1.0.1,<4.3",
                                                 "prestashop/gamification": "<2.3.2",
-                                                "prestashop/prestashop": "<8.1.6",
+                                                "prestashop/prestashop": "<8.2.3",
                                                 "prestashop/productcomments": "<5.0.2",
                                                 "prestashop/ps_contactinfo": "<=3.3.2",
                                                 "prestashop/ps_emailsubscription": "<2.6.1",
@@ -8203,20 +8203,20 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2025-09-03T23:04:57+00:00"
+                                    "time": "2025-09-04T20:05:35+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
-                                    "version": "3.13.2",
+                                    "version": "3.13.4",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                                                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c"
+                                                "reference": "ad545ea9c1b7d270ce0fc9cbfb884161cd706119"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5b5e3821314f947dd040c70f7992a64eac89025c",
-                                                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c",
+                                                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ad545ea9c1b7d270ce0fc9cbfb884161cd706119",
+                                                "reference": "ad545ea9c1b7d270ce0fc9cbfb884161cd706119",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -8287,7 +8287,7 @@
                                                             "type": "thanks_dev"
                                                 }
                                     ],
-                                    "time": "2025-06-17T22:17:01+00:00"
+                                    "time": "2025-09-05T05:47:09+00:00"
                         }
             ],
             "aliases": [],
