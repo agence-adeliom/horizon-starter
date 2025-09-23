@@ -51,7 +51,11 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
+      "url": "git@github.com:agence-adeliom/horizon-posttypes.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
     },
     {
       "type": "package",
@@ -89,7 +93,8 @@
     "wpackagist-plugin/folders": "*",
     "agence-adeliom/gutenberg-blocks-inspector": "dev-main",
     "agence-adeliom/horizon-tools": "dev-upgrade/sage-11",
-    "agence-adeliom/horizon-blocks": "dev-upgrade/sage-11",
+    "agence-adeliom/horizon-blocks": "dev-main",
+        "agence-adeliom/horizon-posttypes": "dev-upgrade/sage-11",
     "junaidbhura/gravityforms": "^2.8",
     "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.1",
     "blade-ui-kit/blade-icons": "^1.7",
