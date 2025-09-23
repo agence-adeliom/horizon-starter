@@ -1,143 +1,143 @@
 {
-  "name": "roots/bedrock",
-  "type": "project",
-  "license": "MIT",
-  "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
-  "authors": [
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
+    "name": "roots/bedrock",
+    "type": "project",
+    "license": "MIT",
+    "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
+    "homepage": "https://roots.io/bedrock/",
+    "authors": [
+        {
+            "name": "Scott Walkinshaw",
+            "email": "scott.walkinshaw@gmail.com",
+            "homepage": "https://github.com/swalkinshaw"
+        },
+        {
+            "name": "Ben Word",
+            "email": "ben@benword.com",
+            "homepage": "https://github.com/retlehs"
+        }
+    ],
+    "keywords": [
+        "bedrock",
+        "composer",
+        "roots",
+        "wordpress",
+        "wp",
+        "wp-config"
+    ],
+    "support": {
+        "issues": "https://github.com/roots/bedrock/issues",
+        "forum": "https://discourse.roots.io/category/bedrock"
     },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    }
-  ],
-  "keywords": [
-    "bedrock",
-    "composer",
-    "roots",
-    "wordpress",
-    "wp",
-    "wp-config"
-  ],
-  "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org",
-      "only": [
-        "wpackagist-plugin/*",
-        "wpackagist-theme/*"
-      ]
-    },
-    {
-      "type": "composer",
-      "url": "https://connect.advancedcustomfields.com"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:agence-adeliom/horizon-tools.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:agence-adeliom/horizon-blocks.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:agence-adeliom/horizon-posttypes.git"
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        },
+        {
+            "type": "composer",
+            "url": "https://connect.advancedcustomfields.com"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:agence-adeliom/horizon-tools.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:agence-adeliom/horizon-blocks.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:agence-adeliom/horizon-posttypes.git"
         },
         {
             "type": "vcs",
             "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "junaidbhura/gravityforms",
-        "version": "2.8.18",
-        "type": "wordpress-plugin",
-        "dist": {
-          "type": "zip",
-          "url": "https://www.gravityforms.com/"
         },
-        "require": {
-          "junaidbhura/composer-wp-pro-plugins": "*"
+        {
+            "type": "package",
+            "package": {
+                "name": "junaidbhura/gravityforms",
+                "version": "2.8.18",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://www.gravityforms.com/"
+                },
+                "require": {
+                    "junaidbhura/composer-wp-pro-plugins": "*"
+                }
+            }
         }
-      }
-    }
-  ],
-  "require": {
-    "php": ">=8.4",
-    "composer/installers": "^2.2",
-    "vlucas/phpdotenv": "^5.5",
-    "oscarotero/env": "^2.1",
-    "roots/bedrock-autoloader": "^1.0",
-    "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "^6.7",
-    "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.1.0",
-    "roots/acorn": "^5.0",
-    "wpengine/advanced-custom-fields-pro": "*",
-    "wpackagist-plugin/duplicate-page": "*",
-    "wpackagist-plugin/seo-by-rank-math": "*",
-    "wpackagist-plugin/wp-smushit": "*",
-    "wpackagist-plugin/wordfence": "*",
-    "wpackagist-plugin/w3-total-cache": "*",
-    "wpackagist-plugin/folders": "*",
-    "agence-adeliom/gutenberg-blocks-inspector": "dev-main",
-    "agence-adeliom/horizon-tools": "dev-upgrade/sage-11",
-    "agence-adeliom/horizon-blocks": "dev-main",
-        "agence-adeliom/horizon-posttypes": "dev-upgrade/sage-11",
-    "junaidbhura/gravityforms": "^2.8",
-    "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.1",
-    "blade-ui-kit/blade-icons": "^1.7",
-    "owenvoke/blade-fontawesome": "^2.8"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "^3.7.1",
-    "roave/security-advisories": "dev-latest",
-    "deployer/deployer": "^7.4"
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "allow-plugins": {
-      "composer/installers": true,
-      "roots/wordpress-core-installer": true,
-      "junaidbhura/composer-wp-pro-plugins": true
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "extra": {
-    "installer-paths": {
-      "web/app/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin",
-        "wpengine/advanced-custom-fields-pro",
-        "wpackagist-plugin/advanced-custom-fields-font-awesome"
-      ],
-      "web/app/plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ],
-      "web/app/themes/{$name}/": [
-        "type:wordpress-theme"
-      ]
-    },
-    "wordpress-install-dir": "web/wp"
-  },
-  "scripts": {
-    "post-autoload-dump": [
-      "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
     ],
-    "test": [
-      "phpcs"
-    ]
-  }
+    "require": {
+        "php": ">=8.4",
+        "composer/installers": "^2.2",
+        "vlucas/phpdotenv": "^5.5",
+        "oscarotero/env": "^2.1",
+        "roots/bedrock-autoloader": "^1.0",
+        "roots/bedrock-disallow-indexing": "^2.0",
+        "roots/wordpress": "^6.7",
+        "roots/wp-config": "1.0.0",
+        "roots/wp-password-bcrypt": "1.1.0",
+        "roots/acorn": "^5.0",
+        "wpengine/advanced-custom-fields-pro": "*",
+        "wpackagist-plugin/duplicate-page": "*",
+        "wpackagist-plugin/seo-by-rank-math": "*",
+        "wpackagist-plugin/wp-smushit": "*",
+        "wpackagist-plugin/wordfence": "*",
+        "wpackagist-plugin/w3-total-cache": "*",
+        "wpackagist-plugin/folders": "*",
+        "agence-adeliom/gutenberg-blocks-inspector": "dev-main",
+        "agence-adeliom/horizon-tools": "dev-upgrade/sage-11",
+        "agence-adeliom/horizon-blocks": "dev-upgrade/sage-11",
+        "agence-adeliom/horizon-posttypes": "dev-upgrade/sage-11",
+        "junaidbhura/gravityforms": "^2.8",
+        "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.1",
+        "blade-ui-kit/blade-icons": "^1.7",
+        "owenvoke/blade-fontawesome": "^2.8"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7.1",
+        "roave/security-advisories": "dev-latest",
+        "deployer/deployer": "^7.4"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "composer/installers": true,
+            "roots/wordpress-core-installer": true,
+            "junaidbhura/composer-wp-pro-plugins": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "installer-paths": {
+            "web/app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin",
+                "wpengine/advanced-custom-fields-pro",
+                "wpackagist-plugin/advanced-custom-fields-font-awesome"
+            ],
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "web/wp"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+        ],
+        "test": [
+            "phpcs"
+        ]
+    }
 }
