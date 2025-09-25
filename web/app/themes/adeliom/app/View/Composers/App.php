@@ -13,9 +13,7 @@ class App extends Composer
      *
      * @var array
      */
-    protected static $views = [
-        '*',
-    ];
+    protected static $views = ['*'];
 
     /**
      * Data to be passed to view before rendering.
@@ -27,9 +25,8 @@ class App extends Composer
         return [
             'siteName' => $this->siteName(),
             'postType' => get_post_type(),
-            'isLp'     => self::isLandingPage(),
-            'scripts'  => get_field(OptionPageAdmin::FIELD_SCRIPTS, 'options') ?? [],
-
+            'isLp' => self::isLandingPage(),
+            'scripts' => get_field(OptionPageAdmin::FIELD_SCRIPTS, 'options') ?? [],
         ];
     }
 
@@ -45,6 +42,10 @@ class App extends Composer
 
     public static function isLandingPage(): string
     {
+        if (!class_exists(LandingPage::class)) {
+            return false;
+        }
+
         return get_post_type() === LandingPage::$slug;
     }
 }
