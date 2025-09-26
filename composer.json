@@ -94,7 +94,6 @@
         "agence-adeliom/gutenberg-blocks-inspector": "dev-main",
         "agence-adeliom/horizon-tools": "dev-main",
         "agence-adeliom/horizon-blocks": "dev-main",
-        "agence-adeliom/horizon-posttypes": "dev-main",
         "junaidbhura/gravityforms": "^2.8",
         "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.1",
         "blade-ui-kit/blade-icons": "^1.7",
