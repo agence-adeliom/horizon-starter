@@ -5,7 +5,7 @@
             'promo-banner p-3 relative flex items-start justify-start',
             'awc-theme-dark' => $isDark,
         ])>
-            <div class="flex flex-col gap-4 items-start justify-center flex-grow md:flex-row md:items-center">
+            <div class="flex flex-col gap-4 items-start justify-center grow md:flex-row md:items-center">
                 @isset($bannerTitle)
                     <x-typography.text :content="$bannerTitle" class="text-text-primary" />
                 @endisset

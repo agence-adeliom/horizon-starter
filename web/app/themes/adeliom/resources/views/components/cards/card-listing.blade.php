@@ -5,7 +5,7 @@
     @endphp
     <div
         class="flex flex-col relative rounded border border-neutral-300 overflow-hidden hover:shadow-lg transition-shadow duration-200">
-        <div class="aspect-[3/2] relative flex items-center justify-center bg-neutral-100 text-neutral-400">
+        <div class="aspect-3/2 relative flex items-center justify-center bg-neutral-100 text-neutral-400">
             @if ($thumbnail)
                 {!! $thumbnail !!}
             @else

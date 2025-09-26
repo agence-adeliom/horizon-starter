@@ -9,7 +9,7 @@
             @apply max-lg:text-large font-semibold lg:hover:text-primary;
             @apply max-lg:w-full max-lg:border-b-card;
 
-            .menu-item__title {
+            .menu-item-title {
                 @apply flex items-center gap-2;
             }
         }
@@ -25,22 +25,22 @@
         @apply max-lg:pt-28 max-lg:top-0 py-3xlarge transition-all lg:shadow-lg;
         @apply max-lg:h-dvh;
 
-        &__container {
+        .submenu-container {
             @apply container grid lg:grid-cols-[25%_auto] gap-x-5xlarge gap-y-4xlarge;
         }
 
-        &__list {
+        .submenu-list {
             @apply grid lg:grid-cols-3 auto-rows-max gap-x-5xlarge gap-y-6;
 
             .menu-item {
                 @apply flex gap-2 items-baseline;
-                &__title {
+                .menu-item-title {
                     @apply flex flex-row items-center gap-2;
                     @apply text-large lg:text-medium font-semibold;
                     @apply transition-colors duration-300 ease-in-out;
                 }
 
-                &__desc {
+                .menu-item-desc {
                     @apply text-small;
                 }
             }

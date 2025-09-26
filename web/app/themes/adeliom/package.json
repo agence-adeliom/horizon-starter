@@ -9,9 +9,8 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "bud dev",
-    "build": "bud build",
-    "clean": "bud clean",
+    "dev": "vite",
+    "build": "vite build",
     "translate": "npm run translate:pot && npm run translate:update",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"theme.json,patterns,app,resources\"",
     "translate:update": "for file in ./resources/lang/*.po; do wp i18n update-po ./resources/lang/sage.pot $file; done",
@@ -20,12 +19,15 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "^6.24",
-    "@roots/bud-tailwindcss": "^6.24",
-    "@roots/bud-typescript": "^6.24",
-    "@roots/sage": "^6.24",
+    "@roots/vite-plugin": "^1.0.2",
     "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.14"
+    "@tailwindcss/typography": "^0.5.14",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24.2.0",
+    "laravel-vite-plugin": "^1.2.0",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.9.2",
+    "vite": "^6.2.0"
   },
   "dependencies": {
     "@alpinejs/focus": "^3.14.8",

@@ -169,8 +169,8 @@ Pour ajouter ce fichier à un block, il suffit de se rendre dans sa classe et de
 ```php
 public function renderBlockCallback(): void
 {
-    wp_enqueue_script('mon-block-js', BudService::getUrl('mon-block.js'));
-    wp_enqueue_style('mon-block-css', BudService::getUrl('mon-block.css'));
+    wp_enqueue_script('mon-block-js', Compilation::getUrl('mon-block.js'));
+    wp_enqueue_style('mon-block-css', Compilation::getUrl('mon-block.css'));
 }
 ```
 

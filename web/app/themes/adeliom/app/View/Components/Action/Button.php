@@ -14,7 +14,7 @@ class Button extends Component
     private ?string $typeClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
-    final public const string ICON_ONLY = "btn--icon-only";
+    final public const string ICON_ONLY = "btn-icon-only";
 
     /** 
      * Button hierarchy level 
@@ -28,21 +28,21 @@ class Button extends Component
 
 
     private const COLORS = [
-        'primary'   => 'btn--primary',
-        'secondary' => 'btn--secondary',
-        'tertiary'  => 'btn--tertiary',
+        'primary'   => 'btn-primary',
+        'secondary' => 'btn-secondary',
+        'tertiary'  => 'btn-tertiary',
     ];
 
     private const VARIANTS = [
-        'contain'   => 'btn--contained',
-        'outline' => 'btn--outlined',
-        'text'  => 'btn--text',
+        'contain'   => 'btn-contained',
+        'outline' => 'btn-outlined',
+        'text'  => 'btn-text',
     ];
 
     final public const SIZES = [
-        'small'  => 'btn--sm',
-        'medium' => 'btn--md',
-        'large'  => 'btn--lg',
+        'small'  => 'btn-sm',
+        'medium' => 'btn-md',
+        'large'  => 'btn-lg',
     ];
 
     /**

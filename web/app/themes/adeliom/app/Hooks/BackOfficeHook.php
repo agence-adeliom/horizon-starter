@@ -5,31 +5,21 @@ declare(strict_types=1);
 namespace App\Hooks;
 
 use Adeliom\HorizonTools\Hooks\AbstractHook;
-use Adeliom\HorizonTools\Services\BudService;
+use Adeliom\HorizonTools\Services\Compilation\CompilationService;
 use App\Admin\OptionPageAdmin;
 
 class BackOfficeHook extends AbstractHook
 {
     public static function enqueueAdminScripts(): void
     {
+        CompilationService::getAsset('resources/styles/app.css')?->enqueue();
+        CompilationService::getAsset('resources/scripts/app.ts')?->enqueueAll(dependencies: ['jquery']);
 
-        if ($adminCss = BudService::getUrl('app.css')) {
-            wp_enqueue_style('admin', $adminCss);
-        }
-
-        if ($adminJs = BudService::getUrl('app.js')) {
-            wp_enqueue_script('admin', $adminJs, ['jquery'], null, true);
-        }
-
-        if ($editorCss = BudService::getUrl('editor.css')) {
-            wp_enqueue_style('editor', $editorCss);
-        }
-
-        if ($editorJs = BudService::getUrl('editor.js')) {
-            wp_enqueue_script('editor', $editorJs, ['jquery'], null, true);
-        }
+        CompilationService::getAsset('resources/styles/editor.css')?->enqueue();
+        CompilationService::getAsset('resources/scripts/editor.ts')?->enqueueAll(dependencies: ['jquery']);
 
         $script = get_field(OptionPageAdmin::FIELD_SCRIPTS, 'option');
+
         if (!empty($script[OptionPageAdmin::FIELD_ADMIN_SCRIPTS])) {
             echo $script[OptionPageAdmin::FIELD_ADMIN_SCRIPTS];
         }

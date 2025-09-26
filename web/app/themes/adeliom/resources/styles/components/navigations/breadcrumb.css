@@ -1,15 +1,18 @@
-.main-breadcrumbs, .rank-math-breadcrumb {
-    @apply flex whitespace-nowrap items-center gap-1  text-sm max-lg:hidden;
+@layer components {
+    .main-breadcrumbs,
+    .rank-math-breadcrumb {
+        @apply flex whitespace-nowrap items-center gap-1  text-sm max-lg:hidden;
 
-    .separator {
-        @apply w-4 h-4 inline-block;
-    }
+        .separator {
+            @apply w-4 h-4 inline-block;
+        }
 
-    a {
-        @apply transition-colors text-primary hover:text-secondary dark:text-neutral-600;
-    }
+        a {
+            @apply transition-colors text-primary hover:text-secondary dark:text-neutral-600;
+        }
 
-    .last {
-        @apply truncate dark:text-text-secondary;
+        .last {
+            @apply truncate dark:text-text-secondary;
+        }
     }
 }

@@ -11,14 +11,14 @@
                 <x-ui.icon :icon="$item->customFields['menu_item']['icon']" class="icon-5" />
             @endif
             <span class="flex flex-col gap-1">
-                <span class="menu-item__title group-hover:text-primary">
+                <span class="menu-item-title group-hover:text-primary">
                     {{ $item->title }}
                     @if ($hasChildren && !$parent)
                         <x-far-angle-down class="icon-4 max-lg:-rotate-90" />
                     @endif
                 </span>
                 @if (isset($item->description) && $item->description && $parent)
-                    <x-typography.text :content="$item->description" class="menu-item__desc" />
+                    <x-typography.text :content="$item->description" class="menu-item-desc" />
                 @endif
             </span>
         </a>
@@ -33,8 +33,8 @@
                     x-transition:enter="ease-smooth duration-500" x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100" x-transition:leave="ease-smooth duration-500"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-cloak>
-                    <div class="submenu__container">
-                        <span class="submenu__sidebar">
+                    <div class="submenu-container">
+                        <span class="submenu-sidebar">
                             <div class="flex flex-col gap-y-medium">
                                 @php
                                     $back_link_class =
@@ -72,7 +72,7 @@
                             @endif
                         </span>
 
-                        <ul class="submenu__list">
+                        <ul class="submenu-list">
 
                             @foreach ($item->children as $subItem)
                                 @include('navigations.menu.item', [

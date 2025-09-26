@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="header-main">
                     @if ($logo)
-                        <div class="header-main__logo">
+                        <div class="logo-wrapper">
                             <a href="{{ home_url('/') }}" class="flex justify-center"
                                 aria-label="Retour à la page d'accueil">
                                 <x-media.img :image="$logo" size="medium" container-class="w-36 lg:h-auto" />
@@ -18,7 +18,7 @@
                     @include('navigations.menu.main')
 
                     @if ($headerCta)
-                        <div class="header-main__cta">
+                        <div class="cta-wrapper">
                             <x-action.button :fields="$headerCta" class="max-lg:w-full" />
                         </div>
                     @endif

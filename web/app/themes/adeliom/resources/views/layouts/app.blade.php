@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @vite(['resources/scripts/app.ts'])
 
     {{--     Following link to change depending on project  --}}
     <link
@@ -16,6 +17,7 @@
 
     @php(do_action('get_header'))
     @php(wp_head())
+
 
     @if (!empty($scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS]))
         {!! $scripts[OptionPageAdmin::FIELD_HEAD_SCRIPTS] !!}
@@ -29,8 +31,8 @@
     @endif
 
     <div id="app">
-        <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-[9999]" href="#main">
-            <x-action.button> {{ __('Skip to content') }}</x-action.button>
+        <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-9999" href="#main">
+            <x-action.button> {{ __('Skip to content', 'sage') }}</x-action.button>
         </a>
 
         @include('sections.promo-banner')

@@ -14,14 +14,14 @@
                     @if ($links)
                         <div class="links">
                             @foreach ($links as $link)
-                                <x-navigation.link :fields="$link" class="top-item top-item--link" />
+                                <x-navigation.link :fields="$link" class="top-item top-item-link" />
                             @endforeach
                         </div>
                     @endif
 
                     @if ($withSearch)
                         <span class="flex" x-data="initModal()">
-                            <button class="top-item top-item--search" x-on:click="openModal()">
+                            <button class="top-item top-item-search" x-on:click="openModal()">
                                 <x-fas-magnifying-glass class="icon-4" />
                                 Rechercher
                             </button>
@@ -30,7 +30,7 @@
                                 <x-structure.drawer position='top' class="h-auto flex flex-col">
                                     <div @class([
                                         'bg-white w-full pb-10 pt-20 lg:py-20',
-                                        '!pb-20' => !$searchInfos,
+                                        'pb-20!' => !$searchInfos,
                                     ])>
                                         <div class="container">
                                             <div class="max-w-2xl mx-auto flex flex-col gap-6">

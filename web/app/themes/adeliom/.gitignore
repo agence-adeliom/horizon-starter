@@ -1,8 +1,7 @@
 /node_modules
 /vendor
-/public
+/public/*
+!/public/.gitkeep
 .env
-.budfiles
 npm-debug.log
-yarn-error.log
 .npmrc

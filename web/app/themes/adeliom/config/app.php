@@ -165,7 +165,6 @@ return [
         /*
          * Application Service Providers...
          */
-        // App\Providers\ThemeServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -182,5 +181,4 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
-
 ];

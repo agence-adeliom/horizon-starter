@@ -2,7 +2,7 @@
     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
     x-transition:leave="transition-opacity ease-in duration-200" x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0" @keydown.escape.window="close()"
-    class="fixed inset-0 w-full h-screen flex items-center justify-center z-[999] sm:p-4" style="display: none;">
+    class="fixed inset-0 w-full h-screen flex items-center justify-center z-999 sm:p-4" style="display: none;">
 
     <div class="absolute inset-0 w-full h-full bg-black bg-opacity-50" @click="close()" aria-hidden="true">
     </div>
