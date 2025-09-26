@@ -3,12 +3,14 @@
 ## Technologies
 
 - WordPress BedRock
-- Thème Sage
-- Acorn
-- HorizonTools
+- Thème Sage 11
+- Acorn 5
+- Horizon Tools
+- Horizon Blocks
+- Horizon PostTypes
 - DDEV
-- PHP 8.3
-- Node 20
+- PHP 8.4
+- Node 22
 
 ## Installation
 
