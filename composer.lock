@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "cd04842472a3bdb9a32e16cd30f23e7c",
+            "content-hash": "43bb10c67126154eae32359022d2738a",
             "packages": [
                         {
                                     "name": "agence-adeliom/gutenberg-blocks-inspector",
@@ -51,15 +51,16 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "1a76aa23a6ef25cd828f86be8af8f6a19a75cdb2"
+                                                "reference": "bd31141534e7e049ffedaf06c35ce99bc098dd3b"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/1a76aa23a6ef25cd828f86be8af8f6a19a75cdb2",
-                                                "reference": "1a76aa23a6ef25cd828f86be8af8f6a19a75cdb2",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/bd31141534e7e049ffedaf06c35ce99bc098dd3b",
+                                                "reference": "bd31141534e7e049ffedaf06c35ce99bc098dd3b",
                                                 "shasum": ""
                                     },
                                     "require": {
+                                                "agence-adeliom/horizon-posttypes": "dev-upgrade/sage-11",
                                                 "agence-adeliom/horizon-tools": "dev-upgrade/sage-11",
                                                 "laravel/prompts": "^0.1.25 || ^0.3",
                                                 "php": ">=8.4"
@@ -80,7 +81,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-09-05T12:51:32+00:00"
+                                    "time": "2025-09-26T10:55:48+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-posttypes",
@@ -88,12 +89,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-posttypes.git",
-                                                "reference": "a53c227588c4bcbe106ba4a8c6272dedf476ef1e"
+                                                "reference": "5cfc257414be9193b4442de35b44f6f069565544"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-posttypes/zipball/a53c227588c4bcbe106ba4a8c6272dedf476ef1e",
-                                                "reference": "a53c227588c4bcbe106ba4a8c6272dedf476ef1e",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-posttypes/zipball/5cfc257414be9193b4442de35b44f6f069565544",
+                                                "reference": "5cfc257414be9193b4442de35b44f6f069565544",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -117,7 +118,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-posttypes/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-posttypes/issues"
                                     },
-                                    "time": "2025-09-25T11:31:44+00:00"
+                                    "time": "2025-09-26T10:56:05+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -125,12 +126,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "33b0070726170d7c19ef83ede83269bfca4a992c"
+                                                "reference": "4bc9902c8aacfb07f31d173f30f66295f914386a"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/33b0070726170d7c19ef83ede83269bfca4a992c",
-                                                "reference": "33b0070726170d7c19ef83ede83269bfca4a992c",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/4bc9902c8aacfb07f31d173f30f66295f914386a",
+                                                "reference": "4bc9902c8aacfb07f31d173f30f66295f914386a",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -161,7 +162,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/upgrade/sage-11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2025-09-25T09:21:21+00:00"
+                                    "time": "2025-09-26T11:00:09+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -7751,15 +7752,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/seo-by-rank-math",
-                                    "version": "1.0.253",
+                                    "version": "1.0.254",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                                                "reference": "tags/1.0.253"
+                                                "reference": "tags/1.0.254"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.253.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.254.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -8957,7 +8958,6 @@
             "stability-flags": {
                         "agence-adeliom/gutenberg-blocks-inspector": 20,
                         "agence-adeliom/horizon-blocks": 20,
-                        "agence-adeliom/horizon-posttypes": 20,
                         "agence-adeliom/horizon-tools": 20,
                         "roave/security-advisories": 20
             },
