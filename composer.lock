@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "48bfd728d4db751d984cd65d90634c1d",
+            "content-hash": "a5c40ec0c932ebf23b5d66f93cf8f978",
             "packages": [
                         {
                                     "name": "agence-adeliom/gutenberg-blocks-inspector",
@@ -47,25 +47,24 @@
                         },
                         {
                                     "name": "agence-adeliom/horizon-blocks",
-                                    "version": "dev-main",
+                                    "version": "dev-sage/10",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "3a1bcd20e32985863f9b0f2afabb4bc0612b673d"
+                                                "reference": "066aabe4e598c07ce947fd502a1ad8af753c16ec"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/3a1bcd20e32985863f9b0f2afabb4bc0612b673d",
-                                                "reference": "3a1bcd20e32985863f9b0f2afabb4bc0612b673d",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/066aabe4e598c07ce947fd502a1ad8af753c16ec",
+                                                "reference": "066aabe4e598c07ce947fd502a1ad8af753c16ec",
                                                 "shasum": ""
                                     },
                                     "require": {
-                                                "agence-adeliom/horizon-posttypes": "dev-main",
-                                                "agence-adeliom/horizon-tools": "dev-main",
+                                                "agence-adeliom/horizon-posttypes": "dev-sage/10",
+                                                "agence-adeliom/horizon-tools": "dev-sage/10",
                                                 "laravel/prompts": "^0.1.25",
                                                 "php": ">=8.4"
                                     },
-                                    "default-branch": true,
                                     "type": "library",
                                     "autoload": {
                                                 "psr-4": {
@@ -79,31 +78,30 @@
                                                 }
                                     ],
                                     "support": {
-                                                "source": "https://github.com/agence-adeliom/horizon-blocks/tree/main",
+                                                "source": "https://github.com/agence-adeliom/horizon-blocks/tree/sage/10",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2025-09-26T10:50:26+00:00"
+                                    "time": "2025-09-26T12:07:17+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-posttypes",
-                                    "version": "dev-main",
+                                    "version": "dev-sage/10",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-posttypes.git",
-                                                "reference": "b203c54e068a93c7d1cf80d167efb2dbb46409e9"
+                                                "reference": "4cdacfbdb9f9f6884b8d1d717b851b6f7b5ff538"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-posttypes/zipball/b203c54e068a93c7d1cf80d167efb2dbb46409e9",
-                                                "reference": "b203c54e068a93c7d1cf80d167efb2dbb46409e9",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-posttypes/zipball/4cdacfbdb9f9f6884b8d1d717b851b6f7b5ff538",
+                                                "reference": "4cdacfbdb9f9f6884b8d1d717b851b6f7b5ff538",
                                                 "shasum": ""
                                     },
                                     "require": {
-                                                "agence-adeliom/horizon-tools": "dev-main",
+                                                "agence-adeliom/horizon-tools": "dev-sage/10",
                                                 "laravel/prompts": "^0.1.25",
                                                 "php": ">=8.4"
                                     },
-                                    "default-branch": true,
                                     "type": "library",
                                     "autoload": {
                                                 "psr-4": {
@@ -117,14 +115,14 @@
                                                 }
                                     ],
                                     "support": {
-                                                "source": "https://github.com/agence-adeliom/horizon-posttypes/tree/main",
+                                                "source": "https://github.com/agence-adeliom/horizon-posttypes/tree/sage/10",
                                                 "issues": "https://github.com/agence-adeliom/horizon-posttypes/issues"
                                     },
-                                    "time": "2025-09-26T10:50:39+00:00"
+                                    "time": "2025-09-26T12:04:55+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
-                                    "version": "dev-main",
+                                    "version": "dev-sage/10",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
@@ -144,7 +142,6 @@
                                                 "roots/acorn": "^4.0",
                                                 "vinkla/extended-acf": "^14.0"
                                     },
-                                    "default-branch": true,
                                     "type": "library",
                                     "autoload": {
                                                 "psr-4": {
