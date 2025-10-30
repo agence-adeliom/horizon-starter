@@ -2,6 +2,10 @@
 
 return [
     'links' => [
-        'allowObfuscation' => true,
+        'obfuscation' => [
+            'allow' => true,
+            'tag' => 'span',
+            'class' => '',
+        ],
     ],
 ];
