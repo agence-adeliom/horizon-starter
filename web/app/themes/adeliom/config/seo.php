@@ -3,7 +3,7 @@
 return [
     'links' => [
         'obfuscation' => [
-            'allow' => true,
+            'allow' => false,
             'tag' => 'span',
             'class' => '',
         ],
