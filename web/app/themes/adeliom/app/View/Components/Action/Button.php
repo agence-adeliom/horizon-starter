@@ -3,6 +3,7 @@
 namespace App\View\Components\Action;
 
 use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
+use Adeliom\HorizonTools\Services\SeoService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -14,35 +15,34 @@ class Button extends Component
     private ?string $typeClass = null;
     private ?string $sizeClass = null;
     public string $fullClass;
-    final public const string ICON_ONLY = "btn-icon-only";
+    final public const string ICON_ONLY = 'btn-icon-only';
 
-    /** 
-     * Button hierarchy level 
+    /**
+     * Button hierarchy level
      * Adjust color and variant to your need
      *  **/
     final public const TYPES = [
-        'primary'   => self::COLORS['tertiary'] . ' ' . self::VARIANTS['contain'],
+        'primary' => self::COLORS['tertiary'] . ' ' . self::VARIANTS['contain'],
         'secondary' => self::COLORS['primary'] . ' ' . self::VARIANTS['outline'],
-        'tertiary'  => self::COLORS['primary'] . ' ' . self::VARIANTS['text'],
+        'tertiary' => self::COLORS['primary'] . ' ' . self::VARIANTS['text'],
     ];
 
-
     private const COLORS = [
-        'primary'   => 'btn-primary',
+        'primary' => 'btn-primary',
         'secondary' => 'btn-secondary',
-        'tertiary'  => 'btn-tertiary',
+        'tertiary' => 'btn-tertiary',
     ];
 
     private const VARIANTS = [
-        'contain'   => 'btn-contained',
+        'contain' => 'btn-contained',
         'outline' => 'btn-outlined',
-        'text'  => 'btn-text',
+        'text' => 'btn-text',
     ];
 
     final public const SIZES = [
-        'small'  => 'btn-sm',
+        'small' => 'btn-sm',
         'medium' => 'btn-md',
-        'large'  => 'btn-lg',
+        'large' => 'btn-lg',
     ];
 
     /**
@@ -54,16 +54,17 @@ class Button extends Component
         public ?string $url = null,
         public ?string $target = null,
         public ?string $id = null,
-        public ?string $tag = "div",
+        public ?string $tag = 'div',
         public ?string $ariaLabel = null,
-        public ?bool   $iconOnly = false,
-        public ?bool   $fullLink = false,
-        public ?bool   $submit = null,
+        public ?bool $iconOnly = false,
+        public ?bool $fullLink = false,
+        public ?bool $submit = null,
         // Only for fields button
-        public ?array  $fields = null,
+        public ?array $fields = null,
         public ?string $icon = null,
         public ?string $iconClass = null,
-        public ?bool   $iconStart = false,
+        public ?bool $iconStart = false,
+        public ?bool $obfuscate = false,
     ) {
         $this->validateType($type);
         $this->validateSize($size);
@@ -73,22 +74,26 @@ class Button extends Component
         $this->handleUrl();
         $this->handleTarget();
         $this->handleLabel();
+        $this->handleObfuscate();
 
         $this->handleFullClass();
     }
 
-
     private function validateType(?string $type): void
     {
         if ($type !== null && !in_array($type, array_keys(self::TYPES))) {
-            throw new InvalidArgumentException("Invalid button type: '{$type}'. Allowed types are: " . implode(', ', array_keys(self::TYPES)) . ".");
+            throw new InvalidArgumentException(
+                "Invalid button type: '{$type}'. Allowed types are: " . implode(', ', array_keys(self::TYPES)) . '.',
+            );
         }
     }
 
     private function validateSize(?string $size): void
     {
         if ($size !== null && !in_array($size, array_keys(self::SIZES))) {
-            throw new InvalidArgumentException("Invalid button size: '{$size}'. Allowed sizes are: " . implode(', ', array_keys(self::SIZES)) . ".");
+            throw new InvalidArgumentException(
+                "Invalid button size: '{$size}'. Allowed sizes are: " . implode(', ', array_keys(self::SIZES)) . '.',
+            );
         }
     }
 
@@ -99,7 +104,6 @@ class Button extends Component
         if (null !== $this->type) {
             $type = $this->type && in_array($this->type, array_keys(self::TYPES)) ? $this->type : null;
         }
-
 
         if (null === $type) {
             if (null === $this->type && isset($this->fields[ButtonField::BUTTON_TYPE])) {
@@ -181,6 +185,15 @@ class Button extends Component
 
         if ($target) {
             $this->target = $target;
+        }
+    }
+
+    private function handleObfuscate(): void
+    {
+        if (SeoService::isObfuscationEnabled() && $this->fields && !empty($this->fields['link']['obfuscate'])) {
+            if ($this->fields['link']['obfuscate'] == 1) {
+                $this->obfuscate = true;
+            }
         }
     }
 
