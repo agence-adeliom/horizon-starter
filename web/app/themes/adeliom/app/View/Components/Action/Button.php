@@ -69,12 +69,12 @@ class Button extends Component
         $this->validateType($type);
         $this->validateSize($size);
 
+        $this->handleObfuscate();
         $this->handleType();
         $this->handleSize();
         $this->handleUrl();
         $this->handleTarget();
         $this->handleLabel();
-        $this->handleObfuscate();
 
         $this->handleFullClass();
     }
@@ -145,7 +145,12 @@ class Button extends Component
 
         if ($url) {
             $this->url = $url;
-            $this->tag = 'a';
+
+            if (!$this->obfuscate) {
+                $this->tag = 'a';
+            } else {
+                $this->tag = SeoService::getObfuscationTag();
+            }
         }
     }
 
