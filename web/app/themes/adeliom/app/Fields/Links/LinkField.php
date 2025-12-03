@@ -28,7 +28,7 @@ class LinkField
 
     public static function make(string $label = "Lien", ?string $name = self::FIELD_LINK): Group
     {
-        return Group::make(__('Lien'), $name)->fields([
+        return Group::make(__($label), $name)->fields([
             ButtonGroup::make(__('Type'), self::FIELD_TYPE)->choices([
                 self::VALUE_TYPE_INTERNAL => __('Interne'),
                 self::VALUE_TYPE_EXTERNAL => __('Externe'),
