@@ -32,220 +32,209 @@ class OptionPageAdmin extends AbstractAdmin
     public static bool $isOptionPage = true;
     public static ?string $optionPageIcon = null;
 
-
     //Footer
-    public const string FIELD_PARAM_FIELDS = "param";
-    public const string FIELD_FOOTER_FIELDS = "footer";
-    public const string FIELD_SOCIAL_NETWORKS = "social-networks";
-    public const string FIELD_MAIN_LOGO = "main-logo";
-    public const string FIELD_WHITE_LOGO = "white-logo";
-    public const string FIELD_CLIENT_NAME = "client-name";
-    public const string FIELD_CLIENT_BASELINE = "client-baseline";
-    public const string FIELD_HEADER_CTA = "header-cta";
+    public const string FIELD_PARAM_FIELDS = 'param';
+    public const string FIELD_FOOTER_FIELDS = 'footer';
+    public const string FIELD_SOCIAL_NETWORKS = 'social-networks';
+    public const string FIELD_MAIN_LOGO = 'main-logo';
+    public const string FIELD_WHITE_LOGO = 'white-logo';
+    public const string FIELD_CLIENT_NAME = 'client-name';
+    public const string FIELD_CLIENT_BASELINE = 'client-baseline';
+    public const string FIELD_HEADER_CTA = 'header-cta';
 
     // Navigation
-    public const string FIELD_MAIN_NAVIGATION_TITLE = "main-navigation-title";
-    public const string FIELD_SECOND_NAVIGATION_TITLE = "second-navigation-title";
-    public const string FIELD_TITLE_HIGHLIGHT = "title-highlight";
-    public const string FIELD_BTN_HIGHLIGHT = "btn-highlight";
-    public const string FIELD_FOOTER_TITLE = "footer-title";
-    public const string FIELD_FOOTER_TEXT = "footer-text";
+    public const string FIELD_MAIN_NAVIGATION_TITLE = 'main-navigation-title';
+    public const string FIELD_SECOND_NAVIGATION_TITLE = 'second-navigation-title';
+    public const string FIELD_TITLE_HIGHLIGHT = 'title-highlight';
+    public const string FIELD_BTN_HIGHLIGHT = 'btn-highlight';
+    public const string FIELD_FOOTER_TITLE = 'footer-title';
+    public const string FIELD_FOOTER_TEXT = 'footer-text';
 
     // Reviews
-    public const string FIELD_REVIEWS_FIELDS = "reviews";
-    public const string FIELD_GLOBAL_RATING = "global-rating";
-    public const string FIELD_BTN_REVIEWS = "btn-reviews";
+    public const string FIELD_REVIEWS_FIELDS = 'reviews';
+    public const string FIELD_GLOBAL_RATING = 'global-rating';
+    public const string FIELD_BTN_REVIEWS = 'btn-reviews';
 
     //Top navigation
-    public const string FIELD_TOP_NAVIGATION = "top-navigation";
-    public const string FIELD_TOP_NAVIGATION_ENABLED = "is-enabled";
-    public const string FIELD_TOP_NAVIGATION_SHOW_SEARCH = "show-search";
-    public const string FIELD_TOP_NAVIGATION_SEARCH_INFOS = "search-infos";
-    public const string FIELD_TOP_NAVIGATION_REVIEWS_TYPE = "reviews-type";
-    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN = "hidden";
-    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT = "default";
-    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK = "default-with-link";
-    public const string FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL = "reviews-link-label";
-    public const string FIELD_TOP_NAVIGATION_LINKS_REPEATER = "links";
-    public const string FIELD_TOP_NAVIGATION_LINK = "link";
-
+    public const string FIELD_TOP_NAVIGATION = 'top-navigation';
+    public const string FIELD_TOP_NAVIGATION_ENABLED = 'is-enabled';
+    public const string FIELD_TOP_NAVIGATION_SHOW_SEARCH = 'show-search';
+    public const string FIELD_TOP_NAVIGATION_SEARCH_INFOS = 'search-infos';
+    public const string FIELD_TOP_NAVIGATION_REVIEWS_TYPE = 'reviews-type';
+    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN = 'hidden';
+    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT = 'default';
+    public const string VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK = 'default-with-link';
+    public const string FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL = 'reviews-link-label';
+    public const string FIELD_TOP_NAVIGATION_LINKS_REPEATER = 'links';
+    public const string FIELD_TOP_NAVIGATION_LINK = 'link';
 
     //Banner
-    public const string FIELD_BANNER = "banner";
-    public const string FIELD_PROMO_ACTIVE = "is_active";
-    public const string FIELD_PROMO_DARK = "is_dark";
-    public const string FIELD_BANNER_TITLE = "title";
-    public const string FIELD_BANNER_LINK = "link";
-
+    public const string FIELD_BANNER = 'banner';
+    public const string FIELD_PROMO_ACTIVE = 'is_active';
+    public const string FIELD_PROMO_DARK = 'is_dark';
+    public const string FIELD_BANNER_TITLE = 'title';
+    public const string FIELD_BANNER_LINK = 'link';
 
     //404
-    public const string FIELD_404 = "404";
-    public const string FIELD_404_TITLE = "404_title";
-    public const string FIELD_404_FIRST_COLUMN = "404_first_column";
-    public const string FIELD_404_FIRST_COLUMN_TITLE = "title";
-    public const string FIELD_404_SECOND_COLUMN = "404_second_column";
-    public const string FIELD_404_SECOND_COLUMN_TITLE = "title";
-    public const string FIELD_404_SEARCH_ACTIVE = "has_search";
-    public const string FIELD_404_SEARCH_TITLE = "search_title";
-
+    public const string FIELD_404 = '404';
+    public const string FIELD_404_TITLE = '404_title';
+    public const string FIELD_404_FIRST_COLUMN = '404_first_column';
+    public const string FIELD_404_FIRST_COLUMN_TITLE = 'title';
+    public const string FIELD_404_SECOND_COLUMN = '404_second_column';
+    public const string FIELD_404_SECOND_COLUMN_TITLE = 'title';
+    public const string FIELD_404_SEARCH_ACTIVE = 'has_search';
+    public const string FIELD_404_SEARCH_TITLE = 'search_title';
 
     //Scripts
-    public const FIELD_SCRIPTS = 'script';
-    public const FIELD_HEAD_SCRIPTS = 'head_scripts';
-    public const FIELD_BEFORE_BEGIN_BODY_SCRIPTS = 'before_begin_body_scripts';
-    public const FIELD_BEFORE_END_BODY_SCRIPTS = 'before_end_body_scripts';
-    public const FIELD_ADMIN_SCRIPTS = 'admin_scripts';
+    public const string FIELD_SCRIPTS = 'script';
+    public const string FIELD_HEAD_SCRIPTS = 'head_scripts';
+    public const string FIELD_BEFORE_BEGIN_BODY_SCRIPTS = 'before_begin_body_scripts';
+    public const string FIELD_BEFORE_END_BODY_SCRIPTS = 'before_end_body_scripts';
+    public const string FIELD_ADMIN_SCRIPTS = 'admin_scripts';
 
     public function getFields(): ?iterable
     {
-        yield Tab::make("Général");
+        yield Tab::make('Général');
 
-        yield Group::make('Paramètres principaux', self::FIELD_PARAM_FIELDS)
-            ->fields([
-                Text::make("Votre nom", self::FIELD_CLIENT_NAME),
-                Text::make("Votre baseline", self::FIELD_CLIENT_BASELINE)->helperText("Utilisée dans le pied de page."),
-                ButtonField::make("Bouton d'action principal du header", self::FIELD_HEADER_CTA),
-                Image::make("Logo principal", self::FIELD_MAIN_LOGO),
-                Image::make("Logo version blanche", self::FIELD_WHITE_LOGO),
-                Repeater::make("Réseaux sociaux", self::FIELD_SOCIAL_NETWORKS)
-                    ->fields([
-                        URL::make("Lien", "link"),
-                        IconField::make()->format("object"),
-                        Text::make("Nom du réseau", "title")->helperText("Ex: Linkedin"),
-                    ])
-                    ->maxRows(6),
-            ]);
+        yield Group::make('Paramètres principaux', self::FIELD_PARAM_FIELDS)->fields([
+            Text::make('Votre nom', self::FIELD_CLIENT_NAME),
+            Text::make('Votre baseline', self::FIELD_CLIENT_BASELINE)->helperText('Utilisée dans le pied de page.'),
+            ButtonField::make("Bouton d'action principal du header", self::FIELD_HEADER_CTA),
+            Image::make('Logo principal', self::FIELD_MAIN_LOGO),
+            Image::make('Logo version blanche', self::FIELD_WHITE_LOGO),
+            Repeater::make('Réseaux sociaux', self::FIELD_SOCIAL_NETWORKS)
+                ->fields([
+                    URL::make('Lien', 'link'),
+                    IconField::make()->format('object'),
+                    Text::make('Nom du réseau', 'title')->helperText('Ex: Linkedin'),
+                ])
+                ->maxRows(6),
+        ]);
 
-        yield Tab::make("Pied de page");
+        yield Tab::make('Pied de page');
 
-        yield Group::make('Paramètres du pied de page', self::FIELD_FOOTER_FIELDS)
-            ->fields([
-                Text::make("Titre", self::FIELD_FOOTER_TITLE),
-                Text::make("Texte", self::FIELD_FOOTER_TEXT),
-                Text::make("Titre de la navigation principale", self::FIELD_MAIN_NAVIGATION_TITLE),
-                Text::make("Titre de la navigation secondaire", self::FIELD_SECOND_NAVIGATION_TITLE),
-                Text::make("Titre de l'encart", self::FIELD_TITLE_HIGHLIGHT),
-                ButtonField::make("Bouton de l'encart", self::FIELD_BTN_HIGHLIGHT),
-            ]);
+        yield Group::make('Paramètres du pied de page', self::FIELD_FOOTER_FIELDS)->fields([
+            Text::make('Titre', self::FIELD_FOOTER_TITLE),
+            Text::make('Texte', self::FIELD_FOOTER_TEXT),
+            Text::make('Titre de la navigation principale', self::FIELD_MAIN_NAVIGATION_TITLE),
+            Text::make('Titre de la navigation secondaire', self::FIELD_SECOND_NAVIGATION_TITLE),
+            Text::make("Titre de l'encart", self::FIELD_TITLE_HIGHLIGHT),
+            ButtonField::make("Bouton de l'encart", self::FIELD_BTN_HIGHLIGHT),
+        ]);
 
+        yield Tab::make('Avis clients');
 
-        yield Tab::make("Avis clients");
+        yield Group::make('Paramètres des avis clients', self::FIELD_REVIEWS_FIELDS)->fields([
+            Number::make('Note globale', self::FIELD_GLOBAL_RATING)
+                ->helperText("Note attribuée à l'ensemble des avis clients, entre 0 et 5, par pas de 0.5")
+                ->min(0)
+                ->max(5)
+                ->step(0.5)
+                ->required(),
+            ButtonField::make('Liens de tous les avis', self::FIELD_BTN_REVIEWS),
+        ]);
 
-        yield Group::make('Paramètres des avis clients', self::FIELD_REVIEWS_FIELDS)
-            ->fields([
-                Number::make("Note globale", self::FIELD_GLOBAL_RATING)
-                    ->helperText("Note attribuée à l'ensemble des avis clients, entre 0 et 5, par pas de 0.5")
-                    ->min(0)
-                    ->max(5)
-                    ->step(0.5)
-                    ->required(),
-                ButtonField::make("Liens de tous les avis", self::FIELD_BTN_REVIEWS),
-            ]);
+        yield Tab::make('Navigation supérieure');
 
-
-        yield Tab::make("Navigation supérieure");
-
-        yield Group::make("Paramètres de la navigation supérieure", self::FIELD_TOP_NAVIGATION)
-            ->fields([
-                TrueFalse::make("Activer la navigation supérieure", self::FIELD_TOP_NAVIGATION_ENABLED)
-                    ->helperText('Permet d’afficher, ou non, la navigation supérieure.')
-                    ->stylized(),
-                TrueFalse::make("Activer la recherche", self::FIELD_TOP_NAVIGATION_SHOW_SEARCH)
-                    ->stylized()
-                    ->conditionalLogic([
-                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
-                    ]),
-                Repeater::make("Section informative sous la recherche", self::FIELD_TOP_NAVIGATION_SEARCH_INFOS)
-                    ->minRows(0)
-                    ->maxRows(2)
-                    ->layout('block')
-                    ->fields([
-                        Text::make(__("Titre du bloc"), "title")->required(),
-                        FieldsTextarea::make(__("Description du bloc"), "description")->maxLength(220)->helperText(__("Maximum 220 caractères")),
-                        ButtonField::make(__("Bouton du bloc"), "button"),
-                    ])
-                    ->conditionalLogic([
-                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_SHOW_SEARCH, "==", "1")
-                    ]),
-                ButtonGroup::make("Affichage des avis", self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE)
-                    ->helperText("Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure. Les données relatives aux données sont définies dans l'onglet 'Avis clients' de cette page.")
-                    ->choices([
-                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT => "Afficher",
-                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK => "Afficher avec un lien vers la page d'avis",
-                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN => "Masquer les avis",
-                    ])->conditionalLogic([
-                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
-                    ]),
-                Text::make("Libellé du lien vers les avis", self::FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL)
-                    ->required()
-                    ->default("Lire les avis")
-                    ->conditionalLogic([
-                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE, "==", self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK)
-                    ]),
-                Repeater::make("Liens", self::FIELD_TOP_NAVIGATION_LINKS_REPEATER)
-                    ->minRows(0)
-                    ->maxRows(3)
-                    ->layout('block')
-                    ->fields([
-                        LinkField::make(name: self::FIELD_TOP_NAVIGATION_LINK),
-                    ])
-                    ->conditionalLogic([
-                        ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, "==", "1")
-                    ])
-            ]);
-
-        yield Tab::make("Bannière promotionnelle");
-
-        yield Group::make('Paramètres de la bannière promotionnelle', self::FIELD_BANNER)
-            ->fields([
-                TrueFalse::make("Activer la bannière promotionnelle", self::FIELD_PROMO_ACTIVE)->stylized()->wrapper(['width' => 50]),
-                TrueFalse::make("Activer le mode sombre", self::FIELD_PROMO_DARK)->stylized()->wrapper(['width' => 50]),
-                Text::make("Texte de la bannière", self::FIELD_BANNER_TITLE),
-                Link::make("Lien de la bannière", self::FIELD_BANNER_LINK)
-
-            ]);
-
-        yield Tab::make("Page 404");
-
-        yield Group::make('Paramètres de la page 404', self::FIELD_404)
-            ->fields([
-                UptitleField::make()->default("Erreur 404"),
-                Text::make("Titre", self::FIELD_404_TITLE)->default("Cette page semble introuvable"),
-                Group::make('Colonne 1', self::FIELD_404_FIRST_COLUMN)
-                    ->fields([
-                        Text::make("Titre", self::FIELD_404_FIRST_COLUMN_TITLE)->default("Parmi les causes probables"),
-                        WysiwygField::make(),
-                    ])->wrapper(['width' => 50]),
-                Group::make('Colonne 2', self::FIELD_404_SECOND_COLUMN)
-                    ->fields([
-                        Text::make("Titre", self::FIELD_404_SECOND_COLUMN_TITLE)->default("Pour retrouver votre chemin... "),
-                        WysiwygField::make(),
-                    ])->wrapper(['width' => 50]),
-                TrueFalse::make("Activer la recherche", self::FIELD_404_SEARCH_ACTIVE)->stylized()->wrapper(['width' => 25]),
-                Text::make("Titre de la recherche", self::FIELD_404_SEARCH_TITLE)->default("Recherche rapide")->wrapper(['width' => 75])->conditionalLogic([
-                    ConditionalLogic::where(self::FIELD_404_SEARCH_ACTIVE, "==", "1")
+        yield Group::make('Paramètres de la navigation supérieure', self::FIELD_TOP_NAVIGATION)->fields([
+            TrueFalse::make('Activer la navigation supérieure', self::FIELD_TOP_NAVIGATION_ENABLED)
+                ->helperText('Permet d’afficher, ou non, la navigation supérieure.')
+                ->stylized(),
+            TrueFalse::make('Activer la recherche', self::FIELD_TOP_NAVIGATION_SHOW_SEARCH)
+                ->stylized()
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, '==', '1')]),
+            Repeater::make('Section informative sous la recherche', self::FIELD_TOP_NAVIGATION_SEARCH_INFOS)
+                ->minRows(0)
+                ->maxRows(2)
+                ->layout('block')
+                ->fields([
+                    Text::make(__('Titre du bloc'), 'title')->required(),
+                    FieldsTextarea::make(__('Description du bloc'), 'description')
+                        ->maxLength(220)
+                        ->helperText(__('Maximum 220 caractères')),
+                    ButtonField::make(__('Bouton du bloc'), 'button'),
+                ])
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_SHOW_SEARCH, '==', '1')]),
+            ButtonGroup::make('Affichage des avis', self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE)
+                ->helperText(
+                    "Permet de choisir la façon dont les avis vont s’afficher dans la navigation supérieure. Les données relatives aux données sont définies dans l'onglet 'Avis clients' de cette page.",
+                )
+                ->choices([
+                    self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT => 'Afficher',
+                    self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK => "Afficher avec un lien vers la page d'avis",
+                    self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN => 'Masquer les avis',
+                ])
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, '==', '1')]),
+            Text::make('Libellé du lien vers les avis', self::FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL)
+                ->required()
+                ->default('Lire les avis')
+                ->conditionalLogic([
+                    ConditionalLogic::where(
+                        self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE,
+                        '==',
+                        self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK,
+                    ),
                 ]),
-            ]);
+            Repeater::make('Liens', self::FIELD_TOP_NAVIGATION_LINKS_REPEATER)
+                ->minRows(0)
+                ->maxRows(3)
+                ->layout('block')
+                ->fields([LinkField::make(name: self::FIELD_TOP_NAVIGATION_LINK)])
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, '==', '1')]),
+        ]);
 
+        yield Tab::make('Bannière promotionnelle');
+
+        yield Group::make('Paramètres de la bannière promotionnelle', self::FIELD_BANNER)->fields([
+            TrueFalse::make('Activer la bannière promotionnelle', self::FIELD_PROMO_ACTIVE)
+                ->stylized()
+                ->wrapper(['width' => 50]),
+            TrueFalse::make('Activer le mode sombre', self::FIELD_PROMO_DARK)
+                ->stylized()
+                ->wrapper(['width' => 50]),
+            Text::make('Texte de la bannière', self::FIELD_BANNER_TITLE),
+            Link::make('Lien de la bannière', self::FIELD_BANNER_LINK),
+        ]);
+
+        yield Tab::make('Page 404');
+
+        yield Group::make('Paramètres de la page 404', self::FIELD_404)->fields([
+            UptitleField::make()->default('Erreur 404'),
+            Text::make('Titre', self::FIELD_404_TITLE)->default('Cette page semble introuvable'),
+            Group::make('Colonne 1', self::FIELD_404_FIRST_COLUMN)
+                ->fields([
+                    Text::make('Titre', self::FIELD_404_FIRST_COLUMN_TITLE)->default('Parmi les causes probables'),
+                    WysiwygField::make(),
+                ])
+                ->wrapper(['width' => 50]),
+            Group::make('Colonne 2', self::FIELD_404_SECOND_COLUMN)
+                ->fields([
+                    Text::make('Titre', self::FIELD_404_SECOND_COLUMN_TITLE)->default('Pour retrouver votre chemin... '),
+                    WysiwygField::make(),
+                ])
+                ->wrapper(['width' => 50]),
+            TrueFalse::make('Activer la recherche', self::FIELD_404_SEARCH_ACTIVE)
+                ->stylized()
+                ->wrapper(['width' => 25]),
+            Text::make('Titre de la recherche', self::FIELD_404_SEARCH_TITLE)
+                ->default('Recherche rapide')
+                ->wrapper(['width' => 75])
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_404_SEARCH_ACTIVE, '==', '1')]),
+        ]);
 
         yield Tab::make(__('Scripts'), 'other_tab');
-        yield Group::make(__('Script', self::FIELD_SCRIPTS))
-            ->fields([
-                Textarea::make(__('Head script'), self::FIELD_HEAD_SCRIPTS)
-                    ->helperText('Add your scripts here'),
-                Textarea::make(__('Just after body open'), self::FIELD_BEFORE_BEGIN_BODY_SCRIPTS)
-                    ->helperText('Add your scripts here'),
+        yield Group::make(__('Script', self::FIELD_SCRIPTS))->fields([
+            Textarea::make(__('Head script'), self::FIELD_HEAD_SCRIPTS)->helperText('Add your scripts here'),
+            Textarea::make(__('Just after body open'), self::FIELD_BEFORE_BEGIN_BODY_SCRIPTS)->helperText('Add your scripts here'),
 
-                Textarea::make(__('Before end body'), self::FIELD_BEFORE_END_BODY_SCRIPTS)
-                    ->helperText('Add your scripts here'),
+            Textarea::make(__('Before end body'), self::FIELD_BEFORE_END_BODY_SCRIPTS)->helperText('Add your scripts here'),
 
-                Textarea::make(__('Admin scripts'), self::FIELD_ADMIN_SCRIPTS)
-                    ->helperText('Add your scripts here'),
-            ]);
+            Textarea::make(__('Admin scripts'), self::FIELD_ADMIN_SCRIPTS)->helperText('Add your scripts here'),
+        ]);
     }
 
     public function getStyle(): string
     {
-        return "seamless";
+        return 'seamless';
     }
 }

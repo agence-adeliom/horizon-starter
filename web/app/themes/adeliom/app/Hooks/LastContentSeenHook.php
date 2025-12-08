@@ -9,9 +9,9 @@ use Adeliom\HorizonTools\Hooks\AbstractHook;
 
 class LastContentSeenHook extends AbstractHook
 {
-    public const KEY_TO_KEEP = 'toKeep';
-    private const COOKIE_NAME = 'lastSeen';
-    private const COOKIE_DURATION = 3600;
+    public const string KEY_TO_KEEP = 'toKeep';
+    private const string COOKIE_NAME = 'lastSeen';
+    private const int COOKIE_DURATION = 3600;
 
     public function init(): void
     {
@@ -51,9 +51,11 @@ class LastContentSeenHook extends AbstractHook
                     if (!empty($results)) {
                         // Order results like IDs in $savedData
                         $results = array_map(function ($id) use ($results) {
-                            return array_values(array_filter($results, function ($result) use ($id) {
-                                return $result->ID == $id;
-                            }))[0];
+                            return array_values(
+                                array_filter($results, function ($result) use ($id) {
+                                    return $result->ID == $id;
+                                }),
+                            )[0];
                         }, $savedData[$postType]);
                     }
                 }
@@ -69,7 +71,7 @@ class LastContentSeenHook extends AbstractHook
 
     private static function getSavedData(bool $handleCurrent = true, ?string $postType = null): array
     {
-        $data = isset($_COOKIE[self::COOKIE_NAME]) ? (array)json_decode(stripslashes($_COOKIE[self::COOKIE_NAME])) : [];
+        $data = isset($_COOKIE[self::COOKIE_NAME]) ? (array) json_decode(stripslashes($_COOKIE[self::COOKIE_NAME])) : [];
 
         if ($handleCurrent && null !== $postType) {
             if (isset($data[$postType])) {

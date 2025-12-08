@@ -11,7 +11,7 @@ class ThemeServiceProvider extends SageServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         parent::register();
     }
@@ -21,9 +21,8 @@ class ThemeServiceProvider extends SageServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         parent::boot();
     }
 }
-

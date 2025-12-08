@@ -21,25 +21,25 @@ class Button extends Component
      * Button hierarchy level
      * Adjust color and variant to your need
      *  **/
-    final public const TYPES = [
+    final public const array TYPES = [
         'primary' => self::COLORS['tertiary'] . ' ' . self::VARIANTS['contain'],
         'secondary' => self::COLORS['primary'] . ' ' . self::VARIANTS['outline'],
         'tertiary' => self::COLORS['primary'] . ' ' . self::VARIANTS['text'],
     ];
 
-    private const COLORS = [
+    private const array COLORS = [
         'primary' => 'btn-primary',
         'secondary' => 'btn-secondary',
         'tertiary' => 'btn-tertiary',
     ];
 
-    private const VARIANTS = [
+    private const array VARIANTS = [
         'contain' => 'btn-contained',
         'outline' => 'btn-outlined',
         'text' => 'btn-text',
     ];
 
-    final public const SIZES = [
+    final public const array SIZES = [
         'small' => 'btn-sm',
         'medium' => 'btn-md',
         'large' => 'btn-lg',

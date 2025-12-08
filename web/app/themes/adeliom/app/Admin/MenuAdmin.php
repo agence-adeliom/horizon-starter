@@ -15,23 +15,21 @@ class MenuAdmin extends AbstractAdmin
     /**
      * @var string
      */
-    public const MENU_ITEM = 'menu_item';
+    public const string MENU_ITEM = 'menu_item';
+
     public static ?string $title = 'Menu item';
 
     public function getFields(): ?iterable
     {
-
-        yield Group::make('Menu item', self::MENU_ITEM)
-            ->fields([
-                IconField::make()->format('object'),
-                Text::make("Label du CTA principal", "label")->helperText(__('(dans le cas où l\'item parent est un lien)')),
-            ]);
+        yield Group::make('Menu item', self::MENU_ITEM)->fields([
+            IconField::make()->format('object'),
+            Text::make('Label du CTA principal', 'label')->helperText(__('(dans le cas où l\'item parent est un lien)')),
+        ]);
     }
-
 
     public function getStyle(): string
     {
-        return "seamless";
+        return 'seamless';
     }
 
     /**
@@ -39,6 +37,6 @@ class MenuAdmin extends AbstractAdmin
      */
     public function getLocation(): iterable
     {
-        yield Location::where('nav_menu_item', '=', "4");
+        yield Location::where('nav_menu_item', '=', '4');
     }
 }

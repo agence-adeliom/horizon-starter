@@ -9,13 +9,11 @@ use BladeUI\Icons\Factory;
 
 class SeoHook extends AbstractHook
 {
-
-
     public static function rmBreadcrumbArgs($args): array
     {
         return array_merge($args, [
             'wrap_before' => '<nav aria-label="breadcrumbs" id="breadcrumbs" class="main-breadcrumbs">',
-            'wrap_after'  => '</nav>',
+            'wrap_after' => '</nav>',
         ]);
     }
 
@@ -34,26 +32,19 @@ class SeoHook extends AbstractHook
     public static function rmBreadcrumbHtml($html, $crumbs, $class): string
     {
         $iconFactory = app(Factory::class);
-        $html = preg_replace('/<span class="separator">.*?<\/span>/', $iconFactory->svg('fas:sharp-angle-right', 'separator w-[16px] h-[16px] text-secondary')->toHtml(), $html);
 
-        return $html;
+        return preg_replace(
+            '/<span class="separator">.*?<\/span>/',
+            $iconFactory->svg('fas:sharp-angle-right', 'separator w-[16px] h-[16px] text-secondary')->toHtml(),
+            $html,
+        );
     }
-
 
     public function init(): void
     {
-        add_filter('rank_math/frontend/breadcrumb/args', [
-            $this,
-            'rmBreadcrumbArgs',
-        ], 10, 1);
+        add_filter('rank_math/frontend/breadcrumb/args', [$this, 'rmBreadcrumbArgs'], 10, 1);
 
-        add_filter('rank_math/frontend/breadcrumb/settings', [
-            $this,
-            'rmBreadcrumbSettings',
-        ], 10, 1);
-        add_filter('rank_math/frontend/breadcrumb/html', [
-            $this,
-            'rmBreadcrumbHtml',
-        ], 10, 3);
+        add_filter('rank_math/frontend/breadcrumb/settings', [$this, 'rmBreadcrumbSettings'], 10, 1);
+        add_filter('rank_math/frontend/breadcrumb/html', [$this, 'rmBreadcrumbHtml'], 10, 3);
     }
 }

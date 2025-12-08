@@ -8,7 +8,7 @@ use Adeliom\HorizonTools\Hooks\AbstractHook;
 
 class UserRoleHook extends AbstractHook
 {
-    public static function addEditorRoles()
+    public static function addEditorRoles(): void
     {
         $role = get_role('editor');
         $caps = [
@@ -39,9 +39,6 @@ class UserRoleHook extends AbstractHook
 
     public function init(): void
     {
-        add_action('admin_init', [
-            $this,
-            'addEditorRoles',
-        ], 10);
+        add_action('admin_init', [$this, 'addEditorRoles'], 10);
     }
 }
