@@ -2,4 +2,4 @@
 
 cd $DDEV_APPROOT
 
-ddev php vendor/bin/dep $*
+ddev php vendor/bin/dep "$@"
