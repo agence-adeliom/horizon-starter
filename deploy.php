@@ -175,6 +175,16 @@ task('acorn', function () {
     run('cd {{release_or_current_path}}/web && rm wp-cli.phar');
 });
 
+fail('wp-cli', function () {
+    info('Suppression de WP-CLI');
+    run('cd {{release_or_current_path}}/web && rm wp-cli.phar');
+});
+
+fail('acorn', function () {
+    info('Suppression de WP-CLI');
+    run('cd {{release_or_current_path}}/web && rm wp-cli.phar');
+});
+
 // Define deployment flow
 before('deploy:vendors', 'deploy:shared');
 after('deploy:update_code', 'deploy:vendors');
