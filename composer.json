@@ -55,6 +55,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:agence-adeliom/horizon-querybuilder.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
         },
         {
