@@ -101,6 +101,30 @@ ddev acorn list:posttypes
 ddev acorn list:taxonomies
 ```
 
+## Deployer : commandes distantes
+
+### Lancer une commande WP-CLI sur un environnement distant
+
+```bash
+ddev deployer wp-cli <stage> --command="<commande wp-cli>"
+```
+
+Exemple :
+```bash
+ddev deployer wp-cli production --command="cache flush"
+```
+
+### Lancer une commande Acorn sur un environnement distant
+
+```bash
+ddev deployer acorn <stage> --command="<commande acorn>"
+```
+
+Exemple :
+```bash
+ddev deployer acorn production --command="icons:cache"
+```
+
 ## Gestion des menus
 
 ### Créer un emplacement de menu
