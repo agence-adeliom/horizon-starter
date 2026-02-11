@@ -12,6 +12,9 @@ web/app/cache/*
 web/wp
 web/.htaccess
 
+# Wordfence
+web/app/wflogs
+
 # Logs
 *.log
 

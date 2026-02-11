@@ -62,19 +62,9 @@
             "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "junaidbhura/gravityforms",
-                "version": "2.8.18",
-                "type": "wordpress-plugin",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://www.gravityforms.com/"
-                },
-                "require": {
-                    "junaidbhura/composer-wp-pro-plugins": "*"
-                }
-            }
+            "name": "gravity",
+            "type": "composer",
+            "url": "https://composer.gravity.io"
         }
     ],
     "require": {
@@ -98,7 +88,7 @@
         "agence-adeliom/gutenberg-blocks-inspector": "dev-main",
         "agence-adeliom/horizon-tools": "dev-sage/11",
         "agence-adeliom/horizon-blocks": "dev-sage/11",
-        "junaidbhura/gravityforms": "^2.8",
+        "gravity/gravityforms": "*",
         "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.1",
         "blade-ui-kit/blade-icons": "^1.7",
         "owenvoke/blade-fontawesome": "^2.8"
