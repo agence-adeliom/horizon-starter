@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Action;
 
 use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
-use Adeliom\HorizonTools\Services\SeoService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -11,48 +12,44 @@ use InvalidArgumentException;
 
 class Button extends Component
 {
-    public ?string $label = null;
-    private ?string $typeClass = null;
-    private ?string $sizeClass = null;
-    public string $fullClass;
     final public const string ICON_ONLY = 'btn-icon-only';
-
     /**
      * Button hierarchy level
      * Adjust color and variant to your need
-     *  **/
+     **/
     final public const array TYPES = [
         'primary' => self::COLORS['tertiary'] . ' ' . self::VARIANTS['contain'],
         'secondary' => self::COLORS['primary'] . ' ' . self::VARIANTS['outline'],
         'tertiary' => self::COLORS['primary'] . ' ' . self::VARIANTS['text'],
     ];
-
     private const array COLORS = [
         'primary' => 'btn-primary',
         'secondary' => 'btn-secondary',
         'tertiary' => 'btn-tertiary',
     ];
-
     private const array VARIANTS = [
         'contain' => 'btn-contained',
         'outline' => 'btn-outlined',
         'text' => 'btn-text',
     ];
-
     final public const array SIZES = [
         'small' => 'btn-sm',
         'medium' => 'btn-md',
         'large' => 'btn-lg',
     ];
+    public string $fullClass;
+    private ?string $typeClass = null;
+    private ?string $sizeClass = null;
 
-    /**
-     * Create a new component instance.
-     */
     public function __construct(
-        public ?string $size = 'medium',
+        public ?string $size = 'large',
         public ?string $type = 'primary',
         public ?string $url = null,
+        public ?string $label = null,
         public ?string $target = null,
+        public ?string $tabindex = null,
+        public ?string $title = null,
+        public ?string $role = null,
         public ?string $id = null,
         public ?string $tag = 'div',
         public ?string $ariaLabel = null,
@@ -61,15 +58,22 @@ class Button extends Component
         public ?bool $submit = null,
         // Only for fields button
         public ?array $fields = null,
-        public ?string $icon = null,
+        public null|string|object $icon = null,
         public ?string $iconClass = null,
         public ?bool $iconStart = false,
-        public ?bool $obfuscate = false,
+        public ?string $wireClick = null,
+        public ?string $wireTarget = null,
+        public bool $handleLivewireLoading = false,
+        public bool $openAuthForm = false,
+        public bool $openNewsletterForm = false,
+        public bool $obfuscate = false,
+        public ?string $atClick = null,
+        public ?string $xShow = null,
     ) {
+        $this->handleAuthForm();
         $this->validateType($type);
         $this->validateSize($size);
 
-        $this->handleObfuscate();
         $this->handleType();
         $this->handleSize();
         $this->handleUrl();
@@ -77,6 +81,17 @@ class Button extends Component
         $this->handleLabel();
 
         $this->handleFullClass();
+    }
+
+    private function handleAuthForm(): void
+    {
+        if ($this->openAuthForm || $this->openNewsletterForm) {
+            if (!empty($this->wireClick)) {
+                $this->wireTarget = null;
+                $this->wireClick = null;
+                $this->handleLivewireLoading = false;
+            }
+        }
     }
 
     private function validateType(?string $type): void
@@ -121,6 +136,10 @@ class Button extends Component
     {
         $size = null;
 
+        if ($this->type === 'none') {
+            return;
+        }
+
         if (null !== $this->size) {
             $size = $this->size && in_array($this->size, array_keys(self::SIZES)) ? $this->size : null;
         }
@@ -145,12 +164,24 @@ class Button extends Component
 
         if ($url) {
             $this->url = $url;
+            $this->tag = 'a';
+        }
+    }
 
-            if (!$this->obfuscate) {
-                $this->tag = 'a';
-            } else {
-                $this->tag = SeoService::getObfuscationTag();
-            }
+    private function handleTarget(): void
+    {
+        $target = null;
+
+        if (null !== $this->target) {
+            $target = $this->target;
+        }
+
+        if (null === $target && $this->fields && isset($this->fields[ButtonField::BUTTON_LINK]['target'])) {
+            $target = $this->fields[ButtonField::BUTTON_LINK]['target'];
+        }
+
+        if ($target) {
+            $this->target = $target;
         }
     }
 
@@ -176,47 +207,21 @@ class Button extends Component
         }
     }
 
-    private function handleTarget(): void
-    {
-        $target = null;
-
-        if (null !== $this->target) {
-            $target = $this->target;
-        }
-
-        if (null === $target && $this->fields && isset($this->fields[ButtonField::BUTTON_LINK]['target'])) {
-            $target = $this->fields[ButtonField::BUTTON_LINK]['target'];
-        }
-
-        if ($target) {
-            $this->target = $target;
-        }
-    }
-
-    private function handleObfuscate(): void
-    {
-        if (SeoService::isObfuscationEnabled() && $this->fields && !empty($this->fields['link']['obfuscate'])) {
-            if ($this->fields['link']['obfuscate'] == 1) {
-                $this->obfuscate = true;
-            }
-        }
-    }
-
     private function handleFullClass(): void
     {
-        $this->fullClass = implode(' ', [
-            'btn',
-            $this->iconStart ? 'flex-row-reverse' : '',
-            $this->fullLink ? 'static' : '',
-            $this->typeClass,
-            $this->sizeClass,
-            $this->iconOnly ? self::ICON_ONLY : '',
-        ]);
+        $this->fullClass = implode(
+            ' ',
+            array_filter([
+                'none' !== $this->type ? 'btn' : null,
+                $this->iconStart ? 'flex-row-reverse' : '',
+                $this->fullLink ? 'static' : '',
+                $this->typeClass,
+                $this->sizeClass,
+                $this->iconOnly ? self::ICON_ONLY : '',
+            ]),
+        );
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.action.button');

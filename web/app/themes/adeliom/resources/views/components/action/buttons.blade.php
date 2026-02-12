@@ -1,9 +1,14 @@
 @if ($buttons)
-	<div class="flex flex-col md:flex-row gap-4{{ $attributes['class'] ? ' ' . $attributes['class'] : null }}">
-		@foreach ($buttons as $button)
-			@if ($button['link'])
-				<x-action.button :fields="$button" :type="$loop->first ? 'primary' : 'secondary'" />
-			@endif
-		@endforeach
-	</div>
+    <div class="{{ $baseClass }}{{ $attributes['class'] ? ' ' . $attributes['class'] : null }}">
+        @foreach ($buttons as $button)
+            @if (! empty($button['link']))
+                <x-action.button
+                    :fields="$button"
+                    :type="$loop->first ? $firstButtonType : $secondButtonType"
+                    :class="$loop->first ? $firstButtonClass : $secondButtonClass"
+                    :obfuscate="$button['link']['obfuscate'] ?? '0'"
+                />
+            @endif
+        @endforeach
+    </div>
 @endif
