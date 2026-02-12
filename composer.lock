@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "a4e8341c4868b5a83e68a1fafbbeb514",
+            "content-hash": "b788f52ba2b7c28b944216cde785dda4",
             "packages": [
                         {
                                     "name": "agence-adeliom/gutenberg-blocks-inspector",
@@ -5142,86 +5142,6 @@
                                     "time": "2018-08-10T14:18:38+00:00"
                         },
                         {
-                                    "name": "roots/wp-password-bcrypt",
-                                    "version": "1.1.0",
-                                    "source": {
-                                                "type": "git",
-                                                "url": "https://github.com/roots/wp-password-bcrypt.git",
-                                                "reference": "15f0d8919fb3731f79a0cf2fb47e1baecb86cb26"
-                                    },
-                                    "dist": {
-                                                "type": "zip",
-                                                "url": "https://api.github.com/repos/roots/wp-password-bcrypt/zipball/15f0d8919fb3731f79a0cf2fb47e1baecb86cb26",
-                                                "reference": "15f0d8919fb3731f79a0cf2fb47e1baecb86cb26",
-                                                "shasum": ""
-                                    },
-                                    "require": {
-                                                "php": ">=5.6.0"
-                                    },
-                                    "require-dev": {
-                                                "brain/monkey": "^2.6",
-                                                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-                                                "mockery/mockery": "^1.4",
-                                                "phpcompatibility/php-compatibility": "^9.3",
-                                                "phpunit/phpunit": "<= 9.3",
-                                                "squizlabs/php_codesniffer": "^3.5"
-                                    },
-                                    "type": "library",
-                                    "autoload": {
-                                                "files": [
-                                                            "wp-password-bcrypt.php"
-                                                ]
-                                    },
-                                    "notification-url": "https://packagist.org/downloads/",
-                                    "license": [
-                                                "MIT"
-                                    ],
-                                    "authors": [
-                                                {
-                                                            "name": "Scott Walkinshaw",
-                                                            "email": "scott.walkinshaw@gmail.com",
-                                                            "homepage": "https://github.com/swalkinshaw"
-                                                },
-                                                {
-                                                            "name": "QWp6t",
-                                                            "homepage": "https://github.com/qwp6t"
-                                                },
-                                                {
-                                                            "name": "Brandon Nifong",
-                                                            "homepage": "https://github.com/log1x"
-                                                },
-                                                {
-                                                            "name": "Jan Pingel",
-                                                            "email": "jpingel@bitpiston.com",
-                                                            "homepage": "http://janpingel.com"
-                                                }
-                                    ],
-                                    "description": "WordPress plugin which replaces wp_hash_password and wp_check_password's phpass hasher with PHP 5.5's password_hash and password_verify using bcrypt.",
-                                    "homepage": "https://roots.io/plugins/wp-password-bcrypt",
-                                    "keywords": [
-                                                "bcrypt",
-                                                "passwords",
-                                                "wordpress"
-                                    ],
-                                    "support": {
-                                                "forum": "https://discourse.roots.io/",
-                                                "issues": "https://github.com/roots/wp-password-bcrypt/issues",
-                                                "source": "https://github.com/roots/wp-password-bcrypt/tree/1.1.0"
-                                    },
-                                    "funding": [
-                                                {
-                                                            "url": "https://github.com/roots",
-                                                            "type": "github"
-                                                },
-                                                {
-                                                            "url": "https://www.patreon.com/rootsdev",
-                                                            "type": "patreon"
-                                                }
-                                    ],
-                                    "abandoned": "roots/wp-password-bcrypt",
-                                    "time": "2021-10-31T01:18:58+00:00"
-                        },
-                        {
                                     "name": "symfony/clock",
                                     "version": "v8.0.0",
                                     "source": {
@@ -7824,12 +7744,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "0c751a6ae38247a99675c8210d6a9d570314c87f"
+                                                "reference": "0827484199a3d7d67a4f0f72637f235ca29b48d6"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0c751a6ae38247a99675c8210d6a9d570314c87f",
-                                                "reference": "0c751a6ae38247a99675c8210d6a9d570314c87f",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0827484199a3d7d67a4f0f72637f235ca29b48d6",
+                                                "reference": "0827484199a3d7d67a4f0f72637f235ca29b48d6",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -8432,6 +8352,7 @@
                                                 "phpwhois/phpwhois": "<=4.2.5",
                                                 "phpxmlrpc/extras": "<0.6.1",
                                                 "phpxmlrpc/phpxmlrpc": "<4.9.2",
+                                                "phraseanet/phraseanet": "==4.0.3",
                                                 "pi/pi": "<=2.5",
                                                 "pimcore/admin-ui-classic-bundle": "<=1.7.15|>=2.0.0.0-RC1-dev,<=2.2.2",
                                                 "pimcore/customer-management-framework-bundle": "<4.2.1",
@@ -8569,7 +8490,7 @@
                                                 "starcitizentools/short-description": ">=4,<4.0.1",
                                                 "starcitizentools/tabber-neue": ">=1.9.1,<2.7.2|>=3,<3.1.1",
                                                 "starcitizenwiki/embedvideo": "<=4",
-                                                "statamic/cms": "<=5.22",
+                                                "statamic/cms": "<5.73.6|>=6,<6.2.5",
                                                 "stormpath/sdk": "<9.9.99",
                                                 "studio-42/elfinder": "<=2.1.64",
                                                 "studiomitte/friendlycaptcha": "<0.1.4",
@@ -8838,7 +8759,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2026-02-10T00:36:12+00:00"
+                                    "time": "2026-02-11T19:25:13+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
