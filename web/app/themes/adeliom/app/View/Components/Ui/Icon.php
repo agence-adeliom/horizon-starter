@@ -17,7 +17,12 @@ class Icon extends Component
     public function __construct(public string|stdClass $icon, public ?string $class = '', public ?string $iconName = '')
     {
         if (is_string($this->icon)) {
-            if (str_starts_with($this->icon, 'far-') || str_starts_with($this->icon, 'fas-') || str_starts_with($this->icon, 'fab-')) {
+            if (
+                str_starts_with($this->icon, 'far-') ||
+                str_starts_with($this->icon, 'fas-') ||
+                str_starts_with($this->icon, 'fab-') ||
+                str_starts_with($this->icon, 'fal-')
+            ) {
                 $this->iconName = $this->icon;
             } else {
                 $iconName = $this->icon;

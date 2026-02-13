@@ -1,0 +1,31 @@
+.handle-lw-loading {
+  @apply relative;
+
+  &.lw-loading {
+    *:not(.icon) {
+      @apply invisible;
+    }
+
+    &:not(.btn-icon-only) {
+      .icon * {
+        @apply visible;
+      }
+    }
+
+    &.btn-icon-only {
+      & > .lw-loader {
+        .icon * {
+          @apply visible;
+        }
+      }
+    }
+
+    & > .lw-loader {
+      @apply visible;
+    }
+  }
+
+  & > .lw-loader {
+    @apply invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}

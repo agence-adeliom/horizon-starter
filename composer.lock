@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "b788f52ba2b7c28b944216cde785dda4",
+            "content-hash": "9cf7db7ac4ffe106e796cf707fdfd915",
             "packages": [
                         {
                                     "name": "agence-adeliom/gutenberg-blocks-inspector",
@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "c10bf50c5e00e0669c2f3b1aec4b3bd41d54c679"
+                                                "reference": "40c9ad384ca03f85194f65f728ca05ae2eeb2b8f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/c10bf50c5e00e0669c2f3b1aec4b3bd41d54c679",
-                                                "reference": "c10bf50c5e00e0669c2f3b1aec4b3bd41d54c679",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/40c9ad384ca03f85194f65f728ca05ae2eeb2b8f",
+                                                "reference": "40c9ad384ca03f85194f65f728ca05ae2eeb2b8f",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -83,7 +83,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/sage/11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2026-01-30T14:12:14+00:00"
+                                    "time": "2026-02-13T11:20:28+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-posttypes",
@@ -169,12 +169,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "9fb292cbd4813d9093c1a19ab5ae2a21e1b491ea"
+                                                "reference": "8588fb63891bfccc5adb0bd44a0865be9b2a426a"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/9fb292cbd4813d9093c1a19ab5ae2a21e1b491ea",
-                                                "reference": "9fb292cbd4813d9093c1a19ab5ae2a21e1b491ea",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/8588fb63891bfccc5adb0bd44a0865be9b2a426a",
+                                                "reference": "8588fb63891bfccc5adb0bd44a0865be9b2a426a",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -207,7 +207,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/sage/11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2026-02-06T15:27:31+00:00"
+                                    "time": "2026-02-13T11:18:50+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -7596,15 +7596,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/seo-by-rank-math",
-                                    "version": "1.0.264",
+                                    "version": "1.0.264.1",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                                                "reference": "tags/1.0.264"
+                                                "reference": "tags/1.0.264.1"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.264.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.264.1.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7650,15 +7650,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/wp-smushit",
-                                    "version": "3.23.4",
+                                    "version": "3.24.0",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/wp-smushit/",
-                                                "reference": "tags/3.23.4"
+                                                "reference": "tags/3.24.0"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/wp-smushit.3.23.4.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/wp-smushit.3.24.0.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7744,12 +7744,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "0827484199a3d7d67a4f0f72637f235ca29b48d6"
+                                                "reference": "9ad81949d95f2c5abc5eee283ca8349db6b42be9"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0827484199a3d7d67a4f0f72637f235ca29b48d6",
-                                                "reference": "0827484199a3d7d67a4f0f72637f235ca29b48d6",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/9ad81949d95f2c5abc5eee283ca8349db6b42be9",
+                                                "reference": "9ad81949d95f2c5abc5eee283ca8349db6b42be9",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -7857,6 +7857,7 @@
                                                 "causal/oidc": "<4",
                                                 "cecil/cecil": "<7.47.1",
                                                 "centreon/centreon": "<22.10.15",
+                                                "cesargb/laravel-magiclink": ">=2,<2.25.1",
                                                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
                                                 "chriskacerguis/codeigniter-restserver": "<=2.7.1",
                                                 "chrome-php/chrome": "<1.14",
@@ -8759,7 +8760,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2026-02-11T19:25:13+00:00"
+                                    "time": "2026-02-12T23:09:51+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",
