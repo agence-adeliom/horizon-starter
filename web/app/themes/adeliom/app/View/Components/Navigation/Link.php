@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\Navigation;
 
-use App\Fields\Links\LinkField;
+use Adeliom\HorizonTools\Fields\Links\LinkField;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -43,7 +43,7 @@ class Link extends Component
                     }
 
                     if (isset($this->fields[LinkField::FIELD_IS_TARGET_BLANK]) && $this->fields[LinkField::FIELD_IS_TARGET_BLANK]) {
-                        $this->target = "_blank";
+                        $this->target = '_blank';
                     }
                     break;
                 case LinkField::VALUE_TYPE_EXTERNAL:

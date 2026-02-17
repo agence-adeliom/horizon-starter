@@ -1,7 +1,13 @@
 @if ($buttons)
     <div class="{{ $baseClass }}{{ $attributes['class'] ? ' ' . $attributes['class'] : null }}">
         @foreach ($buttons as $button)
-            @if (! empty($button['link']))
+            @if ($isLinkFields)
+                <x-action.button
+                    :link="$button"
+                    :type="$loop->first ? $firstButtonType : $secondButtonType"
+                    :class="$loop->first ? $firstButtonClass : $secondButtonClass"
+                />
+            @elseif (! empty($button['link']))
                 <x-action.button
                     :fields="$button"
                     :type="$loop->first ? $firstButtonType : $secondButtonType"

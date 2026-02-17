@@ -12,12 +12,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector.git",
-                                                "reference": "56662265a633c4b03be039593873c9f83af9787e"
+                                                "reference": "8f3a01507f305a2995a4979e0721aab593cf486e"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/gutenberg-blocks-inspector/zipball/56662265a633c4b03be039593873c9f83af9787e",
-                                                "reference": "56662265a633c4b03be039593873c9f83af9787e",
+                                                "url": "https://api.github.com/repos/agence-adeliom/gutenberg-blocks-inspector/zipball/8f3a01507f305a2995a4979e0721aab593cf486e",
+                                                "reference": "8f3a01507f305a2995a4979e0721aab593cf486e",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -43,7 +43,7 @@
                                                 "source": "https://github.com/agence-adeliom/gutenberg-blocks-inspector/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/gutenberg-blocks-inspector/issues"
                                     },
-                                    "time": "2026-02-04T12:05:04+00:00"
+                                    "time": "2026-02-16T11:39:54+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-blocks",
@@ -51,12 +51,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "40c9ad384ca03f85194f65f728ca05ae2eeb2b8f"
+                                                "reference": "55834506625c23fd8023b52ed301e436d2594e43"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/40c9ad384ca03f85194f65f728ca05ae2eeb2b8f",
-                                                "reference": "40c9ad384ca03f85194f65f728ca05ae2eeb2b8f",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/55834506625c23fd8023b52ed301e436d2594e43",
+                                                "reference": "55834506625c23fd8023b52ed301e436d2594e43",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -83,7 +83,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/sage/11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2026-02-13T11:20:28+00:00"
+                                    "time": "2026-02-17T07:57:56+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-posttypes",
@@ -169,12 +169,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "8588fb63891bfccc5adb0bd44a0865be9b2a426a"
+                                                "reference": "16c3c263e47ea2abb850ffbe7a8443836a4978a0"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/8588fb63891bfccc5adb0bd44a0865be9b2a426a",
-                                                "reference": "8588fb63891bfccc5adb0bd44a0865be9b2a426a",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/16c3c263e47ea2abb850ffbe7a8443836a4978a0",
+                                                "reference": "16c3c263e47ea2abb850ffbe7a8443836a4978a0",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -207,7 +207,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/sage/11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2026-02-13T11:18:50+00:00"
+                                    "time": "2026-02-17T14:27:50+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
@@ -3730,31 +3730,31 @@
                         },
                         {
                                     "name": "nunomaduro/termwind",
-                                    "version": "v2.3.3",
+                                    "version": "v2.4.0",
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/nunomaduro/termwind.git",
-                                                "reference": "6fb2a640ff502caace8e05fd7be3b503a7e1c017"
+                                                "reference": "712a31b768f5daea284c2169a7d227031001b9a8"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/6fb2a640ff502caace8e05fd7be3b503a7e1c017",
-                                                "reference": "6fb2a640ff502caace8e05fd7be3b503a7e1c017",
+                                                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/712a31b768f5daea284c2169a7d227031001b9a8",
+                                                "reference": "712a31b768f5daea284c2169a7d227031001b9a8",
                                                 "shasum": ""
                                     },
                                     "require": {
                                                 "ext-mbstring": "*",
                                                 "php": "^8.2",
-                                                "symfony/console": "^7.3.6"
+                                                "symfony/console": "^7.4.4 || ^8.0.4"
                                     },
                                     "require-dev": {
-                                                "illuminate/console": "^11.46.1",
-                                                "laravel/pint": "^1.25.1",
+                                                "illuminate/console": "^11.47.0",
+                                                "laravel/pint": "^1.27.1",
                                                 "mockery/mockery": "^1.6.12",
-                                                "pestphp/pest": "^2.36.0 || ^3.8.4 || ^4.1.3",
+                                                "pestphp/pest": "^2.36.0 || ^3.8.4 || ^4.3.2",
                                                 "phpstan/phpstan": "^1.12.32",
                                                 "phpstan/phpstan-strict-rules": "^1.6.2",
-                                                "symfony/var-dumper": "^7.3.5",
+                                                "symfony/var-dumper": "^7.3.5 || ^8.0.4",
                                                 "thecodingmachine/phpstan-strict-rules": "^1.0.0"
                                     },
                                     "type": "library",
@@ -3786,7 +3786,7 @@
                                                             "email": "enunomaduro@gmail.com"
                                                 }
                                     ],
-                                    "description": "Its like Tailwind CSS, but for the console.",
+                                    "description": "It's like Tailwind CSS, but for the console.",
                                     "keywords": [
                                                 "cli",
                                                 "console",
@@ -3797,7 +3797,7 @@
                                     ],
                                     "support": {
                                                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                                                "source": "https://github.com/nunomaduro/termwind/tree/v2.3.3"
+                                                "source": "https://github.com/nunomaduro/termwind/tree/v2.4.0"
                                     },
                                     "funding": [
                                                 {
@@ -3813,7 +3813,7 @@
                                                             "type": "github"
                                                 }
                                     ],
-                                    "time": "2025-11-20T02:34:59+00:00"
+                                    "time": "2026-02-16T23:10:27+00:00"
                         },
                         {
                                     "name": "oscarotero/env",
@@ -7744,12 +7744,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                                                "reference": "9ad81949d95f2c5abc5eee283ca8349db6b42be9"
+                                                "reference": "7f3e95c9ebf1b16e002dd2c913d30d962c2a6a16"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/9ad81949d95f2c5abc5eee283ca8349db6b42be9",
-                                                "reference": "9ad81949d95f2c5abc5eee283ca8349db6b42be9",
+                                                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/7f3e95c9ebf1b16e002dd2c913d30d962c2a6a16",
+                                                "reference": "7f3e95c9ebf1b16e002dd2c913d30d962c2a6a16",
                                                 "shasum": ""
                                     },
                                     "conflict": {
@@ -8099,7 +8099,7 @@
                                                 "ibexa/solr": ">=4.5,<4.5.4",
                                                 "ibexa/user": ">=4,<4.4.3|>=5,<5.0.4",
                                                 "icecoder/icecoder": "<=8.1",
-                                                "idno/known": "<=1.3.1",
+                                                "idno/known": "<=1.6.2",
                                                 "ilicmiljan/secure-props": ">=1.2,<1.2.2",
                                                 "illuminate/auth": "<5.5.10",
                                                 "illuminate/cookie": ">=4,<=4.0.11|>=4.1,<6.18.31|>=7,<7.22.4",
@@ -8760,7 +8760,7 @@
                                                             "type": "tidelift"
                                                 }
                                     ],
-                                    "time": "2026-02-12T23:09:51+00:00"
+                                    "time": "2026-02-13T23:11:21+00:00"
                         },
                         {
                                     "name": "squizlabs/php_codesniffer",

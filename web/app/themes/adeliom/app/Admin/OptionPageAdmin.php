@@ -6,11 +6,10 @@ namespace App\Admin;
 
 use Adeliom\HorizonTools\Admin\AbstractAdmin;
 use Adeliom\HorizonTools\Fields\Buttons\ButtonField;
-use Adeliom\HorizonTools\Fields\Text\HeadingField;
+use Adeliom\HorizonTools\Fields\Links\LinkField;
 use Adeliom\HorizonTools\Fields\Text\IconField;
 use Adeliom\HorizonTools\Fields\Text\UptitleField;
 use Adeliom\HorizonTools\Fields\Text\WysiwygField;
-use App\Fields\Links\LinkField;
 use Extended\ACF\ConditionalLogic;
 use Extended\ACF\Fields\ButtonGroup;
 use Extended\ACF\Fields\Group;
