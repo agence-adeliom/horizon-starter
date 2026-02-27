@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration overrides for WP_ENV === 'staging'
+ * Configuration overrides for WP_ENV === 'production'
  */
 
 use Roots\WPConfig\Config;
@@ -16,7 +16,8 @@ use Roots\WPConfig\Config;
 
 Config::define('DISALLOW_INDEXING', true);
 Config::define('ENABLED_HTTP_LOGIN', true);
-Config::define('DISABLE_QUERY_BUILDER_CACHE', false);
-Config::define('SCRIPT_DEBUG', false);
 Config::define('HTTP_WHITELIST', env('HTTP_WHITELIST') ?? []);
 Config::define('ADMIN_ALLOWED_IPS', env('ADMIN_ALLOWED_IPS') ?? []);
+
+Config::define('DISABLE_QUERY_BUILDER_CACHE', false);
+Config::define('SCRIPT_DEBUG', false);

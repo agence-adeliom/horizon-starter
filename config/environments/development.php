@@ -14,6 +14,8 @@ Config::define('WP_DISABLE_FATAL_ERROR_HANDLER', true);
 Config::define('SCRIPT_DEBUG', false);
 Config::define('DISALLOW_INDEXING', true);
 Config::define('DISABLE_QUERY_BUILDER_CACHE', false);
+Config::define('HTTP_WHITELIST', env('HTTP_WHITELIST') ?? []);
+Config::define('ADMIN_ALLOWED_IPS', env('ADMIN_ALLOWED_IPS') ?? []);
 
 ini_set('display_errors', '1');
 
