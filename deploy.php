@@ -137,7 +137,7 @@ task('cache:icons', static function (): void {
     });
 });
 
-option('command', null, InputOption::VALUE_OPTIONAL, 'Command arguments if required');
+option('command', null, \Symfony\Component\Console\Input\InputOption::VALUE_OPTIONAL, 'Command arguments if required');
 
 task('wp-cli', function () {
     $wpCliCommand = input()->getOption('command');
