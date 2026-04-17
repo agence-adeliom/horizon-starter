@@ -10,7 +10,7 @@ class Video extends Component
 {
     public ?string $url = null;
     public ?string $mimeType = null;
-    public ?string $unsupportedMessage = 'Votre navigateur ne supporte pas la balise vidéo.';
+    public ?string $unsupportedMessage = null;
 
     /**
      * Create a new component instance.
@@ -24,8 +24,13 @@ class Video extends Component
         public ?string $ratio = null,
         public ?string $containerClass = null,
         public ?string $class = null,
+        public ?string $trackSrc = null,
+        public ?string $trackLabel = null,
+        public ?string $trackLang = 'fr',
+        public ?string $trackKind = 'captions',
     )
     {
+        $this->unsupportedMessage = __('Votre navigateur ne supporte pas la balise vidéo.', 'sage');
         $this->handleData();
     }
 
