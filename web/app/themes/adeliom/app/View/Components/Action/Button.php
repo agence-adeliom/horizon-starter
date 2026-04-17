@@ -237,7 +237,7 @@ class Button extends Component
             $this->ariaLabel = $label;
 
             if ($this->target === '_blank') {
-                $this->ariaLabel .= ' - Ouvrir dans un nouvel onglet';
+                $this->ariaLabel .= ' - ' . __('Ouvrir dans un nouvel onglet', 'sage');
             }
         }
     }
