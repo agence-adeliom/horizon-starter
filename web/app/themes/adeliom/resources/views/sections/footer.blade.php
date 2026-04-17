@@ -31,7 +31,7 @@
         </div>
         <div class="grid gap-6 border-b border-neutral-300 py-8 md:grid-cols-2 lg:grid-cols-4 lg:py-10">
             <div class="flex flex-col gap-6 md:col-span-2 lg:col-span-1 lg:pr-10">
-                <a href="/" aria-label="logo">
+                <a href="/" aria-label="{{ __('Retour à la page d\'accueil', 'sage') }}">
                     @if ($logoFooter)
                         <x-media.img :image="$logoFooter" size="medium" />
                     @endif

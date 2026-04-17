@@ -8,7 +8,7 @@
 	<div class="container awc-theme-dark flex flex-col">
 		<div class="border-b border-primary-light w-full pb-8 md:pb-5xlarge {{$btnLp ? 'flex justify-between items-center' : ''}}">
 			@if ($logoFooter)
-				<a href="{{ home_url('/') }}" class="{{!$btnLp ? 'mx-auto': ''}} flex justify-center">
+				<a href="{{ home_url('/') }}" class="{{!$btnLp ? 'mx-auto': ''}} flex justify-center" aria-label="{{ __('Retour à la page d\'accueil', 'sage') }}">
 					<x-media.img :image="$logoFooter" class="max-w-xs" size="medium"/>
 				</a>
       @else
