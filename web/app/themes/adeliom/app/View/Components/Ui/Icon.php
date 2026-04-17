@@ -14,7 +14,7 @@ class Icon extends Component
 {
     public readonly bool $canDisplay;
 
-    public function __construct(public string|stdClass $icon, public ?string $class = '', public ?string $iconName = '')
+    public function __construct(public string|stdClass $icon, public ?string $class = '', public ?string $iconName = '', public ?string $ariaLabel = null)
     {
         if (is_string($this->icon)) {
             if (

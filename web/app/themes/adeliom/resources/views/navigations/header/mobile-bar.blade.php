@@ -10,8 +10,8 @@
         <div class="flex flex-col items-center">
             <button class="burger-wrapper" @click="mobileOpen = !mobileOpen" :class="mobileOpen && 'is-active'"
                 :aria-label="mobileOpen ? 'Fermeture du menu' : 'Ouverture du menu'">
-                <x-far-bars class="icon-5 burger-icon scale-100 is-active:scale-0" />
-                <x-far-xmark class="icon-5 burger-icon scale-0 is-active:scale-100" />
+                <x-far-bars class="icon-5 burger-icon scale-100 is-active:scale-0" aria-hidden="true" />
+                <x-far-xmark class="icon-5 burger-icon scale-0 is-active:scale-100" aria-hidden="true" />
             </button>
             {{-- <span class="text-sm font-bold uppercase">{{ __('menu') }}</span> --}}
         </div>

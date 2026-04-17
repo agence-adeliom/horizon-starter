@@ -9,7 +9,7 @@
             @if ($thumbnail)
                 {!! $thumbnail !!}
             @else
-                <x-fas-image class="w-10 h-10" />
+                <x-fas-image class="w-10 h-10" aria-hidden="true" />
             @endif
         </div>
 
@@ -28,7 +28,7 @@
 
             <x-action.button url="{{ get_permalink($content->ID) }}" type="tertiary" class="mt-auto" full-link="true">
                 Voir plus
-                <x-fas-arrow-right class="icon-4" />
+                <x-fas-arrow-right class="icon-4" aria-hidden="true" />
             </x-action.button>
         </div>
     </div>

@@ -16,8 +16,8 @@
                 @endisset
             </div>
 
-            <button class="ml-4 p-1" x-on:click="setCookie('promo_banner_hidden', 'true', 7); isHidden = true">
-                <x-fas-xmark class="icon-4 text-text-primary" />
+            <button class="ml-4 p-1" x-on:click="setCookie('promo_banner_hidden', 'true', 7); isHidden = true" aria-label="{{ __('Fermer le bandeau', 'sage') }}">
+                <x-fas-xmark class="icon-4 text-text-primary" aria-hidden="true" />
             </button>
         </div>
     </section>

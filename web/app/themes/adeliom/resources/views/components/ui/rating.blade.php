@@ -1,5 +1,5 @@
 <div @class(['rating flex items-center gap-2', $class])>
-    <div class="flex space-x-1 text-orange-400">
+    <div class="flex space-x-1 text-orange-400" aria-hidden="true">
         @foreach ($stars() as $star)
             @if ($star === 'full')
                 <x-fas-star class="icon-5" />

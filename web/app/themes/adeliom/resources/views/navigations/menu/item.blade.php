@@ -14,7 +14,7 @@
                 <span class="menu-item-title group-hover:text-primary">
                     {{ $item->title }}
                     @if ($hasChildren && !$parent)
-                        <x-far-angle-down class="icon-4 max-lg:-rotate-90" />
+                        <x-far-angle-down class="icon-4 max-lg:-rotate-90" aria-hidden="true" />
                     @endif
                 </span>
                 @if (isset($item->description) && $item->description && $parent)
@@ -45,12 +45,12 @@
                                 @if (isset($item->parentId) && $item->parentId > 0 && $parent)
                                     <button class="{{ $back_link_class }}"
                                         @click.stop="toggleSubMenu({{ $parent->id }})">
-                                        <x-fas-angle-left @class([$back_arrow_class]) />
+                                        <x-fas-angle-left @class([$back_arrow_class]) aria-hidden="true" />
                                         {{ $parent->submenu_back_label ?? __('Retour') }}
                                     </button>
                                 @else
                                     <button class="{{ $back_link_class }} lg:hidden" @click="closeAllSubmenu">
-                                        <x-fas-angle-left @class([$back_arrow_class]) />
+                                        <x-fas-angle-left @class([$back_arrow_class]) aria-hidden="true" />
                                         {{ __('Retour') }}
                                     </button>
                                 @endif
@@ -85,7 +85,7 @@
 
                     <button @click="closeAllSubmenu" aria-label="Fermer le sous-menu"
                         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">
-                        <x-far-xmark class="icon-5 text-text-secondary" />
+                        <x-far-xmark class="icon-5 text-text-secondary" aria-hidden="true" />
                     </button>
                 </div>
             </template>
