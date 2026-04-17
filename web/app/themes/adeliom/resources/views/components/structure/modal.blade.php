@@ -12,18 +12,22 @@
         x-transition:enter-start="opacity-0 translate-y-20" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition-transform ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-20"
-        x-trap.inert.noscroll="open" @class([
+        x-trap.inert.noscroll="open"
+        role="dialog"
+        aria-modal="true"
+        @isset($header) aria-labelledby="modal-{{ $attributes['id'] ?? 'default' }}-title" @endisset
+        @class([
             'relative bg-white shadow-lg w-full max-w-3xl max-h-full overflow-hidden flex flex-col sm:max-h-[90%] sm:rounded-lg lg:max-h-[80%]',
             $attributes['class'],
         ])>
 
-        <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6">
-            <x-far-xmark class="icon-5 text-neutral-500" />
+        <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6" aria-label="{{ __('Fermer', 'sage') }}">
+            <x-far-xmark class="icon-5 text-neutral-500" aria-hidden="true" />
         </button>
 
         <!-- Header Slot -->
         @isset($header)
-            <div @class(['px-4 py-6 lg:px-6', $header->attributes['class']])>
+            <div id="modal-{{ $attributes['id'] ?? 'default' }}-title" @class(['px-4 py-6 lg:px-6', $header->attributes['class']])>
                 {{ $header }}
             </div>
         @endisset
