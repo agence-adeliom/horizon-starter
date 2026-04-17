@@ -83,7 +83,7 @@
                         </ul>
                     </div>
 
-                    <button @click="closeAllSubmenu" aria-label="Fermer le sous-menu"
+                    <button @click="closeAllSubmenu" aria-label="{{ __('Fermer le sous-menu', 'sage') }}"
                         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">
                         <x-far-xmark class="icon-5 text-text-secondary" aria-hidden="true" />
                     </button>

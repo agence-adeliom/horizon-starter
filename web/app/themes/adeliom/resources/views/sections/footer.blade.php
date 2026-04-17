@@ -19,7 +19,7 @@
                         @if ($item['link'] && $item['icon'])
                             <li>
                                 <x-action.button :url="$item['link']" target="_blank" rel="noopener"
-                                    aria-label="Visitez notre page {{ $item['title'] ?? '' }} (Ouvrir dans un nouvel onglet)"
+                                    aria-label="{{ sprintf(__('Visitez notre page %s (Ouvrir dans un nouvel onglet)', 'sage'), $item['title'] ?? '') }}"
                                     type="secondary" iconOnly>
                                     <x-ui.icon :icon="$item['icon']" class="icon-4" />
                                 </x-action.button>

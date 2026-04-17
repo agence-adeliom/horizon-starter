@@ -23,7 +23,7 @@
                         <span class="flex" x-data="initModal()">
                             <button class="top-item top-item-search" x-on:click="openModal()">
                                 <x-fas-magnifying-glass class="icon-4" aria-hidden="true" />
-                                Rechercher
+                                {{ __('Rechercher', 'sage') }}
                             </button>
 
                             <template x-teleport="body">
@@ -34,7 +34,7 @@
                                     ])>
                                         <div class="container">
                                             <div class="max-w-2xl mx-auto flex flex-col gap-6">
-                                                <x-typography.heading content="Que recherchez-vous?" class="text-center"
+                                                <x-typography.heading :content="__('Que recherchez-vous?', 'sage')" class="text-center"
                                                     size="3" />
                                                 <x-form.search isModal />
                                             </div>

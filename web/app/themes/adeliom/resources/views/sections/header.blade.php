@@ -9,7 +9,7 @@
                     @if ($logo)
                         <div class="logo-wrapper">
                             <a href="{{ home_url('/') }}" class="flex justify-center"
-                                aria-label="Retour à la page d'accueil">
+                                aria-label="{{ __('Retour à la page d\'accueil', 'sage') }}">
                                 <x-media.img :image="$logo" size="medium" container-class="w-36 lg:h-auto" />
                             </a>
                         </div>

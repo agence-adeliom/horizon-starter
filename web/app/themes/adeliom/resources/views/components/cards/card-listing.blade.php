@@ -27,7 +27,7 @@
             @endif
 
             <x-action.button url="{{ get_permalink($content->ID) }}" type="tertiary" class="mt-auto" full-link="true">
-                Voir plus
+                {{ __('Voir plus', 'sage') }}
                 <x-fas-arrow-right class="icon-4" aria-hidden="true" />
             </x-action.button>
         </div>
