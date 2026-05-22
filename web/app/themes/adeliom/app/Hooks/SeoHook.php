@@ -42,6 +42,10 @@ class SeoHook extends AbstractHook
 
     public function init(): void
     {
+        if (!defined('RANK_MATH_VERSION')) {
+            return;
+        }
+
         add_filter('rank_math/frontend/breadcrumb/args', [$this, 'rmBreadcrumbArgs'], 10, 1);
 
         add_filter('rank_math/frontend/breadcrumb/settings', [$this, 'rmBreadcrumbSettings'], 10, 1);

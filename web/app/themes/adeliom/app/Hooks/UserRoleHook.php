@@ -12,8 +12,6 @@ class UserRoleHook extends AbstractHook
     {
         $role = get_role('editor');
         $caps = [
-            //theme options
-            'edit_theme_options',
             // gravity forms
             'gravityforms_view_entries',
             'gravityforms_edit_entries',

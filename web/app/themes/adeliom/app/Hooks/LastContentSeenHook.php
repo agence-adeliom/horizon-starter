@@ -15,6 +15,10 @@ class LastContentSeenHook extends AbstractHook
 
     public function init(): void
     {
+        if (empty(self::getPostTypesToMonitor())) {
+            return;
+        }
+
         add_filter('the_content', [$this, 'saveLastSeen']);
     }
 
@@ -45,8 +49,9 @@ class LastContentSeenHook extends AbstractHook
             case !is_admin():
                 $savedData = self::getSavedData(postType: $postType);
 
-                if (isset($savedData[$postType])) {
-                    $results = $qb->whereIdIn(ids: $savedData[$postType])->get();
+                if (isset($savedData[$postType]) && is_array($savedData[$postType])) {
+                    $ids = array_map('intval', $savedData[$postType]);
+                    $results = $qb->whereIdIn(ids: $ids)->get();
 
                     if (!empty($results)) {
                         // Order results like IDs in $savedData
@@ -71,7 +76,12 @@ class LastContentSeenHook extends AbstractHook
 
     private static function getSavedData(bool $handleCurrent = true, ?string $postType = null): array
     {
-        $data = isset($_COOKIE[self::COOKIE_NAME]) ? (array) json_decode(stripslashes($_COOKIE[self::COOKIE_NAME])) : [];
+        $data = [];
+
+        if (isset($_COOKIE[self::COOKIE_NAME])) {
+            $decoded = json_decode(stripslashes($_COOKIE[self::COOKIE_NAME]), true);
+            $data = is_array($decoded) ? $decoded : [];
+        }
 
         if ($handleCurrent && null !== $postType) {
             if (isset($data[$postType])) {
@@ -94,6 +104,10 @@ class LastContentSeenHook extends AbstractHook
 
     public static function saveLastSeen($content)
     {
+        if (is_admin() || wp_doing_ajax() || wp_is_json_request() || !is_singular() || is_feed()) {
+            return $content;
+        }
+
         $currentPostType = get_post_type();
 
         $toMonitor = self::getPostTypesToMonitor();
@@ -136,7 +150,13 @@ class LastContentSeenHook extends AbstractHook
             }
         }
 
-        setcookie(self::COOKIE_NAME, json_encode($savedData), time() + self::COOKIE_DURATION, '/');
+        setcookie(self::COOKIE_NAME, json_encode($savedData), [
+            'expires' => time() + self::COOKIE_DURATION,
+            'path' => '/',
+            'secure' => is_ssl(),
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
 
         return $content;
     }

@@ -76,7 +76,7 @@ class A extends Component
                 $this->class = rtrim(sprintf('%s %s', $obfuscationClass, $this->class));
             }
         } elseif (!empty($this->href)) {
-            $this->hrefAttribute = sprintf('href="%s"', $this->href);
+            $this->hrefAttribute = sprintf('href="%s"', esc_url($this->href));
         }
     }
 
