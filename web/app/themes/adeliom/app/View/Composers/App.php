@@ -40,7 +40,7 @@ class App extends Composer
         return get_bloginfo('name', 'display');
     }
 
-    public static function isLandingPage(): string
+    public static function isLandingPage(): bool
     {
         if (!class_exists(LandingPage::class)) {
             return false;

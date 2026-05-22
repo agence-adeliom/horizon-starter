@@ -1,6 +1,6 @@
 @if ($isActive)
     <section class="{{ $isDark ? 'bg-primary' : 'bg-neutral-100' }}" x-data="{ isHidden: getCookie('promo_banner_hidden') }" x-cloak x-show="!isHidden"
-        aria-hidden="isHidden">
+        :aria-hidden="isHidden">
         <div @class([
             'promo-banner p-3 relative flex items-start justify-start',
             'awc-theme-dark' => $isDark,

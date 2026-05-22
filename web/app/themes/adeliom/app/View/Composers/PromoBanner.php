@@ -19,7 +19,7 @@ class PromoBanner extends Composer
     protected function with()
     {
         $isActive = false;
-        $isActive = false;
+        $isDark = false;
         $bannerTitle = null;
         $bannerLink = null;
 
@@ -42,7 +42,7 @@ class PromoBanner extends Composer
 
         return [
             "isActive"    => $isActive,
-            "isDark" => $isDark ?? false,
+            "isDark" => $isDark,
             "bannerTitle" => $bannerTitle,
             "bannerLink"  => $bannerLink,
         ];

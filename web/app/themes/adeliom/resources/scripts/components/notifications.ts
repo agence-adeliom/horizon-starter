@@ -52,7 +52,7 @@ Notifications.init = () => {
             window.Livewire.on('displayInfoNotification', args => {
                 if (args[0] && typeof args[0] === 'object') {
                     if (args[0].title || args[0].content) {
-                        Notifications.info(args[0].content || null, args[0].title || null, args[0]);
+                        Notifications.info(args[0].title || null, args[0].content || null, args[0]);
                     }
                 }
             });
@@ -69,7 +69,7 @@ Notifications.error = (title: null | string, content: null | string, args: null 
 };
 
 Notifications.info = (title: null | string, content: null | string, args: null | object = null) => {
-    toastr.info(title, content, handleOverrides(args));
+    toastr.info(content, title, handleOverrides(args));
 };
 
 const handleOverrides = (args: null | object) => {

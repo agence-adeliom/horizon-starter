@@ -36,7 +36,7 @@ class Block extends Component
     ];
 
     final public const array CONTAINERS = [
-        'inital' => 'container',
+        'initial' => 'container',
         'fluid' => 'max-w-[1400px] m-auto px-20',
     ];
 
@@ -141,7 +141,7 @@ class Block extends Component
     private function handleContainer(): void
     {
         if (null === $this->container || !in_array($this->container, array_keys(self::CONTAINERS))) {
-            $this->container = 'inital';
+            $this->container = 'initial';
         }
 
         if (isset(self::CONTAINERS[$this->container])) {

@@ -5,7 +5,6 @@ export const initCustomSelect = () => {
     const selects = document.querySelectorAll('.select');
 
     selects.forEach((select) => {
-        console.log('select', select);
         new Choices(select, {
             searchEnabled: false,
             itemSelectText: '',
