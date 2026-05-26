@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Theme filters.
+ * Filtres WordPress génériques du thème (excerpt, output buffers, etc.).
+ *
+ * Pour des features plus structurées, préférer une classe dans `app/Hooks/`.
  */
 
 namespace App;

@@ -1,7 +1,11 @@
 <?php
 
 /**
- * Theme setup.
+ * Bootstrap du thème Sage : theme_support, enqueue d'assets, widgets, settings éditeur.
+ *
+ * Les features métier (rôles, admin, SEO, back-office, etc.) vivent dans `app/Hooks/*.php`
+ * sous forme de classes étendant `Adeliom\HorizonTools\Hooks\AbstractHook` et sont
+ * auto-découvertes par Horizon Tools — ne pas dupliquer ici.
  */
 
 namespace App;
