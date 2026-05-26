@@ -1,11 +1,11 @@
 {
     "http-basic": {
         "composer.gravity.io": {
-            "username": "CLE DE LICENCE",
+            "username": "CLE_DE_LICENCE",
             "password": "https://starter.a-dev.cloud"
         },
         "connect.advancedcustomfields.com": {
-            "username": "CLÉ ACF",
+            "username": "CLE_ACF",
             "password": "https://starter.a-dev.cloud"
         }
     }
