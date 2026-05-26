@@ -51,7 +51,7 @@ class OptionPageAdmin extends AbstractAdmin
 
     // Reviews
     public const string FIELD_REVIEWS_FIELDS = 'reviews';
-    public const string FIELD_REVIEWS_ENABLED = 'is-enabled';
+    public const string FIELD_REVIEWS_ENABLED = 'reviews-enabled';
     public const string FIELD_GLOBAL_RATING = 'global-rating';
     public const string FIELD_BTN_REVIEWS = 'btn-reviews';
 
@@ -168,7 +168,10 @@ class OptionPageAdmin extends AbstractAdmin
                     self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK => "Afficher avec un lien vers la page d'avis",
                     self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_HIDDEN => 'Masquer les avis',
                 ])
-                ->conditionalLogic([ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, '==', '1')]),
+                ->conditionalLogic([
+                    ConditionalLogic::where(self::FIELD_TOP_NAVIGATION_ENABLED, '==', '1')
+                        ->and(self::FIELD_REVIEWS_ENABLED, '==', '1'),
+                ]),
             Text::make('Libellé du lien vers les avis', self::FIELD_TOP_NAVIGATION_REVIEWS_LINK_LABEL)
                 ->required()
                 ->default('Lire les avis')
@@ -177,7 +180,8 @@ class OptionPageAdmin extends AbstractAdmin
                         self::FIELD_TOP_NAVIGATION_REVIEWS_TYPE,
                         '==',
                         self::VALUE_TOP_NAVIGATION_REVIEWS_TYPE_DEFAULT_WITH_LINK,
-                    ),
+                    )
+                        ->and(self::FIELD_REVIEWS_ENABLED, '==', '1'),
                 ]),
             Repeater::make('Liens', self::FIELD_TOP_NAVIGATION_LINKS_REPEATER)
                 ->minRows(0)
