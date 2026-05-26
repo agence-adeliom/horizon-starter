@@ -51,6 +51,7 @@ class OptionPageAdmin extends AbstractAdmin
 
     // Reviews
     public const string FIELD_REVIEWS_FIELDS = 'reviews';
+    public const string FIELD_REVIEWS_ENABLED = 'is-enabled';
     public const string FIELD_GLOBAL_RATING = 'global-rating';
     public const string FIELD_BTN_REVIEWS = 'btn-reviews';
 
@@ -124,13 +125,17 @@ class OptionPageAdmin extends AbstractAdmin
         yield Tab::make('Avis clients');
 
         yield Group::make('Paramètres des avis clients', self::FIELD_REVIEWS_FIELDS)->fields([
+            TrueFalse::make('Afficher les avis', self::FIELD_REVIEWS_ENABLED)
+                ->stylized()
+                ->helperText('Active la note globale et les liens vers les avis sur le site.'),
             Number::make('Note globale', self::FIELD_GLOBAL_RATING)
                 ->helperText("Note attribuée à l'ensemble des avis clients, entre 0 et 5, par pas de 0.5")
                 ->min(0)
                 ->max(5)
                 ->step(0.5)
-                ->required(),
-            ButtonField::make('Liens de tous les avis', self::FIELD_BTN_REVIEWS),
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_REVIEWS_ENABLED, '==', '1')]),
+            ButtonField::make('Liens de tous les avis', self::FIELD_BTN_REVIEWS)
+                ->conditionalLogic([ConditionalLogic::where(self::FIELD_REVIEWS_ENABLED, '==', '1')]),
         ]);
 
         yield Tab::make('Navigation supérieure');
