@@ -12,11 +12,13 @@ class BackOfficeHook extends AbstractHook
 {
     public static function enqueueAdminScripts(): void
     {
-        CompilationService::getAsset('resources/styles/app.css')?->enqueue();
-        CompilationService::getAsset('resources/scripts/app.ts')?->enqueueAll(dependencies: ['jquery']);
+        if (get_current_screen()?->is_block_editor()) {
+            CompilationService::getAsset('resources/styles/app.css')?->enqueue();
+            CompilationService::getAsset('resources/scripts/app.ts')?->enqueueAll(dependencies: ['jquery']);
 
-        CompilationService::getAsset('resources/styles/editor.css')?->enqueue();
-        CompilationService::getAsset('resources/scripts/editor.ts')?->enqueueAll(dependencies: ['jquery']);
+            CompilationService::getAsset('resources/styles/editor.css')?->enqueue();
+            CompilationService::getAsset('resources/scripts/editor.ts')?->enqueueAll(dependencies: ['jquery']);
+        }
 
         $script = get_field(OptionPageAdmin::FIELD_SCRIPTS, 'option');
 
