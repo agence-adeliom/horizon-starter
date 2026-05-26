@@ -33,7 +33,6 @@
         "@alpinejs/focus": "^3.14.8",
         "choices.js": "^11.0.3",
         "glightbox": "^3.3.0",
-        "swiper": "^11.1.14",
-        "toastr": "^2.1.4"
+        "swiper": "^11.1.14"
     }
 }

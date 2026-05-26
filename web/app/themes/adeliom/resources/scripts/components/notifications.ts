@@ -1,87 +1,81 @@
-import toastr from 'toastr';
-import 'toastr/build/toastr.css';
+type ToastType = 'success' | 'error' | 'info';
 
-const Notifications = {
-    init: undefined,
-    success: undefined,
-    error: undefined,
-    info: undefined,
-};
+interface Toast {
+    id: number;
+    type: ToastType;
+    title: string | null;
+    content: string | null;
+}
 
-const setOptions = () => {
-    toastr.options = {
-        closeButton: true,
-        debug: false,
-        newestOnTop: false,
-        progressBar: true,
-        positionClass: 'toast-top-right',
-        preventDuplicates: false,
-        onclick: null,
-        showDuration: '1000',
-        hideDuration: '1000',
-        timeOut: 0,
-        extendedTimeOut: 0,
-        showEasing: 'swing',
-        hideEasing: 'linear',
-        showMethod: 'fadeIn',
-        hideMethod: 'fadeOut',
-    };
-};
+interface NotificationsStore {
+    items: Toast[];
+    add(toast: Omit<Toast, 'id'>): void;
+    remove(id: number): void;
+}
 
-Notifications.init = () => {
-    document.addEventListener('livewire:navigated', () => {
-        setOptions();
+const STORE_NAME = 'notifications';
+const AUTO_DISMISS_MS = 5000;
 
-        if (typeof window.Livewire !== 'undefined') {
-            window.Livewire.on('displaySuccessNotification', args => {
-                if (args[0] && typeof args[0] === 'object') {
-                    if (args[0].title || args[0].content) {
-                        Notifications.success(args[0].title || null, args[0].content || null, args[0]);
-                    }
-                }
-            });
+let counter = 0;
 
-            window.Livewire.on('displayErrorNotification', args => {
-                if (args[0] && typeof args[0] === 'object') {
-                    if (args[0].title || args[0].content) {
-                        Notifications.error(args[0].title || null, args[0].content || null, args[0]);
-                    }
-                }
-            });
-
-            window.Livewire.on('displayInfoNotification', args => {
-                if (args[0] && typeof args[0] === 'object') {
-                    if (args[0].title || args[0].content) {
-                        Notifications.info(args[0].title || null, args[0].content || null, args[0]);
-                    }
-                }
-            });
-        }
-    });
-};
-
-Notifications.success = (title: null | string, content: null | string, args: null | object = null) => {
-    toastr.success(content, title, handleOverrides(args));
-};
-
-Notifications.error = (title: null | string, content: null | string, args: null | object = null) => {
-    toastr.error(content, title, handleOverrides(args));
-};
-
-Notifications.info = (title: null | string, content: null | string, args: null | object = null) => {
-    toastr.info(content, title, handleOverrides(args));
-};
-
-const handleOverrides = (args: null | object) => {
-    const options = {};
-
-    if (args !== null && typeof args.onClick !== 'undefined' && args.onClick === 'openAuthModal') {
-        options.onclick = () => {
-            // Ouvrir le modal d'authentification
-        };
+const push = (type: ToastType, title: string | null, content: string | null): void => {
+    if (typeof window.Alpine === 'undefined') {
+        return;
     }
 
-    return options;
+    const store = window.Alpine.store(STORE_NAME) as NotificationsStore | undefined;
+
+    if (!store || typeof store.add !== 'function') {
+        return;
+    }
+
+    store.add({ type, title, content });
+};
+
+const Notifications = {
+    init: () => {
+        document.addEventListener('alpine:init', () => {
+            window.Alpine.store(STORE_NAME, {
+                items: [] as Toast[],
+                add(toast: Omit<Toast, 'id'>) {
+                    const id = ++counter;
+                    this.items.push({ ...toast, id });
+
+                    setTimeout(() => this.remove(id), AUTO_DISMISS_MS);
+                },
+                remove(id: number) {
+                    this.items = this.items.filter((t: Toast) => t.id !== id);
+                },
+            });
+        });
+
+        document.addEventListener('livewire:navigated', () => {
+            if (typeof window.Livewire === 'undefined') {
+                return;
+            }
+
+            window.Livewire.on('displaySuccessNotification', (args: { title?: string; content?: string }[]) => {
+                if (args[0]?.title || args[0]?.content) {
+                    Notifications.success(args[0].title ?? null, args[0].content ?? null);
+                }
+            });
+
+            window.Livewire.on('displayErrorNotification', (args: { title?: string; content?: string }[]) => {
+                if (args[0]?.title || args[0]?.content) {
+                    Notifications.error(args[0].title ?? null, args[0].content ?? null);
+                }
+            });
+
+            window.Livewire.on('displayInfoNotification', (args: { title?: string; content?: string }[]) => {
+                if (args[0]?.title || args[0]?.content) {
+                    Notifications.info(args[0].title ?? null, args[0].content ?? null);
+                }
+            });
+        });
+    },
+    success: (title: string | null, content: string | null) => push('success', title, content),
+    error: (title: string | null, content: string | null) => push('error', title, content),
+    info: (title: string | null, content: string | null) => push('info', title, content),
 };
 
 export default Notifications;
