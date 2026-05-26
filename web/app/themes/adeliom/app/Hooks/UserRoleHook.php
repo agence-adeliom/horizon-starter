@@ -37,6 +37,10 @@ class UserRoleHook extends AbstractHook
 
     public function init(): void
     {
+        if (!class_exists('GFForms')) {
+            return;
+        }
+
         add_action('admin_init', [$this, 'addEditorRoles'], 10);
     }
 }
