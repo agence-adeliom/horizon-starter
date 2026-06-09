@@ -46,12 +46,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector.git",
-                                                "reference": "8f3a01507f305a2995a4979e0721aab593cf486e"
+                                                "reference": "0383404b2c3c9ae7e009a8efbf50d26e305603a5"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/gutenberg-blocks-inspector/zipball/8f3a01507f305a2995a4979e0721aab593cf486e",
-                                                "reference": "8f3a01507f305a2995a4979e0721aab593cf486e",
+                                                "url": "https://api.github.com/repos/agence-adeliom/gutenberg-blocks-inspector/zipball/0383404b2c3c9ae7e009a8efbf50d26e305603a5",
+                                                "reference": "0383404b2c3c9ae7e009a8efbf50d26e305603a5",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -77,7 +77,7 @@
                                                 "source": "https://github.com/agence-adeliom/gutenberg-blocks-inspector/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/gutenberg-blocks-inspector/issues"
                                     },
-                                    "time": "2026-02-16T11:39:54+00:00"
+                                    "time": "2026-03-09T14:44:53+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-blocks",
@@ -85,12 +85,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-blocks.git",
-                                                "reference": "55834506625c23fd8023b52ed301e436d2594e43"
+                                                "reference": "094961ac9feb23543978d2affdb89347d0e9fc80"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/55834506625c23fd8023b52ed301e436d2594e43",
-                                                "reference": "55834506625c23fd8023b52ed301e436d2594e43",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-blocks/zipball/094961ac9feb23543978d2affdb89347d0e9fc80",
+                                                "reference": "094961ac9feb23543978d2affdb89347d0e9fc80",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -117,7 +117,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-blocks/tree/sage/11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-blocks/issues"
                                     },
-                                    "time": "2026-02-17T07:57:56+00:00"
+                                    "time": "2026-06-04T15:29:59+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-posttypes",
@@ -163,12 +163,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-querybuilder.git",
-                                                "reference": "c1f2c065044d528f6b7028525bca288005397388"
+                                                "reference": "9fe6fe5fc92e12d47eb410191a4e5f35352d1344"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-querybuilder/zipball/c1f2c065044d528f6b7028525bca288005397388",
-                                                "reference": "c1f2c065044d528f6b7028525bca288005397388",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-querybuilder/zipball/9fe6fe5fc92e12d47eb410191a4e5f35352d1344",
+                                                "reference": "9fe6fe5fc92e12d47eb410191a4e5f35352d1344",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -195,7 +195,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-querybuilder/tree/main",
                                                 "issues": "https://github.com/agence-adeliom/horizon-querybuilder/issues"
                                     },
-                                    "time": "2026-01-30T14:51:29+00:00"
+                                    "time": "2026-03-06T12:32:38+00:00"
                         },
                         {
                                     "name": "agence-adeliom/horizon-tools",
@@ -203,12 +203,12 @@
                                     "source": {
                                                 "type": "git",
                                                 "url": "https://github.com/agence-adeliom/horizon-tools.git",
-                                                "reference": "905a4a0cb361afbd1c2792cda2d6511331de230b"
+                                                "reference": "f6b823f087b88b040c64a956aceacd2817bc5a8f"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/905a4a0cb361afbd1c2792cda2d6511331de230b",
-                                                "reference": "905a4a0cb361afbd1c2792cda2d6511331de230b",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-tools/zipball/f6b823f087b88b040c64a956aceacd2817bc5a8f",
+                                                "reference": "f6b823f087b88b040c64a956aceacd2817bc5a8f",
                                                 "shasum": ""
                                     },
                                     "require": {
@@ -241,7 +241,7 @@
                                                 "source": "https://github.com/agence-adeliom/horizon-tools/tree/sage/11",
                                                 "issues": "https://github.com/agence-adeliom/horizon-tools/issues"
                                     },
-                                    "time": "2026-04-29T14:09:50+00:00"
+                                    "time": "2026-06-09T13:31:58+00:00"
                         },
                         {
                                     "name": "blade-ui-kit/blade-icons",
