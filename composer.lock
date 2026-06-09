@@ -1077,10 +1077,10 @@
                         },
                         {
                                     "name": "gravity/gravityforms",
-                                    "version": "2.9.28",
+                                    "version": "2.10.3",
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://composer.gravity.io/downloads/?plugin=gravityforms&version=2.9.28"
+                                                "url": "https://composer.gravity.io/downloads/?plugin=gravityforms&version=2.10.3"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7594,7 +7594,7 @@
                         },
                         {
                                     "name": "wpackagist-plugin/duplicate-page",
-                                    "version": "4.5.6",
+                                    "version": "4.5.9",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/duplicate-page/",
@@ -7602,7 +7602,7 @@
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/duplicate-page.zip?timestamp=1760613961"
+                                                "url": "https://downloads.wordpress.org/plugin/duplicate-page.zip?timestamp=1778238819"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7612,15 +7612,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/folders",
-                                    "version": "3.1.6",
+                                    "version": "3.1.9",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/folders/",
-                                                "reference": "tags/3.1.6"
+                                                "reference": "tags/3.1.9"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/folders.3.1.6.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/folders.3.1.9.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7630,15 +7630,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/seo-by-rank-math",
-                                    "version": "1.0.264.1",
+                                    "version": "1.0.271.1",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                                                "reference": "tags/1.0.264.1"
+                                                "reference": "tags/1.0.271.1"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.264.1.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.271.1.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7648,15 +7648,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/w3-total-cache",
-                                    "version": "2.9.1",
+                                    "version": "2.9.4",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/w3-total-cache/",
-                                                "reference": "tags/2.9.1"
+                                                "reference": "tags/2.9.4"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.9.1.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.9.4.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7666,15 +7666,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/wordfence",
-                                    "version": "8.1.4",
+                                    "version": "8.2.2",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/wordfence/",
-                                                "reference": "tags/8.1.4"
+                                                "reference": "tags/8.2.2"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/wordfence.8.1.4.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/wordfence.8.2.2.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
@@ -7684,15 +7684,15 @@
                         },
                         {
                                     "name": "wpackagist-plugin/wp-smushit",
-                                    "version": "3.24.0",
+                                    "version": "4.1.0",
                                     "source": {
                                                 "type": "svn",
                                                 "url": "https://plugins.svn.wordpress.org/wp-smushit/",
-                                                "reference": "tags/3.24.0"
+                                                "reference": "tags/4.1.0"
                                     },
                                     "dist": {
                                                 "type": "zip",
-                                                "url": "https://downloads.wordpress.org/plugin/wp-smushit.3.24.0.zip"
+                                                "url": "https://downloads.wordpress.org/plugin/wp-smushit.4.1.0.zip"
                                     },
                                     "require": {
                                                 "composer/installers": "^1.0 || ^2.0"
