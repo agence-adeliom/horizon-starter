@@ -1,0 +1,28 @@
+/*
+ * Visibilité des blocs par breakpoint — support « visibility » de WordPress 7.0.
+ *
+ * Les classes wp-block-hidden-{mobile,tablet,desktop} sont ajoutées au rendu par
+ * App\Hooks\BlockVisibilityHook (le CSS natif du core, avec ses breakpoints 480/782px
+ * codés en dur, y est désactivé).
+ *
+ * Les media queries sont générées par Tailwind à partir des breakpoints de la config
+ * (md / lg) : aucune valeur en dur ici, modifier les breakpoints se répercute
+ * automatiquement.
+ *   - mobile  : masqué sous md (< 768px)
+ *   - tablet  : masqué de md à lg (>= 768px et < 1024px)
+ *   - desktop : masqué à partir de lg (>= 1024px)
+ *
+ * NB : volontairement hors @layer utilities — les classes étant ajoutées au runtime
+ * (jamais présentes dans les templates), Tailwind les purgerait sinon.
+ */
+.wp-block-hidden-mobile {
+    @apply max-md:!hidden;
+}
+
+.wp-block-hidden-tablet {
+    @apply md:max-lg:!hidden;
+}
+
+.wp-block-hidden-desktop {
+    @apply lg:!hidden;
+}
