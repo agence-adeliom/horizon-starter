@@ -8,6 +8,7 @@
  * can.
  */
 
+use Adeliom\EnvIndicator\EnvIndicator;
 use Roots\WPConfig\Config;
 use function Env\env;
 
@@ -54,6 +55,11 @@ if (file_exists($root_dir . '/.env')) {
 define('WP_ENV', env('WP_ENV') ?: 'production');
 
 define('APP_ENV', env('APP_ENV') ?: 'production');
+
+/**
+ * Indicateur visuel d'environnement (non-production) dans le <title>
+ */
+EnvIndicator::listen(WP_ENV);
 
 /**
  * Infer WP_ENVIRONMENT_TYPE based on WP_ENV
