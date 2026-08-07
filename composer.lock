@@ -4,7 +4,7 @@
                         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
                         "This file is @generated automatically"
             ],
-            "content-hash": "24c0f06fad6d923297d70d0c4dd775e3",
+            "content-hash": "0fd740fbe51c212e4f636961f1a460c4",
             "packages": [
                         {
                                     "name": "adeliom/env-indicator",
@@ -7718,6 +7718,48 @@
                         }
             ],
             "packages-dev": [
+                        {
+                                    "name": "agence-adeliom/horizon-deployer-recipe",
+                                    "version": "v1.2.1",
+                                    "source": {
+                                                "type": "git",
+                                                "url": "git@github.com:agence-adeliom/horizon-deployer-recipe.git",
+                                                "reference": "51e26290827f8c81ce7e655e62a3af2790740914"
+                                    },
+                                    "dist": {
+                                                "type": "zip",
+                                                "url": "https://api.github.com/repos/agence-adeliom/horizon-deployer-recipe/zipball/51e26290827f8c81ce7e655e62a3af2790740914",
+                                                "reference": "51e26290827f8c81ce7e655e62a3af2790740914",
+                                                "shasum": ""
+                                    },
+                                    "require": {
+                                                "deployer/deployer": "^7.4",
+                                                "php": ">=8.0"
+                                    },
+                                    "type": "library",
+                                    "license": [
+                                                "MIT"
+                                    ],
+                                    "authors": [
+                                                {
+                                                            "name": "Agence Adeliom",
+                                                            "email": "dev@adeliom.com"
+                                                }
+                                    ],
+                                    "description": "Recipes Deployer pour les projets WordPress Horizon : transfert de base de données et d'uploads entre environnements",
+                                    "keywords": [
+                                                "bedrock",
+                                                "deployer",
+                                                "deployment",
+                                                "horizon",
+                                                "wordpress"
+                                    ],
+                                    "support": {
+                                                "source": "https://github.com/agence-adeliom/horizon-deployer-recipe/tree/v1.2.1",
+                                                "issues": "https://github.com/agence-adeliom/horizon-deployer-recipe/issues"
+                                    },
+                                    "time": "2026-08-06T07:48:38+00:00"
+                        },
                         {
                                     "name": "deployer/deployer",
                                     "version": "v7.5.12",

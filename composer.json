@@ -59,6 +59,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:agence-adeliom/horizon-deployer-recipe.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/agence-adeliom/gutenberg-blocks-inspector"
         },
         {
@@ -96,7 +100,8 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7.1",
         "roave/security-advisories": "dev-latest",
-        "deployer/deployer": "^7.4"
+        "deployer/deployer": "^7.4",
+        "agence-adeliom/horizon-deployer-recipe": "^1.2"
     },
     "config": {
         "optimize-autoloader": true,

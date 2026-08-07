@@ -8,5 +8,8 @@
             "username": "CLE_ACF",
             "password": "https://starter.a-dev.cloud"
         }
+    },
+    "github-oauth": {
+        "github.com": "TOKEN_GITHUB"
     }
 }

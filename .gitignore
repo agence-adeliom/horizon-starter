@@ -34,3 +34,8 @@ wp-cli.local.yml
 web/wp-cli.phar
 auth.json
 node_modules
+
+# Deployer Horizon
+/db-*.sql.gz
+/uploads-*.tar.gz
+/.dep/

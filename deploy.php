@@ -3,21 +3,7 @@
 namespace Deployer;
 
 require 'recipe/wordpress.php';
-
-// Set WP-CLI path and install if not found
-set('bin/wp', function () {
-    if (test('[ -f {{deploy_path}}/.dep/wp-cli.phar ]')) {
-        return '{{bin/php}} {{deploy_path}}/.dep/wp-cli.phar';
-    }
-
-    if (commandExist('wp')) {
-        return 'wp'; // Assumes WP-CLI is globally accessible in PATH
-    }
-
-    warning("WP-CLI binary wasn't found. Installing latest WP-CLI to \"{{deploy_path}}/.dep/wp-cli.phar\".");
-    run('curl -o {{deploy_path}}/.dep/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar');
-    return '{{bin/php}} {{deploy_path}}/.dep/wp-cli.phar';
-});
+require_once __DIR__ . '/vendor/agence-adeliom/horizon-deployer-recipe/recipe/horizon-transfer.php';
 
 set('repository', 'git@github.com:agence-adeliom/si-2024.git');
 
