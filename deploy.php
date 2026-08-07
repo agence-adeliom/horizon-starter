@@ -9,11 +9,14 @@ set('repository', 'git@github.com:agence-adeliom/si-2024.git');
 
 set('theme', 'adeliom');
 
-set('shared_dirs', ['web/app/uploads', 'web/app/languages', 'web/app/sessions']);
+// storage/logs est partagé pour conserver l'historique d'une release à l'autre.
+// Volontairement hors de web/ : dans le webroot, les logs seraient
+// téléchargeables en HTTP et un .htaccess serait ignoré par Nginx.
+set('shared_dirs', ['web/app/uploads', 'web/app/languages', 'web/app/sessions', 'storage/logs']);
 
 set('shared_files', ['web/.htaccess', 'auth.json', '.env']);
 
-set('writable_dirs', []);
+set('writable_dirs', ['storage/logs']);
 
 set('writable_mode', 'chmod');
 set('writable_recursive', true);

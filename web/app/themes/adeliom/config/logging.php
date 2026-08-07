@@ -5,6 +5,27 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
 
+/*
+|--------------------------------------------------------------------------
+| Emplacement et verbosité des logs
+|--------------------------------------------------------------------------
+|
+| Les logs sont écrits hors du webroot, dans le storage/ de la racine Bedrock
+| exposé par APP_STORAGE_DIR (cf. config/application.php). Le storage d'Acorn
+| se trouve lui dans le thème, donc sous web/ : y laisser les logs les rendrait
+| téléchargeables en HTTP, et un .htaccess de protection serait ignoré par Nginx.
+|
+| Le repli sur storage_path() garde le thème fonctionnel hors d'une arborescence
+| Bedrock, au prix d'un chemin dans le webroot.
+|
+*/
+
+$logPath = defined('APP_STORAGE_DIR')
+    ? APP_STORAGE_DIR . '/logs/application.log'
+    : storage_path('logs/application.log');
+
+$logLevel = env('LOG_LEVEL', defined('WP_ENV') && WP_ENV === 'development' ? 'debug' : 'error');
+
 return [
 
     /*
@@ -18,7 +39,7 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', defined('WP_ENV') && WP_ENV === 'development' ? 'stack' : 'null'),
+    'default' => env('LOG_CHANNEL', 'stack'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,22 +75,22 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily'],
             'ignore_exceptions' => false,
         ],
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/application.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
+            'path' => $logPath,
+            'level' => $logLevel,
             'replace_placeholders' => true,
         ],
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/application.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-            'days' => 14,
+            'path' => $logPath,
+            'level' => $logLevel,
+            'days' => 7,
             'replace_placeholders' => true,
         ],
 
@@ -123,8 +144,10 @@ return [
             'handler' => NullHandler::class,
         ],
 
+        // Canal de dernier recours, utilisé quand le logger principal lui-même
+        // tombe : il doit rester hors du webroot comme les autres.
         'emergency' => [
-            'path' => storage_path('logs/application.log'),
+            'path' => $logPath,
         ],
     ],
 

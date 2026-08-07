@@ -87,6 +87,15 @@ Config::define('WP_CONTENT_DIR', $webroot_dir . Config::get('CONTENT_DIR'));
 Config::define('WP_CONTENT_URL', Config::get('WP_HOME') . Config::get('CONTENT_DIR'));
 
 /**
+ * Application Storage Directory
+ *
+ * Volontairement hors du webroot : sous web/app/, les fichiers y seraient servis en HTTP, et un
+ * .htaccess de protection serait ignoré par Nginx. Consommé par le thème (config/logging.php) pour
+ * situer les logs applicatifs.
+ */
+Config::define('APP_STORAGE_DIR', $root_dir . '/storage');
+
+/**
  * DB settings
  */
 if (env('DB_SSL')) {

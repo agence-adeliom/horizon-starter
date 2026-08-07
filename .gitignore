@@ -18,6 +18,14 @@ web/app/wflogs
 # Logs
 *.log
 
+# Logs applicatifs (rotation quotidienne, dossier partagé entre les releases)
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Specs de brainstorming générées par Claude Code : ce dépôt est un template,
+# elles n'ont pas à être transportées dans les projets qui en dérivent
+/docs/superpowers/
+
 # Dotenv
 .env
 .env.*
