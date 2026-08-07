@@ -125,6 +125,52 @@ Exemple :
 ddev deployer acorn production --command="icons:cache"
 ```
 
+### Transférer la base de données et les uploads
+
+Ces tâches sont fournies par le package [`agence-adeliom/horizon-deployer-recipe`](https://github.com/agence-adeliom/horizon-deployer-recipe),
+chargé dans `deploy.php`. Se référer à son README pour le détail des garde-fous et des options de configuration.
+
+Un « environnement » est soit `local`, soit l'alias d'un hôte déclaré dans `deploy.php`.
+
+| Commande | Sens | Effet |
+| --- | --- | --- |
+| `ddev deployer db:pull <stage>` | distant → local | Télécharge un dump `.sql.gz` à la racine du projet, puis propose l'import local et la réécriture d'URLs |
+| `ddev deployer uploads:pull <stage>` | distant → local | Télécharge une archive `.tar.gz`, puis propose l'extraction dans `web/app/uploads` |
+| `ddev deployer db:push --from=X --to=Y` | local\|distant → distant | Sauvegarde la base de destination, importe, puis propose la réécriture d'URLs |
+| `ddev deployer uploads:push --from=X --to=Y` | local\|distant → distant | Synchronise les uploads, en fusion (`merge`) ou en miroir (`mirror`) |
+
+```bash
+# Rapatrier la production en local
+ddev deployer db:pull production
+ddev deployer uploads:pull production
+
+# Récupérer uniquement le favicon (quelques Ko au lieu de plusieurs Go d'uploads)
+ddev deployer uploads:pull production --favicon-only
+
+# Rafraîchir la préproduction depuis la production
+ddev deployer db:push --from=production --to=staging
+ddev deployer uploads:push --from=production --to=staging
+
+# Envoyer sa base locale en préproduction
+ddev deployer db:push --from=local --to=staging
+```
+
+`--from` et `--to` sont facultatifs : ils sont demandés interactivement si absents. La destination d'un `push` est
+toujours un environnement distant — pour rapatrier vers le local, utiliser les tâches `pull`.
+
+Options utiles :
+- `--strategy=merge|mirror` : `uploads:push`, fusion ou miroir (le miroir supprime à la destination)
+- `--checksum` : `uploads:push`, compare les fichiers sur leur contenu et non sur taille + date (lent mais fiable)
+- `--precise` : force le traitement PHP de toutes les colonnes lors du search-replace (gourmand en mémoire)
+- `--favicon-only` : `uploads:pull`, ne récupère que le favicon (`site_icon`) et ses déclinaisons
+
+**Garde-fous :** un `pull` ne modifie jamais l'environnement distant. Un `push` demande toujours confirmation, et exige
+la saisie de l'alias en clair pour un hôte protégé (par défaut, tout alias ou stage contenant `prod`). La base de
+destination est systématiquement dumpée avant import, dans `{{deploy_path}}/.dep/backups`, et cette sauvegarde est conservée.
+
+**Prérequis :** le dépôt du package est privé. Le `auth.json` du projet doit contenir un token GitHub sous `github-oauth`
+(un token *fine-grained* avec la permission **Contents : Read-only** sur l'organisation `agence-adeliom` suffit).
+
 ## Gestion des menus
 
 ### Créer un emplacement de menu

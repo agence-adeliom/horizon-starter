@@ -77,7 +77,18 @@ ddev composer test                  # PHP_CodeSniffer (PSR-2)
 
 # Deployment (Deployer)
 ddev deployer deploy <stage>
+ddev deployer wp-cli <stage> --command="cache flush"      # WP-CLI sur un environnement distant
+ddev deployer acorn <stage> --command="icons:cache"       # Acorn sur un environnement distant
+
+# Transferts DB / uploads (recipe horizon-transfer, cf. README)
+ddev deployer db:pull <stage>                             # distant → local : dump, import, search-replace
+ddev deployer uploads:pull <stage> [--favicon-only]       # distant → local
+ddev deployer db:push --from=<env> --to=<stage>           # backup de la destination, puis import
+ddev deployer uploads:push --from=<env> --to=<stage>      # --strategy=merge|mirror, --checksum
 ```
+
+Un « environnement » est `local` ou l'alias d'un hôte Deployer. Un `push` vise toujours un hôte distant et demande
+confirmation ; les hôtes dont l'alias ou le stage contient `prod` exigent la saisie de l'alias en clair.
 
 ## Code Style
 
@@ -93,7 +104,9 @@ ddev deployer deploy <stage>
 - Vite aliases: `@scripts`, `@styles`, `@fonts`, `@images` (resolve to `resources/` subdirs)
 - Tailwind uses CSS custom properties (`--awc-*`) for design tokens (colors, spacing, typography)
 - Theme service providers registered in theme `composer.json` under `extra.acorn.providers`
-- Internal packages: `horizon-tools`, `horizon-blocks`, `horizon-querybuilder` (git VCS repos, `dev-sage/11` branch)
+- Internal packages: `horizon-tools`, `horizon-blocks`, `horizon-querybuilder` (git VCS repos, `dev-sage/11` branch), `horizon-deployer-recipe` (dev only)
+- These repos are private: `auth.json` must carry a `github-oauth` token in addition to the ACF Pro key
+- `deploy.php` loads the transfer recipe with `require_once` (a second `require` is a fatal redeclaration). Any override of its settings — `uploads_path`, `transfer_protected`, `transfer_search_replace_skip_tables`, `bin/wp`, `bin/wp_local` — must come **after** that `require_once`
 - ACF Pro is installed as a must-use plugin via Composer
 - Frontend libs: Alpine.js, Swiper, GLightbox, Choices.js
 
