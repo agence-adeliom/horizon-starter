@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/logo/horizon-starter-horizontal-negatif.svg">
+    <img src="docs/logo/horizon-starter-horizontal-couleur.svg" alt="Horizon Starter" width="420">
+  </picture>
+</p>
+
 # Starter WordPress 2024 - Projet de test
 
 ## Technologies
