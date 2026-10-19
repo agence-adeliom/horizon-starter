@@ -1,10 +1,10 @@
 <div x-data x-show="open" x-transition:enter="transition-opacity ease-out duration-300"
     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
     x-transition:leave="transition-opacity ease-in duration-200" x-transition:leave-start="opacity-100"
-    x-transition:leave-end="opacity-0" @keydown.escape.window="close()" class="fixed inset-0 w-full h-screen flex z-999"
+    x-transition:leave-end="opacity-0" @keydown.escape.window="open && close()" class="fixed inset-0 w-full h-dvh flex z-999"
     style="display: none;">
 
-    <div class="absolute inset-0 w-full h-full bg-black bg-opacity-50" @click="close()" aria-hidden="true">
+    <div class="absolute inset-0 w-full h-full bg-black/50" @click="close()" aria-hidden="true">
     </div>
 
     <!-- Drawer content -->
@@ -23,7 +23,7 @@
         ])>
 
         <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6" aria-label="{{ __('Fermer', 'sage') }}">
-            <x-far-xmark class="icon-5 text-neutral-500" aria-hidden="true" />
+            <x-far-xmark class="icon-5 text-neutral-500" />
         </button>
 
         <!-- Header Slot -->
