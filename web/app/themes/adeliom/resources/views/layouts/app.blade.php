@@ -24,7 +24,9 @@
     @endif
 </head>
 
-<body @php(body_class()) x-data="initPage()">
+{{-- Mobile menu open: Escape closes it (after the open submenu, if any); it also closes when switching to desktop (the page would otherwise stay inert). --}}
+<body @php(body_class()) x-data="initPage()" @keydown.escape.window="mobileOpen && !$store.submenu && closeMobileMenu()"
+    @resize.window.debounce.200ms="mobileOpen && window.matchMedia('(min-width: 64rem)').matches && (mobileOpen = false)">
     @php(wp_body_open())
     @if (!empty($scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS]))
         {!! $scripts[OptionPageAdmin::FIELD_BEFORE_BEGIN_BODY_SCRIPTS] !!}
@@ -43,7 +45,7 @@
             @include('sections.header')
         @endif
 
-        <main role="main" id="main" class="main">
+        <main role="main" id="main" class="main" :inert="mobileOpen">
             @yield('content')
         </main>
 

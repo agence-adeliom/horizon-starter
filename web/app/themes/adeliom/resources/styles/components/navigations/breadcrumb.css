@@ -1,18 +1,28 @@
 @layer components {
+    /* Text flow instead of flex: a long page title wraps under « Accueil » and is never truncated (RGAA 10.12) */
     .main-breadcrumbs,
     .rank-math-breadcrumb {
-        @apply flex whitespace-nowrap items-center gap-1  text-sm max-lg:hidden;
+        @apply block w-0 min-w-full text-sm leading-6 max-lg:hidden;
 
-        .separator {
-            @apply w-4 h-4 inline-block;
+        ol {
+            @apply m-0 list-none p-0;
         }
 
+        li {
+            @apply inline;
+        }
+
+        .separator {
+            @apply mx-1 inline-block w-4 h-4 align-[-0.2em];
+        }
+
+        /* inline-block + leading-6: 24px high click target (WCAG 2.2, 2.5.8) */
         a {
-            @apply transition-colors text-primary hover:text-secondary dark:text-neutral-600;
+            @apply inline-block whitespace-nowrap leading-6 transition-colors text-primary hover:text-secondary dark:text-neutral-600;
         }
 
         .last {
-            @apply truncate dark:text-text-secondary;
+            @apply dark:text-text-secondary;
         }
     }
 }

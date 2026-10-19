@@ -1,6 +1,6 @@
 @php use Adeliom\HorizonTools\ViewModels\Menu\MenuViewModel; @endphp
 
-<div class="bg-neutral-100 py-section-mobile lg:py-section-desktop">
+<div class="bg-neutral-100 py-section-mobile lg:py-section-desktop" :inert="mobileOpen">
     <footer role="contentinfo" class="container mx-auto px-4 md:px-8">
         <div class="flex flex-col justify-between gap-6 border-b pb-6 md:flex-row md:items-center">
             <div class="flex flex-col gap-1 w-full">

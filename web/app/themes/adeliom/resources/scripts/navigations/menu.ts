@@ -9,8 +9,17 @@ document.addEventListener('alpine:init', () => {
                     return;
                 }
 
-                // Open the clicked submenu
-                this.closeAllSubmenu();
+                // Switching submenus: close first, then open on the next tick, otherwise x-trap.noscroll
+                // releases the page scroll lock after the new submenu has set it
+                if (this.openSubmenus.length) {
+                    this.closeAllSubmenu();
+                    this.$nextTick(() => this.openSubMenu(itemId));
+                    return;
+                }
+
+                this.openSubMenu(itemId);
+            },
+            openSubMenu(itemId: number): void {
                 this.openSubmenus.push(itemId);
                 this.$store.submenu = true;
             },

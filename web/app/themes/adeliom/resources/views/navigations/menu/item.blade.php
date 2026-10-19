@@ -30,6 +30,7 @@
                     :class="openSubmenus.includes({{ $item->id }}) && 'is-active'"
                     x-show="openSubmenus.includes({{ $item->id }})"
                     x-trap.inert.noscroll="openSubmenus.includes({{ $item->id }})"
+                    @keydown.escape.window="openSubmenus.includes({{ $item->id }}) && closeAllSubmenu()"
                     x-transition:enter="ease-smooth duration-500" x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100" x-transition:leave="ease-smooth duration-500"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-cloak>

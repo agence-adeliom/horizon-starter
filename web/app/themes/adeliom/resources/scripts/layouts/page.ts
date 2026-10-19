@@ -4,6 +4,10 @@ document.addEventListener('alpine:init', () => {
         return {
             scrollDown: false,
             mobileOpen: false,
+            closeMobileMenu() {
+                this.mobileOpen = false;
+                document.querySelector<HTMLElement>('.burger-wrapper')?.focus();
+            },
             scrollToAnchor(anchorName) {
                 const element = document.getElementById(anchorName);
                 element &&

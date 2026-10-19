@@ -5,10 +5,11 @@
 
     .header-mix {
         @apply border-b-card bg-white;
-        @apply transition transform-gpu duration-500 ease-smooth;
-        @apply max-lg:absolute max-lg:z-[101];
+        @apply transition-[translate,visibility] transform-gpu duration-500 ease-smooth;
+        @apply max-lg:absolute max-lg:z-[101] lg:relative lg:z-[112];
         @apply max-lg:pt-[72px] max-lg:h-dvh max-lg:top-0 max-lg:inset-x-0;
-        @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0;
+        /* Closed, the menu is also hidden from keyboard and screen readers, not only moved off screen (RGAA 10.8 / 12.8) */
+        @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0 max-lg:invisible max-lg:is-open:visible;
         @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
     }
 
@@ -59,7 +60,7 @@
     }
 
     .menu-overlay {
-        @apply absolute w-full h-screen inset-0 top-top-bar bg-black opacity-0 pointer-events-none transition-opacity;
+        @apply fixed inset-0 lg:z-[111] bg-black opacity-0 pointer-events-none transition-opacity;
 
         &.is-open {
             @apply opacity-25 pointer-events-auto;

@@ -3,13 +3,15 @@
     <div>
         <p>{{ date('Y') }} © {{ $clientName }} - {{ __('Tous droits réservés', 'sage') }}</p>
     </div>
-    <nav class="flex flex-row gap-4 justify-center max-lg:flex-wrap">
-        @if ($legalsMenu)
-            @foreach ($legalsMenu->items as $item)
-                <a href="{{ $item->url }}" class="text-hover">{{ $item->title }}</a>
-            @endforeach
-        @endif
-        <button class="text-hover">{{ __('Gestion des cookies', 'sage') }}</button>
+    <nav aria-label="{{ __('Informations légales', 'sage') }}">
+        <ul role="list" class="flex flex-row gap-4 justify-center max-lg:flex-wrap">
+            @if ($legalsMenu)
+                @foreach ($legalsMenu->items as $item)
+                    <li><a href="{{ $item->url }}" class="text-hover">{{ $item->title }}</a></li>
+                @endforeach
+            @endif
+            <li><button type="button" class="text-hover">{{ __('Gestion des cookies', 'sage') }}</button></li>
+        </ul>
     </nav>
 
     <div class="md:flex-end">

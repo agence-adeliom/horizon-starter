@@ -12,7 +12,7 @@ class SeoHook extends AbstractHook
     public static function rmBreadcrumbArgs($args): array
     {
         return array_merge($args, [
-            'wrap_before' => '<nav aria-label="breadcrumbs" id="breadcrumbs" class="main-breadcrumbs">',
+            'wrap_before' => '<nav aria-label="' . esc_attr__('Fil d’Ariane', 'sage') . '" id="breadcrumbs" class="main-breadcrumbs">',
             'wrap_after' => '</nav>',
         ]);
     }
@@ -29,14 +29,31 @@ class SeoHook extends AbstractHook
         return '';
     }
 
+    /**
+     * Breadcrumb as an ordered list: nav > ol > li (APG « Breadcrumb » pattern, RGAA 9.3)
+     */
     public static function rmBreadcrumbHtml($html, $crumbs, $class): string
     {
-        $iconFactory = app(Factory::class);
+        if (empty($crumbs)) {
+            return $html;
+        }
 
-        return preg_replace(
-            '/<span class="separator">.*?<\/span>/',
-            $iconFactory->svg('fas:sharp-angle-right', 'separator w-[16px] h-[16px] text-secondary')->toHtml(),
-            $html,
+        $separator = app(Factory::class)->svg('fas:sharp-angle-right', 'separator text-secondary')->toHtml();
+        $lastIndex = array_key_last($crumbs);
+        $items = '';
+
+        foreach ($crumbs as $index => $crumb) {
+            $title = esc_html(wp_strip_all_tags((string) ($crumb[0] ?? '')));
+
+            $items .= $index === $lastIndex
+                ? sprintf('<li><span class="last" aria-current="page">%s</span></li>', $title)
+                : sprintf('<li><a href="%s">%s</a>%s</li>', esc_url((string) ($crumb[1] ?? '')), $title, $separator);
+        }
+
+        return sprintf(
+            '<nav aria-label="%s" id="breadcrumbs" class="main-breadcrumbs"><ol role="list">%s</ol></nav>',
+            esc_attr__('Fil d’Ariane', 'sage'),
+            $items,
         );
     }
 
