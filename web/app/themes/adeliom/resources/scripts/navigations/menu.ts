@@ -9,8 +9,6 @@ document.addEventListener('alpine:init', () => {
                     return;
                 }
 
-                // Switching submenus: close first, then open on the next tick, otherwise x-trap.noscroll
-                // releases the page scroll lock after the new submenu has set it
                 if (this.openSubmenus.length) {
                     this.closeAllSubmenu();
                     this.$nextTick(() => this.openSubMenu(itemId));

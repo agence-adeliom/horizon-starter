@@ -1,21 +1,20 @@
 @layer components {
     .header {
-        @apply sticky top-0 inset-x-0 z-[102] shrink-0 transition-all mb-0 lg:-top-top-bar;
+        @apply lg:-top-top-bar sticky inset-x-0 top-0 z-[102] mb-0 shrink-0 transition-all;
     }
 
     .header-mix {
         @apply border-b-card bg-white;
-        @apply transition-[translate,visibility] transform-gpu duration-500 ease-smooth;
+        @apply ease-smooth transform-gpu transition-[translate,visibility] duration-500;
         @apply max-lg:absolute max-lg:z-[101] lg:relative lg:z-[112];
-        @apply max-lg:pt-[72px] max-lg:h-dvh max-lg:top-0 max-lg:inset-x-0;
-        /* Closed, the menu is also hidden from keyboard and screen readers, not only moved off screen (RGAA 10.8 / 12.8) */
-        @apply max-lg:-translate-x-full max-lg:is-open:translate-x-0 max-lg:invisible max-lg:is-open:visible;
+        @apply max-lg:inset-x-0 max-lg:top-0 max-lg:h-dvh max-lg:pt-[72px];
+        @apply max-lg:is-open:translate-x-0 max-lg:is-open:visible max-lg:invisible max-lg:-translate-x-full;
         @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
     }
 
     .header-main {
-        @apply flex items-center justify-between lg:gap-x-5xlarge;
-        @apply max-lg:py-6 max-lg:flex-col max-lg:items-start lg:py-4;
+        @apply lg:gap-x-5xlarge flex items-center justify-between;
+        @apply max-lg:flex-col max-lg:items-start max-lg:py-6 lg:py-4;
 
         .logo-wrapper {
             @apply max-lg:hidden;
@@ -40,12 +39,12 @@
         }
 
         .top-item {
-            @apply flex items-center gap-2 text-text-secondary;
+            @apply text-text-secondary flex items-center gap-2;
             @apply text-sm font-semibold;
             @apply transition-opacity hover:opacity-70;
 
             .top-item-icon {
-                @apply w-4 h-4;
+                @apply h-4 w-4;
             }
 
             .top-item-link {
@@ -53,32 +52,32 @@
             }
 
             .top-item-search {
-                @apply max-lg:pt-4 max-lg:border-t max-lg:border-t-neutral-200 max-lg:w-full;
-                @apply lg:pl-4 lg:border-l lg:border-l-neutral-200;
+                @apply max-lg:w-full max-lg:border-t max-lg:border-t-neutral-200 max-lg:pt-4;
+                @apply lg:border-l lg:border-l-neutral-200 lg:pl-4;
             }
         }
     }
 
     .menu-overlay {
-        @apply fixed inset-0 lg:z-[111] bg-black opacity-0 pointer-events-none transition-opacity;
+        @apply pointer-events-none fixed inset-0 bg-black opacity-0 transition-opacity lg:z-[111];
 
         &.is-open {
-            @apply opacity-25 pointer-events-auto;
+            @apply pointer-events-auto opacity-25;
         }
     }
 
     .mobile-bar {
-        @apply lg:hidden bg-white inset-x-0 relative z-[110] transition duration-300 border-b-card;
+        @apply border-b-card relative inset-x-0 z-[110] bg-white transition duration-300 lg:hidden;
 
         .mobile-bar-container {
-            @apply container h-[72px] py-xsmall flex items-center justify-between gap-x-medium;
+            @apply py-xsmall gap-x-medium container flex h-[72px] items-center justify-between;
         }
 
         .burger-wrapper {
-            @apply relative w-6 h-6 text-lg;
+            @apply relative h-6 w-6 text-lg;
 
             .burger-icon {
-                @apply center-both rotate-0 transition-transform transform-gpu is-active:rotate-360;
+                @apply center-both is-active:rotate-360 rotate-0 transform-gpu transition-transform;
             }
         }
     }

@@ -30,7 +30,7 @@ class SeoHook extends AbstractHook
     }
 
     /**
-     * Breadcrumb as an ordered list: nav > ol > li (APG « Breadcrumb » pattern, RGAA 9.3)
+     * Breadcrumb as an ordered list: nav > ol > li 
      */
     public static function rmBreadcrumbHtml($html, $crumbs, $class): string
     {

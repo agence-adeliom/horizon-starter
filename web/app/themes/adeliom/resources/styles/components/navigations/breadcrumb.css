@@ -1,5 +1,4 @@
 @layer components {
-    /* Text flow instead of flex: a long page title wraps under « Accueil » and is never truncated (RGAA 10.12) */
     .main-breadcrumbs,
     .rank-math-breadcrumb {
         @apply block w-0 min-w-full text-sm leading-6 max-lg:hidden;
@@ -13,12 +12,11 @@
         }
 
         .separator {
-            @apply mx-1 inline-block w-4 h-4 align-[-0.2em];
+            @apply mx-1 inline-block h-4 w-4 align-[-0.2em];
         }
 
-        /* inline-block + leading-6: 24px high click target (WCAG 2.2, 2.5.8) */
         a {
-            @apply inline-block whitespace-nowrap leading-6 transition-colors text-primary hover:text-secondary dark:text-neutral-600;
+            @apply text-primary hover:text-secondary inline-block whitespace-nowrap leading-6 transition-colors dark:text-neutral-600;
         }
 
         .last {
