@@ -16,6 +16,8 @@ class Icon extends Component
 
     public function __construct(public string|stdClass $icon, public ?string $class = '', public ?string $iconName = '', public ?string $ariaLabel = null)
     {
+        $this->class ??= '';
+
         if (is_string($this->icon)) {
             if (
                 str_starts_with($this->icon, 'far-') ||
