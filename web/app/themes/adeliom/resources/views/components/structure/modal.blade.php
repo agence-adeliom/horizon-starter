@@ -12,9 +12,7 @@
         x-transition:enter-start="opacity-0 translate-y-20" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition-transform ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-20"
-        x-trap.inert.noscroll="open"
-        role="dialog"
-        aria-modal="true"
+        x-trap.inert.noscroll="open" role="dialog" aria-modal="true"
         @isset($header)
             aria-labelledby="{{ $titleId }}"
         @elseif ($labelledby)
@@ -28,7 +26,6 @@
         ])>
 
         @isset($header)
-            <!-- Header Slot: title and close button side by side, so a long title never goes under the button -->
             <div class="flex items-start gap-4 px-4 py-6 lg:px-6">
                 <div id="{{ $titleId }}" @class(['flex-1 min-w-0', $header->attributes['class']])>
                     {{ $header }}
@@ -39,7 +36,8 @@
                 </button>
             </div>
         @else
-            <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6" aria-label="{{ __('Fermer', 'sage') }}">
+            <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6"
+                aria-label="{{ __('Fermer', 'sage') }}">
                 <x-far-xmark class="icon-5 text-neutral-500" />
             </button>
         @endisset

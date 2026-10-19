@@ -10,10 +10,6 @@ class Modal extends Component
 {
     public string $titleId;
 
-    /**
-     * Accessible name of the dialog: the `header` slot, or the id of a title in the content (`labelledby`),
-     * or an `aria-label` when the dialog has no visible title.
-     */
     public function __construct(
         public ?string $id = null,
         public ?string $labelledby = null,

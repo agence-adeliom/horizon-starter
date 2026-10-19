@@ -13,10 +13,6 @@ class Drawer extends Component
     public string $transitionClass;
     public string $titleId;
 
-    /**
-     * Accessible name of the dialog: the `header` slot, or the id of a title in the content (`labelledby`),
-     * or an `aria-label` when the dialog has no visible title.
-     */
     public function __construct(
         string $position = 'right',
         public ?string $id = null,
