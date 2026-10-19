@@ -35,6 +35,9 @@
     @else
         {{ $slot }}
     @endif
+    @if ($target === '_blank' && ! $ariaLabel)
+        <span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>
+    @endif
     @if ($fullLink)
         <div class="absolute inset-0"></div>
     @endif

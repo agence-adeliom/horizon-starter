@@ -234,11 +234,17 @@ class Button extends Component
 
         if ($label) {
             $this->label = $label;
-            $this->ariaLabel = $label;
 
-            if ($this->target === '_blank') {
-                $this->ariaLabel .= ' - ' . __('Ouvrir dans un nouvel onglet', 'sage');
+            // Le libellé visible suffit comme nom accessible : l'aria-label ne sert qu'aux boutons icône,
+            // ou quand il est passé explicitement (ex. libellé enrichi du titre de la carte).
+            if ($this->iconOnly) {
+                $this->ariaLabel ??= $label;
             }
+        }
+
+        // Sans aria-label, la mention est ajoutée en texte masqué dans le template.
+        if ($this->ariaLabel && $this->target === '_blank') {
+            $this->ariaLabel .= ' - ' . __('Ouvrir dans un nouvel onglet', 'sage');
         }
     }
 

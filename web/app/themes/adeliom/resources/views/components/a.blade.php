@@ -6,7 +6,7 @@
     @if(!empty($rel)) rel="{{ $rel }}" @endif
     @if(!empty($title)) title="{{ $title }}" @endif
     @if(!empty($ariaLabel)) aria-label="{{ $ariaLabel }}" @endif
-    @if(!empty($type)) type="{{ $type }}" @endif
+    @if(!empty($type)) type="{{ $type }}" @elseif($tag === 'button') type="button" @endif
     @if(!empty($wireClick)) wire:click.prevent="{{ $wireClick }}" @endif
     @if($handleLivewireLoading) wire:loading.class="lw-loading" @endif
     @if(!empty($wireTarget)) wire:target="{{ $wireTarget }}" @endif

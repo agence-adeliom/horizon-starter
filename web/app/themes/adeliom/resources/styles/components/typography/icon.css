@@ -1,5 +1,5 @@
 @utility icon {
-    @apply inline-block p-[0.1em];
+    @apply inline-block overflow-visible p-[0.1em];
 }
 
 @utility icon-3 {
