@@ -19,6 +19,7 @@
             <span class="text-xsmall">{{ __('Conception', 'sage') }}</span>
             <x-icon-adeliom class="icon-3" />
             <span class="text-xs">Agence Adeliom</span>
+            <span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>
         </a>
     </div>
 </div>

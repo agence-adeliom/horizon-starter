@@ -14,7 +14,7 @@
             </div>
 
             @if ($socialNetworks)
-                <ul class="flex gap-2 text-sm">
+                <ul role="list" class="flex gap-2 text-sm">
                     @foreach ($socialNetworks as $item)
                         @if ($item['link'] && $item['icon'])
                             <li>
@@ -47,36 +47,39 @@
 
             <div>
                 @if ($primaryFooterMenu instanceof MenuViewModel && $primaryFooterMenu->items)
-                    @if ($primaryNavTitle)
-                        <x-typography.text id="primary-footer-navigation-title" :content="$primaryNavTitle"
-                            class="text-xl font-semibold text-text-primary mb-4" />
-                    @endif
-                    <ul class="flex flex-col gap-4 md:gap-2">
-                        @foreach ($primaryFooterMenu->items as $item)
-                            <li>
-                                <a @class($navItemClass) href="{{ $item->url }}"
-                                    @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+                    <nav @if ($primaryNavTitle) aria-labelledby="primary-footer-navigation-title" @else aria-label="{{ __('Navigation du pied de page', 'sage') }}" @endif>
+                        @if ($primaryNavTitle)
+                            <x-typography.text id="primary-footer-navigation-title" :content="$primaryNavTitle"
+                                class="text-xl font-semibold text-text-primary mb-4" />
+                        @endif
+                        <ul role="list" class="flex flex-col gap-4 md:gap-2">
+                            @foreach ($primaryFooterMenu->items as $item)
+                                <li>
+                                    <a @class($navItemClass) href="{{ $item->url }}"
+                                        @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}@if ($item->target === '_blank')<span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>@endif</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </nav>
                 @endif
             </div>
 
             <div>
                 @if ($secondaryFooterMenu instanceof MenuViewModel && $secondaryFooterMenu->items)
-                    @if ($secondNavTitle)
-                        <x-typography.text id="secondary-footer-navigation-title" :content="$secondNavTitle"
-                            class="text-xl font-semibold text-text-primary mb-4" />
-                    @endif
-                    <ul class="flex flex-col gap-4 md:gap-2">
-                        @foreach ($secondaryFooterMenu->items as $item)
-                            <li>
-                                <a @class($navItemClass) href="{{ $item->url }}"
-                                    @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-
+                    <nav @if ($secondNavTitle) aria-labelledby="secondary-footer-navigation-title" @else aria-label="{{ __('Navigation secondaire du pied de page', 'sage') }}" @endif>
+                        @if ($secondNavTitle)
+                            <x-typography.text id="secondary-footer-navigation-title" :content="$secondNavTitle"
+                                class="text-xl font-semibold text-text-primary mb-4" />
+                        @endif
+                        <ul role="list" class="flex flex-col gap-4 md:gap-2">
+                            @foreach ($secondaryFooterMenu->items as $item)
+                                <li>
+                                    <a @class($navItemClass) href="{{ $item->url }}"
+                                        @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}@if ($item->target === '_blank')<span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>@endif</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </nav>
                 @endif
             </div>
 
