@@ -1,12 +1,20 @@
 @if ($item)
-    @php $hasChildren = isset($item->hasChildren) && isset($item->children) && $item->hasChildren && $item->children; @endphp
-    <li @class($item->classes)
-        @if ($hasChildren) aria-haspopup="true"
-        @click.prevent.stop="toggleSubMenu({{ $item->id }})"
-        :aria-expanded="openSubmenus.includes({{ $item->id }})"
-        :class="openSubmenus.includes({{ $item->id }}) && 'is-active'" @endif>
+    @php
+        $hasChildren = isset($item->hasChildren) && isset($item->children) && $item->hasChildren && $item->children;
+        $submenuId = 'submenu-' . $item->id;
+        $isOpen = "openSubmenus.includes({$item->id})";
+        // An entry that opens a submenu is a button (its page stays reachable from the submenu link)
+        $entryTag = $hasChildren ? 'button' : 'a';
+    @endphp
+    <li @class($item->classes) @if ($hasChildren) :class="{{ $isOpen }} && 'is-active'" @endif>
 
-        <a class="menu-item group" href="{{ $item->url }}">
+        <{{ $entryTag }} class="menu-item group"
+            @if ($hasChildren)
+                type="button" @click.stop="toggleSubMenu({{ $item->id }})"
+                aria-expanded="false" :aria-expanded="{{ $isOpen }}.toString()" aria-controls="{{ $submenuId }}"
+            @else
+                href="{{ $item->url }}"
+            @endif>
             @if (isset($item->customFields['menu_item']['icon']) && $item->customFields['menu_item']['icon'])
                 <x-ui.icon :icon="$item->customFields['menu_item']['icon']" class="icon-5" />
             @endif
@@ -21,12 +29,11 @@
                     <x-typography.text :content="$item->description" class="menu-item-desc" />
                 @endif
             </span>
-        </a>
+        </{{ $entryTag }}>
 
         @if ($hasChildren)
             <template x-teleport="#submenu-teleport">
-                <div x-bind:aria-hidden="openSubmenus.includes({{ $item->id }})"
-                    x-bind:aria-expanded="openSubmenus.includes({{ $item->id }})" data-mode="light" class="submenu"
+                <div id="{{ $submenuId }}" role="region" aria-label="{{ $item->title }}" data-mode="light" class="submenu"
                     :class="openSubmenus.includes({{ $item->id }}) && 'is-active'"
                     x-show="openSubmenus.includes({{ $item->id }})"
                     x-trap.inert.noscroll="openSubmenus.includes({{ $item->id }})"
@@ -73,7 +80,7 @@
                             @endif
                         </span>
 
-                        <ul class="submenu-list">
+                        <ul role="list" class="submenu-list">
 
                             @foreach ($item->children as $subItem)
                                 @include('navigations.menu.item', [
