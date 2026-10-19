@@ -1,7 +1,7 @@
 <header role="banner" class="header">
     @include('navigations.header.mobile-bar')
     <div class="menu-overlay" :class="$store.submenu && 'is-open'" x-cloak></div>
-    <div class="header-mix" :class="mobileOpen && 'is-open'">
+    <div id="header-menu" class="header-mix" :class="mobileOpen && 'is-open'">
         <div class="w-full flex flex-col-reverse lg:flex-col">
             <x-navigation.top-navigation />
             <div class="container">

@@ -8,8 +8,9 @@
         @endif
 
         <div class="flex flex-col items-center">
-            <button class="burger-wrapper" @click="mobileOpen = !mobileOpen" :class="mobileOpen && 'is-active'"
-                :aria-label="mobileOpen ? '{{ __('Fermeture du menu', 'sage') }}' : '{{ __('Ouverture du menu', 'sage') }}'">
+            <button type="button" class="burger-wrapper" @click="mobileOpen = !mobileOpen" :class="mobileOpen && 'is-active'"
+                aria-label="{{ __('Menu', 'sage') }}" aria-controls="header-menu"
+                aria-expanded="false" :aria-expanded="mobileOpen.toString()">
                 <x-far-bars class="icon-5 burger-icon scale-100 is-active:scale-0" aria-hidden="true" />
                 <x-far-xmark class="icon-5 burger-icon scale-0 is-active:scale-100" aria-hidden="true" />
             </button>
