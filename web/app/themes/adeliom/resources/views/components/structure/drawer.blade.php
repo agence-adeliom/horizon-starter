@@ -15,22 +15,34 @@
         x-trap.inert.noscroll="open"
         role="dialog"
         aria-modal="true"
-        @isset($header) aria-labelledby="drawer-{{ $attributes['id'] ?? 'default' }}-title" @endisset
+        @isset($header)
+            aria-labelledby="{{ $titleId }}"
+        @elseif ($labelledby)
+            aria-labelledby="{{ $labelledby }}"
+        @elseif ($ariaLabel)
+            aria-label="{{ $ariaLabel }}"
+        @endisset
         @class([
             'relative bg-white shadow-lg overflow-hidden flex flex-col',
             $positionClass,
             $attributes['class'],
         ])>
 
-        <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6" aria-label="{{ __('Fermer', 'sage') }}">
-            <x-far-xmark class="icon-5 text-neutral-500" />
-        </button>
-
-        <!-- Header Slot -->
         @isset($header)
-            <div id="drawer-{{ $attributes['id'] ?? 'default' }}-title" @class(['px-4 py-6 lg:px-6', $header->attributes['class']])>
-                {{ $header }}
+            <!-- Header Slot: title and close button side by side, so a long title never goes under the button -->
+            <div class="flex items-start gap-4 px-4 py-6 lg:px-6">
+                <div id="{{ $titleId }}" @class(['flex-1 min-w-0', $header->attributes['class']])>
+                    {{ $header }}
+                </div>
+
+                <button type="button" @click="close()" class="shrink-0" aria-label="{{ __('Fermer', 'sage') }}">
+                    <x-far-xmark class="icon-5 text-neutral-500" />
+                </button>
             </div>
+        @else
+            <button type="button" @click="close()" class="absolute top-0 right-0 px-4 py-6 lg:p-6" aria-label="{{ __('Fermer', 'sage') }}">
+                <x-far-xmark class="icon-5 text-neutral-500" />
+            </button>
         @endisset
 
         <!-- Content Slot -->

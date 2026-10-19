@@ -1,3 +1,3 @@
-<{{ $tag }} class="{{ $fullClass }}">
+<{{ $tag }} class="{{ $fullClass }}" {{ $attributes }}>
 {!! $content !!}
 </{{ $tag }}>

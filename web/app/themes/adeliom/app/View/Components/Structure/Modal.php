@@ -8,12 +8,18 @@ use Illuminate\View\Component;
 
 class Modal extends Component
 {
+    public string $titleId;
+
     /**
-     * Create a new component instance.
+     * Accessible name of the dialog: the `header` slot, or the id of a title in the content (`labelledby`),
+     * or an `aria-label` when the dialog has no visible title.
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        public ?string $id = null,
+        public ?string $labelledby = null,
+        public ?string $ariaLabel = null,
+    ) {
+        $this->titleId = ($this->id ?: wp_unique_id('modal-')) . '-title';
     }
 
     /**

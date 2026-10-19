@@ -27,7 +27,7 @@
                             </button>
 
                             <template x-teleport="body">
-                                <x-structure.drawer position='top' class="h-auto flex flex-col">
+                                <x-structure.drawer position='top' labelledby="search-drawer-title" class="h-auto flex flex-col">
                                     <div @class([
                                         'bg-white w-full pb-10 pt-20 lg:py-20',
                                         'pb-20!' => !$searchInfos,
@@ -35,7 +35,7 @@
                                         <div class="container">
                                             <div class="max-w-2xl mx-auto flex flex-col gap-6">
                                                 <x-typography.heading :content="__('Que recherchez-vous?', 'sage')" class="text-center"
-                                                    size="3" />
+                                                    size="3" tag="h2" id="search-drawer-title" />
                                                 <x-form.search isModal />
                                             </div>
                                         </div>
