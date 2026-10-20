@@ -9,7 +9,7 @@
         }
 
         input[type='checkbox'] {
-            @apply h-6 w-6 !border-neutral-300 !bg-white focus:!border-primary !rounded-none !shadow-none;
+            @apply h-6 w-6 !border-neutral-500 !bg-white focus:!border-primary !rounded-none !shadow-none;
 
             &:checked:before {
                 @apply !text-neutral-0 !accent-neutral-0;
