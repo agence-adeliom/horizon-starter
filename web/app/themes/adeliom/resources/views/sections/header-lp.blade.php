@@ -7,7 +7,7 @@
 <header role="banner" class="banner b-bottom border-card bg-white py-4">
     <div class="{{ $btnLp ? 'flex justify-between items-center' : '' }} container">
         @if ($logo)
-            <x-media.img :image="$logo" class="mx-auto h-auto w-24" />
+            <x-media.img :image="$logo" class="mx-auto h-auto w-24" :decorative="false" />
         @endif
 
         @if ($btnLp)

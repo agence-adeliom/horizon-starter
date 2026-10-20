@@ -31,18 +31,21 @@ class Img extends Component
      * @param string|null $size             Image size (from Wordpress) : 'thumbnail', 'small', 'medium', 'medium_large', 'large' (default), 'full'.
      * @param string|null $class            Image classes.
      * @param string|null $loading          Image loading attribute : 'lazy' (default), 'eager', 'auto'.
+     * @param string|null $fetchpriority    Image fetchpriority attribute : 'high' for the LCP image (e.g. hero), 'low', 'auto'.
      * @param string|null $containerClass   Container CSS classes. Default : null.
      * @param string|null $ratio            Image ratio (e.g. '16:9', '4:3').
-     * @param bool|null   $decorative       Is image decorative.
+     * @param bool|null   $decorative       Is image decorative (default) : empty alt. False when the image carries information
+     *                                      (gallery, logo outside a named link…) : alt from the media library.
      */
     public function __construct(
         public null|false|array $image = null,
         public ?string $size = 'large',
         public ?string $class = null,
         public ?string $loading = 'lazy',
+        public ?string $fetchpriority = null,
         public ?string $containerClass = null,
         public ?string $ratio = null,
-        public ?bool   $decorative = false,
+        public ?bool   $decorative = true,
     ) {
         $this->handleData();
     }
@@ -58,8 +61,14 @@ class Img extends Component
                 'class' => $this->class,
                 'loading' => $this->loading,
             ];
+
+            if ($this->fetchpriority) {
+                $attr['fetchpriority'] = $this->fetchpriority;
+            }
+
             if ($this->decorative) {
                 $attr['role'] = "presentation";
+                $attr['alt'] = '';
             }
 
             $this->content = wp_get_attachment_image(attachment_id: $this->id, size: $this->size, attr: $attr);
