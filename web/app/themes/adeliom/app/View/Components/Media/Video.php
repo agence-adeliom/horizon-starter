@@ -28,6 +28,9 @@ class Video extends Component
         public ?string $trackLabel = null,
         public ?string $trackLang = 'fr',
         public ?string $trackKind = 'captions',
+        public ?string $title = null,
+        public ?string $transcript = null,
+        public bool   $loop = false,
     )
     {
         $this->unsupportedMessage = __('Votre navigateur ne supporte pas la balise vidéo.', 'sage');

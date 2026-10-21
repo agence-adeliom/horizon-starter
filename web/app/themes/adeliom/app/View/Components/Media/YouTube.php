@@ -31,8 +31,14 @@ class YouTube extends Component
         public ?int    $height = 315,
         public ?string $title = null,
         public bool    $allowFullscreen = true,
+        public ?string $transcript = null,
     )
     {
+        // Une iframe doit avoir un titre (RGAA 2.1)
+        $this->title = $this->title
+            ? sprintf(__('Vidéo YouTube : %s', 'sage'), $this->title)
+            : __('Vidéo YouTube', 'sage');
+
         $this->handleAllow();
     }
 
