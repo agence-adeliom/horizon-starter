@@ -12,16 +12,19 @@
             @if ($links || $withSearch)
                 <div class="flex flex-col lg:flex-row">
                     @if ($links)
-                        <div class="links">
+                        {{-- Suite de liens : liste (RGAA 9.3) --}}
+                        <ul role="list" class="links">
                             @foreach ($links as $link)
-                                <x-navigation.link :fields="$link" class="top-item top-item-link" />
+                                <li class="flex">
+                                    <x-navigation.link :fields="$link" class="top-item top-item-link" />
+                                </li>
                             @endforeach
-                        </div>
+                        </ul>
                     @endif
 
                     @if ($withSearch)
                         <span class="flex" x-data="initModal()">
-                            <button class="top-item top-item-search" x-on:click="openModal()">
+                            <button type="button" class="top-item top-item-search" x-on:click="openModal()">
                                 <x-fas-magnifying-glass class="icon-4" aria-hidden="true" />
                                 {{ __('Rechercher', 'sage') }}
                             </button>

@@ -47,11 +47,11 @@
                 @apply h-4 w-4;
             }
 
-            .top-item-link {
+            &.top-item-link {
                 @apply max-lg:mb-4 lg:mr-4;
             }
 
-            .top-item-search {
+            &.top-item-search {
                 @apply max-lg:w-full max-lg:border-t max-lg:border-t-neutral-200 max-lg:pt-4;
                 @apply lg:border-l lg:border-l-neutral-200 lg:pl-4;
             }
