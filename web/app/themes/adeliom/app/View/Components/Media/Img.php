@@ -36,6 +36,7 @@ class Img extends Component
      * @param string|null $ratio            Image ratio (e.g. '16:9', '4:3').
      * @param bool|null   $decorative       Is image decorative (default) : empty alt. False when the image carries information
      *                                      (gallery, logo outside a named link…) : alt from the media library.
+     * @param string|null $alt              Alternative for this context (informative image only). Default : media library alt.
      */
     public function __construct(
         public null|false|array $image = null,
@@ -46,6 +47,7 @@ class Img extends Component
         public ?string $containerClass = null,
         public ?string $ratio = null,
         public ?bool   $decorative = true,
+        public ?string $alt = null,
     ) {
         $this->handleData();
     }
@@ -69,6 +71,8 @@ class Img extends Component
             if ($this->decorative) {
                 $attr['role'] = "presentation";
                 $attr['alt'] = '';
+            } elseif (null !== $this->alt && '' !== trim($this->alt)) {
+                $attr['alt'] = $this->alt;
             }
 
             $this->content = wp_get_attachment_image(attachment_id: $this->id, size: $this->size, attr: $attr);
