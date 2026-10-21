@@ -25,6 +25,11 @@ class Buttons extends Component
         $this->isLinkFields = is_array($first)
             && !empty($first[LinkField::FIELD_TYPE])
             && in_array($first[LinkField::FIELD_TYPE], [LinkField::VALUE_TYPE_INTERNAL, LinkField::VALUE_TYPE_EXTERNAL]);
+
+        $this->buttons = array_values(array_filter(
+            $this->buttons,
+            fn($button) => is_array($button) && ($this->isLinkFields ? !empty($button) : !empty($button['link'])),
+        ));
     }
 
     public function render(): View|Closure|string
