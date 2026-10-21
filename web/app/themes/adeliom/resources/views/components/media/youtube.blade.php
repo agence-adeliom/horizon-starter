@@ -1,7 +1,8 @@
 @if ($id)
     <div class="relative w-full aspect-video">
-        <iframe width="{{ $width }}" height="{{ $height }}" class="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/{{ $id }}" title="{{ $title }}" frameborder="0"
+        {{-- Pas de width / height / frameborder : attributs de présentation interdits sur une iframe (RGAA 10.1) --}}
+        <iframe class="absolute inset-0 w-full h-full border-0"
+            src="https://www.youtube.com/embed/{{ $id }}" title="{{ $title }}"
             @if ($allowAttribute) allow="{{ $allowAttribute }}" @endif
             @if ($referrerPolicy) referrerpolicy="{{ $referrerPolicy }}" @endif
             @if ($allowFullscreen) allowfullscreen @endif></iframe>

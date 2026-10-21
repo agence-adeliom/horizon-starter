@@ -1,7 +1,8 @@
 @if ($url)
     <div class="{{ $containerClass }}"
         @if ($autoplay) x-data="{ playing: true }" x-init="if (matchMedia('(prefers-reduced-motion: reduce)').matches) { $refs.video.pause(); playing = false }" @endif>
-        <video width="{{ $width }}" height="{{ $height }}" class="{{ trim('max-w-full h-auto ' . $class) }}"
+        {{-- Taille en CSS : width / height sont des attributs de présentation sur une vidéo (RGAA 10.1) --}}
+        <video class="{{ trim('max-w-full h-auto ' . $class) }}" style="width: {{ $width }}px; aspect-ratio: {{ $width }} / {{ $height }}"
             @if ($title) aria-label="{{ $title }}" @endif
             @if ($autoplay) x-ref="video" autoplay muted playsinline @endif
             @if ($loop) loop @endif @if ($controls) controls @endif>
