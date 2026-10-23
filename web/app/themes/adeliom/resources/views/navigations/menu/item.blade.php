@@ -6,7 +6,11 @@
         // An entry that opens a submenu is a button (its page stays reachable from the submenu link)
         $entryTag = $hasChildren ? 'button' : 'a';
     @endphp
-    <li @class($item->classes) @if ($hasChildren) :class="{{ $isOpen }} && 'is-active'" @endif>
+    {{--  Desktop: disclosure, without focus trap. Mobile: full-screen panel, focus kept inside (x-trap) --}}
+    <li @class($item->classes)
+        @if ($hasChildren) :class="{{ $isOpen }} && 'is-active'"
+            @keydown.escape="if ({{ $isOpen }}) { $event.stopPropagation(); closeSubMenu({{ $item->id }}, true) }"
+            @focusout="isDesktop && $event.relatedTarget && !$el.contains($event.relatedTarget) && closeSubMenu({{ $item->id }})" @endif>
 
         <{{ $entryTag }} class="menu-item group"
             @if ($hasChildren) type="button" @click.stop="toggleSubMenu({{ $item->id }}, {{ $parent ? $parent->id : 'null' }})"

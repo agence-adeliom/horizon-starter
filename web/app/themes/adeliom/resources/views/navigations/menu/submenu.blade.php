@@ -3,8 +3,7 @@
 @endphp
 <div id="{{ $submenuId }}" role="region" aria-label="{{ $item->title }}" data-mode="light" class="submenu"
     :class="openSubmenus.includes({{ $item->id }}) && 'is-active'"
-    x-show="openSubmenus.includes({{ $item->id }})" x-trap.inert.noscroll="openSubmenus.includes({{ $item->id }})"
-    @keydown.escape.window="openSubmenus.includes({{ $item->id }}) && closeAllSubmenu()"
+    x-show="openSubmenus.includes({{ $item->id }})" x-trap.inert.noscroll="openSubmenus.includes({{ $item->id }}) && !isDesktop"
     x-transition:enter="ease-smooth duration-500" x-transition:enter-start="opacity-0"
     x-transition:enter-end="opacity-100" x-transition:leave="ease-smooth duration-500"
     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="display: none;">
@@ -56,7 +55,7 @@
         </ul>
     </div>
 
-    <button @click="closeAllSubmenu" aria-label="{{ __('Fermer le sous-menu', 'sage') }}"
+    <button type="button" @click="closeAllAndFocus()" aria-label="{{ __('Fermer le sous-menu', 'sage') }}"
         class="max-lg:hidden absolute right-6 top-6 w-6 h-6 grid place-items-center cursor-pointer text-large lg:hover:text-primary transition-colors duration-300 ease-in-out">
         <x-far-xmark class="icon-5 text-text-secondary" aria-hidden="true" />
     </button>
