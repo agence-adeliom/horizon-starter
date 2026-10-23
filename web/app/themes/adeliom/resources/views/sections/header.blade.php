@@ -2,7 +2,7 @@
     @include('navigations.header.mobile-bar')
     <div class="menu-overlay" :class="$store.submenu && 'is-open'" x-cloak></div>
     <div id="header-menu" class="header-mix" :class="mobileOpen && 'is-open'">
-        <div class="w-full flex flex-col-reverse lg:flex-col">
+        <div class="w-full flex flex-col">
             <x-navigation.top-navigation />
             <div class="container">
                 <div class="header-main">
@@ -25,6 +25,5 @@
                 </div>
             </div>
         </div>
-        <div id="submenu-teleport"></div>
     </div>
 </header>

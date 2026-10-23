@@ -57,11 +57,31 @@ class SeoHook extends AbstractHook
         );
     }
 
+    /**
+     * The Livewire listings paginate with ?pagination=N, which Rank Math and WordPress ignore: without
+     * this filter, every page of a listing declares page 1 as canonical. From page 2, the canonical keeps
+     * the pagination parameter (and only it: the filters stay out).
+     */
+    public static function paginatedCanonical($canonical)
+    {
+        $page = filter_input(INPUT_GET, 'pagination', FILTER_VALIDATE_INT);
+
+        if (!$canonical || !$page || $page < 2) {
+            return $canonical;
+        }
+
+        return add_query_arg('pagination', $page, $canonical);
+    }
+
     public function init(): void
     {
+        add_filter('get_canonical_url', [$this, 'paginatedCanonical'], 10, 1);
+
         if (!defined('RANK_MATH_VERSION')) {
             return;
         }
+
+        add_filter('rank_math/frontend/canonical', [$this, 'paginatedCanonical'], 10, 1);
 
         add_filter('rank_math/frontend/breadcrumb/args', [$this, 'rmBreadcrumbArgs'], 10, 1);
 
