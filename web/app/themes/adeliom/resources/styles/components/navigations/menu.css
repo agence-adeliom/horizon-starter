@@ -22,8 +22,12 @@
     .submenu {
         @apply is-active:pointer-events-auto pointer-events-none;
         @apply border-t-card absolute inset-x-0 z-[110] bg-white;
-        @apply py-3xlarge transition-all max-lg:top-0 max-lg:pt-28 lg:shadow-lg;
+        @apply py-3xlarge transition-all max-lg:top-0 max-lg:pt-28 lg:top-full lg:shadow-lg;
         @apply max-lg:h-dvh;
+
+        .submenu {
+            @apply min-h-full lg:top-0;
+        }
 
         .submenu-container {
             @apply gap-x-5xlarge gap-y-4xlarge container grid lg:grid-cols-[25%_auto];

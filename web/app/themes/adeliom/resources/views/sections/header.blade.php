@@ -25,6 +25,5 @@
                 </div>
             </div>
         </div>
-        <div id="submenu-teleport"></div>
     </div>
 </header>
