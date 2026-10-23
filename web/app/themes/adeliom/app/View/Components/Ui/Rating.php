@@ -12,8 +12,15 @@ class Rating extends Component
 
     /**
      * Create a new component instance.
+     *
+     * @param string|null $label Texte lu par les lecteurs d'écran, au format sprintf (note, puis note maximale)
      */
-    public function __construct(float $score = 0, public ?string $class = '', public bool $showScore = false)
+    public function __construct(
+        float $score = 0,
+        public ?string $class = '',
+        public bool $showScore = false,
+        public ?string $label = null,
+    )
     {
         $this->score = max(0, min(5, $score));
         $this->showScore = $showScore;

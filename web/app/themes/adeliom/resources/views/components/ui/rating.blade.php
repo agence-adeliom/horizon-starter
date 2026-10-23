@@ -14,7 +14,7 @@
         @endforeach
     </div>
     <span
-        class="sr-only">{{ sprintf(__('Note moyenne : %s sur %d', 'sage'), number_format($score, 1, ',', ' '), 5) }}</span>
+        class="sr-only">{{ sprintf($label ?? __('Note moyenne : %s sur %d', 'sage'), number_format($score, 1, ',', ' '), 5) }}</span>
     @if ($showScore)
         <x-typography.text :content="sprintf('%s/%d', number_format($score, 1, ',', ' '), 5)" aria-hidden="true" />
     @endif
