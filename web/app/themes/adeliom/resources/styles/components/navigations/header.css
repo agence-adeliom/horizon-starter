@@ -10,6 +10,10 @@
         @apply max-lg:inset-x-0 max-lg:top-0 max-lg:h-dvh max-lg:pt-[72px];
         @apply max-lg:is-open:translate-x-0 max-lg:is-open:visible max-lg:invisible max-lg:-translate-x-full;
         @apply max-lg:overflow-y-auto max-lg:overflow-x-hidden;
+
+        &:has(.submenu.is-active) {
+            @apply max-lg:overflow-hidden;
+        }
     }
 
     .header-main {

@@ -20,6 +20,7 @@ document.addEventListener('alpine:init', () => {
                 // Entry of an open submenu: its own submenu is rendered inside the parent one, which stays open
                 if (null !== parentId && this.openSubmenus.includes(parentId)) {
                     this.openSubmenus = [...this.openSubmenus.slice(0, this.openSubmenus.indexOf(parentId) + 1), itemId];
+                    this.scrollToTop(document.getElementById(`submenu-${parentId}`));
                     return;
                 }
 
@@ -34,6 +35,19 @@ document.addEventListener('alpine:init', () => {
             openSubMenu(itemId: number): void {
                 this.openSubmenus.push(itemId);
                 this.$store.submenu = true;
+
+                const panel = this.$root.closest('.header-mix') as HTMLElement | null;
+
+                this.scrollToTop(panel);
+
+                if (!this.isDesktop && panel) {
+                    panel.style.setProperty('--submenu-height', `${window.innerHeight - Math.max(0, panel.getBoundingClientRect().top)}px`);
+                }
+            },
+            scrollToTop(container: Element | null): void {
+                if (!this.isDesktop) {
+                    container?.scrollTo({ top: 0 });
+                }
             },
             // "Back" button of a nested submenu: closes the submenus opened above the given one
             backTo(itemId: number): void {

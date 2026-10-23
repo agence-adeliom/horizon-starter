@@ -23,7 +23,11 @@
         @apply is-active:pointer-events-auto pointer-events-none;
         @apply border-t-card absolute inset-x-0 z-[110] bg-white;
         @apply py-3xlarge transition-all max-lg:top-0 max-lg:pt-28 lg:top-full lg:shadow-lg;
-        @apply max-lg:h-dvh;
+        @apply max-lg:h-[var(--submenu-height,100dvh)] max-lg:overflow-y-auto;
+
+        &:has(.submenu.is-active) {
+            @apply max-lg:overflow-hidden;
+        }
 
         .submenu {
             @apply min-h-full lg:top-0;
