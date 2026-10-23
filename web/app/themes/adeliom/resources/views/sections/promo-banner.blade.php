@@ -11,7 +11,7 @@
                 @endisset
 
                 @isset($bannerLink)
-                    <a href="{{ $bannerLink['url'] }}" target="{{ $bannerLink['target'] }}" @class(['link text-small', 'text-tertiary' => $isDark])
+                    <a href="{{ $bannerLink['url'] }}" target="{{ $bannerLink['target'] }}" @if ($bannerLink['target'] === '_blank') rel="noopener" @endif @class(['link text-small', 'text-tertiary' => $isDark])
                         class="">{{ $bannerLink['title'] }}</a>
                 @endisset
             </div>

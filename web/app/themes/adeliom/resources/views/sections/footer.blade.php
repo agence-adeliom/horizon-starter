@@ -56,7 +56,7 @@
                             @foreach ($primaryFooterMenu->items as $item)
                                 <li>
                                     <a @class($navItemClass) href="{{ $item->url }}"
-                                        @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}@if ($item->target === '_blank')<span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>@endif</a>
+                                        @if ($item->target) target="{{ $item->target }}" @endif @if ($item->target === '_blank') rel="noopener" @endif>{{ $item->title }}@if ($item->target === '_blank')<span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>@endif</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -75,7 +75,7 @@
                             @foreach ($secondaryFooterMenu->items as $item)
                                 <li>
                                     <a @class($navItemClass) href="{{ $item->url }}"
-                                        @if ($item->target) target="{{ $item->target }}" @endif>{{ $item->title }}@if ($item->target === '_blank')<span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>@endif</a>
+                                        @if ($item->target) target="{{ $item->target }}" @endif @if ($item->target === '_blank') rel="noopener" @endif>{{ $item->title }}@if ($item->target === '_blank')<span class="sr-only"> - {{ __('Ouvrir dans un nouvel onglet', 'sage') }}</span>@endif</a>
                                 </li>
                             @endforeach
                         </ul>

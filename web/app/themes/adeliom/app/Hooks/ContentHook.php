@@ -18,6 +18,9 @@ class ContentHook extends AbstractHook
         add_filter('acf/format_value/type=wysiwyg', [$this, 'addNewTabMention'], 20);
         add_filter('the_content', [$this, 'addNewTabMention'], 20);
 
+        add_filter('the_content', 'wp_targeted_link_rel', 99);
+        add_filter('acf/format_value/type=wysiwyg', 'wp_targeted_link_rel', 99);
+
         // pas de fetchpriority automatique sur les images de contenu
         add_filter('wp_omit_loading_attr_threshold', fn(): int => 0);
     }
