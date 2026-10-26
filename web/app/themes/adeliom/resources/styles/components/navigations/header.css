@@ -1,6 +1,55 @@
 @layer components {
+    /* Hidden while scrolling down, shown while scrolling up (scripts/navigations/menu.ts) */
     .header {
-        @apply lg:-top-top-bar sticky inset-x-0 top-0 z-[102] mb-0 shrink-0 transition-all;
+        @apply lg:-top-top-bar sticky inset-x-0 top-0 z-[102] mb-0 shrink-0;
+        @apply ease-smooth transition-[translate] duration-300 motion-reduce:transition-none;
+
+        /*
+            Moved up by its visible height only (the desktop top bar is already above the screen): its bottom edge
+            then travels the same distance as the anchors bar, in the same time, and nothing shows between the two.
+        */
+        &.is-hidden {
+            translate: 0 calc(-1 * var(--header-height, 100%));
+        }
+    }
+
+    /*
+        Anchors bar block (navbar): stuck right below the header and following it, so the header never covers it.
+        --header-offset is the visible height of the header, 0 when it is hidden.
+    */
+    :root {
+        --navbar-anchors-offset: var(--header-offset, 0px);
+    }
+
+    .navbar-anchors {
+        @apply ease-smooth transition-[top] duration-300 motion-reduce:transition-none;
+    }
+
+    /*
+        A focused element scrolled into view never ends up under the header or the anchors bar, even while the
+        header comes back on a scroll up. This also offsets the anchors' targets: the block's own scroll-margin
+        would add up with it.
+    */
+    html {
+        scroll-padding-top: calc(var(--header-height, 0px) + var(--navbar-anchors-height, 0px));
+    }
+
+    .main:has(> .navbar-anchors) > section[id] {
+        scroll-margin-top: 0;
+    }
+
+    /*
+        The header and the anchors bar are stuck: their elements are always on screen and must not make the page
+        scroll when they get the focus. A negative margin cancels html's scroll-padding for them.
+    */
+    .header *,
+    .navbar-anchors * {
+        scroll-margin-top: calc(-1 * (var(--header-height, 0px) + var(--navbar-anchors-height, 0px)));
+    }
+
+    /* Mobile: the menu panel scrolls on its own, its links keep a normal margin */
+    .header-mix * {
+        @apply max-lg:scroll-mt-0;
     }
 
     .header-mix {

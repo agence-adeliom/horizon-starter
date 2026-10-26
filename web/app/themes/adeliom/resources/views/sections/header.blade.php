@@ -1,4 +1,5 @@
-<header role="banner" class="header">
+<header role="banner" class="header" x-data="initHeader" :class="hidden && 'is-hidden'" @focusin="onFocusIn()"
+    @focusout="onFocusOut($event)">
     @include('navigations.header.mobile-bar')
     <div class="menu-overlay" :class="$store.submenu && 'is-open'" x-cloak></div>
     <div id="header-menu" class="header-mix" :class="mobileOpen && 'is-open'">

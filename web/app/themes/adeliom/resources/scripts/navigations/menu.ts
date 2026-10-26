@@ -104,3 +104,69 @@ document.addEventListener('alpine:init', () => {
         };
     });
 });
+
+// Header hidden while scrolling down, shown again while scrolling up (same behaviour as Aster).
+// Its visible height is published on :root: the anchors bar sits right below it, and html's scroll-padding
+// keeps focused elements out from under it.
+document.addEventListener('alpine:init', () => {
+    window.Alpine.data('initHeader', () => {
+        return {
+            hidden: false,
+            hasFocus: false,
+            lastScrollY: 0,
+            frame: 0,
+            init(): void {
+                this.lastScrollY = window.scrollY;
+                this.publishHeight();
+
+                window.addEventListener(
+                    'scroll',
+                    () => {
+                        if (!this.frame) {
+                            this.frame = requestAnimationFrame(() => {
+                                this.frame = 0;
+                                this.onScroll();
+                            });
+                        }
+                    },
+                    { passive: true },
+                );
+
+                new ResizeObserver(() => this.publishHeight()).observe(this.$el);
+                this.$watch('hidden', () => this.publishHeight());
+                // Opened menu or submenu: the header stays on screen
+                this.$watch('mobileOpen', (open: boolean) => open && (this.hidden = false));
+                this.$watch('$store.submenu', (open: boolean) => open && (this.hidden = false));
+            },
+            onScroll(): void {
+                const scrollY = Math.max(0, window.scrollY);
+
+                // Small moves (trackpad inertia, rounding) don't toggle the header
+                if (Math.abs(scrollY - this.lastScrollY) < 5) {
+                    return;
+                }
+
+                const pinned = this.mobileOpen || this.$store.submenu || this.hasFocus;
+
+                this.hidden = !pinned && scrollY > this.$el.offsetHeight && scrollY > this.lastScrollY;
+                this.lastScrollY = scrollY;
+            },
+            // A focused link of the hidden header (Shift+Tab from the content) brings it back
+            onFocusIn(): void {
+                this.hasFocus = true;
+                this.hidden = false;
+            },
+            onFocusOut(event: FocusEvent): void {
+                this.hasFocus = this.$el.contains(event.relatedTarget as Node | null);
+            },
+            // Height of the stuck header: its sticky top is negative in desktop, where the top bar scrolls away
+            publishHeight(): void {
+                const height = Math.max(0, this.$el.offsetHeight + (parseFloat(getComputedStyle(this.$el).top) || 0));
+                const root = document.documentElement.style;
+
+                root.setProperty('--header-height', `${height}px`);
+                root.setProperty('--header-offset', this.hidden ? '0px' : `${height}px`);
+            },
+        };
+    });
+});
