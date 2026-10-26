@@ -451,7 +451,7 @@
     --ring-offset-width-input-required-content: var(--awc-input-required-content-offset);
 
     /* transition timing function */
-    --ease-smooth: 'cubic-bezier(.4, 0, .1, 1)';
+    --ease-smooth: cubic-bezier(.4, 0, .1, 1);
 }
 
 @layer theme {
