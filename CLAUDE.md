@@ -38,7 +38,7 @@ WordPress project using **Roots Bedrock** + **Sage 11** theme (named `adeliom`) 
 │           ├── public/build/        # Vite build output
 │           ├── vite.config.js
 │           └── tailwind.config.js
-├── deploy.php                       # Deployer v7.4 config
+├── deploy.php                       # Deployer v8 config
 └── composer.json                    # Root dependencies (WP, plugins, Horizon packages)
 ```
 

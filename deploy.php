@@ -141,7 +141,7 @@ task('wp-cli', function () {
     info('Lancement de la commande WP-CLI : ' . $wpCliCommand);
     // Sortie en temps réel (utile pour les commandes longues type `media regenerate`)
     // et timeout désactivé (le défaut de 300s tuerait ces mêmes commandes).
-    run('cd {{release_or_current_path}}/web && {{bin/php}} wp-cli.phar ' . $wpCliCommand, timeout: 0, real_time_output: true);
+    run('cd {{release_or_current_path}}/web && {{bin/php}} wp-cli.phar ' . $wpCliCommand, timeout: 0, forceOutput: true);
 
     info('Suppression de WP-CLI');
     run('cd {{release_or_current_path}}/web && rm wp-cli.phar');
@@ -160,7 +160,7 @@ task('acorn', function () {
     info('Lancement de la commande Acorn : ' . $acornCommand);
     // Sortie en temps réel et timeout désactivé (cf. tâche wp-cli) : indispensable
     // pour les commandes longues (import Apimo, régénération de médias...).
-    run('cd {{release_or_current_path}}/web && {{bin/php}} wp-cli.phar acorn ' . $acornCommand, timeout: 0, real_time_output: true);
+    run('cd {{release_or_current_path}}/web && {{bin/php}} wp-cli.phar acorn ' . $acornCommand, timeout: 0, forceOutput: true);
 
     info('Suppression de WP-CLI');
     run('cd {{release_or_current_path}}/web && rm wp-cli.phar');
