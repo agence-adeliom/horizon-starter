@@ -27,11 +27,17 @@ class BackOfficeHook extends AbstractHook
         }
     }
 
+    /**
+     * Ouvre la page « Politique de confidentialité » aux éditeurs, réservée par défaut
+     * aux administrateurs (manage_options).
+     *
+     * On remplace la capacité au lieu de la retirer : une liste vide signifie
+     * « autorisé » pour WordPress, y compris pour un visiteur non connecté.
+     */
     public static function allowPrivacyPagetoEditor($caps, $cap, $user_id, $args)
     {
         if ('manage_privacy_options' === $cap) {
-            $manage_name = is_multisite() ? 'manage_network' : 'manage_options';
-            $caps = array_diff($caps, [$manage_name]);
+            return ['edit_others_pages'];
         }
         return $caps;
     }
