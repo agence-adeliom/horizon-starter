@@ -31,6 +31,16 @@ html :where(.wp-block) {
     padding: 20px;
 }
 
+/*
+ * Fenêtre de saisie de lien des WYSIWYG ACF (barre latérale, largeur 25vw ci-dessus).
+ * Avec son champ de 300px, elle déborde de l'écran : le focus du champ fait défiler
+ * la page, TinyMCE masque la fenêtre au défilement puis la réaffiche, en boucle.
+ * On réduit le champ pour que la fenêtre tienne dans la largeur du WYSIWYG.
+ */
+body.block-editor-page .mce-inline-toolbar-grp div.wp-link-input input {
+    width: max(120px, calc(25vw - 160px));
+}
+
 .wysiwyg__content p {
     font-size: inherit !important;
 }
